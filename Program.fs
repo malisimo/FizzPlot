@@ -2,6 +2,7 @@ module FPlot.App
 
 open System
 open System.IO
+open Microsoft.AspNetCore.Http
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Cors.Infrastructure
 open Microsoft.AspNetCore.Hosting
@@ -10,6 +11,7 @@ open Microsoft.Extensions.DependencyInjection
 open Giraffe
 open Giraffe.Razor
 open FPlot.Models
+open FPlot.Middleware
 
 // ---------------------------------
 // Web app
@@ -20,12 +22,26 @@ let indexHandler (name : string) =
     let model     = { Text = greetings }
     razorHtmlView "Index" (Some model) None
 
+let handlePostMessage =
+    fun (next : HttpFunc) (ctx : HttpContext) ->
+        task {
+            let! message = ctx.BindJsonAsync<Message>()
+
+            do! sendMessageToSockets message.Text
+
+            return! next ctx
+        }
+
 let webApp =
     choose [
         GET >=>
             choose [
                 route "/" >=> indexHandler "world"
                 routef "/hello/%s" indexHandler
+            ]
+        POST >=>
+            choose [
+                route "/message" >=> handlePostMessage
             ]
         setStatusCode 404 >=> text "Not Found" ]
 
@@ -54,6 +70,8 @@ let configureApp (app : IApplicationBuilder) =
     | false -> app.UseGiraffeErrorHandler errorHandler)
         .UseHttpsRedirection()
         .UseCors(configureCors)
+        .UseWebSockets()
+        .UseMiddleware<WebSocketMiddleware>()
         .UseStaticFiles()
         .UseGiraffe(webApp)
 
