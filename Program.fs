@@ -65,12 +65,15 @@ let configureCors (builder : CorsPolicyBuilder) =
 
 let configureApp (app : IApplicationBuilder) =
     let env = app.ApplicationServices.GetService<IHostingEnvironment>()
+    let webSocketOptions = WebSocketOptions()
+    webSocketOptions.KeepAliveInterval <-  TimeSpan.FromSeconds(120.)
+    webSocketOptions.ReceiveBufferSize <- 4 * 1024
+
     (match env.IsDevelopment() with
     | true  -> app.UseDeveloperExceptionPage()
     | false -> app.UseGiraffeErrorHandler errorHandler)
-        .UseHttpsRedirection()
         .UseCors(configureCors)
-        .UseWebSockets()
+        .UseWebSockets(webSocketOptions)
         .UseMiddleware<WebSocketMiddleware>()
         .UseStaticFiles()
         .UseGiraffe(webApp)

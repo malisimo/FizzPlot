@@ -39,6 +39,24 @@ module Middleware =
                     with
                         | _ -> sockets <- removeSocket sockets socket
             }
+
+    let private echo (context:HttpContext) (webSocket:WebSocket) = async {
+        let buffer = Array.init (1024 * 4) (fun _ -> 0uy)
+        let! result = webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None) |> Async.AwaitTask
+        Console.WriteLine(sprintf "Received %A from socket %s" result.CloseStatusDescription (webSocket.State.ToString()))
+    
+        let rec echoMsg (result:WebSocketReceiveResult) = async {
+            if result.CloseStatus.HasValue then
+                return result
+            else
+                do! webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None) |> Async.AwaitTask
+                let! newResult = webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None) |> Async.AwaitTask
+                return! echoMsg newResult
+        }
+
+        let! newResult = echoMsg result
+        do! webSocket.CloseAsync(newResult.CloseStatus.Value, newResult.CloseStatusDescription, CancellationToken.None) |> Async.AwaitTask
+    }
     
     type WebSocketMiddleware(next : RequestDelegate) =
         member __.Invoke(ctx : HttpContext) =
@@ -48,15 +66,18 @@ module Middleware =
                     | true ->
                         let! webSocket = ctx.WebSockets.AcceptWebSocketAsync() |> Async.AwaitTask
                         sockets <- addSocket sockets webSocket
+                        Console.WriteLine(sprintf "Accepted new socket with status %A (%i total)" webSocket.CloseStatusDescription sockets.Length)
 
-                        let buffer : byte[] = Array.zeroCreate 4096
-                        let! ct = Async.CancellationToken
-                        
-                        webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), ct)
-                        |> Async.AwaitTask
-                        |> ignore
+                        // let buffer : byte[] = Array.zeroCreate 4096
+                        // let! ct = Async.CancellationToken
 
-                    | false -> ctx.Response.StatusCode <- 400
+                        // webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), ct)
+                        // |> Async.AwaitTask
+                        // |> ignore
+
+                        do! echo ctx webSocket
+                    | false ->
+                        ctx.Response.StatusCode <- 400
                 else
                     next.Invoke(ctx) |> ignore
             } |> Async.StartAsTask :> Task
