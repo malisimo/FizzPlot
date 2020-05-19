@@ -73,6 +73,7 @@ let configureApp (app : IApplicationBuilder) =
     | true  -> app.UseDeveloperExceptionPage()
     | false -> app.UseGiraffeErrorHandler errorHandler)
         .UseCors(configureCors)
+        .UseHttpsRedirection()
         .UseWebSockets(webSocketOptions)
         .UseMiddleware<WebSocketMiddleware>()
         .UseStaticFiles()
