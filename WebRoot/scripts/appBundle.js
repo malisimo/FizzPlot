@@ -280,10 +280,14 @@ function InitTextBlockElement(el, parentId)
 
 function InitChartElement(el, parentId)
 {
-    var chartDiv = document.createElement("div");
-    chartDiv.setAttribute("id", el.id);
-    chartDiv.setAttribute("class", "chart");
-    document.getElementById(parentId).appendChild(chartDiv);
+    var element = document.getElementById(el.id);
+
+    if (typeof(element) == 'undefined' || element == null) {
+        var chartDiv = document.createElement("div");
+        chartDiv.setAttribute("id", el.id);
+        chartDiv.setAttribute("class", "chart");
+        document.getElementById(parentId).appendChild(chartDiv);
+    }
 
     Highcharts.chart(el.id, el.highCharts);
 }
