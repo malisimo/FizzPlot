@@ -60,21 +60,22 @@
 <script>
     var els;
 
-    window.onload = function () {
-        els = InitApp();
+    window.addEventListener('load', 
+        function () {
+            els = InitApp();
 
-        var myChart = {
-            title: { text: 'Example plot' },
-            yAxis: { title: { text: 'Value' } },
-            xAxis: { title: { text: 'Index' } },
-            legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle' },
-            series: [
-                { name: 'A', data: [1.2, 1.4, 0.8, 0.6, 0.95, 0.35, 0.6, 0.25] },
-                { name: 'B', data: [0.1, 0.25, 0.2, 0.5, 0.4, 0.8, 1.35, 1.1] },
-                { name: 'C', data: [0.8, 0.7, 0.45, 1.15, 0.5, 0.85, 0.65, 0.75] }
-            ]
-        };
+            var myChart = {
+                title: { text: 'Example plot' },
+                yAxis: { title: { text: 'Value' } },
+                xAxis: { title: { text: 'Index' } },
+                legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle' },
+                series: [
+                    { name: 'A', data: [1.2, 1.4, 0.8, 0.6, 0.95, 0.35, 0.6, 0.25] },
+                    { name: 'B', data: [0.1, 0.25, 0.2, 0.5, 0.4, 0.8, 1.35, 1.1] },
+                    { name: 'C', data: [0.8, 0.7, 0.45, 1.15, 0.5, 0.85, 0.65, 0.75] }
+                ]
+            };
 
-        InitChartElement({ id: 'chart_1', highCharts: myChart }, "charty");
-    };
+            InitChartElement({ id: 'chart_1', highCharts: myChart }, "charty");
+        }, false);
 </script>
