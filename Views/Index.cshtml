@@ -36,6 +36,7 @@
             console.log(error);
         }
         socket.onmessage = function (messageEvent) {
+            InitChartElement({ id: 'chart_1', highCharts: JSON.parse(messageEvent.data) }, "charty");
             var messages = vm.get('messages');
             messages.unshift(messageEvent.data);
             console.log(messages)
