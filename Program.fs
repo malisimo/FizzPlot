@@ -37,7 +37,6 @@ let webApp =
         GET >=>
             choose [
                 route "/" >=> indexHandler "world"
-                routef "/hello/%s" indexHandler
             ]
         POST >=>
             choose [
