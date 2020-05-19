@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Compile Include="Models.fs" />
+    <Compile Include="Middleware\WebSocketMiddleware.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
