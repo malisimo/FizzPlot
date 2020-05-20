@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <DebugType>portable</DebugType>
-    <AssemblyName>FPlot</AssemblyName>
     <OutputType>Exe</OutputType>
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
