@@ -2,7 +2,9 @@
 .vscode/
 .vs/
 
-FPlot.Client/bin/
-FPlot.Client/obj/
+FPlot/bin/
+FPlot/obj/
 FPlot.Server/bin/
 FPlot.Server/obj/
+Demo/bin/
+Demo/obj/

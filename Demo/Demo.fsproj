@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FPlot\FPlot.fsproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <Compile Include="Program.fs" />
   </ItemGroup>
 
