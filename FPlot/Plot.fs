@@ -69,7 +69,7 @@ module Plot =
         return resp.StatusCode
     }
 
-    let strRep (str:string) (strFrom:string) (strTo:string) =
+    let strRep (strFrom:string) (strTo:string) (str:string) =
         str.Replace(strFrom, strTo)
 
     let strJoin (strs:string seq) =
@@ -81,10 +81,8 @@ module Plot =
         let jsonTemplate = "{\"Text\":\"{\\\"title\\\":{\\\"text\\\":\\\"FPlot.plot\\\"},\\\"series\\\":[{\\\"name\\\":\\\"Series_1\\\",\\\"data\\\":[%%DATA%%]}]}\"}"
 
         let json =
-            data
-            |> Seq.map (fun (x,y) -> sprintf "%f,%f" x y)
-            |> strJoin
-            |> strRep jsonTemplate "%%DATA%%" 
+            jsonTemplate
+            |> strRep "%%DATA%%" (data |> Seq.map (fun (x,y) -> sprintf "[%f,%f]" x y) |> strJoin)
 
         send json |> Async.RunSynchronously
  
