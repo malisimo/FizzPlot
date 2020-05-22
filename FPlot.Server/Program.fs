@@ -17,15 +17,16 @@ open FPlot.Middleware
 // Web app
 // ---------------------------------
 
-let indexHandler (name : string) =
-    let greetings = sprintf "Hello %s, from Giraffe!" name
-    let model     = { Text = greetings }
+let indexHandler =
+    let model = { Text = "Demo" }
     razorHtmlView "Index" (Some model) None
 
 let handlePostMessage =
     fun (next : HttpFunc) (ctx : HttpContext) ->
+        printfn "Received message"
         task {
             let! message = ctx.BindJsonAsync<Message>()
+            printfn "Received message: %A" message
 
             do! sendMessageToSockets message.Text
 
@@ -36,7 +37,7 @@ let webApp =
     choose [
         GET >=>
             choose [
-                route "/" >=> indexHandler "world"
+                route "/" >=> indexHandler
             ]
         POST >=>
             choose [
