@@ -6,6 +6,8 @@
     await Html.RenderPartialAsync("Partial");
 }
 
+<div id="chartContainer"></div>
+
 <script>    
     function openWebSocket(appData) {
         var socket = new WebSocket('wss://localhost:5001/ws')
