@@ -1,6 +1,6 @@
 ﻿namespace FPlot
 
-module Plot =
+module HighCharts =
     open System
     open System.IO
     open System.Diagnostics
@@ -8,7 +8,7 @@ module Plot =
 
     let mutable serverProc:Process option = None
 
-    let killConnection() =
+    let kill() =
         match serverProc with
         | Some(proc) ->
             if proc.HasExited |> not then
@@ -43,9 +43,11 @@ module Plot =
             printfn "Server process exited!"
             serverProc <- None))
 
-        AppDomain.CurrentDomain.DomainUnload.AddHandler(new EventHandler(fun s e -> killConnection()))
-        AppDomain.CurrentDomain.ProcessExit.AddHandler(new EventHandler(fun s e -> killConnection()))
-        AppDomain.CurrentDomain.UnhandledException.AddHandler(new UnhandledExceptionEventHandler(fun s e -> killConnection()))
+        AppDomain.CurrentDomain.DomainUnload.AddHandler(new EventHandler(fun s e -> kill()))
+        AppDomain.CurrentDomain.ProcessExit.AddHandler(new EventHandler(fun s e -> kill()))
+        AppDomain.CurrentDomain.UnhandledException.AddHandler(new UnhandledExceptionEventHandler(fun s e -> kill()))
+
+        Process.Start("cmd", "/C start https://localhost:5001") |> ignore
 
         proc
 
