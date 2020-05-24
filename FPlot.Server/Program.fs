@@ -18,7 +18,12 @@ open FPlot.Middleware
 // ---------------------------------
 
 let indexHandler =
-    let model = { Operation = string Update; Target = "title"; Json = "{\"text\":\"\"}" }
+    let model = {
+        Operation = string Update
+        Target = "title"
+        Json = "{\"text\":\"\"}"
+    }
+    
     razorHtmlView "Index" (Some model) None
 
 let handlePostMessage =
