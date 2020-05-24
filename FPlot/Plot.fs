@@ -78,11 +78,22 @@ module Plot =
     let plot (data:(float * float) seq) =
         checkServer()
 
-        let jsonTemplate = "{\"Text\":\"{\\\"title\\\":{\\\"text\\\":\\\"FPlot.plot\\\"},\\\"series\\\":[{\\\"name\\\":\\\"Series_1\\\",\\\"data\\\":[%%DATA%%]}]}\"}"
+        let jsonTemplate = "{\"Operation\":\"create\",\"target\":null,\"Json\":\"{\\\"title\\\":{\\\"text\\\":\\\"FPlot.plot\\\"},\\\"series\\\":[{\\\"name\\\":\\\"Series_1\\\",\\\"data\\\":[%%DATA%%]}]}\"}"
 
         let json =
             jsonTemplate
             |> strRep "%%DATA%%" (data |> Seq.map (fun (x,y) -> sprintf "[%f,%f]" x y) |> strJoin)
+
+        send json |> Async.RunSynchronously
+
+    let title str =
+        checkServer()
+
+        let jsonTemplate = "{\"Operation\":\"update\",\"target\":0,\"Json\":\"{\\\"title\\\":{\\\"text\\\":\\\"%%TITLE%%\\\"}}\"}"
+
+        let json =
+            jsonTemplate
+            |> strRep "%%TITLE%%" str
 
         send json |> Async.RunSynchronously
  

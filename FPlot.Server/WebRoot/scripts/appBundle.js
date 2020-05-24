@@ -257,7 +257,6 @@ function InitElement(el, parentId)
             InitChartElement(el, parentId);
             break;
     }
-
 }
 
 function InitTitleElement(el, parentId)
@@ -289,5 +288,10 @@ function InitChartElement(el, parentId)
         document.getElementById(parentId).appendChild(chartDiv);
     }
 
-    Highcharts.chart(el.id, el.highCharts);
+    return Highcharts.chart(el.id, el.highCharts);
+}
+
+function UpdateChartElement(chart, chartObj)
+{
+    chart.update(chartObj);
 }

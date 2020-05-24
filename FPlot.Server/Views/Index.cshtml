@@ -5,22 +5,9 @@
 @{
     await Html.RenderPartialAsync("Partial");
 }
-<p>
-    @Model.Text
-</p>
 
-<div id="app">
-    <ul>
-        <li m-for="message in messages">{{ message }}</li>
-    </ul>
-</div>
-<div id="charty">
-
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moonjs/0.11.0/moon.min.js"></script>
-<script>
-    function openWebSocket(vm) {
+<script>    
+    function openWebSocket(appData) {
         var socket = new WebSocket('wss://localhost:5001/ws')
         socket.onopen = function () {
             @* console.log('INFO: WebSocket opened successfully'); *@
@@ -29,43 +16,34 @@
             @* console.log('INFO: WebSocket closed'); *@
             console.log('INFO: WebSocket closed');
             console.log(event);
-            openWebSocket(vm);
+            openWebSocket(appData);
         }
         socket.onerror = function (error) {
             console.log('ERROR: WebSocket error');
             console.log(error);
         }
         socket.onmessage = function (messageEvent) {
-            InitChartElement({ id: 'chart_1', highCharts: JSON.parse(messageEvent.data) }, "charty");
-            var messages = vm.get('messages');
-            messages.unshift(messageEvent.data);
-            console.log(messages)
-            vm.set('messages', messages);
+            let curChart = appData.charts[0];
+            console.log('Parsing message');
+            messageObj = JSON.parse(messageEvent.data);
+            console.log(messageObj);
+            UpdateChartElement(appData.charts[0], JSON.parse(messageObj.json));
+            appData.messages.unshift(messageEvent.data);
         }
-        vm.set('socket', socket);
+        appData.socket = socket;
     }
-    const app = new Moon({
-        el: '#app',
-        data: {
-            messages: []
-        },
-        hooks: {
-            init: function () {
-                var vm = this;
-                openWebSocket(vm);
-            }
-        }
-    });
-</script>
-
-<script>
-    var els;
 
     window.addEventListener('load', 
-        function () {
-            els = InitApp();
+        function () {            
+            var appData = {
+                charts:[],
+                messages:[],
+                socket:null
+            };
 
-            var myChart = {
+            InitApp();
+
+            let myChart = {
                 title: { text: 'Example plot' },
                 yAxis: { title: { text: 'Value' } },
                 xAxis: { title: { text: 'Index' } },
@@ -77,6 +55,8 @@
                 ]
             };
 
-            InitChartElement({ id: 'chart_1', highCharts: myChart }, "charty");
+            appData.charts.unshift(InitChartElement({ id: 'chart_1', highCharts: myChart }, "chartContainer"));
+
+            openWebSocket(appData);
         }, false);
 </script>

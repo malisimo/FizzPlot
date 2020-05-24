@@ -18,7 +18,7 @@ open FPlot.Middleware
 // ---------------------------------
 
 let indexHandler =
-    let model = { Text = "Demo" }
+    let model = { Operation = string Update; Target = "title"; Json = "{\"text\":\"\"}" }
     razorHtmlView "Index" (Some model) None
 
 let handlePostMessage =
@@ -27,8 +27,10 @@ let handlePostMessage =
         task {
             let! message = ctx.BindJsonAsync<Message>()
             printfn "Received message: %A" message
+            
+            let serializer = ctx.GetJsonSerializer()
 
-            do! sendMessageToSockets message.Text
+            do! sendMessageToSockets (serializer.SerializeToString message)
 
             return! next ctx
         }
