@@ -24,11 +24,10 @@
         }
         socket.onmessage = function (messageEvent) {
             let curChart = appData.charts[0];
-            console.log('Parsing message');
+            console.log('Got websocket message');
             messageObj = JSON.parse(messageEvent.data);
             console.log(messageObj);
             UpdateChartElement(appData.charts[0], JSON.parse(messageObj.json));
-            appData.messages.unshift(messageEvent.data);
         }
         appData.socket = socket;
     }
@@ -37,7 +36,6 @@
         function () {            
             var appData = {
                 charts:[],
-                messages:[],
                 socket:null
             };
 
