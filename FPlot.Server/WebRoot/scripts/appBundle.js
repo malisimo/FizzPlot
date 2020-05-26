@@ -1,4 +1,4 @@
-function InitApp()
+function initApp()
 {
     Highcharts.theme = {
         colors: ['#DDDF0D', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee',
@@ -243,23 +243,23 @@ function InitApp()
     Highcharts.setOptions(Highcharts.theme);
 }
 
-function InitElement(el, parentId)
+function initElement(el, parentId)
 {
     switch (el.type)
     {
         case "Title":
-            InitTitleElement(el, parentId);
+            initTitleElement(el, parentId);
             break;
         case "TextBlock":
-            InitTextBlockElement(el, parentId);
+            initTextBlockElement(el, parentId);
             break;
         case "Chart":
-            InitChartElement(el, parentId);
+            initChartElement(el, parentId);
             break;
     }
 }
 
-function InitTitleElement(el, parentId)
+function initTitleElement(el, parentId)
 {
     var titleHeader = document.createElement("h1");
     titleHeader.setAttribute("id", el.id);
@@ -268,7 +268,7 @@ function InitTitleElement(el, parentId)
     document.getElementById(parentId).appendChild(titleHeader);
 }
 
-function InitTextBlockElement(el, parentId)
+function initTextBlockElement(el, parentId)
 {
     var textP = document.createElement("p");
     textP.setAttribute("id", el.id);
@@ -277,7 +277,7 @@ function InitTextBlockElement(el, parentId)
     document.getElementById(parentId).appendChild(textP);
 }
 
-function InitChartElement(el, parentId)
+function initChartElement(el, parentId)
 {
     var element = document.getElementById(el.id);
 
@@ -291,12 +291,78 @@ function InitChartElement(el, parentId)
     return Highcharts.chart(el.id, el.highCharts);
 }
 
-function AddChartSeries(chart, seriesObj)
+function addChartSeries(chart, seriesObj)
 {
     chart.addSeries(seriesObj);
 }
 
-function UpdateChartElement(chart, chartObj)
+function updateChartElement(chart, chartObj)
 {
     chart.update(chartObj);
+}
+
+function createNewChart(chartId) {
+    let myChart = {
+        title: { text: 'Example plot' },
+        yAxis: { title: { text: 'Value' } },
+        xAxis: { title: { text: 'Index' } },
+        legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle' },
+        series: [
+            { name: 'A', data: [1.2, 1.4, 0.8, 0.6, 0.95, 0.35, 0.6, 0.25] },
+            { name: 'B', data: [0.1, 0.25, 0.2, 0.5, 0.4, 0.8, 1.35, 1.1] },
+            { name: 'C', data: [0.8, 0.7, 0.45, 1.15, 0.5, 0.85, 0.65, 0.75] }
+        ]
+    };
+
+    return initChartElement({ id: chartId, highCharts: myChart }, "chartContainer");
+}
+
+function openWebSocket(appData) {
+    var socket = new WebSocket('wss://localhost:5001/ws')
+    socket.onopen = function () {
+        //console.log('INFO: WebSocket opened successfully');
+    }
+    socket.onclose = function (event) {
+        //console.log('INFO: WebSocket closed');
+        console.log('INFO: WebSocket closed');
+        console.log(event);
+        openWebSocket(appData);
+    }
+    socket.onerror = function (error) {
+        console.log('ERROR: WebSocket error');
+        console.log(error);
+    }
+    socket.onmessage = function (messageEvent) {
+        console.log('Got websocket message');
+        messageObj = JSON.parse(messageEvent.data);
+        console.log(messageObj);
+
+        switch (messageObj.operation) {
+            case 'create':
+                console.log('Adding new chart');
+                appData.charts.unshift(initChartElement({ id: 'chart_' + appData.charts.length.toString(), highCharts: JSON.parse(messageObj.json) }, "chartContainer"));
+                break;
+            case 'add':
+                if (appData.charts.length == 0) {
+                    console.log('Adding new chart');
+                    appData.charts.unshift(createNewChart('chart_' + appData.charts.length.toString()));
+                }
+
+                console.log('Adding series to chart');
+                addChartSeries(appData.charts[0], JSON.parse(messageObj.json));
+                break;
+            case 'update':
+                console.log('Updating chart');
+                updateChartElement(appData.charts[0], JSON.parse(messageObj.json));
+                break;
+            case 'delete':
+                console.log('Deleting chart or series');                    
+                break;
+            case 'fetch':
+                console.log('Fetching chart data');                    
+                break;
+        }
+    }
+
+    appData.socket = socket;
 }
