@@ -291,6 +291,11 @@ function InitChartElement(el, parentId)
     return Highcharts.chart(el.id, el.highCharts);
 }
 
+function AddChartSeries(chart, seriesObj)
+{
+    chart.addSeries(seriesObj);
+}
+
 function UpdateChartElement(chart, chartObj)
 {
     chart.update(chartObj);

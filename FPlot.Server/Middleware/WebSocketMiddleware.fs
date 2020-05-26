@@ -1,4 +1,5 @@
 namespace FPlot
+open Microsoft.Extensions.Caching.Memory
 
 module Middleware =
     open System
@@ -8,6 +9,7 @@ module Middleware =
     open System.Net.WebSockets
     open Microsoft.AspNetCore.Http
     
+    open Giraffe.Core
     open Giraffe.Tasks
 
     let mutable sockets = list<WebSocket>.Empty
@@ -33,6 +35,7 @@ module Middleware =
     let sendMessageToSockets =
         fun message ->
             task {
+                printfn "Sending msg to %i sockets" sockets.Length
                 for socket in sockets do
                     try
                         do! sendMessage socket message
@@ -72,7 +75,17 @@ module Middleware =
                         let! webSocket = ctx.WebSockets.AcceptWebSocketAsync() |> Async.AwaitTask
                         sockets <- addSocket sockets webSocket
                         Console.WriteLine(sprintf "Accepted new socket with status %A (%i total)" webSocket.CloseStatusDescription sockets.Length)
+                        
+                        let cache = ctx.GetService<IMemoryCache>()
 
+                        match cache.Get "initChartData" |> Option.ofObj |> Option.map string with
+                        | Some(d) ->
+                            Console.WriteLine("Sending cached initial chart data to socket")
+                            do! sendMessage webSocket d |> Async.AwaitTask
+                        | None ->
+                            Console.WriteLine("No cached initial chart data availble")
+                            ()
+                        
                         do! echo ctx webSocket
                     | false ->
                         ctx.Response.StatusCode <- 400

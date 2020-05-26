@@ -8,6 +8,7 @@ open Microsoft.AspNetCore.Cors.Infrastructure
 open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Logging
 open Microsoft.Extensions.DependencyInjection
+open Microsoft.Extensions.Caching.Memory
 open Giraffe
 open Giraffe.Razor
 open FPlot.Models
@@ -28,12 +29,16 @@ let indexHandler =
 
 let handlePostMessage =
     fun (next : HttpFunc) (ctx : HttpContext) ->
-        printfn "Received message"
         task {
             let! message = ctx.BindJsonAsync<Message>()
-            printfn "Received message: %A" message
+            printfn "Received message (%s)" message.Operation
             
             let serializer = ctx.GetJsonSerializer()
+            
+            if message.Operation = string Add then
+                let cache = ctx.GetService<IMemoryCache>()
+                cache.Set("initChartData", serializer.SerializeToString message) |> ignore
+                printfn "Cached initial chart data"
 
             do! sendMessageToSockets (serializer.SerializeToString message)
 
@@ -93,6 +98,7 @@ let configureServices (services : IServiceCollection) =
     services.AddRazorEngine viewsFolderPath |> ignore
     services.AddCors() |> ignore
     services.AddGiraffe() |> ignore
+    services.AddMemoryCache() |> ignore
 
 let configureLogging (builder : ILoggingBuilder) =
     builder.AddFilter(fun l -> l.Equals LogLevel.Error)
