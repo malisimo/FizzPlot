@@ -25,18 +25,20 @@ Then navigate to https://localhost:5001/ in your browser.
 From a .Net application, add the package reference, and generate a chart like so:
 
 ```
-open FPlot.Plot
+open FPlot.HighCharts
 
 let xy = [(0.0,2.2),(1.0,1.4),(2.0,0.8)]
 
 let chart =
     plot xy
     |> title "X vs Y"
-    |> xtitle "X"
-    |> ytitle "Y"
+    |> xlabel "X"
+    |> ylabel "Y"
 ```
 
 This will start the local server and generate the chart which can be viewed in any tab of the browser (all tabs show the same set of plots).
+
+Refer to the [Demo.fsx](./Demo/Demo.fsx) script for additional examples.
 
 ## Advanced Usage
 
