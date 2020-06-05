@@ -1,27 +1,98 @@
 namespace FPlot
-open Microsoft.Extensions.Caching.Memory
+open System.IO
 
 module Middleware =
     open System
     open System.Text
     open System.Threading
     open System.Threading.Tasks
+    open System.Collections.Concurrent
     open System.Net.WebSockets
     open Microsoft.AspNetCore.Http
-    
+    open Microsoft.Extensions.Caching.Memory    
     open Giraffe.Core
     open Giraffe.Tasks
 
     let mutable sockets = list<WebSocket>.Empty
+    let private receivedMessages = new ConcurrentQueue<string>()
 
     let private addSocket sockets socket = socket :: sockets
 
     let private removeSocket sockets socket =
         sockets
         |> List.choose (fun s -> if s <> socket then Some s else None)
+    
+    type private ReceiveMessageResult = 
+        | Message of string
+        | Closed of (WebSocketCloseStatus*string)
+        | Failure of Exception
+    
+    let rec private receiveMessage (socket:WebSocket) (buffer:ArraySegment<byte>) =
+        task {
+            try
+                use ms = new MemoryStream()
+                Console.WriteLine("Awaiting message from socket...")
+                let! resp = socket.ReceiveAsync(buffer, Async.DefaultCancellationToken)
+                Console.WriteLine(sprintf "Received %i bytes from socket" resp.Count)
+
+                if resp.Count > 0 then
+                    do! ms.WriteAsync(buffer.Array, buffer.Offset, resp.Count)
+
+                if not resp.EndOfMessage then
+                    return! receiveMessage socket buffer
+                else
+                    if resp.MessageType = WebSocketMessageType.Close then
+                        Console.WriteLine(sprintf "Stopping socket receive: %A" (resp.CloseStatus.GetValueOrDefault()))
+                        if resp.CloseStatus.HasValue then
+                            return Closed (resp.CloseStatus.Value, resp.CloseStatusDescription)
+                        else
+                            return Closed (WebSocketCloseStatus.Empty, resp.CloseStatusDescription)
+                    else
+                        Console.WriteLine(sprintf "Finished receiving socket message (%i bytes in total)" ms.Length)
+                        ms.Seek(0L, SeekOrigin.Begin) |> ignore
+                        use sr = new StreamReader(ms, Encoding.UTF8)
+                        let! str = sr.ReadToEndAsync()
+                        return Message str
+            with ex ->
+                Console.WriteLine(sprintf "Failed trying to receive socket message (%s)" ex.Message)
+                return Failure ex
+        }
+
+    let private receiveMessageLoop (context:HttpContext) socket =
+        async {
+            let buffer =
+                Array.create (1024 * 4) 0uy
+                |> fun arr -> new ArraySegment<byte>(arr)
+
+            Console.WriteLine("Starting socket receive loop")
+
+            let rec receiveLoop socket buffer =
+                async {
+                    let! resp = receiveMessage socket buffer |> Async.AwaitTask
+
+                    match resp with
+                    | Message(msg) ->
+                        Console.WriteLine(sprintf "Received message from socket (%i chars)" msg.Length)
+                        receivedMessages.Enqueue(msg)
+                        Console.WriteLine(sprintf "Stored message in queue (%i count)" receivedMessages.Count)
+                        return! receiveLoop socket buffer
+                    | Closed(closeStatus) ->
+                        Console.WriteLine(sprintf "Socket close event - stopping socket receive: (%A,%s)" (fst closeStatus) (snd closeStatus))
+                        return closeStatus
+                    | Failure(ex) ->
+                        Console.WriteLine(sprintf "Error during socket receive: %s" (ex.ToString()))
+                        return (WebSocketCloseStatus.InternalServerError, ex.Message)
+                }
+
+            let! closeStatus,closeStatusDesc = receiveLoop socket buffer            
+            Console.WriteLine("Closing socket...")
+            do! socket.CloseAsync(closeStatus, closeStatusDesc, Async.DefaultCancellationToken) |> Async.AwaitTask
+            Console.WriteLine("...closed socket")
+        }
+
 
     let private sendMessage =
-        fun (socket : WebSocket) (message : string) ->
+        fun (socket:WebSocket) (message:string) ->
             task {
                 let buffer = Encoding.UTF8.GetBytes(message)
                 let segment = new ArraySegment<byte>(buffer)
@@ -42,29 +113,12 @@ module Middleware =
                     with
                         | _ -> sockets <- removeSocket sockets socket
             }
-
-    let private echo (context:HttpContext) (webSocket:WebSocket) = async {
-        let buffer = Array.init (1024 * 4) (fun _ -> 0uy)
-        let! result = webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None) |> Async.AwaitTask
     
-        let rec echoMsg (result:WebSocketReceiveResult) = async {
-            Console.WriteLine(sprintf "Received %A from socket %s" result.CloseStatusDescription (webSocket.State.ToString()))
-            if result.MessageType = WebSocketMessageType.Close then
-                Console.WriteLine(sprintf "Stopping socket receive: %A" (result.CloseStatus.GetValueOrDefault()))
-                return result
-            elif result.CloseStatus.HasValue then
-                return result
-            else
-                do! webSocket.SendAsync(new ArraySegment<byte>(buffer, 0, result.Count), result.MessageType, result.EndOfMessage, CancellationToken.None) |> Async.AwaitTask
-                let! newResult = webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None) |> Async.AwaitTask
-                return! echoMsg newResult
-        }
-
-        let! newResult = echoMsg result
-        Console.WriteLine("Closing socket...")
-        do! webSocket.CloseAsync(newResult.CloseStatus.Value, newResult.CloseStatusDescription, CancellationToken.None) |> Async.AwaitTask
-        Console.WriteLine("...closed socket")
-    }
+    let tryGetReceivedMessage() =        
+        Console.WriteLine(sprintf "Trying to find message from socket in queue (%i count)" receivedMessages.Count)
+        match receivedMessages.TryDequeue() with
+        | (true,msg) -> Some(msg)
+        | (false,_) -> None
     
     type WebSocketMiddleware(next : RequestDelegate) =
         member __.Invoke(ctx : HttpContext) =
@@ -86,7 +140,7 @@ module Middleware =
                             Console.WriteLine("No cached initial chart data availble")
                             ()
                         
-                        do! echo ctx webSocket
+                        do! receiveMessageLoop ctx webSocket
                     | false ->
                         ctx.Response.StatusCode <- 400
                 else

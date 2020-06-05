@@ -27,8 +27,46 @@ let indexHandler =
     
     razorHtmlView "Index" (Some model) None
 
+let handleFetch : HttpHandler =
+    fun (next:HttpFunc) (ctx:HttpContext) ->
+        task {
+            Console.WriteLine("Received HTTP fetch request")
+            
+            let serializer = ctx.GetJsonSerializer()
+            //receivedMessages.Clear()
+            
+            Console.WriteLine("Sending message to sockets")
+            do! sendMessageToSockets (serializer.SerializeToString { Operation = "fetch"; Target = ""; Json = "{}"})
+
+            // Wait for some time for a message in the received queue
+            let rec waitMessage i =
+                if i <= 0 then
+                    Console.WriteLine("Timeout waiting for message from socket")
+                    None
+                else
+                    match tryGetReceivedMessage() with
+                    | Some(msg) ->
+                        Console.WriteLine("Found message from socket!!!")
+                        Some msg
+                    | None ->
+                        Console.WriteLine("Sleeping in socket receive...")
+                        Threading.Thread.Sleep 200
+                        Console.WriteLine("Ended sleep in socket receive")
+                        waitMessage (i-1)
+
+            let resp = waitMessage 15
+
+            match resp with
+            | Some(s) ->
+                Console.WriteLine(sprintf "Got response while handling POST (%i chars)" s.Length)
+                return! (setStatusCode 200 >=> json s) next ctx
+            | None ->
+                Console.WriteLine("Failed to get response while handling POST")
+                return! (setStatusCode 808 >=> json "Timeout waiting for Fetch response") next ctx
+        }    
+
 let handlePostMessage =
-    fun (next : HttpFunc) (ctx : HttpContext) ->
+    fun (next:HttpFunc) (ctx:HttpContext) ->
         task {
             let! message = ctx.BindJsonAsync<Message>()
             printfn "Received message (%s)" message.Operation
@@ -42,7 +80,8 @@ let handlePostMessage =
 
             do! sendMessageToSockets (serializer.SerializeToString message)
 
-            return! next ctx
+            Console.WriteLine("No socket response needed - return 204")
+            return! text "" next ctx
         }
 
 let webApp =
@@ -50,6 +89,7 @@ let webApp =
         GET >=>
             choose [
                 route "/" >=> indexHandler
+                route "/fetch" >=> handleFetch
             ]
         POST >=>
             choose [

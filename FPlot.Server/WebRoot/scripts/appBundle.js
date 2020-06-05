@@ -324,42 +324,49 @@ function openWebSocket(appData) {
     }
     socket.onclose = function (event) {
         //console.log('INFO: WebSocket closed');
-        console.log('INFO: WebSocket closed');
+        console.info('WebSocket closed');
         console.log(event);
         openWebSocket(appData);
     }
     socket.onerror = function (error) {
-        console.log('ERROR: WebSocket error');
+        console.error('WebSocket error');
         console.log(error);
     }
     socket.onmessage = function (messageEvent) {
-        console.log('Got websocket message');
+        console.info('Got websocket message');
         messageObj = JSON.parse(messageEvent.data);
         console.log(messageObj);
 
         switch (messageObj.operation) {
             case 'create':
-                console.log('Adding new chart');
+                console.info('Adding new chart');
                 appData.charts.unshift(initChartElement({ id: 'chart_' + appData.charts.length.toString(), highCharts: JSON.parse(messageObj.json) }, "chartContainer"));
                 break;
             case 'add':
                 if (appData.charts.length == 0) {
-                    console.log('Adding new chart');
+                    console.info('Adding new chart');
                     appData.charts.unshift(createNewChart('chart_' + appData.charts.length.toString()));
                 }
 
-                console.log('Adding series to chart');
+                console.info('Adding series to chart');
                 addChartSeries(appData.charts[0], JSON.parse(messageObj.json));
                 break;
             case 'update':
-                console.log('Updating chart');
+                console.info('Updating chart');
                 updateChartElement(appData.charts[0], JSON.parse(messageObj.json));
                 break;
             case 'delete':
-                console.log('Deleting chart or series');                    
+                console.info('Deleting chart or series');                    
                 break;
             case 'fetch':
-                console.log('Fetching chart data');                    
+                if (appData.charts.length > 0) {
+                    console.info('Fetching chart data');
+                    socket.send(JSON.stringify(appData.charts[0].userOptions));
+                }
+                else {
+                    console.warn('Failed to fetch chart obj (no charts)');
+                    socket.send("{}");
+                }                 
                 break;
         }
     }

@@ -12,23 +12,30 @@ module internal Server =
     let serverAddress = "https://localhost:5001"
     let mutable serverProc:Process option = None
 
-    let private asyncSend wait json = async {
+    let asyncSend wait json = async {
         try
             use clientHandler = new HttpClientHandler()
             clientHandler.ServerCertificateCustomValidationCallback <- (fun sender cert chain sslPolicyErrors -> true)
 
             use client = new HttpClient(clientHandler)
+            client.Timeout <- TimeSpan.FromSeconds(3.)
+
             let content =  new StringContent(json, Encoding.UTF8, "application/json")
 
-            let! resp = client.PostAsync(sprintf "%s/message" serverAddress, content) |> Async.AwaitTask
+            let! resp =
+                if wait then
+                    client.GetAsync(sprintf "%s/fetch" serverAddress) |> Async.AwaitTask
+                else
+                    client.PostAsync(sprintf "%s/message" serverAddress, content) |> Async.AwaitTask
+        
             printfn "Response code %s sending to server" (string resp.StatusCode)
             
             match resp.StatusCode with
             | HttpStatusCode.OK ->
-                printfn "Posted to server OK"
+                printfn "Request to server OK"
                 if wait then
                     let! content = resp.Content.ReadAsStringAsync() |> Async.AwaitTask
-                    printfn "Got response: %s" content
+                    printfn "Got %i chars in response: %s (%s)" content.Length content (resp.ToString())
                     return (resp.StatusCode,content)
                 else
                     return (resp.StatusCode,"")
@@ -162,4 +169,11 @@ module HighCharts =
             |> strRep "%%TITLE%%" str
 
         send json
+
+    let fetchChartObj() =
+        let statusCode,resp =
+            asyncSend true "{\"Operation\":\"fetch\",\"target\":0,\"Json\":\"\"}" |> Async.RunSynchronously
+        
+        printfn "Fetched: %A (%A)" resp statusCode
+        resp
  
