@@ -6,5 +6,7 @@ FPlot/bin/
 FPlot/obj/
 FPlot.Server/bin/
 FPlot.Server/obj/
+SchemaGen/bin/
+SchemaGen/obj/
 Demo/bin/
 Demo/obj/

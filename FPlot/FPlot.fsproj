@@ -6,7 +6,10 @@
 
   <ItemGroup>
     <Compile Include="StringUtils.fs" />
-    <Compile Include="HighCharts.fs" />
+    <Compile Include="Common.fs" />
+    <Compile Include="HighCharts.Figure.fs" />
+    <Compile Include="HighCharts.Server.fs" />
+    <Compile Include="HighCharts.Plot.fs" />
   </ItemGroup>
 
 </Project>

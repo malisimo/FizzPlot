@@ -29,11 +29,10 @@ open FPlot.HighCharts
 
 let xy = [(0.0,2.2),(1.0,1.4),(2.0,0.8)]
 
-let chart =
-    plot xy
-    |> title "X vs Y"
-    |> xlabel "X"
-    |> ylabel "Y"
+plot xy
+title "X vs Y"
+xlabel "X"
+ylabel "Y"
 ```
 
 This will start the local server and generate the chart which can be viewed in any tab of the browser (all tabs show the same set of plots).
@@ -42,25 +41,17 @@ Refer to the [Demo.fsx](./Demo/Demo.fsx) script for additional examples.
 
 ## Advanced Usage
 
-To obtain the current chart object state as JSON, you can query this using ```chart.get`` like this:
+To obtain the current figure object state as JSON, you can query this using ```chart.get`` like this:
 
 ```
-printfn "%A" chart.get
+getFig 0
+|> printfn "Figure object: %s"
 ```
 
-You can set any chart property using dot notation to access the underlying javascript object, using the JSON state as reference:
+You can set any figure property using dot notation to access the underlying javascript object, with the static ```fig``` object as reference, and dot notation:
 
 ```
-chart.set "title.text" "New title"
-```
-
-An alternative way of performing the same operation via forward pipes is to use ``setChart``:
-
-```
-plot xy
-|> title "Old title"
-|> setChart "title.text" "New title"
-|> ignore
+setFig 0 fig.xAxis.title.text "\"My X\""
 ```
 
 # FSI Interative

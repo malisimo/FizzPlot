@@ -1,4 +1,4 @@
-﻿namespace FPlot
+﻿namespace FPlot.HighCharts
 
 module internal Server =
     open System
@@ -14,6 +14,7 @@ module internal Server =
 
     let asyncSend wait json = async {
         try
+            printfn "-=- Sending %s to server..." json
             use clientHandler = new HttpClientHandler()
             clientHandler.ServerCertificateCustomValidationCallback <- (fun sender cert chain sslPolicyErrors -> true)
 
@@ -48,7 +49,7 @@ module internal Server =
     }
 
     let send json =
-        asyncSend false json |> Async.RunSynchronously
+        asyncSend false json |> Async.RunSynchronously |> ignore
 
     let killServer() =
         match serverProc with
@@ -100,7 +101,7 @@ module internal Server =
         
         waitForProcessStart 0 proc
 
-        Process.Start("cmd", sprintf "/C start %s" "http://localhost:5000") |> ignore
+        Process.Start("cmd", sprintf "/C start %s" "https://localhost:5001") |> ignore
 
         proc
 
@@ -112,68 +113,4 @@ module internal Server =
         | None ->
             serverProc <- Some (startServer initData)
 
-
-module HighCharts =
-    open System.Diagnostics
-    open StringUtils
-    open Server
-
-    let mutable serverProc:Process option = None
-
-    let kill() =
-        killServer()
-
-    let plot (data:(float * float) seq) =
-
-        // Add a new series to chart, creating one if needed
-        let jsonTemplate = "{\"Operation\":\"add\",\"target\":null,\"Json\":\"{\\\"name\\\":\\\"Series_1\\\",\\\"data\\\":[%%DATA%%]}\"}"
-
-        let json =
-            jsonTemplate
-            |> strRep "%%DATA%%" (data |> Seq.map (fun (x,y) -> sprintf "[%f,%f]" x y) |> strJoin)
-        
-        // Start server if not already running
-        checkServer (Some json)
-
-        send json
-
-    let title str =
-        checkServer None
-
-        let jsonTemplate = "{\"Operation\":\"update\",\"target\":0,\"Json\":\"{\\\"title\\\":{\\\"text\\\":\\\"%%TITLE%%\\\"}}\"}"
-
-        let json =
-            jsonTemplate
-            |> strRep "%%TITLE%%" str
-
-        send json
-
-    let xlabel str =
-        checkServer None
-
-        let jsonTemplate = "{\"Operation\":\"update\",\"target\":0,\"Json\":\"{\\\"xAxis\\\":{\\\"title\\\":{\\\"text\\\":\\\"%%TITLE%%\\\"}}}\"}"
-
-        let json =
-            jsonTemplate
-            |> strRep "%%TITLE%%" str
-
-        send json
-
-    let ylabel str =
-        checkServer None
-
-        let jsonTemplate = "{\"Operation\":\"update\",\"target\":0,\"Json\":\"{\\\"yAxis\\\":{\\\"title\\\":{\\\"text\\\":\\\"%%TITLE%%\\\"}}}\"}"
-
-        let json =
-            jsonTemplate
-            |> strRep "%%TITLE%%" str
-
-        send json
-
-    let fetchChartObj() =
-        let statusCode,resp =
-            asyncSend true "{\"Operation\":\"fetch\",\"target\":0,\"Json\":\"\"}" |> Async.RunSynchronously
-        
-        printfn "Fetched: %A (%A)" resp statusCode
-        resp
- 
+            
