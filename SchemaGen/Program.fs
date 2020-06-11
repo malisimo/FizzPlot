@@ -52,7 +52,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
     let rec getTypes (state:string option * string * int * string list) (currentSb:StringBuilder) (current:string*JsonValue) =
         let _,curPath,arrayDepth,types = state
         let curKey,curVal = current
-        let indent = baseIndent + (String(' ',indentSpaces))
+        let indent = baseIndent + String(' ',indentSpaces)
         
         match curVal with
         | JsonValue.Record(r) ->
@@ -61,47 +61,87 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                     pascalise curKey
                 else
                     sprintf "%s_%s" curPath (pascalise curKey)
+
+            currentSb.AppendLine(sprintf "%s///<summary>%s : <code>%s</code></summary>" indent childPath "##FSHARP##") |> ignore
+            currentSb.AppendLine(sprintf "%smember this.%s = {" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%snew IFigureElement with" (indent + String(' ',indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetJson() = \"%s\"" (indent + String(' ',2*indentSpaces)) "##JSON##") |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetElementType() = ElementObject" (indent + String(' ',2*indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%s}" (indent + String(' ',indentSpaces))) |> ignore
             
-            currentSb.AppendLine(sprintf "%s%s:%s" indent curKey childPath) |> ignore
-            let childSb = StringBuilder(sprintf "%stype %s = " baseIndent childPath)
-            childSb.AppendLine("{") |> ignore
+            let childSb = StringBuilder()
+            childSb.AppendLine(sprintf "%s///<summary>%s : <code>%s</code></summary>" baseIndent childPath  "##FSHARP##") |> ignore
+            childSb.AppendLine(sprintf "%stype %s() =" baseIndent childPath) |> ignore
+
             let _,_,_,nextTypes =
                 r
                 |> Array.fold (fun state child ->
                     let s1,s2,_,s4 = state // Reset array depth each time
                     getTypes (s1,s2,0,s4) childSb child) (Some curKey, childPath, 0, types)
 
-            childSb.AppendLine(sprintf "%s}" baseIndent) |> ignore
+            childSb.AppendLine(sprintf "%sinterface IFigureElement with" indent) |> ignore
+            childSb.AppendLine(sprintf "%smember this.GetJson() = \"%s\"" (indent + String(' ',indentSpaces)) "##JSON##") |> ignore
+            childSb.AppendLine(sprintf "%smember this.GetElementType() = ElementObject" (indent + String(' ',indentSpaces))) |> ignore
+            childSb.AppendLine() |> ignore
+            childSb.AppendLine(sprintf "%soverride this.ToString() =" indent) |> ignore
+            childSb.AppendLine(sprintf "%s\"%s\"" (indent + String(' ',indentSpaces)) childPath) |> ignore
+
             (Some curKey, curPath, arrayDepth, childSb.ToString() :: nextTypes)
         | JsonValue.Array(arr) ->
-            match Array.tryHead arr with
-            | None ->
-                currentSb.AppendLine(sprintf "%s%s:string []" indent curKey) |> ignore
-                state
-            | Some(hd) ->
-                let childName,_,arrayDepth,nextTypes = getTypes (None, curPath, arrayDepth+1, types) (StringBuilder()) (pascalise curKey,hd)
-                let arrStr =
-                    [|for _ in 1..arrayDepth -> "[]"|]
-                    |> Array.reduce (+)
-                
-                match childName with
-                | Some(child) ->
-                    currentSb.AppendLine(sprintf "%s%s:%s %s" indent curKey (sprintf "%s_%s" curPath (pascalise child)) arrStr) |> ignore
+            let arrType,nextArrayDepth,nextTypes =
+                match Array.tryHead arr with
                 | None ->
-                    currentSb.AppendLine(sprintf "%s%s:string %s" indent curKey arrStr) |> ignore
-                
-                (Some curKey, curPath, arrayDepth, nextTypes)
+                    ("string []",arrayDepth,types)
+                | Some(hd) ->
+                    let childName,_,arrayDepth,nextTypes = getTypes (None, curPath, arrayDepth+1, types) (StringBuilder()) (pascalise curKey,hd)
+                    let arrStr =
+                        [|for _ in 1..arrayDepth -> "[]"|]
+                        |> Array.reduce (+)
+                    
+                    match childName with
+                    | Some(child) ->
+                        (sprintf "%s_%s %s" curPath (pascalise child) arrStr,arrayDepth,nextTypes)
+                    | None ->
+                        (sprintf "string %s" arrStr,arrayDepth,nextTypes)
+            
+            currentSb.AppendLine(sprintf "%s///<summary>%s : <code>%s</code></summary>" indent curKey arrType) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.%s = {" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%snew IFigureElement with" (indent + String(' ',indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetJson() = \"%s\"" (indent + String(' ',2*indentSpaces)) "##JSON##") |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetElementType() = ElementArray" (indent + String(' ',2*indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%s}" (indent + String(' ',indentSpaces))) |> ignore      
+            (Some curKey, curPath, nextArrayDepth, nextTypes)
         | JsonValue.String(_) ->
-            currentSb.AppendLine(sprintf "%s%s:string" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%s///<summary>%s : <code>string</code></summary>" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.%s = {" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%snew IFigureElement with" (indent + String(' ',indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetJson() = \"%s\"" (indent + String(' ',2*indentSpaces)) "##JSON##") |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetElementType() = ElementString" (indent + String(' ',2*indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%s}" (indent + String(' ',indentSpaces))) |> ignore
             state
         | JsonValue.Float(_) ->
-            currentSb.AppendLine(sprintf "%s%s:float" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%s///<summary>%s : <code>float</code></summary>" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.%s = {" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%snew IFigureElement with" (indent + String(' ',indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetJson() = \"%s\"" (indent + String(' ',2*indentSpaces)) "##JSON##") |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetElementType() = ElementFloat" (indent + String(' ',2*indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%s}" (indent + String(' ',indentSpaces))) |> ignore
             state
         | JsonValue.Number(_) ->
-            currentSb.AppendLine(sprintf "%s%s:decimal" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%s///<summary>%s : <code>float</code></summary>" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.%s = {" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%snew IFigureElement with" (indent + String(' ',indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetJson() = \"%s\"" (indent + String(' ',2*indentSpaces)) "##JSON##") |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetElementType() = ElementFloat" (indent + String(' ',2*indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%s}" (indent + String(' ',indentSpaces))) |> ignore
             state
         | JsonValue.Boolean(_) ->
-            currentSb.AppendLine(sprintf "%s%s:FigureElement" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%s///<summary>%s : <code>bool</code></summary>" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.%s = {" indent curKey) |> ignore
+            currentSb.AppendLine(sprintf "%snew IFigureElement with" (indent + String(' ',indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetJson() = \"%s\"" (indent + String(' ',2*indentSpaces)) "##JSON##") |> ignore
+            currentSb.AppendLine(sprintf "%smember this.GetElementType() = ElementBool" (indent + String(' ',2*indentSpaces))) |> ignore
+            currentSb.AppendLine(sprintf "%s}" (indent + String(' ',indentSpaces))) |> ignore
             state
         | _ ->
             state
@@ -146,7 +186,7 @@ let main argv =
     printfn "========\n"
 
     printfn "%s" fsStr
-    storeSchema "FPlot/HighCharts.Figure.fs" fsStr
+    storeSchema "./HighCharts.Figure.Test.fs" fsStr
 
     printfn "========\n"
 
