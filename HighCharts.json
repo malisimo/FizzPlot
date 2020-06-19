@@ -1,0 +1,1245 @@
+{
+    "colors": [
+        "#DDDF0D",
+        "#55BF3B",
+        "#DF5353",
+        "#7798BF",
+        "#aaeeee",
+        "#ff0066",
+        "#eeaaee",
+        "#55BF3B",
+        "#DF5353",
+        "#7798BF",
+        "#aaeeee"
+    ],
+    "symbols": [
+        "circle",
+        "diamond",
+        "square",
+        "triangle",
+        "triangle-down"
+    ],
+    "lang": {
+        "loading": "Loading...",
+        "months": [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ],
+        "shortMonths": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+        ],
+        "weekdays": [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "decimalPoint": ".",
+        "numericSymbols": [
+            "k",
+            "M",
+            "G",
+            "T",
+            "P",
+            "E"
+        ],
+        "resetZoom": "Reset zoom",
+        "resetZoomTitle": "Reset zoom level 1:1",
+        "thousandsSep": " ",
+        "viewFullscreen": "View in full screen",
+        "exitFullscreen": "Exit from full screen",
+        "printChart": "Print chart",
+        "downloadPNG": "Download PNG image",
+        "downloadJPEG": "Download JPEG image",
+        "downloadPDF": "Download PDF document",
+        "downloadSVG": "Download SVG vector image",
+        "contextButtonTitle": "Chart context menu"
+    },
+    "global": {},
+    "time": {
+        "timezoneOffset": 0,
+        "useUTC": true
+    },
+    "chart": {
+        "styledMode": false,
+        "borderRadius": 0,
+        "colorCount": 10,
+        "defaultSeriesType": "line",
+        "ignoreHiddenSeries": true,
+        "spacing": [
+            10,
+            10,
+            15,
+            10
+        ],
+        "resetZoomButton": {
+            "theme": {
+                "zIndex": 6
+            },
+            "position": {
+                "align": "right",
+                "x": -10,
+                "y": 10
+            }
+        },
+        "width": null,
+        "height": null,
+        "borderColor": "#000000",
+        "backgroundColor": {
+            "linearGradient": {
+                "x1": 0,
+                "y1": 0,
+                "x2": 1,
+                "y2": 1,
+                "id": "highcharts-vfi551a-1"
+            },
+            "stops": [
+                [
+                    0,
+                    "rgb(48, 48, 96)"
+                ],
+                [
+                    1,
+                    "rgb(0, 0, 0)"
+                ]
+            ]
+        },
+        "plotBorderColor": "#CCCCCC",
+        "borderWidth": 2,
+        "className": "dark-container",
+        "plotBackgroundColor": "rgba(255, 255, 255, .1)",
+        "plotBorderWidth": 1
+    },
+    "title": {
+        "style": {
+            "color": "#C0C0C0",
+            "fontSize": "18px",
+            "font": "bold 16px \"Trebuchet MS\", Verdana, sans-serif",
+            "fill": "#C0C0C0",
+            "width": "1879px"
+        },
+        "text": "Example plot",
+        "align": "center",
+        "margin": 15,
+        "widthAdjust": -44
+    },
+    "subtitle": {
+        "style": {
+            "color": "#666666",
+            "font": "bold 12px \"Trebuchet MS\", Verdana, sans-serif",
+            "fill": "#666666",
+            "width": "1879px"
+        },
+        "text": "",
+        "align": "center",
+        "widthAdjust": -44
+    },
+    "caption": {
+        "style": {
+            "color": "#666666",
+            "fill": "#666666",
+            "width": "1923px"
+        },
+        "margin": 15,
+        "text": "",
+        "align": "left",
+        "verticalAlign": "bottom"
+    },
+    "plotOptions": {
+        "line": {
+            "lineWidth": 2,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": {
+                "enabledThreshold": 2,
+                "lineColor": "#333",
+                "lineWidth": 0,
+                "radius": 4,
+                "states": {
+                    "normal": {
+                        "animation": true
+                    },
+                    "hover": {
+                        "animation": {
+                            "duration": 50
+                        },
+                        "enabled": true,
+                        "radiusPlus": 2,
+                        "lineWidthPlus": 1
+                    },
+                    "select": {
+                        "fillColor": "#cccccc",
+                        "lineColor": "#000000",
+                        "lineWidth": 2
+                    }
+                }
+            },
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "align": "center",
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "verticalAlign": "bottom",
+                "x": 0,
+                "y": 0,
+                "color": "#CCC"
+            },
+            "cropThreshold": 300,
+            "opacity": 1,
+            "pointRange": 0,
+            "softThreshold": true,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": {
+                        "size": 10,
+                        "opacity": 0.25
+                    }
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    }
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": true,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "x"
+        },
+        "area": {
+            "lineWidth": 2,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": {
+                "enabledThreshold": 2,
+                "lineColor": "#ffffff",
+                "lineWidth": 0,
+                "radius": 4,
+                "states": {
+                    "normal": {
+                        "animation": true
+                    },
+                    "hover": {
+                        "animation": {
+                            "duration": 50
+                        },
+                        "enabled": true,
+                        "radiusPlus": 2,
+                        "lineWidthPlus": 1
+                    },
+                    "select": {
+                        "fillColor": "#cccccc",
+                        "lineColor": "#000000",
+                        "lineWidth": 2
+                    }
+                }
+            },
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "align": "center",
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "verticalAlign": "bottom",
+                "x": 0,
+                "y": 0
+            },
+            "cropThreshold": 300,
+            "opacity": 1,
+            "pointRange": 0,
+            "softThreshold": false,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": {
+                        "size": 10,
+                        "opacity": 0.25
+                    }
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    }
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": true,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "x",
+            "threshold": 0
+        },
+        "spline": {
+            "lineWidth": 2,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": {
+                "enabledThreshold": 2,
+                "lineColor": "#333",
+                "lineWidth": 0,
+                "radius": 4,
+                "states": {
+                    "normal": {
+                        "animation": true
+                    },
+                    "hover": {
+                        "animation": {
+                            "duration": 50
+                        },
+                        "enabled": true,
+                        "radiusPlus": 2,
+                        "lineWidthPlus": 1
+                    },
+                    "select": {
+                        "fillColor": "#cccccc",
+                        "lineColor": "#000000",
+                        "lineWidth": 2
+                    }
+                }
+            },
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "align": "center",
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "verticalAlign": "bottom",
+                "x": 0,
+                "y": 0
+            },
+            "cropThreshold": 300,
+            "opacity": 1,
+            "pointRange": 0,
+            "softThreshold": true,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": {
+                        "size": 10,
+                        "opacity": 0.25
+                    }
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    }
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": true,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "x"
+        },
+        "areaspline": {
+            "lineWidth": 2,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": {
+                "enabledThreshold": 2,
+                "lineColor": "#ffffff",
+                "lineWidth": 0,
+                "radius": 4,
+                "states": {
+                    "normal": {
+                        "animation": true
+                    },
+                    "hover": {
+                        "animation": {
+                            "duration": 50
+                        },
+                        "enabled": true,
+                        "radiusPlus": 2,
+                        "lineWidthPlus": 1
+                    },
+                    "select": {
+                        "fillColor": "#cccccc",
+                        "lineColor": "#000000",
+                        "lineWidth": 2
+                    }
+                }
+            },
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "align": "center",
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "verticalAlign": "bottom",
+                "x": 0,
+                "y": 0
+            },
+            "cropThreshold": 300,
+            "opacity": 1,
+            "pointRange": 0,
+            "softThreshold": false,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": {
+                        "size": 10,
+                        "opacity": 0.25
+                    }
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    }
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": true,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "x",
+            "threshold": 0
+        },
+        "column": {
+            "lineWidth": 2,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": null,
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "x": 0
+            },
+            "cropThreshold": 50,
+            "opacity": 1,
+            "pointRange": null,
+            "softThreshold": false,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": false,
+                    "brightness": 0.1
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    },
+                    "color": "#cccccc",
+                    "borderColor": "#000000"
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": false,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "x",
+            "borderRadius": 0,
+            "centerInCategory": false,
+            "groupPadding": 0.2,
+            "pointPadding": 0.1,
+            "minPointLength": 0,
+            "startFromThreshold": true,
+            "threshold": 0,
+            "borderColor": "#ffffff"
+        },
+        "bar": {
+            "lineWidth": 2,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": null,
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "x": 0
+            },
+            "cropThreshold": 50,
+            "opacity": 1,
+            "pointRange": null,
+            "softThreshold": false,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": false,
+                    "brightness": 0.1
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    },
+                    "color": "#cccccc",
+                    "borderColor": "#000000"
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": false,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "x",
+            "borderRadius": 0,
+            "centerInCategory": false,
+            "groupPadding": 0.2,
+            "pointPadding": 0.1,
+            "minPointLength": 0,
+            "startFromThreshold": true,
+            "threshold": 0,
+            "borderColor": "#ffffff"
+        },
+        "scatter": {
+            "lineWidth": 0,
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": {
+                "enabledThreshold": 2,
+                "lineColor": "#333",
+                "lineWidth": 0,
+                "radius": 4,
+                "states": {
+                    "normal": {
+                        "animation": true
+                    },
+                    "hover": {
+                        "animation": {
+                            "duration": 50
+                        },
+                        "enabled": true,
+                        "radiusPlus": 2,
+                        "lineWidthPlus": 1
+                    },
+                    "select": {
+                        "fillColor": "#cccccc",
+                        "lineColor": "#000000",
+                        "lineWidth": 2
+                    }
+                },
+                "enabled": true
+            },
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "align": "center",
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "verticalAlign": "bottom",
+                "x": 0,
+                "y": 0
+            },
+            "cropThreshold": 300,
+            "opacity": 1,
+            "pointRange": 0,
+            "softThreshold": true,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": {
+                        "size": 10,
+                        "opacity": 0.25
+                    }
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    }
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": true,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "xy",
+            "jitter": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "pie": {
+            "allowPointSelect": false,
+            "crisp": true,
+            "showCheckbox": false,
+            "animation": {
+                "duration": 1000
+            },
+            "events": {},
+            "marker": null,
+            "point": {
+                "events": {}
+            },
+            "dataLabels": {
+                "align": "center",
+                "padding": 5,
+                "style": {
+                    "fontSize": "11px",
+                    "fontWeight": "bold",
+                    "color": "contrast",
+                    "textOutline": "1px contrast"
+                },
+                "verticalAlign": "bottom",
+                "x": 0,
+                "y": 0,
+                "allowOverlap": true,
+                "connectorPadding": 5,
+                "connectorShape": "fixedOffset",
+                "crookDistance": "70%",
+                "distance": 30,
+                "enabled": true,
+                "softConnector": true
+            },
+            "cropThreshold": 300,
+            "opacity": 1,
+            "pointRange": 0,
+            "softThreshold": true,
+            "states": {
+                "normal": {
+                    "animation": true
+                },
+                "hover": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "lineWidthPlus": 1,
+                    "marker": {},
+                    "halo": {
+                        "size": 10,
+                        "opacity": 0.25
+                    },
+                    "brightness": 0.1
+                },
+                "select": {
+                    "animation": {
+                        "duration": 0
+                    }
+                },
+                "inactive": {
+                    "animation": {
+                        "duration": 50
+                    },
+                    "opacity": 0.2
+                }
+            },
+            "stickyTracking": false,
+            "turboThreshold": 1000,
+            "findNearestPointBy": "x",
+            "center": [
+                null,
+                null
+            ],
+            "clip": false,
+            "colorByPoint": true,
+            "ignoreHiddenPoint": true,
+            "inactiveOtherPoints": true,
+            "legendType": "point",
+            "size": null,
+            "showInLegend": false,
+            "slicedOffset": 10,
+            "borderColor": "#ffffff",
+            "borderWidth": 1
+        },
+        "candlestick": {
+            "lineColor": "white"
+        }
+    },
+    "labels": {
+        "style": {
+            "position": "absolute",
+            "color": "#CCC"
+        }
+    },
+    "legend": {
+        "enabled": true,
+        "align": "right",
+        "alignColumns": true,
+        "layout": "vertical",
+        "borderColor": "#999999",
+        "borderRadius": 0,
+        "navigation": {
+            "activeColor": "#003399",
+            "inactiveColor": "#cccccc"
+        },
+        "itemStyle": {
+            "color": "#A0A0A0",
+            "cursor": "pointer",
+            "fontSize": "12px",
+            "fontWeight": "bold",
+            "textOverflow": "ellipsis",
+            "font": "9pt Trebuchet MS, Verdana, sans-serif"
+        },
+        "itemHoverStyle": {
+            "color": "#FFF"
+        },
+        "itemHiddenStyle": {
+            "color": "#444"
+        },
+        "shadow": false,
+        "itemCheckboxStyle": {
+            "position": "absolute",
+            "width": "13px",
+            "height": "13px"
+        },
+        "squareSymbol": true,
+        "symbolPadding": 5,
+        "verticalAlign": "middle",
+        "x": 0,
+        "y": 0,
+        "title": {
+            "style": {
+                "fontWeight": "bold",
+                "color": "#C0C0C0"
+            }
+        },
+        "backgroundColor": "rgba(0, 0, 0, 0.5)"
+    },
+    "loading": {
+        "labelStyle": {
+            "fontWeight": "bold",
+            "position": "relative",
+            "top": "45%"
+        },
+        "style": {
+            "position": "absolute",
+            "backgroundColor": "#ffffff",
+            "opacity": 0.5,
+            "textAlign": "center"
+        }
+    },
+    "tooltip": {
+        "enabled": true,
+        "animation": true,
+        "borderRadius": 3,
+        "dateTimeLabelFormats": {
+            "millisecond": "%A, %b %e, %H:%M:%S.%L",
+            "second": "%A, %b %e, %H:%M:%S",
+            "minute": "%A, %b %e, %H:%M",
+            "hour": "%A, %b %e, %H:%M",
+            "day": "%A, %b %e, %Y",
+            "week": "Week from %A, %b %e, %Y",
+            "month": "%B %Y",
+            "year": "%Y"
+        },
+        "footerFormat": "",
+        "padding": 8,
+        "snap": 10,
+        "headerFormat": "<span style=\"font-size: 10px\">{point.key}</span><br/>",
+        "pointFormat": "<span style=\"color:{point.color}\">●</span> {series.name}: <b>{point.y}</b><br/>",
+        "backgroundColor": "rgba(0, 0, 0, 0.75)",
+        "borderWidth": 1,
+        "shadow": true,
+        "style": {
+            "color": "#F0F0F0",
+            "cursor": "default",
+            "fontSize": "12px",
+            "whiteSpace": "nowrap"
+        }
+    },
+    "credits": {
+        "enabled": true,
+        "href": "https://www.highcharts.com?credits",
+        "position": {
+            "align": "right",
+            "x": -10,
+            "verticalAlign": "bottom",
+            "y": -5
+        },
+        "style": {
+            "cursor": "pointer",
+            "color": "#666",
+            "fontSize": "9px",
+            "fill": "#666"
+        },
+        "text": "Highcharts.com"
+    },
+    "navigation": {
+        "buttonOptions": {
+            "theme": {
+                "padding": 5,
+                "fill": {
+                    "linearGradient": {
+                        "x1": 0,
+                        "y1": 0,
+                        "x2": 0,
+                        "y2": 1
+                    },
+                    "stops": [
+                        [
+                            0.4,
+                            "#606060"
+                        ],
+                        [
+                            0.6,
+                            "#333333"
+                        ]
+                    ]
+                },
+                "stroke": "#000000"
+            },
+            "symbolSize": 14,
+            "symbolX": 12.5,
+            "symbolY": 10.5,
+            "align": "right",
+            "buttonSpacing": 3,
+            "height": 22,
+            "verticalAlign": "top",
+            "width": 24,
+            "symbolFill": "#666666",
+            "symbolStroke": "#DDDDDD",
+            "symbolStrokeWidth": 3
+        },
+        "menuStyle": {
+            "border": "1px solid #999999",
+            "background": "#ffffff",
+            "padding": "5px 0"
+        },
+        "menuItemStyle": {
+            "padding": "0.5em 1em",
+            "color": "#333333",
+            "background": "none",
+            "fontSize": "11px",
+            "transition": "background 250ms, color 250ms"
+        },
+        "menuItemHoverStyle": {
+            "background": "#335cad",
+            "color": "#ffffff"
+        }
+    },
+    "exporting": {
+        "type": "image/png",
+        "url": "https://export.highcharts.com/",
+        "printMaxWidth": 780,
+        "scale": 2,
+        "buttons": {
+            "contextButton": {
+                "className": "highcharts-contextbutton",
+                "menuClassName": "highcharts-contextmenu",
+                "symbol": "menu",
+                "titleKey": "contextButtonTitle",
+                "menuItems": [
+                    "viewFullscreen",
+                    "printChart",
+                    "separator",
+                    "downloadPNG",
+                    "downloadJPEG",
+                    "downloadPDF",
+                    "downloadSVG"
+                ]
+            }
+        },
+        "menuItemDefinitions": {
+            "viewFullscreen": {
+                "textKey": "viewFullscreen"
+            },
+            "printChart": {
+                "textKey": "printChart"
+            },
+            "separator": {
+                "separator": true
+            },
+            "downloadPNG": {
+                "textKey": "downloadPNG"
+            },
+            "downloadJPEG": {
+                "textKey": "downloadJPEG"
+            },
+            "downloadPDF": {
+                "textKey": "downloadPDF"
+            },
+            "downloadSVG": {
+                "textKey": "downloadSVG"
+            }
+        }
+    },
+    "xAxis": [
+        {
+            "gridLineColor": "#333333",
+            "gridLineWidth": 1,
+            "labels": {
+                "style": {
+                    "color": "#A0A0A0"
+                }
+            },
+            "lineColor": "#A0A0A0",
+            "tickColor": "#A0A0A0",
+            "title": {
+                "style": {
+                    "color": "#CCC",
+                    "fontWeight": "bold",
+                    "fontSize": "12px",
+                    "fontFamily": "Trebuchet MS, Verdana, sans-serif"
+                },
+                "text": "Index"
+            },
+            "index": 0,
+            "isX": true
+        }
+    ],
+    "yAxis": [
+        {
+            "gridLineColor": "#333333",
+            "labels": {
+                "style": {
+                    "color": "#A0A0A0"
+                }
+            },
+            "lineColor": "#A0A0A0",
+            "minorTickInterval": null,
+            "tickColor": "#A0A0A0",
+            "tickWidth": 1,
+            "title": {
+                "style": {
+                    "color": "#CCC",
+                    "fontWeight": "bold",
+                    "fontSize": "12px",
+                    "fontFamily": "Trebuchet MS, Verdana, sans-serif"
+                },
+                "text": "Value"
+            },
+            "index": 0
+        }
+    ],
+    "toolbar": {
+        "itemStyle": {
+            "color": "silver"
+        }
+    },
+    "rangeSelector": {
+        "buttonTheme": {
+            "fill": {
+                "linearGradient": {
+                    "x1": 0,
+                    "y1": 0,
+                    "x2": 0,
+                    "y2": 1
+                },
+                "stops": [
+                    [
+                        0.4,
+                        "#888"
+                    ],
+                    [
+                        0.6,
+                        "#555"
+                    ]
+                ]
+            },
+            "stroke": "#000000",
+            "style": {
+                "color": "#CCC",
+                "fontWeight": "bold"
+            },
+            "states": {
+                "hover": {
+                    "fill": {
+                        "linearGradient": {
+                            "x1": 0,
+                            "y1": 0,
+                            "x2": 0,
+                            "y2": 1
+                        },
+                        "stops": [
+                            [
+                                0.4,
+                                "#BBB"
+                            ],
+                            [
+                                0.6,
+                                "#888"
+                            ]
+                        ]
+                    },
+                    "stroke": "#000000",
+                    "style": {
+                        "color": "white"
+                    }
+                },
+                "select": {
+                    "fill": {
+                        "linearGradient": {
+                            "x1": 0,
+                            "y1": 0,
+                            "x2": 0,
+                            "y2": 1
+                        },
+                        "stops": [
+                            [
+                                0.1,
+                                "#000"
+                            ],
+                            [
+                                0.3,
+                                "#333"
+                            ]
+                        ]
+                    },
+                    "stroke": "#000000",
+                    "style": {
+                        "color": "yellow"
+                    }
+                }
+            }
+        },
+        "inputStyle": {
+            "backgroundColor": "#333",
+            "color": "silver"
+        },
+        "labelStyle": {
+            "color": "silver"
+        }
+    },
+    "navigator": {
+        "handles": {
+            "backgroundColor": "#666",
+            "borderColor": "#AAA"
+        },
+        "outlineColor": "#CCC",
+        "maskFill": "rgba(16, 16, 16, 0.5)",
+        "series": {
+            "color": "#7798BF",
+            "lineColor": "#A6C7ED"
+        }
+    },
+    "scrollbar": {
+        "barBackgroundColor": {
+            "linearGradient": {
+                "x1": 0,
+                "y1": 0,
+                "x2": 0,
+                "y2": 1
+            },
+            "stops": [
+                [
+                    0.4,
+                    "#888"
+                ],
+                [
+                    0.6,
+                    "#555"
+                ]
+            ]
+        },
+        "barBorderColor": "#CCC",
+        "buttonArrowColor": "#CCC",
+        "buttonBackgroundColor": {
+            "linearGradient": {
+                "x1": 0,
+                "y1": 0,
+                "x2": 0,
+                "y2": 1
+            },
+            "stops": [
+                [
+                    0.4,
+                    "#888"
+                ],
+                [
+                    0.6,
+                    "#555"
+                ]
+            ]
+        },
+        "buttonBorderColor": "#CCC",
+        "rifleColor": "#FFF",
+        "trackBackgroundColor": {
+            "linearGradient": {
+                "x1": 0,
+                "y1": 0,
+                "x2": 0,
+                "y2": 1
+            },
+            "stops": [
+                [
+                    0,
+                    "#000"
+                ],
+                [
+                    1,
+                    "#333"
+                ]
+            ]
+        },
+        "trackBorderColor": "#666"
+    },
+    "series": [
+        {
+            "name": "A",
+            "data": [
+                1.0
+            ]
+        }
+    ]
+}
