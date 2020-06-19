@@ -9,8 +9,8 @@ let indentSpaces = 4
 type GetTypesState = {
     ParentPath:string list
     Parent:JsonValue
-    CurSb:StringBuilder
-    CurCodeSb:StringBuilder
+    CurSb:string
+    CurCodeSb:string
     Types:string list
 }
 
@@ -40,9 +40,9 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
             sTrim
             |> List.toArray
             |> String
-
-    let append str (sb:StringBuilder) =
-        sb.AppendLine(str)
+        
+    let (>~>) s str =
+        s + Environment.NewLine + str
 
     let addPath p t =
         t::p
@@ -85,210 +85,208 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
             let curPath = addPath state.ParentPath curKey
 
             let nextState =
-                r
-                |> Array.fold getTypes { ParentPath = curPath; Parent = curVal; CurSb = StringBuilder(); CurCodeSb = StringBuilder(); Types = state.Types }
-            
-            let hh = String.Format("{0}///<summary>{1} : <code>{{| {2} |}}</code></summary>", baseIndent, pathToType curPath, nextState.CurCodeSb.ToString())
+                match r with
+                | [||] ->
+                    { ParentPath = curPath; Parent = curVal; CurSb = ""; CurCodeSb = "dummy:string"; Types = state.Types }
+                | _ ->
+                    r
+                    |> Array.fold getTypes { ParentPath = curPath; Parent = curVal; CurSb = ""; CurCodeSb = ""; Types = state.Types }
             
             let curType =
-                StringBuilder()
-                |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>{{| {2} |}}</code></summary>", baseIndent, pathToType curPath, nextState.CurCodeSb.ToString()))
-                |> fun sb -> sb.AppendLine(String.Format("{0}type {1}() =", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(nextState.CurSb.ToString())
-                |> fun sb -> sb.AppendLine()
-                |> fun sb -> sb.AppendLine(String.Format("{0}member this.Set (o:{{| {1} |}}) =", indent, nextState.CurCodeSb.ToString()))
-                |> fun sb -> sb.AppendLine(String.Format("{0}send \"{1}\"", indent2, "##JSON##"))
-                |> fun sb -> sb.ToString()
+                ""
+                >~> sprintf "%s///<summary>%s : <code>{| %s |}</code></summary>" baseIndent (pathToType curPath) nextState.CurCodeSb
+                >~> sprintf "%stype %s() =" baseIndent (pathToType curPath)
+                >~> nextState.CurSb
+                >~> ""
+                >~> sprintf "%smember this.Set (o:{| %s |}) =" indent nextState.CurCodeSb
+                >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
             
-            state.CurSb
-            |> fun sb -> sb.AppendLine()
-            |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>{{| {2} |}}</code></summary>", indent, pathToType curPath, nextState.ToString()))
-            |> fun sb -> sb.AppendLine(String.Format("{0}member this.{1}= {2}()", indent, curKey, pathToType curPath))
-            |> ignore
+            let curSb =
+                state.CurSb
+                >~> ""
+                >~> sprintf "%s///<summary>%s : <code>{| %s |}</code></summary>" indent (pathToType curPath) nextState.CurCodeSb
+                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
 
-            match state.Parent with
-            | JsonValue.Record(_) ->
-                if state.CurCodeSb.Length = 0 then
-                    state.CurCodeSb.Append(String.Format("{0}: {{| {1} |}}", curKey, nextState.CurCodeSb.ToString())) |> ignore
-                else
-                    state.CurCodeSb.Append(String.Format("; {0}: {{| {1} |}}", curKey, nextState.CurCodeSb.ToString())) |> ignore
-            | JsonValue.Array(_) ->
-                if state.CurCodeSb.Length = 0 then
-                    state.CurCodeSb.Append(String.Format("{{| {0} |}}", nextState.CurCodeSb.ToString())) |> ignore
-                else
-                    state.CurCodeSb.Append(String.Format("; {{| {0} |}}", nextState.CurCodeSb.ToString())) |> ignore
-            | _ ->
-                state.CurCodeSb.Append(String.Format("; {0}: {{| {1} |}}", curKey, nextState.CurCodeSb.ToString())) |> ignore
+            let curCodeSb =
+                match state.Parent with
+                | JsonValue.Record(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s: {| %s |}" curKey nextState.CurCodeSb
+                    else
+                        sprintf "; %s: {| %s |}" curKey nextState.CurCodeSb
+                | JsonValue.Array(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "{| %s |}" nextState.CurCodeSb
+                    else
+                        sprintf "; {| %s |}" nextState.CurCodeSb
+                | _ ->
+                    sprintf "; %s: {| %s |}" curKey nextState.CurCodeSb
             
-            { state with CurSb = state.CurSb; CurCodeSb = state.CurCodeSb; Types = curType::nextState.Types }
+            { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::nextState.Types }
         | JsonValue.Array(arr) ->
             let curPath = addPath state.ParentPath curKey
             let indent3 = indent2 + String(' ',indentSpaces)
 
             let nextState =
-                let hd =
-                    match Array.tryHead arr with
-                    | None ->
-                        JsonValue.Float(0.)
-                    | Some(hd) ->
-                        hd
-
-                getTypes { state with ParentPath = curPath; Parent = curVal; CurSb = StringBuilder(); CurCodeSb = StringBuilder(); Types = state.Types } ("item",hd)
+                match Array.tryHead arr with
+                | None ->
+                    // Assume type is float array
+                    { state with CurSb = "type + child sb"; CurCodeSb = state.CurCodeSb + "; curKey:string seq"; Types = "curType seqqy"::state.Types }
+                | Some(hd) ->
+                    getTypes { state with ParentPath = curPath; Parent = curVal; CurSb = ""; CurCodeSb = ""; Types = state.Types } ("item",hd)
             
             let curType =
-                StringBuilder()
-                |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>{2} seq</code></summary>", baseIndent, pathToType curPath, nextState.CurCodeSb.ToString()))
-                |> fun sb -> sb.AppendLine(String.Format("{0}type {1}() =", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}let item = {1}()", indent, pathToType (addPath curPath "item")))
-                |> fun sb -> sb.AppendLine()
-                |> fun sb -> sb.AppendLine(String.Format("{0}member this.Set (o:{1} seq) =", indent, nextState.CurCodeSb.ToString()))
-                |> fun sb -> sb.AppendLine(String.Format("{0}send \"{1}\"", indent2, "##JSON##"))
-                |> fun sb -> sb.AppendLine()
-                |> fun sb -> sb.AppendLine(String.Format("{0}member this.Item", indent))
-                |> fun sb -> sb.AppendLine(String.Format("{0}with get(_) =", indent2))
-                |> fun sb -> sb.AppendLine(String.Format("{0}item", indent3))
-                |> fun sb -> sb.ToString()
+                ""
+                >~> sprintf "%s///<summary>%s : <code>%s seq</code></summary>" baseIndent (pathToType curPath) nextState.CurCodeSb
+                >~> sprintf "%stype %s() =" baseIndent (pathToType curPath)
+                >~> sprintf "%slet item = %s()" indent (pathToType (addPath curPath "item"))
+                >~> ""
+                >~> sprintf "%smember this.Set (o:%s seq) =" indent nextState.CurCodeSb
+                >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
+                >~> ""
+                >~> sprintf "%smember this.Item" indent
+                >~> sprintf "%swith get(_) =" indent2
+                >~> sprintf "%sitem" indent3
             
-            state.CurSb
-            |> fun sb -> sb.AppendLine()
-            |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>{2} seq</code></summary>", indent, pathToType curPath, nextState.CurCodeSb.ToString()))
-            |> fun sb -> sb.AppendLine(String.Format("{0}member this.{1} = {2}()", indent, curKey, pathToType curPath))
-            |> ignore
+            let curSb = 
+                state.CurSb
+                >~> ""
+                >~> sprintf "%s///<summary>%s : <code>%s seq</code></summary>" indent (pathToType curPath) nextState.CurCodeSb
+                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
 
-            match state.Parent with
-            | JsonValue.Array(_) ->
-                if state.CurCodeSb.Length = 0 then
-                    state.CurCodeSb.Append(String.Format("{0} seq", nextState.CurCodeSb.ToString())) |> ignore
-                else
-                    state.CurCodeSb.Append(String.Format("; {0} seq", nextState.CurCodeSb.ToString())) |> ignore
-            | _ ->
-                state.CurCodeSb.Append(String.Format("; {0}:{1} seq", curKey, nextState.CurCodeSb.ToString())) |> ignore
+            let curCodeSb =
+                match state.Parent with
+                | JsonValue.Array(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s seq" nextState.CurCodeSb
+                    else
+                        sprintf "; %s seq" nextState.CurCodeSb
+                | _ ->
+                    sprintf "; %s:%s seq" curKey nextState.CurCodeSb
             
-            { state with CurSb = state.CurSb; CurCodeSb = state.CurCodeSb; Types = curType::nextState.Types }
+            { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::nextState.Types }
         | JsonValue.String(_) ->
             let curPath = addPath state.ParentPath curKey
 
-            state.CurSb
-            |> fun sb -> sb.AppendLine()
-            |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>string</code></summary>", indent, curKey))
-            |> fun sb -> sb.AppendLine(String.Format("{0}member this.{1} = {2}()", indent, curKey, pathToType curPath))
-            |> ignore
+            let curSb = 
+                state.CurSb
+                >~> ""
+                >~> sprintf "%s///<summary>%s : <code>string</code></summary>" indent curKey
+                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
 
-            match state.Parent with
-            | JsonValue.Record(_) ->
-                if state.CurCodeSb.Length = 0 then
-                    state.CurCodeSb.Append(String.Format("{0}:string", curKey)) |> ignore
-                else
-                    state.CurCodeSb.Append(String.Format("; {0}:string", curKey)) |> ignore
-            | _ ->
-                state.CurCodeSb.Append("string") |> ignore
+            let curCodeSb =
+                match state.Parent with
+                | JsonValue.Record(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s:string" curKey
+                    else
+                        sprintf "; %s:string" curKey
+                | _ ->
+                    sprintf "string"
 
             let curType =
-                StringBuilder()
-                |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>string</code></summary>", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}type {1}() =", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}member this.Set (o:string) =", indent))
-                |> fun sb -> sb.AppendLine(String.Format("{0}send \"{1}\"", indent2, "##JSON##"))
-                |> fun sb -> sb.ToString()
+                ""
+                >~> sprintf "%s///<summary>%s : <code>string</code></summary>" baseIndent (pathToType curPath)
+                >~> sprintf "%stype %s() =" baseIndent (pathToType curPath)
+                >~> sprintf "%smember this.Set (o:string) =" indent
+                >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
 
-            { state with CurSb = state.CurSb; CurCodeSb = state.CurCodeSb; Types = curType::state.Types }
+            { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::state.Types }
         | JsonValue.Float(_) ->
             let curPath = addPath state.ParentPath curKey
 
-            state.CurSb
-            |> fun sb -> sb.AppendLine()
-            |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>float</code></summary>", indent, curKey))
-            |> fun sb -> sb.AppendLine(String.Format("{0}member this.{1} = {2}()", indent, curKey, pathToType curPath))
-            |> ignore
+            let curSb = 
+                state.CurSb
+                >~> ""
+                >~> sprintf "%s///<summary>%s : <code>float</code></summary>" indent curKey
+                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
 
-            match state.Parent with
-            | JsonValue.Record(_) ->
-                if state.CurCodeSb.Length = 0 then
-                    state.CurCodeSb.Append(String.Format("{0}:float", curKey)) |> ignore
-                else
-                    state.CurCodeSb.Append(String.Format("; {0}:float", curKey)) |> ignore
-            | _ ->
-                state.CurCodeSb.Append("float") |> ignore
+            let curCodeSb =
+                match state.Parent with
+                | JsonValue.Record(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s:float" curKey
+                    else
+                        sprintf "; %s:float" curKey
+                | _ ->
+                    sprintf "float"
 
             let curType =
-                StringBuilder()
-                |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>float</code></summary>", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}type {1}() =", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}member this.Set (o:float) =", indent))
-                |> fun sb -> sb.AppendLine(String.Format("{0}send \"{1}\"", indent2, "##JSON##"))
-                |> fun sb -> sb.ToString()
+                ""
+                >~> sprintf "%s///<summary>%s : <code>float</code></summary>" baseIndent (pathToType curPath)
+                >~> sprintf "%stype %s() =" baseIndent (pathToType curPath)
+                >~> sprintf "%smember this.Set (o:float) =" indent
+                >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
 
-            { state with CurSb = state.CurSb; CurCodeSb = state.CurCodeSb; Types = curType::state.Types }
+            { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::state.Types }
         | JsonValue.Number(_) ->
             let curPath = addPath state.ParentPath curKey
 
-            state.CurSb
-            |> fun sb -> sb.AppendLine()
-            |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>int</code></summary>", indent, curKey))
-            |> fun sb -> sb.AppendLine(String.Format("{0}member this.{1} = {2}()", indent, curKey, pathToType curPath))
-            |> ignore
+            let curSb = 
+                state.CurSb
+                >~> ""
+                >~> sprintf "%s///<summary>%s : <code>int</code></summary>" indent curKey
+                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
 
-            match state.Parent with
-            | JsonValue.Record(_) ->
-                if state.CurCodeSb.Length = 0 then
-                    state.CurCodeSb.Append(String.Format("{0}:int", curKey)) |> ignore
-                else
-                    state.CurCodeSb.Append(String.Format("; {0}:int", curKey)) |> ignore
-            | _ ->
-                state.CurCodeSb.Append("int") |> ignore
+            let curCodeSb =
+                match state.Parent with
+                | JsonValue.Record(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s:int" curKey
+                    else
+                        sprintf "; %s:int" curKey
+                | _ ->
+                    sprintf "int"
 
             let curType =
-                StringBuilder()
-                |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>int</code></summary>", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}type {1}() =", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}member this.Set (o:int) =", indent))
-                |> fun sb -> sb.AppendLine(String.Format("{0}send \"{1}\"", indent2, "##JSON##"))
-                |> fun sb -> sb.ToString()
+                ""
+                >~> sprintf "%s///<summary>%s : <code>int</code></summary>" baseIndent (pathToType curPath)
+                >~> sprintf "%stype %s() =" baseIndent (pathToType curPath)
+                >~> sprintf "%smember this.Set (o:int) =" indent
+                >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
 
-            { state with CurSb = state.CurSb; CurCodeSb = state.CurCodeSb; Types = curType::state.Types }
+            { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::state.Types }
         | JsonValue.Boolean(_) ->
             let curPath = addPath state.ParentPath curKey
 
-            state.CurSb
-            |> fun sb -> sb.AppendLine()
-            |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>bool</code></summary>", indent, curKey))
-            |> fun sb -> sb.AppendLine(String.Format("{0}member this.{1} = {2}()", indent, curKey, pathToType curPath))
-            |> ignore
+            let curSb = 
+                state.CurSb
+                >~> ""
+                >~> sprintf "%s///<summary>%s : <code>bool</code></summary>" indent curKey
+                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
 
-            match state.Parent with
-            | JsonValue.Record(_) ->
-                if state.CurCodeSb.Length = 0 then
-                    state.CurCodeSb.Append(String.Format("{0}:bool", curKey)) |> ignore
-                else
-                    state.CurCodeSb.Append(String.Format("; {0}:bool", curKey)) |> ignore
-            | _ ->
-                state.CurCodeSb.Append("bool") |> ignore
+            let curCodeSb =
+                match state.Parent with
+                | JsonValue.Record(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s:bool" curKey
+                    else
+                        sprintf "; %s:bool" curKey
+                | _ ->
+                    sprintf "bool"
 
             let curType =
-                StringBuilder()
-                |> fun sb -> sb.AppendLine(String.Format("{0}///<summary>{1} : <code>bool</code></summary>", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}type {1}() =", baseIndent, pathToType curPath))
-                |> fun sb -> sb.AppendLine(String.Format("{0}member this.Set (o:bool) =", indent))
-                |> fun sb -> sb.AppendLine(String.Format("{0}send \"{1}\"", indent2, "##JSON##"))
-                |> fun sb -> sb.ToString()
+                ""
+                >~> sprintf "%s///<summary>%s : <code>bool</code></summary>" baseIndent (pathToType curPath)
+                >~> sprintf "%stype %s() =" baseIndent (pathToType curPath)
+                >~> sprintf "%smember this.Set (o:bool) =" indent
+                >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
 
-            { state with CurSb = state.CurSb; CurCodeSb = state.CurCodeSb; Types = curType::state.Types }
+            { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::state.Types }
         | _ ->
             state
 
     let fig = JsonValue.Parse json
 
-    let nextState = getTypes { ParentPath = []; Parent = fig; CurSb = StringBuilder(); CurCodeSb = StringBuilder("{{| "); Types = [] } ("figure",fig)
+    let nextState = getTypes { ParentPath = []; Parent = fig; CurSb = ""; CurCodeSb = "{| "; Types = [] } ("figure",fig)
     let typeStr =
         nextState.Types
         |> List.rev
-        |> List.fold (fun (sb:StringBuilder) s -> sb.AppendLine(s)) (StringBuilder())
-        |> fun sb -> sb.ToString()
+        |> List.fold (>~>) ""
 
     let sb = StringBuilder()
     sb.Clear() |> ignore
     sb.AppendLine(sprintf "namespace %s\n\n" namespaceName) |> ignore
-    //sb.AppendLine("open FPlot.Common\n\n") |> ignore
     sb.AppendLine(sprintf "module %s =" moduleName) |> ignore
     sb.AppendLine("    let send s = ()") |> ignore
     sb.AppendLine(typeStr) |> ignore
@@ -311,12 +309,7 @@ let main argv =
     //let json = "{\"title\":\"Title\",\"xaxis\":{\"name\":\"x\",\"font\":\"arial\"},\"range\":[0.0,10.0],\"data\":[[{\"t\":0,\"v\":0.0,\"point\":{\"name\":\"a1\"}},{\"t\":1,\"v\":1.0,\"point\":{\"name\":\"b1\"}}],[{\"t\":0,\"v\":2.0,\"point\":{\"name\":\"a2\"}},{\"t\":1,\"v\":3.0,\"point\":{\"name\":\"b2\"}}],[{\"t\":0,\"v\":4.0,\"point\":{\"name\":\"a3\"}},{\"t\":1,\"v\":5.0,\"point\":{\"name\":\"b3\"}}]],\"legend\":[{\"label\":\"one\"},{\"label\":\"two\"}]}"
     let fsStr = jsonToSchema (sprintf "FPlot.%s" chartType) "Figure" json
 
-    printfn "Fsharp Code for %s:" chartType
-    printfn "========\n"
-
-    printfn "%s" fsStr
-    storeSchema (sprintf "./%s.Figure.Test.fs" chartType) fsStr
-
-    printfn "========\n"
+    printfn "Generating F# code from JSON %s object..." chartType
+    storeSchema (sprintf "./FPlot/%s.Figure.fs" chartType) fsStr
 
     0
