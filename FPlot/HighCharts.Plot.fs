@@ -3,7 +3,6 @@
 module Plot =
     open System.Diagnostics
     open FPlot.StringUtils
-    open FPlot.Common
     open Server
     open Figure
 
@@ -67,13 +66,14 @@ module Plot =
         printfn "Fetched: %A (%A)" resp statusCode
         resp
 
-    let setFig (fig:int) (target:IFigureElement) (value:string) =
-        let targetJson = target.GetJson().Replace("##VALUE##",value)
+    let setFig (fig:int) (value:string) =
+        // let targetJson = target.GetJson().Replace("##VALUE##",value)
 
-        let jsonTemplate = sprintf "{\"Operation\":\"update\",\"target\":%i,\"Json\":\"##JSON##\"}" fig
+        // let jsonTemplate = sprintf "{\"Operation\":\"update\",\"target\":%i,\"Json\":\"##JSON##\"}" fig
 
-        let json =
-            jsonTemplate
-            |> strRep "##JSON##" (targetJson.Replace("\"","\\\""))
+        // let json =
+        //     jsonTemplate
+        //     |> strRep "##JSON##" (targetJson.Replace("\"","\\\""))
 
-        send json |> ignore
+        // send json |> ignore
+        ()

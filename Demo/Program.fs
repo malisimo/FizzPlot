@@ -19,9 +19,6 @@ let main argv =
     xlabel "x"
     ylabel "y"
 
-    setFig 0 fig.xAxis.title.text "\"My X\""
-    setFig 0 fig.title.text "\"Set Title\""
-
     printfn "Any key to update data..."
     Console.ReadKey() |> ignore
 
