@@ -74,9 +74,16 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
         else
             p
             |> List.reduce (fun s p -> sprintf "%s:{%s}" p s)
+     
+    let deKeyword s =
+        match s with
+        | "type" -> "_type"
+        | "global" -> "_global"
+        | _ -> s
     
     let rec getTypes (state:GetTypesState) (current:string*JsonValue) =
         let curKey,curVal = current
+        let curKeySafe = deKeyword curKey
         let indent = baseIndent + String(' ',indentSpaces)
         let indent2 = indent + String(' ',indentSpaces)
         
@@ -105,22 +112,22 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 state.CurSb
                 >~> ""
                 >~> sprintf "%s///<summary>%s : <code>{| %s |}</code></summary>" indent (pathToType curPath) nextState.CurCodeSb
-                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
+                >~> sprintf "%smember this.%s = %s()" indent curKeySafe (pathToType curPath)
 
             let curCodeSb =
                 match state.Parent with
                 | JsonValue.Record(_) ->
                     if String.IsNullOrEmpty state.CurCodeSb then
-                        sprintf "%s: {| %s |}" curKey nextState.CurCodeSb
+                        sprintf "%s: {| %s |}" curKeySafe nextState.CurCodeSb
                     else
-                        sprintf "; %s: {| %s |}" curKey nextState.CurCodeSb
+                        sprintf "; %s: {| %s |}" curKeySafe nextState.CurCodeSb
                 | JsonValue.Array(_) ->
                     if String.IsNullOrEmpty state.CurCodeSb then
                         sprintf "{| %s |}" nextState.CurCodeSb
                     else
                         sprintf "; {| %s |}" nextState.CurCodeSb
                 | _ ->
-                    sprintf "; %s: {| %s |}" curKey nextState.CurCodeSb
+                    sprintf "; %s: {| %s |}" curKeySafe nextState.CurCodeSb
             
             { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::nextState.Types }
         | JsonValue.Array(arr) ->
@@ -152,17 +159,22 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 state.CurSb
                 >~> ""
                 >~> sprintf "%s///<summary>%s : <code>%s seq</code></summary>" indent (pathToType curPath) nextState.CurCodeSb
-                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
+                >~> sprintf "%smember this.%s = %s()" indent curKeySafe (pathToType curPath)
 
             let curCodeSb =
                 match state.Parent with
+                | JsonValue.Record(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s:%s seq" curKeySafe nextState.CurCodeSb
+                    else
+                        sprintf "; %s:%s seq" curKeySafe nextState.CurCodeSb
                 | JsonValue.Array(_) ->
                     if String.IsNullOrEmpty state.CurCodeSb then
                         sprintf "%s seq" nextState.CurCodeSb
                     else
                         sprintf "; %s seq" nextState.CurCodeSb
                 | _ ->
-                    sprintf "; %s:%s seq" curKey nextState.CurCodeSb
+                    sprintf "; %s:%s seq" curKeySafe nextState.CurCodeSb
             
             { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::nextState.Types }
         | JsonValue.String(_) ->
@@ -171,16 +183,16 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
             let curSb = 
                 state.CurSb
                 >~> ""
-                >~> sprintf "%s///<summary>%s : <code>string</code></summary>" indent curKey
-                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
+                >~> sprintf "%s///<summary>%s : <code>string</code></summary>" indent curKeySafe
+                >~> sprintf "%smember this.%s = %s()" indent curKeySafe (pathToType curPath)
 
             let curCodeSb =
                 match state.Parent with
                 | JsonValue.Record(_) ->
                     if String.IsNullOrEmpty state.CurCodeSb then
-                        sprintf "%s:string" curKey
+                        sprintf "%s:string" curKeySafe
                     else
-                        sprintf "; %s:string" curKey
+                        sprintf "; %s:string" curKeySafe
                 | _ ->
                     sprintf "string"
 
@@ -198,16 +210,16 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
             let curSb = 
                 state.CurSb
                 >~> ""
-                >~> sprintf "%s///<summary>%s : <code>float</code></summary>" indent curKey
-                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
+                >~> sprintf "%s///<summary>%s : <code>float</code></summary>" indent curKeySafe
+                >~> sprintf "%smember this.%s = %s()" indent curKeySafe (pathToType curPath)
 
             let curCodeSb =
                 match state.Parent with
                 | JsonValue.Record(_) ->
                     if String.IsNullOrEmpty state.CurCodeSb then
-                        sprintf "%s:float" curKey
+                        sprintf "%s:float" curKeySafe
                     else
-                        sprintf "; %s:float" curKey
+                        sprintf "; %s:float" curKeySafe
                 | _ ->
                     sprintf "float"
 
@@ -225,16 +237,16 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
             let curSb = 
                 state.CurSb
                 >~> ""
-                >~> sprintf "%s///<summary>%s : <code>int</code></summary>" indent curKey
-                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
+                >~> sprintf "%s///<summary>%s : <code>int</code></summary>" indent curKeySafe
+                >~> sprintf "%smember this.%s = %s()" indent curKeySafe (pathToType curPath)
 
             let curCodeSb =
                 match state.Parent with
                 | JsonValue.Record(_) ->
                     if String.IsNullOrEmpty state.CurCodeSb then
-                        sprintf "%s:int" curKey
+                        sprintf "%s:int" curKeySafe
                     else
-                        sprintf "; %s:int" curKey
+                        sprintf "; %s:int" curKeySafe
                 | _ ->
                     sprintf "int"
 
@@ -252,16 +264,16 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
             let curSb = 
                 state.CurSb
                 >~> ""
-                >~> sprintf "%s///<summary>%s : <code>bool</code></summary>" indent curKey
-                >~> sprintf "%smember this.%s = %s()" indent curKey (pathToType curPath)
+                >~> sprintf "%s///<summary>%s : <code>bool</code></summary>" indent curKeySafe
+                >~> sprintf "%smember this.%s = %s()" indent curKeySafe (pathToType curPath)
 
             let curCodeSb =
                 match state.Parent with
                 | JsonValue.Record(_) ->
                     if String.IsNullOrEmpty state.CurCodeSb then
-                        sprintf "%s:bool" curKey
+                        sprintf "%s:bool" curKeySafe
                     else
-                        sprintf "; %s:bool" curKey
+                        sprintf "; %s:bool" curKeySafe
                 | _ ->
                     sprintf "bool"
 
@@ -273,12 +285,37 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
 
             { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::state.Types }
-        | _ ->
-            state
+        | JsonValue.Null ->            
+            let curPath = addPath state.ParentPath curKey
+
+            let curSb = 
+                state.CurSb
+                >~> ""
+                >~> sprintf "%s///<summary>%s : <code>float</code></summary>" indent curKeySafe
+                >~> sprintf "%smember this.%s = %s()" indent curKeySafe (pathToType curPath)
+
+            let curCodeSb =
+                match state.Parent with
+                | JsonValue.Record(_) ->
+                    if String.IsNullOrEmpty state.CurCodeSb then
+                        sprintf "%s:float" curKeySafe
+                    else
+                        sprintf "; %s:float" curKeySafe
+                | _ ->
+                    sprintf "float"
+
+            let curType =
+                ""
+                >~> sprintf "%s///<summary>%s : <code>float</code></summary>" baseIndent (pathToType curPath)
+                >~> sprintf "%stype %s() =" baseIndent (pathToType curPath)
+                >~> sprintf "%smember this.Set (o:float) =" indent
+                >~> sprintf "%ssend \"%s\"" indent2 "##JSON##"
+
+            { state with CurSb = curSb; CurCodeSb = state.CurCodeSb + curCodeSb; Types = curType::state.Types }
 
     let fig = JsonValue.Parse json
 
-    let nextState = getTypes { ParentPath = []; Parent = fig; CurSb = ""; CurCodeSb = "{| "; Types = [] } ("figure",fig)
+    let nextState = getTypes { ParentPath = []; Parent = fig; CurSb = ""; CurCodeSb = ""; Types = [] } ("Figure",fig)
     let typeStr =
         nextState.Types
         |> List.rev

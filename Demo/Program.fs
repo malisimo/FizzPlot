@@ -19,6 +19,8 @@ let main argv =
     xlabel "x"
     ylabel "y"
 
+    fig.series.[0].name.Set "Mike"
+
     printfn "Any key to update data..."
     Console.ReadKey() |> ignore
 
