@@ -25,8 +25,7 @@ title "data1"
 xlabel "x"
 ylabel "y"
 
-setFig 0 fig.xAxis.title.text "\"My X\""
-setFig 0 fig.title.text "\"Set Title\""
+fig.xAxis.[0].title.text.Set "\"My X\""
 
 // Change the data in current series 
 let data2 = [ for i in 0..n -> (0.1 * ~~i, 5.0 + rand.NextDouble() + ~~i) ]

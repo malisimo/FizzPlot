@@ -51,6 +51,14 @@ module internal Server =
     let send json =
         asyncSend false json |> Async.RunSynchronously |> ignore
 
+    let add target json =
+        let msg = sprintf "{\"Operation\":\"add\",\"target\":%i,\"Json\":\"%s}\"}" target json
+        send msg
+
+    let update target json =
+        let msg = sprintf "{\"Operation\":\"update\",\"target\":%i,\"Json\":\"%s}\"}" target json
+        send msg
+
     let killServer() =
         match serverProc with
         | Some(proc) ->

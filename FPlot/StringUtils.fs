@@ -1,6 +1,6 @@
 namespace FPlot
 
-module StringUtils =
+module internal StringUtils =
     open System
     
     let strRep (strFrom:string) (strTo:string) (str:string) =
