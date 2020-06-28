@@ -9,7 +9,7 @@ module internal Server =
     open System.Net
     open System.Net.Http
 
-    let serverAddress = "https://localhost:5001"
+    let serverAddress = "http://localhost:5000"
     let mutable serverProc:Process option = None
 
     let asyncSend wait json = async {
@@ -52,11 +52,11 @@ module internal Server =
         asyncSend false json |> Async.RunSynchronously |> ignore
 
     let add target json =
-        let msg = sprintf "{\"Operation\":\"add\",\"target\":%i,\"Json\":\"%s}\"}" target json
+        let msg = sprintf "{\"Operation\":\"add\",\"target\":%i,\"Json\":\"%s\"}" target json
         send msg
 
     let update target json =
-        let msg = sprintf "{\"Operation\":\"update\",\"target\":%i,\"Json\":\"%s}\"}" target json
+        let msg = sprintf "{\"Operation\":\"update\",\"target\":%i,\"Json\":\"%s\"}" target json
         send msg
 
     let killServer() =
@@ -109,7 +109,7 @@ module internal Server =
         
         waitForProcessStart 0 proc
 
-        Process.Start("cmd", sprintf "/C start %s" "https://localhost:5001") |> ignore
+        Process.Start("cmd", sprintf "/C start %s" "http://localhost:5000") |> ignore
 
         proc
 

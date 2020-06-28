@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Compile Include="StringUtils.fs" />
-    <Compile Include="JsonValue.fs" />
     <Compile Include="HighCharts.Server.fs" />
     <Compile Include="HighCharts.Figure.fs" />
     <Compile Include="HighCharts.Plot.fs" />
