@@ -87,9 +87,9 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 
     let pathToJson p =
         p
-        |> List.fold (fun s p -> sprintf "\\\"%s\\\":{%s}" p s) "##VALUE##"
+        |> List.fold (fun s p -> sprintf "\\\\\\\"%s\\\\\\\":{%s}" p s) "##VALUE##"
         |> strRep "{##VALUE##}" ("%" + "s")
-        |> stripStart "\\\"Figure\\\":"
+        |> stripStart "\\\\\\\"Figure\\\\\\\":"
      
     let deKeyword s =
         match s with
@@ -262,7 +262,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%s///<summary>%s : <code>string</code></summary>" ~~1 (pathToType curPath)
                 >~> sprintf "%stype %s() =" ~~1 (pathToType curPath)
                 >~> sprintf "%sstatic member ToJson (o:string) =" ~~2
-                >~> sprintf "%ssprintf \"%ss\" o" ~~3 "%"
+                >~> sprintf "%ssprintf \"\\\\\\\"%ss\\\\\\\"\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:string) =" ~~2
                 >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)

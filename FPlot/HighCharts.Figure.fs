@@ -8,10 +8,10 @@ module Figure =
     ///<summary>Figure_Colors_Item : <code>string</code></summary>
     type Figure_Colors_Item() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"colors\":{\"item\":%s}}" (Figure_Colors_Item.ToJson o))
+            update 0 (sprintf "{\\\"colors\\\":{\\\"item\\\":%s}}" (Figure_Colors_Item.ToJson o))
 
     ///<summary>Figure_Colors : <code>string seq</code></summary>
     type Figure_Colors() =
@@ -25,7 +25,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:string seq) =
-            update 0 (sprintf "{\"colors\":%s}" (Figure_Colors.ToJson o))
+            update 0 (sprintf "{\\\"colors\\\":%s}" (Figure_Colors.ToJson o))
 
         member this.Item
             with get(_) =
@@ -34,10 +34,10 @@ module Figure =
     ///<summary>Figure_Symbols_Item : <code>string</code></summary>
     type Figure_Symbols_Item() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"symbols\":{\"item\":%s}}" (Figure_Symbols_Item.ToJson o))
+            update 0 (sprintf "{\\\"symbols\\\":{\\\"item\\\":%s}}" (Figure_Symbols_Item.ToJson o))
 
     ///<summary>Figure_Symbols : <code>string seq</code></summary>
     type Figure_Symbols() =
@@ -51,7 +51,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:string seq) =
-            update 0 (sprintf "{\"symbols\":%s}" (Figure_Symbols.ToJson o))
+            update 0 (sprintf "{\\\"symbols\\\":%s}" (Figure_Symbols.ToJson o))
 
         member this.Item
             with get(_) =
@@ -60,18 +60,18 @@ module Figure =
     ///<summary>Figure_Lang_Loading : <code>string</code></summary>
     type Figure_Lang_Loading() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"loading\":%s}}" (Figure_Lang_Loading.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"loading\\\":%s}}" (Figure_Lang_Loading.ToJson o))
 
     ///<summary>Figure_Lang_Months_Item : <code>string</code></summary>
     type Figure_Lang_Months_Item() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"months\":{\"item\":%s}}}" (Figure_Lang_Months_Item.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"months\\\":{\\\"item\\\":%s}}}" (Figure_Lang_Months_Item.ToJson o))
 
     ///<summary>Figure_Lang_Months : <code>string seq</code></summary>
     type Figure_Lang_Months() =
@@ -85,7 +85,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:string seq) =
-            update 0 (sprintf "{\"lang\":{\"months\":%s}}" (Figure_Lang_Months.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"months\\\":%s}}" (Figure_Lang_Months.ToJson o))
 
         member this.Item
             with get(_) =
@@ -94,10 +94,10 @@ module Figure =
     ///<summary>Figure_Lang_ShortMonths_Item : <code>string</code></summary>
     type Figure_Lang_ShortMonths_Item() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"shortMonths\":{\"item\":%s}}}" (Figure_Lang_ShortMonths_Item.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"shortMonths\\\":{\\\"item\\\":%s}}}" (Figure_Lang_ShortMonths_Item.ToJson o))
 
     ///<summary>Figure_Lang_ShortMonths : <code>string seq</code></summary>
     type Figure_Lang_ShortMonths() =
@@ -111,7 +111,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:string seq) =
-            update 0 (sprintf "{\"lang\":{\"shortMonths\":%s}}" (Figure_Lang_ShortMonths.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"shortMonths\\\":%s}}" (Figure_Lang_ShortMonths.ToJson o))
 
         member this.Item
             with get(_) =
@@ -120,10 +120,10 @@ module Figure =
     ///<summary>Figure_Lang_Weekdays_Item : <code>string</code></summary>
     type Figure_Lang_Weekdays_Item() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"weekdays\":{\"item\":%s}}}" (Figure_Lang_Weekdays_Item.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"weekdays\\\":{\\\"item\\\":%s}}}" (Figure_Lang_Weekdays_Item.ToJson o))
 
     ///<summary>Figure_Lang_Weekdays : <code>string seq</code></summary>
     type Figure_Lang_Weekdays() =
@@ -137,7 +137,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:string seq) =
-            update 0 (sprintf "{\"lang\":{\"weekdays\":%s}}" (Figure_Lang_Weekdays.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"weekdays\\\":%s}}" (Figure_Lang_Weekdays.ToJson o))
 
         member this.Item
             with get(_) =
@@ -146,18 +146,18 @@ module Figure =
     ///<summary>Figure_Lang_DecimalPoint : <code>string</code></summary>
     type Figure_Lang_DecimalPoint() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"decimalPoint\":%s}}" (Figure_Lang_DecimalPoint.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"decimalPoint\\\":%s}}" (Figure_Lang_DecimalPoint.ToJson o))
 
     ///<summary>Figure_Lang_NumericSymbols_Item : <code>string</code></summary>
     type Figure_Lang_NumericSymbols_Item() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"numericSymbols\":{\"item\":%s}}}" (Figure_Lang_NumericSymbols_Item.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"numericSymbols\\\":{\\\"item\\\":%s}}}" (Figure_Lang_NumericSymbols_Item.ToJson o))
 
     ///<summary>Figure_Lang_NumericSymbols : <code>string seq</code></summary>
     type Figure_Lang_NumericSymbols() =
@@ -171,7 +171,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:string seq) =
-            update 0 (sprintf "{\"lang\":{\"numericSymbols\":%s}}" (Figure_Lang_NumericSymbols.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"numericSymbols\\\":%s}}" (Figure_Lang_NumericSymbols.ToJson o))
 
         member this.Item
             with get(_) =
@@ -180,90 +180,90 @@ module Figure =
     ///<summary>Figure_Lang_ResetZoom : <code>string</code></summary>
     type Figure_Lang_ResetZoom() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"resetZoom\":%s}}" (Figure_Lang_ResetZoom.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"resetZoom\\\":%s}}" (Figure_Lang_ResetZoom.ToJson o))
 
     ///<summary>Figure_Lang_ResetZoomTitle : <code>string</code></summary>
     type Figure_Lang_ResetZoomTitle() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"resetZoomTitle\":%s}}" (Figure_Lang_ResetZoomTitle.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"resetZoomTitle\\\":%s}}" (Figure_Lang_ResetZoomTitle.ToJson o))
 
     ///<summary>Figure_Lang_ThousandsSep : <code>string</code></summary>
     type Figure_Lang_ThousandsSep() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"thousandsSep\":%s}}" (Figure_Lang_ThousandsSep.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"thousandsSep\\\":%s}}" (Figure_Lang_ThousandsSep.ToJson o))
 
     ///<summary>Figure_Lang_ViewFullscreen : <code>string</code></summary>
     type Figure_Lang_ViewFullscreen() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"viewFullscreen\":%s}}" (Figure_Lang_ViewFullscreen.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"viewFullscreen\\\":%s}}" (Figure_Lang_ViewFullscreen.ToJson o))
 
     ///<summary>Figure_Lang_ExitFullscreen : <code>string</code></summary>
     type Figure_Lang_ExitFullscreen() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"exitFullscreen\":%s}}" (Figure_Lang_ExitFullscreen.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"exitFullscreen\\\":%s}}" (Figure_Lang_ExitFullscreen.ToJson o))
 
     ///<summary>Figure_Lang_PrintChart : <code>string</code></summary>
     type Figure_Lang_PrintChart() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"printChart\":%s}}" (Figure_Lang_PrintChart.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"printChart\\\":%s}}" (Figure_Lang_PrintChart.ToJson o))
 
     ///<summary>Figure_Lang_DownloadPNG : <code>string</code></summary>
     type Figure_Lang_DownloadPNG() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"downloadPNG\":%s}}" (Figure_Lang_DownloadPNG.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"downloadPNG\\\":%s}}" (Figure_Lang_DownloadPNG.ToJson o))
 
     ///<summary>Figure_Lang_DownloadJPEG : <code>string</code></summary>
     type Figure_Lang_DownloadJPEG() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"downloadJPEG\":%s}}" (Figure_Lang_DownloadJPEG.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"downloadJPEG\\\":%s}}" (Figure_Lang_DownloadJPEG.ToJson o))
 
     ///<summary>Figure_Lang_DownloadPDF : <code>string</code></summary>
     type Figure_Lang_DownloadPDF() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"downloadPDF\":%s}}" (Figure_Lang_DownloadPDF.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"downloadPDF\\\":%s}}" (Figure_Lang_DownloadPDF.ToJson o))
 
     ///<summary>Figure_Lang_DownloadSVG : <code>string</code></summary>
     type Figure_Lang_DownloadSVG() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"downloadSVG\":%s}}" (Figure_Lang_DownloadSVG.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"downloadSVG\\\":%s}}" (Figure_Lang_DownloadSVG.ToJson o))
 
     ///<summary>Figure_Lang_ContextButtonTitle : <code>string</code></summary>
     type Figure_Lang_ContextButtonTitle() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"lang\":{\"contextButtonTitle\":%s}}" (Figure_Lang_ContextButtonTitle.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":{\\\"contextButtonTitle\\\":%s}}" (Figure_Lang_ContextButtonTitle.ToJson o))
 
     ///<summary>Figure_Lang : <code>{| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}</code></summary>
     type Figure_Lang() = 
@@ -339,7 +339,7 @@ module Figure =
             sprintf "{\"loading\":%s,\"months\":%s,\"shortMonths\":%s,\"weekdays\":%s,\"decimalPoint\":%s,\"numericSymbols\":%s,\"resetZoom\":%s,\"resetZoomTitle\":%s,\"thousandsSep\":%s,\"viewFullscreen\":%s,\"exitFullscreen\":%s,\"printChart\":%s,\"downloadPNG\":%s,\"downloadJPEG\":%s,\"downloadPDF\":%s,\"downloadSVG\":%s,\"contextButtonTitle\":%s}" loading months shortMonths weekdays decimalPoint numericSymbols resetZoom resetZoomTitle thousandsSep viewFullscreen exitFullscreen printChart downloadPNG downloadJPEG downloadPDF downloadSVG contextButtonTitle
 
         member this.Set (o:{| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}) =
-            update 0 (sprintf "{\"lang\":%s}" (Figure_Lang.ToJson o))
+            update 0 (sprintf "{\\\"lang\\\":%s}" (Figure_Lang.ToJson o))
 
 
     ///<summary>Figure_Global : <code>{| dummy:string |}</code></summary>
@@ -349,7 +349,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"global\":%s}" (Figure_Global.ToJson o))
+            update 0 (sprintf "{\\\"global\\\":%s}" (Figure_Global.ToJson o))
 
 
     ///<summary>Figure_Time_TimezoneOffset : <code>int</code></summary>
@@ -358,7 +358,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"time\":{\"timezoneOffset\":%s}}" (Figure_Time_TimezoneOffset.ToJson o))
+            update 0 (sprintf "{\\\"time\\\":{\\\"timezoneOffset\\\":%s}}" (Figure_Time_TimezoneOffset.ToJson o))
 
     ///<summary>Figure_Time_UseUTC : <code>bool</code></summary>
     type Figure_Time_UseUTC() =
@@ -366,7 +366,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"time\":{\"useUTC\":%s}}" (Figure_Time_UseUTC.ToJson o))
+            update 0 (sprintf "{\\\"time\\\":{\\\"useUTC\\\":%s}}" (Figure_Time_UseUTC.ToJson o))
 
     ///<summary>Figure_Time : <code>{| timezoneOffset:int; useUTC:bool |}</code></summary>
     type Figure_Time() = 
@@ -382,7 +382,7 @@ module Figure =
             sprintf "{\"timezoneOffset\":%s,\"useUTC\":%s}" timezoneOffset useUTC
 
         member this.Set (o:{| timezoneOffset:int; useUTC:bool |}) =
-            update 0 (sprintf "{\"time\":%s}" (Figure_Time.ToJson o))
+            update 0 (sprintf "{\\\"time\\\":%s}" (Figure_Time.ToJson o))
 
 
     ///<summary>Figure_Chart_StyledMode : <code>bool</code></summary>
@@ -391,7 +391,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"chart\":{\"styledMode\":%s}}" (Figure_Chart_StyledMode.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"styledMode\\\":%s}}" (Figure_Chart_StyledMode.ToJson o))
 
     ///<summary>Figure_Chart_BorderRadius : <code>int</code></summary>
     type Figure_Chart_BorderRadius() =
@@ -399,7 +399,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"borderRadius\":%s}}" (Figure_Chart_BorderRadius.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"borderRadius\\\":%s}}" (Figure_Chart_BorderRadius.ToJson o))
 
     ///<summary>Figure_Chart_ColorCount : <code>int</code></summary>
     type Figure_Chart_ColorCount() =
@@ -407,15 +407,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"colorCount\":%s}}" (Figure_Chart_ColorCount.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"colorCount\\\":%s}}" (Figure_Chart_ColorCount.ToJson o))
 
     ///<summary>Figure_Chart_DefaultSeriesType : <code>string</code></summary>
     type Figure_Chart_DefaultSeriesType() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"chart\":{\"defaultSeriesType\":%s}}" (Figure_Chart_DefaultSeriesType.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"defaultSeriesType\\\":%s}}" (Figure_Chart_DefaultSeriesType.ToJson o))
 
     ///<summary>Figure_Chart_IgnoreHiddenSeries : <code>bool</code></summary>
     type Figure_Chart_IgnoreHiddenSeries() =
@@ -423,7 +423,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"chart\":{\"ignoreHiddenSeries\":%s}}" (Figure_Chart_IgnoreHiddenSeries.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"ignoreHiddenSeries\\\":%s}}" (Figure_Chart_IgnoreHiddenSeries.ToJson o))
 
     ///<summary>Figure_Chart_Spacing_Item : <code>int</code></summary>
     type Figure_Chart_Spacing_Item() =
@@ -431,7 +431,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"spacing\":{\"item\":%s}}}" (Figure_Chart_Spacing_Item.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"spacing\\\":{\\\"item\\\":%s}}}" (Figure_Chart_Spacing_Item.ToJson o))
 
     ///<summary>Figure_Chart_Spacing : <code>int seq</code></summary>
     type Figure_Chart_Spacing() =
@@ -445,7 +445,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"chart\":{\"spacing\":%s}}" (Figure_Chart_Spacing.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"spacing\\\":%s}}" (Figure_Chart_Spacing.ToJson o))
 
         member this.Item
             with get(_) =
@@ -457,7 +457,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"resetZoomButton\":{\"theme\":{\"zIndex\":%s}}}}" (Figure_Chart_ResetZoomButton_Theme_ZIndex.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"resetZoomButton\\\":{\\\"theme\\\":{\\\"zIndex\\\":%s}}}}" (Figure_Chart_ResetZoomButton_Theme_ZIndex.ToJson o))
 
     ///<summary>Figure_Chart_ResetZoomButton_Theme : <code>{| zIndex:int |}</code></summary>
     type Figure_Chart_ResetZoomButton_Theme() = 
@@ -469,16 +469,16 @@ module Figure =
             sprintf "{\"zIndex\":%s}" zIndex
 
         member this.Set (o:{| zIndex:int |}) =
-            update 0 (sprintf "{\"chart\":{\"resetZoomButton\":{\"theme\":%s}}}" (Figure_Chart_ResetZoomButton_Theme.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"resetZoomButton\\\":{\\\"theme\\\":%s}}}" (Figure_Chart_ResetZoomButton_Theme.ToJson o))
 
 
     ///<summary>Figure_Chart_ResetZoomButton_Position_Align : <code>string</code></summary>
     type Figure_Chart_ResetZoomButton_Position_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"chart\":{\"resetZoomButton\":{\"position\":{\"align\":%s}}}}" (Figure_Chart_ResetZoomButton_Position_Align.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"resetZoomButton\\\":{\\\"position\\\":{\\\"align\\\":%s}}}}" (Figure_Chart_ResetZoomButton_Position_Align.ToJson o))
 
     ///<summary>Figure_Chart_ResetZoomButton_Position_X : <code>int</code></summary>
     type Figure_Chart_ResetZoomButton_Position_X() =
@@ -486,7 +486,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"resetZoomButton\":{\"position\":{\"x\":%s}}}}" (Figure_Chart_ResetZoomButton_Position_X.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"resetZoomButton\\\":{\\\"position\\\":{\\\"x\\\":%s}}}}" (Figure_Chart_ResetZoomButton_Position_X.ToJson o))
 
     ///<summary>Figure_Chart_ResetZoomButton_Position_Y : <code>int</code></summary>
     type Figure_Chart_ResetZoomButton_Position_Y() =
@@ -494,7 +494,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"resetZoomButton\":{\"position\":{\"y\":%s}}}}" (Figure_Chart_ResetZoomButton_Position_Y.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"resetZoomButton\\\":{\\\"position\\\":{\\\"y\\\":%s}}}}" (Figure_Chart_ResetZoomButton_Position_Y.ToJson o))
 
     ///<summary>Figure_Chart_ResetZoomButton_Position : <code>{| align:string; x:int; y:int |}</code></summary>
     type Figure_Chart_ResetZoomButton_Position() = 
@@ -514,7 +514,7 @@ module Figure =
             sprintf "{\"align\":%s,\"x\":%s,\"y\":%s}" align x y
 
         member this.Set (o:{| align:string; x:int; y:int |}) =
-            update 0 (sprintf "{\"chart\":{\"resetZoomButton\":{\"position\":%s}}}" (Figure_Chart_ResetZoomButton_Position.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"resetZoomButton\\\":{\\\"position\\\":%s}}}" (Figure_Chart_ResetZoomButton_Position.ToJson o))
 
 
     ///<summary>Figure_Chart_ResetZoomButton : <code>{| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}</code></summary>
@@ -531,7 +531,7 @@ module Figure =
             sprintf "{\"theme\":%s,\"position\":%s}" theme position
 
         member this.Set (o:{| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}) =
-            update 0 (sprintf "{\"chart\":{\"resetZoomButton\":%s}}" (Figure_Chart_ResetZoomButton.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"resetZoomButton\\\":%s}}" (Figure_Chart_ResetZoomButton.ToJson o))
 
 
     ///<summary>Figure_Chart_Width : <code>float</code></summary>
@@ -540,7 +540,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"chart\":{\"width\":%s}}" (Figure_Chart_Width.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"width\\\":%s}}" (Figure_Chart_Width.ToJson o))
 
     ///<summary>Figure_Chart_Height : <code>float</code></summary>
     type Figure_Chart_Height() =
@@ -548,15 +548,15 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"chart\":{\"height\":%s}}" (Figure_Chart_Height.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"height\\\":%s}}" (Figure_Chart_Height.ToJson o))
 
     ///<summary>Figure_Chart_BorderColor : <code>string</code></summary>
     type Figure_Chart_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"chart\":{\"borderColor\":%s}}" (Figure_Chart_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"borderColor\\\":%s}}" (Figure_Chart_BorderColor.ToJson o))
 
     ///<summary>Figure_Chart_BackgroundColor_LinearGradient_X1 : <code>int</code></summary>
     type Figure_Chart_BackgroundColor_LinearGradient_X1() =
@@ -564,7 +564,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"linearGradient\":{\"x1\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_Chart_BackgroundColor_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_Chart_BackgroundColor_LinearGradient_Y1() =
@@ -572,7 +572,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"linearGradient\":{\"y1\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_Chart_BackgroundColor_LinearGradient_X2 : <code>int</code></summary>
     type Figure_Chart_BackgroundColor_LinearGradient_X2() =
@@ -580,7 +580,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"linearGradient\":{\"x2\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_Chart_BackgroundColor_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_Chart_BackgroundColor_LinearGradient_Y2() =
@@ -588,15 +588,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"linearGradient\":{\"y2\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_Chart_BackgroundColor_LinearGradient_Id : <code>string</code></summary>
     type Figure_Chart_BackgroundColor_LinearGradient_Id() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"linearGradient\":{\"id\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_Id.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"linearGradient\\\":{\\\"id\\\":%s}}}}" (Figure_Chart_BackgroundColor_LinearGradient_Id.ToJson o))
 
     ///<summary>Figure_Chart_BackgroundColor_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int; id:string |}</code></summary>
     type Figure_Chart_BackgroundColor_LinearGradient() = 
@@ -624,7 +624,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s,\"id\":%s}" x1 y1 x2 y2 id
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int; id:string |}) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"linearGradient\":%s}}}" (Figure_Chart_BackgroundColor_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"linearGradient\\\":%s}}}" (Figure_Chart_BackgroundColor_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_Chart_BackgroundColor_Stops_Item_Item : <code>int</code></summary>
@@ -633,7 +633,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"stops\":{\"item\":{\"item\":%s}}}}}" (Figure_Chart_BackgroundColor_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}" (Figure_Chart_BackgroundColor_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_Chart_BackgroundColor_Stops_Item : <code>int seq</code></summary>
     type Figure_Chart_BackgroundColor_Stops_Item() =
@@ -647,7 +647,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"stops\":{\"item\":%s}}}}" (Figure_Chart_BackgroundColor_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}" (Figure_Chart_BackgroundColor_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -665,7 +665,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":{\"stops\":%s}}}" (Figure_Chart_BackgroundColor_Stops.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":{\\\"stops\\\":%s}}}" (Figure_Chart_BackgroundColor_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -685,16 +685,16 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"chart\":{\"backgroundColor\":%s}}" (Figure_Chart_BackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"backgroundColor\\\":%s}}" (Figure_Chart_BackgroundColor.ToJson o))
 
 
     ///<summary>Figure_Chart_PlotBorderColor : <code>string</code></summary>
     type Figure_Chart_PlotBorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"chart\":{\"plotBorderColor\":%s}}" (Figure_Chart_PlotBorderColor.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"plotBorderColor\\\":%s}}" (Figure_Chart_PlotBorderColor.ToJson o))
 
     ///<summary>Figure_Chart_BorderWidth : <code>int</code></summary>
     type Figure_Chart_BorderWidth() =
@@ -702,23 +702,23 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"borderWidth\":%s}}" (Figure_Chart_BorderWidth.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"borderWidth\\\":%s}}" (Figure_Chart_BorderWidth.ToJson o))
 
     ///<summary>Figure_Chart_ClassName : <code>string</code></summary>
     type Figure_Chart_ClassName() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"chart\":{\"className\":%s}}" (Figure_Chart_ClassName.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"className\\\":%s}}" (Figure_Chart_ClassName.ToJson o))
 
     ///<summary>Figure_Chart_PlotBackgroundColor : <code>string</code></summary>
     type Figure_Chart_PlotBackgroundColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"chart\":{\"plotBackgroundColor\":%s}}" (Figure_Chart_PlotBackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"plotBackgroundColor\\\":%s}}" (Figure_Chart_PlotBackgroundColor.ToJson o))
 
     ///<summary>Figure_Chart_PlotBorderWidth : <code>int</code></summary>
     type Figure_Chart_PlotBorderWidth() =
@@ -726,7 +726,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"chart\":{\"plotBorderWidth\":%s}}" (Figure_Chart_PlotBorderWidth.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":{\\\"plotBorderWidth\\\":%s}}" (Figure_Chart_PlotBorderWidth.ToJson o))
 
     ///<summary>Figure_Chart : <code>{| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:float; height:float; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}</code></summary>
     type Figure_Chart() = 
@@ -798,48 +798,48 @@ module Figure =
             sprintf "{\"styledMode\":%s,\"borderRadius\":%s,\"colorCount\":%s,\"defaultSeriesType\":%s,\"ignoreHiddenSeries\":%s,\"spacing\":%s,\"resetZoomButton\":%s,\"width\":%s,\"height\":%s,\"borderColor\":%s,\"backgroundColor\":%s,\"plotBorderColor\":%s,\"borderWidth\":%s,\"className\":%s,\"plotBackgroundColor\":%s,\"plotBorderWidth\":%s}" styledMode borderRadius colorCount defaultSeriesType ignoreHiddenSeries spacing resetZoomButton width height borderColor backgroundColor plotBorderColor borderWidth className plotBackgroundColor plotBorderWidth
 
         member this.Set (o:{| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:float; height:float; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}) =
-            update 0 (sprintf "{\"chart\":%s}" (Figure_Chart.ToJson o))
+            update 0 (sprintf "{\\\"chart\\\":%s}" (Figure_Chart.ToJson o))
 
 
     ///<summary>Figure_Title_Style_Color : <code>string</code></summary>
     type Figure_Title_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"title\":{\"style\":{\"color\":%s}}}" (Figure_Title_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"style\\\":{\\\"color\\\":%s}}}" (Figure_Title_Style_Color.ToJson o))
 
     ///<summary>Figure_Title_Style_FontSize : <code>string</code></summary>
     type Figure_Title_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"title\":{\"style\":{\"fontSize\":%s}}}" (Figure_Title_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}" (Figure_Title_Style_FontSize.ToJson o))
 
     ///<summary>Figure_Title_Style_Font : <code>string</code></summary>
     type Figure_Title_Style_Font() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"title\":{\"style\":{\"font\":%s}}}" (Figure_Title_Style_Font.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"style\\\":{\\\"font\\\":%s}}}" (Figure_Title_Style_Font.ToJson o))
 
     ///<summary>Figure_Title_Style_Fill : <code>string</code></summary>
     type Figure_Title_Style_Fill() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"title\":{\"style\":{\"fill\":%s}}}" (Figure_Title_Style_Fill.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"style\\\":{\\\"fill\\\":%s}}}" (Figure_Title_Style_Fill.ToJson o))
 
     ///<summary>Figure_Title_Style_Width : <code>string</code></summary>
     type Figure_Title_Style_Width() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"title\":{\"style\":{\"width\":%s}}}" (Figure_Title_Style_Width.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"style\\\":{\\\"width\\\":%s}}}" (Figure_Title_Style_Width.ToJson o))
 
     ///<summary>Figure_Title_Style : <code>{| color:string; fontSize:string; font:string; fill:string; width:string |}</code></summary>
     type Figure_Title_Style() = 
@@ -867,24 +867,24 @@ module Figure =
             sprintf "{\"color\":%s,\"fontSize\":%s,\"font\":%s,\"fill\":%s,\"width\":%s}" color fontSize font fill width
 
         member this.Set (o:{| color:string; fontSize:string; font:string; fill:string; width:string |}) =
-            update 0 (sprintf "{\"title\":{\"style\":%s}}" (Figure_Title_Style.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"style\\\":%s}}" (Figure_Title_Style.ToJson o))
 
 
     ///<summary>Figure_Title_Text : <code>string</code></summary>
     type Figure_Title_Text() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"title\":{\"text\":%s}}" (Figure_Title_Text.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"text\\\":%s}}" (Figure_Title_Text.ToJson o))
 
     ///<summary>Figure_Title_Align : <code>string</code></summary>
     type Figure_Title_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"title\":{\"align\":%s}}" (Figure_Title_Align.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"align\\\":%s}}" (Figure_Title_Align.ToJson o))
 
     ///<summary>Figure_Title_Margin : <code>int</code></summary>
     type Figure_Title_Margin() =
@@ -892,7 +892,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"title\":{\"margin\":%s}}" (Figure_Title_Margin.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"margin\\\":%s}}" (Figure_Title_Margin.ToJson o))
 
     ///<summary>Figure_Title_WidthAdjust : <code>int</code></summary>
     type Figure_Title_WidthAdjust() =
@@ -900,7 +900,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"title\":{\"widthAdjust\":%s}}" (Figure_Title_WidthAdjust.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":{\\\"widthAdjust\\\":%s}}" (Figure_Title_WidthAdjust.ToJson o))
 
     ///<summary>Figure_Title : <code>{| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}</code></summary>
     type Figure_Title() = 
@@ -928,40 +928,40 @@ module Figure =
             sprintf "{\"style\":%s,\"text\":%s,\"align\":%s,\"margin\":%s,\"widthAdjust\":%s}" style text align margin widthAdjust
 
         member this.Set (o:{| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}) =
-            update 0 (sprintf "{\"title\":%s}" (Figure_Title.ToJson o))
+            update 0 (sprintf "{\\\"title\\\":%s}" (Figure_Title.ToJson o))
 
 
     ///<summary>Figure_Subtitle_Style_Color : <code>string</code></summary>
     type Figure_Subtitle_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"subtitle\":{\"style\":{\"color\":%s}}}" (Figure_Subtitle_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"style\\\":{\\\"color\\\":%s}}}" (Figure_Subtitle_Style_Color.ToJson o))
 
     ///<summary>Figure_Subtitle_Style_Font : <code>string</code></summary>
     type Figure_Subtitle_Style_Font() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"subtitle\":{\"style\":{\"font\":%s}}}" (Figure_Subtitle_Style_Font.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"style\\\":{\\\"font\\\":%s}}}" (Figure_Subtitle_Style_Font.ToJson o))
 
     ///<summary>Figure_Subtitle_Style_Fill : <code>string</code></summary>
     type Figure_Subtitle_Style_Fill() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"subtitle\":{\"style\":{\"fill\":%s}}}" (Figure_Subtitle_Style_Fill.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"style\\\":{\\\"fill\\\":%s}}}" (Figure_Subtitle_Style_Fill.ToJson o))
 
     ///<summary>Figure_Subtitle_Style_Width : <code>string</code></summary>
     type Figure_Subtitle_Style_Width() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"subtitle\":{\"style\":{\"width\":%s}}}" (Figure_Subtitle_Style_Width.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"style\\\":{\\\"width\\\":%s}}}" (Figure_Subtitle_Style_Width.ToJson o))
 
     ///<summary>Figure_Subtitle_Style : <code>{| color:string; font:string; fill:string; width:string |}</code></summary>
     type Figure_Subtitle_Style() = 
@@ -985,24 +985,24 @@ module Figure =
             sprintf "{\"color\":%s,\"font\":%s,\"fill\":%s,\"width\":%s}" color font fill width
 
         member this.Set (o:{| color:string; font:string; fill:string; width:string |}) =
-            update 0 (sprintf "{\"subtitle\":{\"style\":%s}}" (Figure_Subtitle_Style.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"style\\\":%s}}" (Figure_Subtitle_Style.ToJson o))
 
 
     ///<summary>Figure_Subtitle_Text : <code>string</code></summary>
     type Figure_Subtitle_Text() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"subtitle\":{\"text\":%s}}" (Figure_Subtitle_Text.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"text\\\":%s}}" (Figure_Subtitle_Text.ToJson o))
 
     ///<summary>Figure_Subtitle_Align : <code>string</code></summary>
     type Figure_Subtitle_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"subtitle\":{\"align\":%s}}" (Figure_Subtitle_Align.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"align\\\":%s}}" (Figure_Subtitle_Align.ToJson o))
 
     ///<summary>Figure_Subtitle_WidthAdjust : <code>int</code></summary>
     type Figure_Subtitle_WidthAdjust() =
@@ -1010,7 +1010,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"subtitle\":{\"widthAdjust\":%s}}" (Figure_Subtitle_WidthAdjust.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":{\\\"widthAdjust\\\":%s}}" (Figure_Subtitle_WidthAdjust.ToJson o))
 
     ///<summary>Figure_Subtitle : <code>{| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}</code></summary>
     type Figure_Subtitle() = 
@@ -1034,32 +1034,32 @@ module Figure =
             sprintf "{\"style\":%s,\"text\":%s,\"align\":%s,\"widthAdjust\":%s}" style text align widthAdjust
 
         member this.Set (o:{| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}) =
-            update 0 (sprintf "{\"subtitle\":%s}" (Figure_Subtitle.ToJson o))
+            update 0 (sprintf "{\\\"subtitle\\\":%s}" (Figure_Subtitle.ToJson o))
 
 
     ///<summary>Figure_Caption_Style_Color : <code>string</code></summary>
     type Figure_Caption_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"caption\":{\"style\":{\"color\":%s}}}" (Figure_Caption_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"style\\\":{\\\"color\\\":%s}}}" (Figure_Caption_Style_Color.ToJson o))
 
     ///<summary>Figure_Caption_Style_Fill : <code>string</code></summary>
     type Figure_Caption_Style_Fill() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"caption\":{\"style\":{\"fill\":%s}}}" (Figure_Caption_Style_Fill.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"style\\\":{\\\"fill\\\":%s}}}" (Figure_Caption_Style_Fill.ToJson o))
 
     ///<summary>Figure_Caption_Style_Width : <code>string</code></summary>
     type Figure_Caption_Style_Width() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"caption\":{\"style\":{\"width\":%s}}}" (Figure_Caption_Style_Width.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"style\\\":{\\\"width\\\":%s}}}" (Figure_Caption_Style_Width.ToJson o))
 
     ///<summary>Figure_Caption_Style : <code>{| color:string; fill:string; width:string |}</code></summary>
     type Figure_Caption_Style() = 
@@ -1079,7 +1079,7 @@ module Figure =
             sprintf "{\"color\":%s,\"fill\":%s,\"width\":%s}" color fill width
 
         member this.Set (o:{| color:string; fill:string; width:string |}) =
-            update 0 (sprintf "{\"caption\":{\"style\":%s}}" (Figure_Caption_Style.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"style\\\":%s}}" (Figure_Caption_Style.ToJson o))
 
 
     ///<summary>Figure_Caption_Margin : <code>int</code></summary>
@@ -1088,31 +1088,31 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"caption\":{\"margin\":%s}}" (Figure_Caption_Margin.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"margin\\\":%s}}" (Figure_Caption_Margin.ToJson o))
 
     ///<summary>Figure_Caption_Text : <code>string</code></summary>
     type Figure_Caption_Text() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"caption\":{\"text\":%s}}" (Figure_Caption_Text.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"text\\\":%s}}" (Figure_Caption_Text.ToJson o))
 
     ///<summary>Figure_Caption_Align : <code>string</code></summary>
     type Figure_Caption_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"caption\":{\"align\":%s}}" (Figure_Caption_Align.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"align\\\":%s}}" (Figure_Caption_Align.ToJson o))
 
     ///<summary>Figure_Caption_VerticalAlign : <code>string</code></summary>
     type Figure_Caption_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"caption\":{\"verticalAlign\":%s}}" (Figure_Caption_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":{\\\"verticalAlign\\\":%s}}" (Figure_Caption_VerticalAlign.ToJson o))
 
     ///<summary>Figure_Caption : <code>{| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}</code></summary>
     type Figure_Caption() = 
@@ -1140,7 +1140,7 @@ module Figure =
             sprintf "{\"style\":%s,\"margin\":%s,\"text\":%s,\"align\":%s,\"verticalAlign\":%s}" style margin text align verticalAlign
 
         member this.Set (o:{| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}) =
-            update 0 (sprintf "{\"caption\":%s}" (Figure_Caption.ToJson o))
+            update 0 (sprintf "{\\\"caption\\\":%s}" (Figure_Caption.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_LineWidth : <code>int</code></summary>
@@ -1149,7 +1149,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"lineWidth\":%s}}}" (Figure_PlotOptions_Line_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"lineWidth\\\":%s}}}" (Figure_PlotOptions_Line_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_AllowPointSelect : <code>bool</code></summary>
     type Figure_PlotOptions_Line_AllowPointSelect() =
@@ -1157,7 +1157,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Line_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Line_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Line_Crisp() =
@@ -1165,7 +1165,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"crisp\":%s}}}" (Figure_PlotOptions_Line_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Line_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Line_ShowCheckbox() =
@@ -1173,7 +1173,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Line_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Line_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Line_Animation_Duration() =
@@ -1181,7 +1181,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Line_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Line_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Line_Animation() = 
@@ -1193,7 +1193,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"animation\":%s}}}" (Figure_PlotOptions_Line_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Line_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Events : <code>{| dummy:string |}</code></summary>
@@ -1203,7 +1203,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"events\":%s}}}" (Figure_PlotOptions_Line_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Line_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Marker_EnabledThreshold : <code>int</code></summary>
@@ -1212,15 +1212,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"enabledThreshold\":%s}}}}" (Figure_PlotOptions_Line_Marker_EnabledThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"enabledThreshold\\\":%s}}}}" (Figure_PlotOptions_Line_Marker_EnabledThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Line_Marker_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"lineColor\":%s}}}}" (Figure_PlotOptions_Line_Marker_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"lineColor\\\":%s}}}}" (Figure_PlotOptions_Line_Marker_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Line_Marker_LineWidth() =
@@ -1228,7 +1228,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"lineWidth\":%s}}}}" (Figure_PlotOptions_Line_Marker_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"lineWidth\\\":%s}}}}" (Figure_PlotOptions_Line_Marker_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_Radius : <code>int</code></summary>
     type Figure_PlotOptions_Line_Marker_Radius() =
@@ -1236,7 +1236,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"radius\":%s}}}}" (Figure_PlotOptions_Line_Marker_Radius.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"radius\\\":%s}}}}" (Figure_PlotOptions_Line_Marker_Radius.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Normal_Animation() =
@@ -1244,7 +1244,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"normal\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Normal() = 
@@ -1256,7 +1256,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"normal\":%s}}}}}" (Figure_PlotOptions_Line_Marker_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}}" (Figure_PlotOptions_Line_Marker_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -1265,7 +1265,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Hover_Animation() = 
@@ -1277,7 +1277,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"hover\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Hover_Enabled : <code>bool</code></summary>
@@ -1286,7 +1286,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"hover\":{\"enabled\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"enabled\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_Enabled.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Hover_RadiusPlus : <code>int</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Hover_RadiusPlus() =
@@ -1294,7 +1294,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"hover\":{\"radiusPlus\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_RadiusPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"radiusPlus\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_RadiusPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Hover_LineWidthPlus : <code>int</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Hover_LineWidthPlus() =
@@ -1302,7 +1302,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Hover : <code>{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Hover() = 
@@ -1326,24 +1326,24 @@ module Figure =
             sprintf "{\"animation\":%s,\"enabled\":%s,\"radiusPlus\":%s,\"lineWidthPlus\":%s}" animation enabled radiusPlus lineWidthPlus
 
         member this.Set (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"hover\":%s}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}}" (Figure_PlotOptions_Line_Marker_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Select_FillColor : <code>string</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Select_FillColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"select\":{\"fillColor\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Select_FillColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fillColor\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Select_FillColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Select_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Select_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"select\":{\"lineColor\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Select_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineColor\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Select_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Select_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Select_LineWidth() =
@@ -1351,7 +1351,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"select\":{\"lineWidth\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Select_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineWidth\\\":%s}}}}}}" (Figure_PlotOptions_Line_Marker_States_Select_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Marker_States_Select : <code>{| fillColor:string; lineColor:string; lineWidth:int |}</code></summary>
     type Figure_PlotOptions_Line_Marker_States_Select() = 
@@ -1371,7 +1371,7 @@ module Figure =
             sprintf "{\"fillColor\":%s,\"lineColor\":%s,\"lineWidth\":%s}" fillColor lineColor lineWidth
 
         member this.Set (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":{\"select\":%s}}}}}" (Figure_PlotOptions_Line_Marker_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}}" (Figure_PlotOptions_Line_Marker_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Marker_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}</code></summary>
@@ -1392,7 +1392,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s}" normal hover select
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":{\"states\":%s}}}}" (Figure_PlotOptions_Line_Marker_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":{\\\"states\\\":%s}}}}" (Figure_PlotOptions_Line_Marker_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Marker : <code>{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}</code></summary>
@@ -1421,7 +1421,7 @@ module Figure =
             sprintf "{\"enabledThreshold\":%s,\"lineColor\":%s,\"lineWidth\":%s,\"radius\":%s,\"states\":%s}" enabledThreshold lineColor lineWidth radius states
 
         member this.Set (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"marker\":%s}}}" (Figure_PlotOptions_Line_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Line_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Point_Events : <code>{| dummy:string |}</code></summary>
@@ -1431,7 +1431,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Line_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Line_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -1444,16 +1444,16 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"point\":%s}}}" (Figure_PlotOptions_Line_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Line_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Align : <code>string</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"align\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Align.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"align\\\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Align.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Padding : <code>int</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Padding() =
@@ -1461,39 +1461,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Line_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Style() = 
@@ -1517,16 +1517,16 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_VerticalAlign : <code>string</code></summary>
     type Figure_PlotOptions_Line_DataLabels_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"verticalAlign\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"verticalAlign\\\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_VerticalAlign.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_X : <code>int</code></summary>
     type Figure_PlotOptions_Line_DataLabels_X() =
@@ -1534,7 +1534,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Y : <code>int</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Y() =
@@ -1542,15 +1542,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"y\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Y.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"y\\\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Y.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels_Color : <code>string</code></summary>
     type Figure_PlotOptions_Line_DataLabels_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":{\"color\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":{\\\"color\\\":%s}}}}" (Figure_PlotOptions_Line_DataLabels_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_DataLabels : <code>{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}</code></summary>
     type Figure_PlotOptions_Line_DataLabels() = 
@@ -1586,7 +1586,7 @@ module Figure =
             sprintf "{\"align\":%s,\"padding\":%s,\"style\":%s,\"verticalAlign\":%s,\"x\":%s,\"y\":%s,\"color\":%s}" align padding style verticalAlign x y color
 
         member this.Set (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Line_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Line_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_CropThreshold : <code>int</code></summary>
@@ -1595,7 +1595,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Line_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Line_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Line_Opacity() =
@@ -1603,7 +1603,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"opacity\":%s}}}" (Figure_PlotOptions_Line_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Line_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_PointRange : <code>int</code></summary>
     type Figure_PlotOptions_Line_PointRange() =
@@ -1611,7 +1611,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Line_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Line_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Line_SoftThreshold() =
@@ -1619,7 +1619,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Line_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Line_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Line_States_Normal_Animation() =
@@ -1627,7 +1627,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Line_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Line_States_Normal() = 
@@ -1639,7 +1639,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Line_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Line_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -1648,7 +1648,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Line_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Line_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Line_States_Hover_Animation() = 
@@ -1660,7 +1660,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -1669,7 +1669,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Line_States_Hover_Marker() = 
@@ -1678,7 +1678,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Hover_Halo_Size : <code>int</code></summary>
@@ -1687,7 +1687,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":{\"halo\":{\"size\":%s}}}}}}" (Figure_PlotOptions_Line_States_Hover_Halo_Size.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"size\\\":%s}}}}}}" (Figure_PlotOptions_Line_States_Hover_Halo_Size.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Hover_Halo_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Line_States_Hover_Halo_Opacity() =
@@ -1695,7 +1695,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":{\"halo\":{\"opacity\":%s}}}}}}" (Figure_PlotOptions_Line_States_Hover_Halo_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"opacity\\\":%s}}}}}}" (Figure_PlotOptions_Line_States_Hover_Halo_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
     type Figure_PlotOptions_Line_States_Hover_Halo() = 
@@ -1711,7 +1711,7 @@ module Figure =
             sprintf "{\"size\":%s,\"opacity\":%s}" size opacity
 
         member this.Set (o:{| size:int; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Hover_Halo.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
@@ -1736,7 +1736,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s}" animation lineWidthPlus marker halo
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Line_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Line_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Select_Animation_Duration : <code>int</code></summary>
@@ -1745,7 +1745,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Line_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Line_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Line_States_Select_Animation() = 
@@ -1757,7 +1757,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Line_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
@@ -1770,7 +1770,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation: {| duration:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Line_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Line_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -1779,7 +1779,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Line_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Line_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Line_States_Inactive_Animation() = 
@@ -1791,7 +1791,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Line_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States_Inactive_Opacity : <code>int</code></summary>
@@ -1800,7 +1800,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Line_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Line_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Line_States_Inactive() = 
@@ -1816,7 +1816,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Line_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Line_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -1841,7 +1841,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"states\":%s}}}" (Figure_PlotOptions_Line_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Line_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Line_StickyTracking : <code>bool</code></summary>
@@ -1850,7 +1850,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Line_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Line_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Line_TurboThreshold() =
@@ -1858,15 +1858,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Line_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Line_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Line_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Line_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Line_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Line : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
     type Figure_PlotOptions_Line() = 
@@ -1942,7 +1942,7 @@ module Figure =
             sprintf "{\"lineWidth\":%s,\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"line\":%s}}" (Figure_PlotOptions_Line.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"line\\\":%s}}" (Figure_PlotOptions_Line.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_LineWidth : <code>int</code></summary>
@@ -1951,7 +1951,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"lineWidth\":%s}}}" (Figure_PlotOptions_Area_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"lineWidth\\\":%s}}}" (Figure_PlotOptions_Area_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_AllowPointSelect : <code>bool</code></summary>
     type Figure_PlotOptions_Area_AllowPointSelect() =
@@ -1959,7 +1959,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Area_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Area_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Area_Crisp() =
@@ -1967,7 +1967,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"crisp\":%s}}}" (Figure_PlotOptions_Area_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Area_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Area_ShowCheckbox() =
@@ -1975,7 +1975,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Area_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Area_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Area_Animation_Duration() =
@@ -1983,7 +1983,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Area_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Area_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Area_Animation() = 
@@ -1995,7 +1995,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"animation\":%s}}}" (Figure_PlotOptions_Area_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Area_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Events : <code>{| dummy:string |}</code></summary>
@@ -2005,7 +2005,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"events\":%s}}}" (Figure_PlotOptions_Area_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Area_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Marker_EnabledThreshold : <code>int</code></summary>
@@ -2014,15 +2014,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"enabledThreshold\":%s}}}}" (Figure_PlotOptions_Area_Marker_EnabledThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"enabledThreshold\\\":%s}}}}" (Figure_PlotOptions_Area_Marker_EnabledThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Area_Marker_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"lineColor\":%s}}}}" (Figure_PlotOptions_Area_Marker_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"lineColor\\\":%s}}}}" (Figure_PlotOptions_Area_Marker_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Area_Marker_LineWidth() =
@@ -2030,7 +2030,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"lineWidth\":%s}}}}" (Figure_PlotOptions_Area_Marker_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"lineWidth\\\":%s}}}}" (Figure_PlotOptions_Area_Marker_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_Radius : <code>int</code></summary>
     type Figure_PlotOptions_Area_Marker_Radius() =
@@ -2038,7 +2038,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"radius\":%s}}}}" (Figure_PlotOptions_Area_Marker_Radius.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"radius\\\":%s}}}}" (Figure_PlotOptions_Area_Marker_Radius.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Normal_Animation() =
@@ -2046,7 +2046,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"normal\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Normal() = 
@@ -2058,7 +2058,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"normal\":%s}}}}}" (Figure_PlotOptions_Area_Marker_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}}" (Figure_PlotOptions_Area_Marker_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -2067,7 +2067,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Hover_Animation() = 
@@ -2079,7 +2079,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"hover\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Hover_Enabled : <code>bool</code></summary>
@@ -2088,7 +2088,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"hover\":{\"enabled\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"enabled\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_Enabled.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Hover_RadiusPlus : <code>int</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Hover_RadiusPlus() =
@@ -2096,7 +2096,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"hover\":{\"radiusPlus\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_RadiusPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"radiusPlus\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_RadiusPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Hover_LineWidthPlus : <code>int</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Hover_LineWidthPlus() =
@@ -2104,7 +2104,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Hover : <code>{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Hover() = 
@@ -2128,24 +2128,24 @@ module Figure =
             sprintf "{\"animation\":%s,\"enabled\":%s,\"radiusPlus\":%s,\"lineWidthPlus\":%s}" animation enabled radiusPlus lineWidthPlus
 
         member this.Set (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"hover\":%s}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}}" (Figure_PlotOptions_Area_Marker_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Select_FillColor : <code>string</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Select_FillColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"select\":{\"fillColor\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Select_FillColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fillColor\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Select_FillColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Select_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Select_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"select\":{\"lineColor\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Select_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineColor\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Select_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Select_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Select_LineWidth() =
@@ -2153,7 +2153,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"select\":{\"lineWidth\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Select_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineWidth\\\":%s}}}}}}" (Figure_PlotOptions_Area_Marker_States_Select_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Marker_States_Select : <code>{| fillColor:string; lineColor:string; lineWidth:int |}</code></summary>
     type Figure_PlotOptions_Area_Marker_States_Select() = 
@@ -2173,7 +2173,7 @@ module Figure =
             sprintf "{\"fillColor\":%s,\"lineColor\":%s,\"lineWidth\":%s}" fillColor lineColor lineWidth
 
         member this.Set (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":{\"select\":%s}}}}}" (Figure_PlotOptions_Area_Marker_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}}" (Figure_PlotOptions_Area_Marker_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Marker_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}</code></summary>
@@ -2194,7 +2194,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s}" normal hover select
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":{\"states\":%s}}}}" (Figure_PlotOptions_Area_Marker_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":{\\\"states\\\":%s}}}}" (Figure_PlotOptions_Area_Marker_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Marker : <code>{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}</code></summary>
@@ -2223,7 +2223,7 @@ module Figure =
             sprintf "{\"enabledThreshold\":%s,\"lineColor\":%s,\"lineWidth\":%s,\"radius\":%s,\"states\":%s}" enabledThreshold lineColor lineWidth radius states
 
         member this.Set (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"marker\":%s}}}" (Figure_PlotOptions_Area_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Area_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Point_Events : <code>{| dummy:string |}</code></summary>
@@ -2233,7 +2233,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Area_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Area_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -2246,16 +2246,16 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"point\":%s}}}" (Figure_PlotOptions_Area_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Area_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Align : <code>string</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"align\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Align.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"align\\\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Align.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Padding : <code>int</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Padding() =
@@ -2263,39 +2263,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Area_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Style() = 
@@ -2319,16 +2319,16 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_VerticalAlign : <code>string</code></summary>
     type Figure_PlotOptions_Area_DataLabels_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"verticalAlign\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"verticalAlign\\\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_VerticalAlign.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_X : <code>int</code></summary>
     type Figure_PlotOptions_Area_DataLabels_X() =
@@ -2336,7 +2336,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels_Y : <code>int</code></summary>
     type Figure_PlotOptions_Area_DataLabels_Y() =
@@ -2344,7 +2344,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":{\"y\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Y.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":{\\\"y\\\":%s}}}}" (Figure_PlotOptions_Area_DataLabels_Y.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_DataLabels : <code>{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}</code></summary>
     type Figure_PlotOptions_Area_DataLabels() = 
@@ -2376,7 +2376,7 @@ module Figure =
             sprintf "{\"align\":%s,\"padding\":%s,\"style\":%s,\"verticalAlign\":%s,\"x\":%s,\"y\":%s}" align padding style verticalAlign x y
 
         member this.Set (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Area_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Area_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_CropThreshold : <code>int</code></summary>
@@ -2385,7 +2385,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Area_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Area_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Area_Opacity() =
@@ -2393,7 +2393,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"opacity\":%s}}}" (Figure_PlotOptions_Area_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Area_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_PointRange : <code>int</code></summary>
     type Figure_PlotOptions_Area_PointRange() =
@@ -2401,7 +2401,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Area_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Area_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Area_SoftThreshold() =
@@ -2409,7 +2409,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Area_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Area_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Area_States_Normal_Animation() =
@@ -2417,7 +2417,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Area_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Area_States_Normal() = 
@@ -2429,7 +2429,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Area_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Area_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -2438,7 +2438,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Area_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Area_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Area_States_Hover_Animation() = 
@@ -2450,7 +2450,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -2459,7 +2459,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Area_States_Hover_Marker() = 
@@ -2468,7 +2468,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Hover_Halo_Size : <code>int</code></summary>
@@ -2477,7 +2477,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":{\"halo\":{\"size\":%s}}}}}}" (Figure_PlotOptions_Area_States_Hover_Halo_Size.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"size\\\":%s}}}}}}" (Figure_PlotOptions_Area_States_Hover_Halo_Size.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Hover_Halo_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Area_States_Hover_Halo_Opacity() =
@@ -2485,7 +2485,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":{\"halo\":{\"opacity\":%s}}}}}}" (Figure_PlotOptions_Area_States_Hover_Halo_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"opacity\\\":%s}}}}}}" (Figure_PlotOptions_Area_States_Hover_Halo_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
     type Figure_PlotOptions_Area_States_Hover_Halo() = 
@@ -2501,7 +2501,7 @@ module Figure =
             sprintf "{\"size\":%s,\"opacity\":%s}" size opacity
 
         member this.Set (o:{| size:int; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Hover_Halo.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
@@ -2526,7 +2526,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s}" animation lineWidthPlus marker halo
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Area_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Area_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Select_Animation_Duration : <code>int</code></summary>
@@ -2535,7 +2535,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Area_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Area_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Area_States_Select_Animation() = 
@@ -2547,7 +2547,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Area_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
@@ -2560,7 +2560,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation: {| duration:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Area_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Area_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -2569,7 +2569,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Area_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Area_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Area_States_Inactive_Animation() = 
@@ -2581,7 +2581,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Area_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States_Inactive_Opacity : <code>int</code></summary>
@@ -2590,7 +2590,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Area_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Area_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Area_States_Inactive() = 
@@ -2606,7 +2606,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Area_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Area_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -2631,7 +2631,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"states\":%s}}}" (Figure_PlotOptions_Area_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Area_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Area_StickyTracking : <code>bool</code></summary>
@@ -2640,7 +2640,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Area_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Area_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Area_TurboThreshold() =
@@ -2648,15 +2648,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Area_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Area_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Area_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Area_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Area_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area_Threshold : <code>int</code></summary>
     type Figure_PlotOptions_Area_Threshold() =
@@ -2664,7 +2664,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":{\"threshold\":%s}}}" (Figure_PlotOptions_Area_Threshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":{\\\"threshold\\\":%s}}}" (Figure_PlotOptions_Area_Threshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Area : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
     type Figure_PlotOptions_Area() = 
@@ -2744,7 +2744,7 @@ module Figure =
             sprintf "{\"lineWidth\":%s,\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s,\"threshold\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy threshold
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"area\":%s}}" (Figure_PlotOptions_Area.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"area\\\":%s}}" (Figure_PlotOptions_Area.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_LineWidth : <code>int</code></summary>
@@ -2753,7 +2753,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"lineWidth\":%s}}}" (Figure_PlotOptions_Spline_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"lineWidth\\\":%s}}}" (Figure_PlotOptions_Spline_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_AllowPointSelect : <code>bool</code></summary>
     type Figure_PlotOptions_Spline_AllowPointSelect() =
@@ -2761,7 +2761,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Spline_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Spline_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Spline_Crisp() =
@@ -2769,7 +2769,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"crisp\":%s}}}" (Figure_PlotOptions_Spline_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Spline_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Spline_ShowCheckbox() =
@@ -2777,7 +2777,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Spline_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Spline_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Spline_Animation_Duration() =
@@ -2785,7 +2785,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Spline_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Spline_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Spline_Animation() = 
@@ -2797,7 +2797,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"animation\":%s}}}" (Figure_PlotOptions_Spline_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Spline_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Events : <code>{| dummy:string |}</code></summary>
@@ -2807,7 +2807,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"events\":%s}}}" (Figure_PlotOptions_Spline_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Spline_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Marker_EnabledThreshold : <code>int</code></summary>
@@ -2816,15 +2816,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"enabledThreshold\":%s}}}}" (Figure_PlotOptions_Spline_Marker_EnabledThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"enabledThreshold\\\":%s}}}}" (Figure_PlotOptions_Spline_Marker_EnabledThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Spline_Marker_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"lineColor\":%s}}}}" (Figure_PlotOptions_Spline_Marker_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"lineColor\\\":%s}}}}" (Figure_PlotOptions_Spline_Marker_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Spline_Marker_LineWidth() =
@@ -2832,7 +2832,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"lineWidth\":%s}}}}" (Figure_PlotOptions_Spline_Marker_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"lineWidth\\\":%s}}}}" (Figure_PlotOptions_Spline_Marker_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_Radius : <code>int</code></summary>
     type Figure_PlotOptions_Spline_Marker_Radius() =
@@ -2840,7 +2840,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"radius\":%s}}}}" (Figure_PlotOptions_Spline_Marker_Radius.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"radius\\\":%s}}}}" (Figure_PlotOptions_Spline_Marker_Radius.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Normal_Animation() =
@@ -2848,7 +2848,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"normal\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Normal() = 
@@ -2860,7 +2860,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"normal\":%s}}}}}" (Figure_PlotOptions_Spline_Marker_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}}" (Figure_PlotOptions_Spline_Marker_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -2869,7 +2869,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Hover_Animation() = 
@@ -2881,7 +2881,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"hover\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Hover_Enabled : <code>bool</code></summary>
@@ -2890,7 +2890,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"hover\":{\"enabled\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"enabled\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_Enabled.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Hover_RadiusPlus : <code>int</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Hover_RadiusPlus() =
@@ -2898,7 +2898,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"hover\":{\"radiusPlus\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_RadiusPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"radiusPlus\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_RadiusPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Hover_LineWidthPlus : <code>int</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Hover_LineWidthPlus() =
@@ -2906,7 +2906,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Hover : <code>{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Hover() = 
@@ -2930,24 +2930,24 @@ module Figure =
             sprintf "{\"animation\":%s,\"enabled\":%s,\"radiusPlus\":%s,\"lineWidthPlus\":%s}" animation enabled radiusPlus lineWidthPlus
 
         member this.Set (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"hover\":%s}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}}" (Figure_PlotOptions_Spline_Marker_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Select_FillColor : <code>string</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Select_FillColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"select\":{\"fillColor\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select_FillColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fillColor\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select_FillColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Select_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Select_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"select\":{\"lineColor\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineColor\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Select_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Select_LineWidth() =
@@ -2955,7 +2955,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"select\":{\"lineWidth\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineWidth\\\":%s}}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States_Select : <code>{| fillColor:string; lineColor:string; lineWidth:int |}</code></summary>
     type Figure_PlotOptions_Spline_Marker_States_Select() = 
@@ -2975,7 +2975,7 @@ module Figure =
             sprintf "{\"fillColor\":%s,\"lineColor\":%s,\"lineWidth\":%s}" fillColor lineColor lineWidth
 
         member this.Set (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":{\"select\":%s}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}}" (Figure_PlotOptions_Spline_Marker_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Marker_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}</code></summary>
@@ -2996,7 +2996,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s}" normal hover select
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":{\"states\":%s}}}}" (Figure_PlotOptions_Spline_Marker_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":{\\\"states\\\":%s}}}}" (Figure_PlotOptions_Spline_Marker_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Marker : <code>{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}</code></summary>
@@ -3025,7 +3025,7 @@ module Figure =
             sprintf "{\"enabledThreshold\":%s,\"lineColor\":%s,\"lineWidth\":%s,\"radius\":%s,\"states\":%s}" enabledThreshold lineColor lineWidth radius states
 
         member this.Set (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"marker\":%s}}}" (Figure_PlotOptions_Spline_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Spline_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Point_Events : <code>{| dummy:string |}</code></summary>
@@ -3035,7 +3035,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Spline_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Spline_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -3048,16 +3048,16 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"point\":%s}}}" (Figure_PlotOptions_Spline_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Spline_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Align : <code>string</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"align\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Align.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"align\\\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Align.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Padding : <code>int</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Padding() =
@@ -3065,39 +3065,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Spline_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Style() = 
@@ -3121,16 +3121,16 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_VerticalAlign : <code>string</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"verticalAlign\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"verticalAlign\\\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_VerticalAlign.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_X : <code>int</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_X() =
@@ -3138,7 +3138,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels_Y : <code>int</code></summary>
     type Figure_PlotOptions_Spline_DataLabels_Y() =
@@ -3146,7 +3146,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":{\"y\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Y.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":{\\\"y\\\":%s}}}}" (Figure_PlotOptions_Spline_DataLabels_Y.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_DataLabels : <code>{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}</code></summary>
     type Figure_PlotOptions_Spline_DataLabels() = 
@@ -3178,7 +3178,7 @@ module Figure =
             sprintf "{\"align\":%s,\"padding\":%s,\"style\":%s,\"verticalAlign\":%s,\"x\":%s,\"y\":%s}" align padding style verticalAlign x y
 
         member this.Set (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Spline_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Spline_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_CropThreshold : <code>int</code></summary>
@@ -3187,7 +3187,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Spline_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Spline_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Spline_Opacity() =
@@ -3195,7 +3195,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"opacity\":%s}}}" (Figure_PlotOptions_Spline_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Spline_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_PointRange : <code>int</code></summary>
     type Figure_PlotOptions_Spline_PointRange() =
@@ -3203,7 +3203,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Spline_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Spline_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Spline_SoftThreshold() =
@@ -3211,7 +3211,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Spline_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Spline_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Spline_States_Normal_Animation() =
@@ -3219,7 +3219,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Spline_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Spline_States_Normal() = 
@@ -3231,7 +3231,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Spline_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Spline_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -3240,7 +3240,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Spline_States_Hover_Animation() = 
@@ -3252,7 +3252,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -3261,7 +3261,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Spline_States_Hover_Marker() = 
@@ -3270,7 +3270,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo_Size : <code>int</code></summary>
@@ -3279,7 +3279,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":{\"halo\":{\"size\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Hover_Halo_Size.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"size\\\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Hover_Halo_Size.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Spline_States_Hover_Halo_Opacity() =
@@ -3287,7 +3287,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":{\"halo\":{\"opacity\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Hover_Halo_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"opacity\\\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Hover_Halo_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
     type Figure_PlotOptions_Spline_States_Hover_Halo() = 
@@ -3303,7 +3303,7 @@ module Figure =
             sprintf "{\"size\":%s,\"opacity\":%s}" size opacity
 
         member this.Set (o:{| size:int; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Hover_Halo.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
@@ -3328,7 +3328,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s}" animation lineWidthPlus marker halo
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Spline_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Spline_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Select_Animation_Duration : <code>int</code></summary>
@@ -3337,7 +3337,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Spline_States_Select_Animation() = 
@@ -3349,7 +3349,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Spline_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
@@ -3362,7 +3362,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation: {| duration:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Spline_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Spline_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -3371,7 +3371,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Spline_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Spline_States_Inactive_Animation() = 
@@ -3383,7 +3383,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Spline_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States_Inactive_Opacity : <code>int</code></summary>
@@ -3392,7 +3392,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Spline_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Spline_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Spline_States_Inactive() = 
@@ -3408,7 +3408,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Spline_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Spline_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -3433,7 +3433,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"states\":%s}}}" (Figure_PlotOptions_Spline_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Spline_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Spline_StickyTracking : <code>bool</code></summary>
@@ -3442,7 +3442,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Spline_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Spline_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Spline_TurboThreshold() =
@@ -3450,15 +3450,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Spline_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Spline_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Spline_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Spline_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Spline_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Spline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
     type Figure_PlotOptions_Spline() = 
@@ -3534,7 +3534,7 @@ module Figure =
             sprintf "{\"lineWidth\":%s,\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"spline\":%s}}" (Figure_PlotOptions_Spline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"spline\\\":%s}}" (Figure_PlotOptions_Spline.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_LineWidth : <code>int</code></summary>
@@ -3543,7 +3543,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"lineWidth\":%s}}}" (Figure_PlotOptions_Areaspline_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"lineWidth\\\":%s}}}" (Figure_PlotOptions_Areaspline_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_AllowPointSelect : <code>bool</code></summary>
     type Figure_PlotOptions_Areaspline_AllowPointSelect() =
@@ -3551,7 +3551,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Areaspline_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Areaspline_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Areaspline_Crisp() =
@@ -3559,7 +3559,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"crisp\":%s}}}" (Figure_PlotOptions_Areaspline_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Areaspline_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Areaspline_ShowCheckbox() =
@@ -3567,7 +3567,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Areaspline_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Areaspline_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Animation_Duration() =
@@ -3575,7 +3575,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Areaspline_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Areaspline_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_Animation() = 
@@ -3587,7 +3587,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"animation\":%s}}}" (Figure_PlotOptions_Areaspline_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Areaspline_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Events : <code>{| dummy:string |}</code></summary>
@@ -3597,7 +3597,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"events\":%s}}}" (Figure_PlotOptions_Areaspline_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Areaspline_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_EnabledThreshold : <code>int</code></summary>
@@ -3606,15 +3606,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"enabledThreshold\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_EnabledThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"enabledThreshold\\\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_EnabledThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"lineColor\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"lineColor\\\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_LineWidth() =
@@ -3622,7 +3622,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"lineWidth\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"lineWidth\\\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_Radius : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_Radius() =
@@ -3630,7 +3630,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"radius\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_Radius.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"radius\\\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_Radius.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Normal_Animation() =
@@ -3638,7 +3638,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"normal\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Normal() = 
@@ -3650,7 +3650,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"normal\":%s}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -3659,7 +3659,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation() = 
@@ -3671,7 +3671,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"hover\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Hover_Enabled : <code>bool</code></summary>
@@ -3680,7 +3680,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"hover\":{\"enabled\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"enabled\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_Enabled.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Hover_RadiusPlus : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Hover_RadiusPlus() =
@@ -3688,7 +3688,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"hover\":{\"radiusPlus\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_RadiusPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"radiusPlus\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_RadiusPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Hover_LineWidthPlus : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Hover_LineWidthPlus() =
@@ -3696,7 +3696,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Hover : <code>{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Hover() = 
@@ -3720,24 +3720,24 @@ module Figure =
             sprintf "{\"animation\":%s,\"enabled\":%s,\"radiusPlus\":%s,\"lineWidthPlus\":%s}" animation enabled radiusPlus lineWidthPlus
 
         member this.Set (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"hover\":%s}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Select_FillColor : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Select_FillColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"select\":{\"fillColor\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select_FillColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fillColor\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select_FillColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Select_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Select_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"select\":{\"lineColor\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineColor\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Select_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Select_LineWidth() =
@@ -3745,7 +3745,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"select\":{\"lineWidth\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineWidth\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States_Select : <code>{| fillColor:string; lineColor:string; lineWidth:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_Marker_States_Select() = 
@@ -3765,7 +3765,7 @@ module Figure =
             sprintf "{\"fillColor\":%s,\"lineColor\":%s,\"lineWidth\":%s}" fillColor lineColor lineWidth
 
         member this.Set (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":{\"select\":%s}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_Marker_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}</code></summary>
@@ -3786,7 +3786,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s}" normal hover select
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":{\"states\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":{\\\"states\\\":%s}}}}" (Figure_PlotOptions_Areaspline_Marker_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Marker : <code>{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}</code></summary>
@@ -3815,7 +3815,7 @@ module Figure =
             sprintf "{\"enabledThreshold\":%s,\"lineColor\":%s,\"lineWidth\":%s,\"radius\":%s,\"states\":%s}" enabledThreshold lineColor lineWidth radius states
 
         member this.Set (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"marker\":%s}}}" (Figure_PlotOptions_Areaspline_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Areaspline_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Point_Events : <code>{| dummy:string |}</code></summary>
@@ -3825,7 +3825,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Areaspline_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Areaspline_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -3838,16 +3838,16 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"point\":%s}}}" (Figure_PlotOptions_Areaspline_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Areaspline_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Align : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"align\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Align.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"align\\\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Align.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Padding : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Padding() =
@@ -3855,39 +3855,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Style() = 
@@ -3911,16 +3911,16 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_VerticalAlign : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"verticalAlign\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"verticalAlign\\\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_VerticalAlign.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_X : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_X() =
@@ -3928,7 +3928,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels_Y : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels_Y() =
@@ -3936,7 +3936,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":{\"y\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Y.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":{\\\"y\\\":%s}}}}" (Figure_PlotOptions_Areaspline_DataLabels_Y.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_DataLabels : <code>{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_DataLabels() = 
@@ -3968,7 +3968,7 @@ module Figure =
             sprintf "{\"align\":%s,\"padding\":%s,\"style\":%s,\"verticalAlign\":%s,\"x\":%s,\"y\":%s}" align padding style verticalAlign x y
 
         member this.Set (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Areaspline_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Areaspline_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_CropThreshold : <code>int</code></summary>
@@ -3977,7 +3977,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Areaspline_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Areaspline_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Opacity() =
@@ -3985,7 +3985,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"opacity\":%s}}}" (Figure_PlotOptions_Areaspline_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Areaspline_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_PointRange : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_PointRange() =
@@ -3993,7 +3993,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Areaspline_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Areaspline_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Areaspline_SoftThreshold() =
@@ -4001,7 +4001,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Areaspline_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Areaspline_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Areaspline_States_Normal_Animation() =
@@ -4009,7 +4009,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Normal() = 
@@ -4021,7 +4021,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -4030,7 +4030,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Hover_Animation() = 
@@ -4042,7 +4042,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -4051,7 +4051,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Hover_Marker() = 
@@ -4060,7 +4060,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo_Size : <code>int</code></summary>
@@ -4069,7 +4069,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":{\"halo\":{\"size\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Halo_Size.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"size\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Halo_Size.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity() =
@@ -4077,7 +4077,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":{\"halo\":{\"opacity\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"opacity\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Hover_Halo() = 
@@ -4093,7 +4093,7 @@ module Figure =
             sprintf "{\"size\":%s,\"opacity\":%s}" size opacity
 
         member this.Set (o:{| size:int; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Hover_Halo.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
@@ -4118,7 +4118,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s}" animation lineWidthPlus marker halo
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Select_Animation_Duration : <code>int</code></summary>
@@ -4127,7 +4127,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Select_Animation() = 
@@ -4139,7 +4139,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
@@ -4152,7 +4152,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation: {| duration:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -4161,7 +4161,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Areaspline_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Inactive_Animation() = 
@@ -4173,7 +4173,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Opacity : <code>int</code></summary>
@@ -4182,7 +4182,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Areaspline_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Inactive() = 
@@ -4198,7 +4198,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Areaspline_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -4223,7 +4223,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"states\":%s}}}" (Figure_PlotOptions_Areaspline_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Areaspline_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Areaspline_StickyTracking : <code>bool</code></summary>
@@ -4232,7 +4232,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Areaspline_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Areaspline_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_TurboThreshold() =
@@ -4240,15 +4240,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Areaspline_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Areaspline_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Areaspline_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Areaspline_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Areaspline_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline_Threshold : <code>int</code></summary>
     type Figure_PlotOptions_Areaspline_Threshold() =
@@ -4256,7 +4256,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":{\"threshold\":%s}}}" (Figure_PlotOptions_Areaspline_Threshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":{\\\"threshold\\\":%s}}}" (Figure_PlotOptions_Areaspline_Threshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Areaspline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
     type Figure_PlotOptions_Areaspline() = 
@@ -4336,7 +4336,7 @@ module Figure =
             sprintf "{\"lineWidth\":%s,\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s,\"threshold\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy threshold
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"areaspline\":%s}}" (Figure_PlotOptions_Areaspline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"areaspline\\\":%s}}" (Figure_PlotOptions_Areaspline.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_LineWidth : <code>int</code></summary>
@@ -4345,7 +4345,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"lineWidth\":%s}}}" (Figure_PlotOptions_Column_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"lineWidth\\\":%s}}}" (Figure_PlotOptions_Column_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_AllowPointSelect : <code>bool</code></summary>
     type Figure_PlotOptions_Column_AllowPointSelect() =
@@ -4353,7 +4353,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Column_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Column_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Column_Crisp() =
@@ -4361,7 +4361,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"crisp\":%s}}}" (Figure_PlotOptions_Column_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Column_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Column_ShowCheckbox() =
@@ -4369,7 +4369,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Column_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Column_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Column_Animation_Duration() =
@@ -4377,7 +4377,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Column_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Column_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Column_Animation() = 
@@ -4389,7 +4389,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"animation\":%s}}}" (Figure_PlotOptions_Column_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Column_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_Events : <code>{| dummy:string |}</code></summary>
@@ -4399,7 +4399,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"events\":%s}}}" (Figure_PlotOptions_Column_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Column_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_Marker : <code>float</code></summary>
@@ -4408,7 +4408,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"marker\":%s}}}" (Figure_PlotOptions_Column_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Column_Marker.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_Point_Events : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Column_Point_Events() = 
@@ -4417,7 +4417,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Column_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Column_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -4430,7 +4430,7 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"point\":%s}}}" (Figure_PlotOptions_Column_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Column_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_DataLabels_Padding : <code>int</code></summary>
@@ -4439,39 +4439,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Column_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Column_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Column_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Column_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Column_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Column_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Column_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Column_DataLabels_Style() = 
@@ -4495,7 +4495,7 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Column_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Column_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_DataLabels_X : <code>int</code></summary>
@@ -4504,7 +4504,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Column_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Column_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_DataLabels : <code>{| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}</code></summary>
     type Figure_PlotOptions_Column_DataLabels() = 
@@ -4524,7 +4524,7 @@ module Figure =
             sprintf "{\"padding\":%s,\"style\":%s,\"x\":%s}" padding style x
 
         member this.Set (o:{| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Column_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Column_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_CropThreshold : <code>int</code></summary>
@@ -4533,7 +4533,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Column_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Column_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Column_Opacity() =
@@ -4541,7 +4541,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"opacity\":%s}}}" (Figure_PlotOptions_Column_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Column_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_PointRange : <code>float</code></summary>
     type Figure_PlotOptions_Column_PointRange() =
@@ -4549,7 +4549,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Column_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Column_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Column_SoftThreshold() =
@@ -4557,7 +4557,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Column_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Column_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Column_States_Normal_Animation() =
@@ -4565,7 +4565,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Column_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Column_States_Normal() = 
@@ -4577,7 +4577,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Column_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Column_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -4586,7 +4586,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Column_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Column_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Column_States_Hover_Animation() = 
@@ -4598,7 +4598,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -4607,7 +4607,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Column_States_Hover_Marker() = 
@@ -4616,7 +4616,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States_Hover_Halo : <code>bool</code></summary>
@@ -4625,7 +4625,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Halo.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Hover_Brightness : <code>int</code></summary>
     type Figure_PlotOptions_Column_States_Hover_Brightness() =
@@ -4633,7 +4633,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"hover\":{\"brightness\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Brightness.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"brightness\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Hover_Brightness.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}</code></summary>
     type Figure_PlotOptions_Column_States_Hover() = 
@@ -4661,7 +4661,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s,\"brightness\":%s}" animation lineWidthPlus marker halo brightness
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Column_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Column_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States_Select_Animation_Duration : <code>int</code></summary>
@@ -4670,7 +4670,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Column_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Column_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Column_States_Select_Animation() = 
@@ -4682,24 +4682,24 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Column_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States_Select_Color : <code>string</code></summary>
     type Figure_PlotOptions_Column_States_Select_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"select\":{\"color\":%s}}}}}" (Figure_PlotOptions_Column_States_Select_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"select\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Select_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Select_BorderColor : <code>string</code></summary>
     type Figure_PlotOptions_Column_States_Select_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"select\":{\"borderColor\":%s}}}}}" (Figure_PlotOptions_Column_States_Select_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"select\\\":{\\\"borderColor\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Select_BorderColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Select : <code>{| animation: {| duration:int |}; color:string; borderColor:string |}</code></summary>
     type Figure_PlotOptions_Column_States_Select() = 
@@ -4719,7 +4719,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"color\":%s,\"borderColor\":%s}" animation color borderColor
 
         member this.Set (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Column_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Column_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -4728,7 +4728,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Column_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Column_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Column_States_Inactive_Animation() = 
@@ -4740,7 +4740,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Column_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States_Inactive_Opacity : <code>int</code></summary>
@@ -4749,7 +4749,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Column_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Column_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Column_States_Inactive() = 
@@ -4765,7 +4765,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Column_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Column_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -4790,7 +4790,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"states\":%s}}}" (Figure_PlotOptions_Column_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Column_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Column_StickyTracking : <code>bool</code></summary>
@@ -4799,7 +4799,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Column_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Column_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Column_TurboThreshold() =
@@ -4807,15 +4807,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Column_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Column_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Column_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Column_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Column_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_BorderRadius : <code>int</code></summary>
     type Figure_PlotOptions_Column_BorderRadius() =
@@ -4823,7 +4823,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"borderRadius\":%s}}}" (Figure_PlotOptions_Column_BorderRadius.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"borderRadius\\\":%s}}}" (Figure_PlotOptions_Column_BorderRadius.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_CenterInCategory : <code>bool</code></summary>
     type Figure_PlotOptions_Column_CenterInCategory() =
@@ -4831,7 +4831,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"centerInCategory\":%s}}}" (Figure_PlotOptions_Column_CenterInCategory.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"centerInCategory\\\":%s}}}" (Figure_PlotOptions_Column_CenterInCategory.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_GroupPadding : <code>int</code></summary>
     type Figure_PlotOptions_Column_GroupPadding() =
@@ -4839,7 +4839,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"groupPadding\":%s}}}" (Figure_PlotOptions_Column_GroupPadding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"groupPadding\\\":%s}}}" (Figure_PlotOptions_Column_GroupPadding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_PointPadding : <code>int</code></summary>
     type Figure_PlotOptions_Column_PointPadding() =
@@ -4847,7 +4847,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"pointPadding\":%s}}}" (Figure_PlotOptions_Column_PointPadding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"pointPadding\\\":%s}}}" (Figure_PlotOptions_Column_PointPadding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_MinPointLength : <code>int</code></summary>
     type Figure_PlotOptions_Column_MinPointLength() =
@@ -4855,7 +4855,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"minPointLength\":%s}}}" (Figure_PlotOptions_Column_MinPointLength.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"minPointLength\\\":%s}}}" (Figure_PlotOptions_Column_MinPointLength.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_StartFromThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Column_StartFromThreshold() =
@@ -4863,7 +4863,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"startFromThreshold\":%s}}}" (Figure_PlotOptions_Column_StartFromThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"startFromThreshold\\\":%s}}}" (Figure_PlotOptions_Column_StartFromThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_Threshold : <code>int</code></summary>
     type Figure_PlotOptions_Column_Threshold() =
@@ -4871,15 +4871,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"threshold\":%s}}}" (Figure_PlotOptions_Column_Threshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"threshold\\\":%s}}}" (Figure_PlotOptions_Column_Threshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column_BorderColor : <code>string</code></summary>
     type Figure_PlotOptions_Column_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":{\"borderColor\":%s}}}" (Figure_PlotOptions_Column_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":{\\\"borderColor\\\":%s}}}" (Figure_PlotOptions_Column_BorderColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Column : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
     type Figure_PlotOptions_Column() = 
@@ -4987,7 +4987,7 @@ module Figure =
             sprintf "{\"lineWidth\":%s,\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s,\"borderRadius\":%s,\"centerInCategory\":%s,\"groupPadding\":%s,\"pointPadding\":%s,\"minPointLength\":%s,\"startFromThreshold\":%s,\"threshold\":%s,\"borderColor\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy borderRadius centerInCategory groupPadding pointPadding minPointLength startFromThreshold threshold borderColor
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"column\":%s}}" (Figure_PlotOptions_Column.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"column\\\":%s}}" (Figure_PlotOptions_Column.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_LineWidth : <code>int</code></summary>
@@ -4996,7 +4996,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"lineWidth\":%s}}}" (Figure_PlotOptions_Bar_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"lineWidth\\\":%s}}}" (Figure_PlotOptions_Bar_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_AllowPointSelect : <code>bool</code></summary>
     type Figure_PlotOptions_Bar_AllowPointSelect() =
@@ -5004,7 +5004,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Bar_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Bar_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Bar_Crisp() =
@@ -5012,7 +5012,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"crisp\":%s}}}" (Figure_PlotOptions_Bar_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Bar_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Bar_ShowCheckbox() =
@@ -5020,7 +5020,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Bar_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Bar_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Bar_Animation_Duration() =
@@ -5028,7 +5028,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Bar_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Bar_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Bar_Animation() = 
@@ -5040,7 +5040,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"animation\":%s}}}" (Figure_PlotOptions_Bar_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Bar_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_Events : <code>{| dummy:string |}</code></summary>
@@ -5050,7 +5050,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"events\":%s}}}" (Figure_PlotOptions_Bar_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Bar_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_Marker : <code>float</code></summary>
@@ -5059,7 +5059,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"marker\":%s}}}" (Figure_PlotOptions_Bar_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Bar_Marker.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_Point_Events : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Bar_Point_Events() = 
@@ -5068,7 +5068,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Bar_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Bar_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -5081,7 +5081,7 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"point\":%s}}}" (Figure_PlotOptions_Bar_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Bar_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels_Padding : <code>int</code></summary>
@@ -5090,39 +5090,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Bar_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Bar_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Bar_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Bar_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Bar_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Bar_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Bar_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Bar_DataLabels_Style() = 
@@ -5146,7 +5146,7 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Bar_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Bar_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels_X : <code>int</code></summary>
@@ -5155,7 +5155,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Bar_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Bar_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_DataLabels : <code>{| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}</code></summary>
     type Figure_PlotOptions_Bar_DataLabels() = 
@@ -5175,7 +5175,7 @@ module Figure =
             sprintf "{\"padding\":%s,\"style\":%s,\"x\":%s}" padding style x
 
         member this.Set (o:{| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Bar_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Bar_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_CropThreshold : <code>int</code></summary>
@@ -5184,7 +5184,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Bar_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Bar_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Bar_Opacity() =
@@ -5192,7 +5192,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"opacity\":%s}}}" (Figure_PlotOptions_Bar_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Bar_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_PointRange : <code>float</code></summary>
     type Figure_PlotOptions_Bar_PointRange() =
@@ -5200,7 +5200,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Bar_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Bar_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Bar_SoftThreshold() =
@@ -5208,7 +5208,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Bar_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Bar_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Bar_States_Normal_Animation() =
@@ -5216,7 +5216,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Bar_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Bar_States_Normal() = 
@@ -5228,7 +5228,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Bar_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Bar_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -5237,7 +5237,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Bar_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Bar_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Bar_States_Hover_Animation() = 
@@ -5249,7 +5249,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -5258,7 +5258,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Bar_States_Hover_Marker() = 
@@ -5267,7 +5267,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States_Hover_Halo : <code>bool</code></summary>
@@ -5276,7 +5276,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Halo.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Hover_Brightness : <code>int</code></summary>
     type Figure_PlotOptions_Bar_States_Hover_Brightness() =
@@ -5284,7 +5284,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"hover\":{\"brightness\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Brightness.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"brightness\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Hover_Brightness.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}</code></summary>
     type Figure_PlotOptions_Bar_States_Hover() = 
@@ -5312,7 +5312,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s,\"brightness\":%s}" animation lineWidthPlus marker halo brightness
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Bar_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Bar_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States_Select_Animation_Duration : <code>int</code></summary>
@@ -5321,7 +5321,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Bar_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Bar_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Bar_States_Select_Animation() = 
@@ -5333,24 +5333,24 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Bar_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States_Select_Color : <code>string</code></summary>
     type Figure_PlotOptions_Bar_States_Select_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"select\":{\"color\":%s}}}}}" (Figure_PlotOptions_Bar_States_Select_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"select\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Select_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Select_BorderColor : <code>string</code></summary>
     type Figure_PlotOptions_Bar_States_Select_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"select\":{\"borderColor\":%s}}}}}" (Figure_PlotOptions_Bar_States_Select_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"select\\\":{\\\"borderColor\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Select_BorderColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Select : <code>{| animation: {| duration:int |}; color:string; borderColor:string |}</code></summary>
     type Figure_PlotOptions_Bar_States_Select() = 
@@ -5370,7 +5370,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"color\":%s,\"borderColor\":%s}" animation color borderColor
 
         member this.Set (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Bar_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Bar_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -5379,7 +5379,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Bar_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Bar_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Bar_States_Inactive_Animation() = 
@@ -5391,7 +5391,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Bar_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States_Inactive_Opacity : <code>int</code></summary>
@@ -5400,7 +5400,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Bar_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Bar_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Bar_States_Inactive() = 
@@ -5416,7 +5416,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Bar_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Bar_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -5441,7 +5441,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"states\":%s}}}" (Figure_PlotOptions_Bar_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Bar_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Bar_StickyTracking : <code>bool</code></summary>
@@ -5450,7 +5450,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Bar_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Bar_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Bar_TurboThreshold() =
@@ -5458,15 +5458,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Bar_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Bar_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Bar_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Bar_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Bar_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_BorderRadius : <code>int</code></summary>
     type Figure_PlotOptions_Bar_BorderRadius() =
@@ -5474,7 +5474,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"borderRadius\":%s}}}" (Figure_PlotOptions_Bar_BorderRadius.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"borderRadius\\\":%s}}}" (Figure_PlotOptions_Bar_BorderRadius.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_CenterInCategory : <code>bool</code></summary>
     type Figure_PlotOptions_Bar_CenterInCategory() =
@@ -5482,7 +5482,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"centerInCategory\":%s}}}" (Figure_PlotOptions_Bar_CenterInCategory.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"centerInCategory\\\":%s}}}" (Figure_PlotOptions_Bar_CenterInCategory.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_GroupPadding : <code>int</code></summary>
     type Figure_PlotOptions_Bar_GroupPadding() =
@@ -5490,7 +5490,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"groupPadding\":%s}}}" (Figure_PlotOptions_Bar_GroupPadding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"groupPadding\\\":%s}}}" (Figure_PlotOptions_Bar_GroupPadding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_PointPadding : <code>int</code></summary>
     type Figure_PlotOptions_Bar_PointPadding() =
@@ -5498,7 +5498,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"pointPadding\":%s}}}" (Figure_PlotOptions_Bar_PointPadding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"pointPadding\\\":%s}}}" (Figure_PlotOptions_Bar_PointPadding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_MinPointLength : <code>int</code></summary>
     type Figure_PlotOptions_Bar_MinPointLength() =
@@ -5506,7 +5506,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"minPointLength\":%s}}}" (Figure_PlotOptions_Bar_MinPointLength.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"minPointLength\\\":%s}}}" (Figure_PlotOptions_Bar_MinPointLength.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_StartFromThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Bar_StartFromThreshold() =
@@ -5514,7 +5514,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"startFromThreshold\":%s}}}" (Figure_PlotOptions_Bar_StartFromThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"startFromThreshold\\\":%s}}}" (Figure_PlotOptions_Bar_StartFromThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_Threshold : <code>int</code></summary>
     type Figure_PlotOptions_Bar_Threshold() =
@@ -5522,15 +5522,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"threshold\":%s}}}" (Figure_PlotOptions_Bar_Threshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"threshold\\\":%s}}}" (Figure_PlotOptions_Bar_Threshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar_BorderColor : <code>string</code></summary>
     type Figure_PlotOptions_Bar_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":{\"borderColor\":%s}}}" (Figure_PlotOptions_Bar_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":{\\\"borderColor\\\":%s}}}" (Figure_PlotOptions_Bar_BorderColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Bar : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
     type Figure_PlotOptions_Bar() = 
@@ -5638,7 +5638,7 @@ module Figure =
             sprintf "{\"lineWidth\":%s,\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s,\"borderRadius\":%s,\"centerInCategory\":%s,\"groupPadding\":%s,\"pointPadding\":%s,\"minPointLength\":%s,\"startFromThreshold\":%s,\"threshold\":%s,\"borderColor\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy borderRadius centerInCategory groupPadding pointPadding minPointLength startFromThreshold threshold borderColor
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"bar\":%s}}" (Figure_PlotOptions_Bar.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"bar\\\":%s}}" (Figure_PlotOptions_Bar.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_LineWidth : <code>int</code></summary>
@@ -5647,7 +5647,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"lineWidth\":%s}}}" (Figure_PlotOptions_Scatter_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"lineWidth\\\":%s}}}" (Figure_PlotOptions_Scatter_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_AllowPointSelect : <code>bool</code></summary>
     type Figure_PlotOptions_Scatter_AllowPointSelect() =
@@ -5655,7 +5655,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Scatter_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Scatter_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Scatter_Crisp() =
@@ -5663,7 +5663,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"crisp\":%s}}}" (Figure_PlotOptions_Scatter_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Scatter_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Scatter_ShowCheckbox() =
@@ -5671,7 +5671,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Scatter_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Scatter_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Animation_Duration() =
@@ -5679,7 +5679,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Scatter_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Scatter_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Scatter_Animation() = 
@@ -5691,7 +5691,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"animation\":%s}}}" (Figure_PlotOptions_Scatter_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Scatter_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Events : <code>{| dummy:string |}</code></summary>
@@ -5701,7 +5701,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"events\":%s}}}" (Figure_PlotOptions_Scatter_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Scatter_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_EnabledThreshold : <code>int</code></summary>
@@ -5710,15 +5710,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"enabledThreshold\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_EnabledThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"enabledThreshold\\\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_EnabledThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_Marker_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"lineColor\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"lineColor\\\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Marker_LineWidth() =
@@ -5726,7 +5726,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"lineWidth\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"lineWidth\\\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_Radius : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Marker_Radius() =
@@ -5734,7 +5734,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"radius\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_Radius.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"radius\\\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_Radius.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Normal_Animation() =
@@ -5742,7 +5742,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"normal\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Normal() = 
@@ -5754,7 +5754,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"normal\":%s}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -5763,7 +5763,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Hover_Animation() = 
@@ -5775,7 +5775,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"hover\":{\"animation\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Hover_Enabled : <code>bool</code></summary>
@@ -5784,7 +5784,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"hover\":{\"enabled\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"enabled\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_Enabled.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Hover_RadiusPlus : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Hover_RadiusPlus() =
@@ -5792,7 +5792,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"hover\":{\"radiusPlus\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_RadiusPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"radiusPlus\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_RadiusPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Hover_LineWidthPlus : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Hover_LineWidthPlus() =
@@ -5800,7 +5800,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Hover : <code>{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Hover() = 
@@ -5824,24 +5824,24 @@ module Figure =
             sprintf "{\"animation\":%s,\"enabled\":%s,\"radiusPlus\":%s,\"lineWidthPlus\":%s}" animation enabled radiusPlus lineWidthPlus
 
         member this.Set (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"hover\":%s}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Select_FillColor : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Select_FillColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"select\":{\"fillColor\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select_FillColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fillColor\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select_FillColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Select_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Select_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"select\":{\"lineColor\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineColor\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Select_LineWidth : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Select_LineWidth() =
@@ -5849,7 +5849,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"select\":{\"lineWidth\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select_LineWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":{\\\"lineWidth\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select_LineWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States_Select : <code>{| fillColor:string; lineColor:string; lineWidth:int |}</code></summary>
     type Figure_PlotOptions_Scatter_Marker_States_Select() = 
@@ -5869,7 +5869,7 @@ module Figure =
             sprintf "{\"fillColor\":%s,\"lineColor\":%s,\"lineWidth\":%s}" fillColor lineColor lineWidth
 
         member this.Set (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":{\"select\":%s}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}}" (Figure_PlotOptions_Scatter_Marker_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}</code></summary>
@@ -5890,7 +5890,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s}" normal hover select
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"states\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"states\\\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Marker_Enabled : <code>bool</code></summary>
@@ -5899,7 +5899,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":{\"enabled\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":{\\\"enabled\\\":%s}}}}" (Figure_PlotOptions_Scatter_Marker_Enabled.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Marker : <code>{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}</code></summary>
     type Figure_PlotOptions_Scatter_Marker() = 
@@ -5931,7 +5931,7 @@ module Figure =
             sprintf "{\"enabledThreshold\":%s,\"lineColor\":%s,\"lineWidth\":%s,\"radius\":%s,\"states\":%s,\"enabled\":%s}" enabledThreshold lineColor lineWidth radius states enabled
 
         member this.Set (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"marker\":%s}}}" (Figure_PlotOptions_Scatter_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Scatter_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Point_Events : <code>{| dummy:string |}</code></summary>
@@ -5941,7 +5941,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Scatter_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Scatter_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -5954,16 +5954,16 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"point\":%s}}}" (Figure_PlotOptions_Scatter_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Scatter_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Align : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"align\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Align.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"align\\\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Align.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Padding : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Padding() =
@@ -5971,39 +5971,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Style() = 
@@ -6027,16 +6027,16 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_VerticalAlign : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"verticalAlign\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"verticalAlign\\\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_VerticalAlign.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_X : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_X() =
@@ -6044,7 +6044,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels_Y : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels_Y() =
@@ -6052,7 +6052,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":{\"y\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Y.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":{\\\"y\\\":%s}}}}" (Figure_PlotOptions_Scatter_DataLabels_Y.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_DataLabels : <code>{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}</code></summary>
     type Figure_PlotOptions_Scatter_DataLabels() = 
@@ -6084,7 +6084,7 @@ module Figure =
             sprintf "{\"align\":%s,\"padding\":%s,\"style\":%s,\"verticalAlign\":%s,\"x\":%s,\"y\":%s}" align padding style verticalAlign x y
 
         member this.Set (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Scatter_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Scatter_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_CropThreshold : <code>int</code></summary>
@@ -6093,7 +6093,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Scatter_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Scatter_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Opacity() =
@@ -6101,7 +6101,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"opacity\":%s}}}" (Figure_PlotOptions_Scatter_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Scatter_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_PointRange : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_PointRange() =
@@ -6109,7 +6109,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Scatter_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Scatter_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Scatter_SoftThreshold() =
@@ -6117,7 +6117,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Scatter_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Scatter_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Scatter_States_Normal_Animation() =
@@ -6125,7 +6125,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Normal() = 
@@ -6137,7 +6137,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Scatter_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Scatter_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -6146,7 +6146,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Hover_Animation() = 
@@ -6158,7 +6158,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -6167,7 +6167,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Hover_Marker() = 
@@ -6176,7 +6176,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo_Size : <code>int</code></summary>
@@ -6185,7 +6185,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":{\"halo\":{\"size\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Halo_Size.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"size\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Halo_Size.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity() =
@@ -6193,7 +6193,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":{\"halo\":{\"opacity\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"opacity\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Hover_Halo() = 
@@ -6209,7 +6209,7 @@ module Figure =
             sprintf "{\"size\":%s,\"opacity\":%s}" size opacity
 
         member this.Set (o:{| size:int; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Hover_Halo.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
@@ -6234,7 +6234,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s}" animation lineWidthPlus marker halo
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Scatter_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Scatter_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Select_Animation_Duration : <code>int</code></summary>
@@ -6243,7 +6243,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Select_Animation() = 
@@ -6255,7 +6255,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
@@ -6268,7 +6268,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation: {| duration:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Scatter_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Scatter_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -6277,7 +6277,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Scatter_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Inactive_Animation() = 
@@ -6289,7 +6289,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Opacity : <code>int</code></summary>
@@ -6298,7 +6298,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Scatter_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Inactive() = 
@@ -6314,7 +6314,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Scatter_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Scatter_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -6339,7 +6339,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"states\":%s}}}" (Figure_PlotOptions_Scatter_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Scatter_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter_StickyTracking : <code>bool</code></summary>
@@ -6348,7 +6348,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Scatter_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Scatter_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_TurboThreshold() =
@@ -6356,15 +6356,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Scatter_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Scatter_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Scatter_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Scatter_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Scatter_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Jitter_X : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Jitter_X() =
@@ -6372,7 +6372,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"jitter\":{\"x\":%s}}}}" (Figure_PlotOptions_Scatter_Jitter_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"jitter\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Scatter_Jitter_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Jitter_Y : <code>int</code></summary>
     type Figure_PlotOptions_Scatter_Jitter_Y() =
@@ -6380,7 +6380,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"jitter\":{\"y\":%s}}}}" (Figure_PlotOptions_Scatter_Jitter_Y.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"jitter\\\":{\\\"y\\\":%s}}}}" (Figure_PlotOptions_Scatter_Jitter_Y.ToJson o))
 
     ///<summary>Figure_PlotOptions_Scatter_Jitter : <code>{| x:int; y:int |}</code></summary>
     type Figure_PlotOptions_Scatter_Jitter() = 
@@ -6396,7 +6396,7 @@ module Figure =
             sprintf "{\"x\":%s,\"y\":%s}" x y
 
         member this.Set (o:{| x:int; y:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":{\"jitter\":%s}}}" (Figure_PlotOptions_Scatter_Jitter.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":{\\\"jitter\\\":%s}}}" (Figure_PlotOptions_Scatter_Jitter.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Scatter : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}</code></summary>
@@ -6477,7 +6477,7 @@ module Figure =
             sprintf "{\"lineWidth\":%s,\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s,\"jitter\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy jitter
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"scatter\":%s}}" (Figure_PlotOptions_Scatter.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"scatter\\\":%s}}" (Figure_PlotOptions_Scatter.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_AllowPointSelect : <code>bool</code></summary>
@@ -6486,7 +6486,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"allowPointSelect\":%s}}}" (Figure_PlotOptions_Pie_AllowPointSelect.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"allowPointSelect\\\":%s}}}" (Figure_PlotOptions_Pie_AllowPointSelect.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Crisp : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_Crisp() =
@@ -6494,7 +6494,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"crisp\":%s}}}" (Figure_PlotOptions_Pie_Crisp.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"crisp\\\":%s}}}" (Figure_PlotOptions_Pie_Crisp.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_ShowCheckbox : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_ShowCheckbox() =
@@ -6502,7 +6502,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"showCheckbox\":%s}}}" (Figure_PlotOptions_Pie_ShowCheckbox.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"showCheckbox\\\":%s}}}" (Figure_PlotOptions_Pie_ShowCheckbox.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Animation_Duration : <code>int</code></summary>
     type Figure_PlotOptions_Pie_Animation_Duration() =
@@ -6510,7 +6510,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"animation\":{\"duration\":%s}}}}" (Figure_PlotOptions_Pie_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}" (Figure_PlotOptions_Pie_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Pie_Animation() = 
@@ -6522,7 +6522,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"animation\":%s}}}" (Figure_PlotOptions_Pie_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"animation\\\":%s}}}" (Figure_PlotOptions_Pie_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_Events : <code>{| dummy:string |}</code></summary>
@@ -6532,7 +6532,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"events\":%s}}}" (Figure_PlotOptions_Pie_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"events\\\":%s}}}" (Figure_PlotOptions_Pie_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_Marker : <code>float</code></summary>
@@ -6541,7 +6541,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"marker\":%s}}}" (Figure_PlotOptions_Pie_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"marker\\\":%s}}}" (Figure_PlotOptions_Pie_Marker.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Point_Events : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Pie_Point_Events() = 
@@ -6550,7 +6550,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"point\":{\"events\":%s}}}}" (Figure_PlotOptions_Pie_Point_Events.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"point\\\":{\\\"events\\\":%s}}}}" (Figure_PlotOptions_Pie_Point_Events.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_Point : <code>{| events: {| dummy:string |} |}</code></summary>
@@ -6563,16 +6563,16 @@ module Figure =
             sprintf "{\"events\":%s}" events
 
         member this.Set (o:{| events: {| dummy:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"point\":%s}}}" (Figure_PlotOptions_Pie_Point.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"point\\\":%s}}}" (Figure_PlotOptions_Pie_Point.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Align : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"align\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Align.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"align\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Align.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Padding : <code>int</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Padding() =
@@ -6580,39 +6580,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"padding\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Padding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"padding\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Padding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Style_FontSize : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_FontSize.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Style_FontWeight : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Style_Color : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"style\":{\"color\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_Color.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Style_TextOutline : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Style_TextOutline() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"style\":{\"textOutline\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_TextOutline.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"style\\\":{\\\"textOutline\\\":%s}}}}}" (Figure_PlotOptions_Pie_DataLabels_Style_TextOutline.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Style : <code>{| fontSize:string; fontWeight:string; color:string; textOutline:string |}</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Style() = 
@@ -6636,16 +6636,16 @@ module Figure =
             sprintf "{\"fontSize\":%s,\"fontWeight\":%s,\"color\":%s,\"textOutline\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"style\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Style.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"style\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Style.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_VerticalAlign : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"verticalAlign\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"verticalAlign\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_VerticalAlign.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_X : <code>int</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_X() =
@@ -6653,7 +6653,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"x\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_X.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"x\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_X.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Y : <code>int</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Y() =
@@ -6661,7 +6661,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"y\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Y.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"y\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Y.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_AllowOverlap : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_AllowOverlap() =
@@ -6669,7 +6669,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"allowOverlap\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_AllowOverlap.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"allowOverlap\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_AllowOverlap.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_ConnectorPadding : <code>int</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_ConnectorPadding() =
@@ -6677,23 +6677,23 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"connectorPadding\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_ConnectorPadding.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"connectorPadding\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_ConnectorPadding.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_ConnectorShape : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_ConnectorShape() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"connectorShape\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_ConnectorShape.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"connectorShape\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_ConnectorShape.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_CrookDistance : <code>string</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_CrookDistance() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"crookDistance\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_CrookDistance.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"crookDistance\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_CrookDistance.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Distance : <code>int</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Distance() =
@@ -6701,7 +6701,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"distance\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Distance.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"distance\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Distance.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_Enabled : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_Enabled() =
@@ -6709,7 +6709,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"enabled\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"enabled\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_Enabled.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels_SoftConnector : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_DataLabels_SoftConnector() =
@@ -6717,7 +6717,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":{\"softConnector\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_SoftConnector.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":{\\\"softConnector\\\":%s}}}}" (Figure_PlotOptions_Pie_DataLabels_SoftConnector.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_DataLabels : <code>{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}</code></summary>
     type Figure_PlotOptions_Pie_DataLabels() = 
@@ -6777,7 +6777,7 @@ module Figure =
             sprintf "{\"align\":%s,\"padding\":%s,\"style\":%s,\"verticalAlign\":%s,\"x\":%s,\"y\":%s,\"allowOverlap\":%s,\"connectorPadding\":%s,\"connectorShape\":%s,\"crookDistance\":%s,\"distance\":%s,\"enabled\":%s,\"softConnector\":%s}" align padding style verticalAlign x y allowOverlap connectorPadding connectorShape crookDistance distance enabled softConnector
 
         member this.Set (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"dataLabels\":%s}}}" (Figure_PlotOptions_Pie_DataLabels.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"dataLabels\\\":%s}}}" (Figure_PlotOptions_Pie_DataLabels.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_CropThreshold : <code>int</code></summary>
@@ -6786,7 +6786,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"cropThreshold\":%s}}}" (Figure_PlotOptions_Pie_CropThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"cropThreshold\\\":%s}}}" (Figure_PlotOptions_Pie_CropThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Pie_Opacity() =
@@ -6794,7 +6794,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"opacity\":%s}}}" (Figure_PlotOptions_Pie_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"opacity\\\":%s}}}" (Figure_PlotOptions_Pie_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_PointRange : <code>int</code></summary>
     type Figure_PlotOptions_Pie_PointRange() =
@@ -6802,7 +6802,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"pointRange\":%s}}}" (Figure_PlotOptions_Pie_PointRange.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"pointRange\\\":%s}}}" (Figure_PlotOptions_Pie_PointRange.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_SoftThreshold : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_SoftThreshold() =
@@ -6810,7 +6810,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"softThreshold\":%s}}}" (Figure_PlotOptions_Pie_SoftThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"softThreshold\\\":%s}}}" (Figure_PlotOptions_Pie_SoftThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Normal_Animation : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_States_Normal_Animation() =
@@ -6818,7 +6818,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"normal\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Pie_States_Normal_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"normal\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Normal_Animation.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Normal : <code>{| animation:bool |}</code></summary>
     type Figure_PlotOptions_Pie_States_Normal() = 
@@ -6830,7 +6830,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation:bool |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"normal\":%s}}}}" (Figure_PlotOptions_Pie_States_Normal.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"normal\\\":%s}}}}" (Figure_PlotOptions_Pie_States_Normal.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_Animation_Duration : <code>int</code></summary>
@@ -6839,7 +6839,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Hover_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Hover_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Pie_States_Hover_Animation() = 
@@ -6851,7 +6851,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_LineWidthPlus : <code>int</code></summary>
@@ -6860,7 +6860,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"lineWidthPlus\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_LineWidthPlus.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"lineWidthPlus\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_LineWidthPlus.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
     type Figure_PlotOptions_Pie_States_Hover_Marker() = 
@@ -6869,7 +6869,7 @@ module Figure =
             sprintf "{\"dummy\":%s}" o.dummy
 
         member this.Set (o:{| dummy:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"marker\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Marker.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"marker\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Marker.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo_Size : <code>int</code></summary>
@@ -6878,7 +6878,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"halo\":{\"size\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Hover_Halo_Size.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"size\\\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Hover_Halo_Size.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo_Opacity : <code>int</code></summary>
     type Figure_PlotOptions_Pie_States_Hover_Halo_Opacity() =
@@ -6886,7 +6886,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"halo\":{\"opacity\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Hover_Halo_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":{\\\"opacity\\\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Hover_Halo_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
     type Figure_PlotOptions_Pie_States_Hover_Halo() = 
@@ -6902,7 +6902,7 @@ module Figure =
             sprintf "{\"size\":%s,\"opacity\":%s}" size opacity
 
         member this.Set (o:{| size:int; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"halo\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Halo.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"halo\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Halo.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover_Brightness : <code>int</code></summary>
@@ -6911,7 +6911,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":{\"brightness\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Brightness.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"brightness\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Hover_Brightness.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}</code></summary>
     type Figure_PlotOptions_Pie_States_Hover() = 
@@ -6939,7 +6939,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"lineWidthPlus\":%s,\"marker\":%s,\"halo\":%s,\"brightness\":%s}" animation lineWidthPlus marker halo brightness
 
         member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"hover\":%s}}}}" (Figure_PlotOptions_Pie_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_PlotOptions_Pie_States_Hover.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Select_Animation_Duration : <code>int</code></summary>
@@ -6948,7 +6948,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"select\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Select_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Select_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Select_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Pie_States_Select_Animation() = 
@@ -6960,7 +6960,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"select\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Pie_States_Select_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"select\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Select_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
@@ -6973,7 +6973,7 @@ module Figure =
             sprintf "{\"animation\":%s}" animation
 
         member this.Set (o:{| animation: {| duration:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"select\":%s}}}}" (Figure_PlotOptions_Pie_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_PlotOptions_Pie_States_Select.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Inactive_Animation_Duration : <code>int</code></summary>
@@ -6982,7 +6982,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"inactive\":{\"animation\":{\"duration\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Inactive_Animation_Duration.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":{\\\"duration\\\":%s}}}}}}" (Figure_PlotOptions_Pie_States_Inactive_Animation_Duration.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
     type Figure_PlotOptions_Pie_States_Inactive_Animation() = 
@@ -6994,7 +6994,7 @@ module Figure =
             sprintf "{\"duration\":%s}" duration
 
         member this.Set (o:{| duration:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"inactive\":{\"animation\":%s}}}}}" (Figure_PlotOptions_Pie_States_Inactive_Animation.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"animation\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Inactive_Animation.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States_Inactive_Opacity : <code>int</code></summary>
@@ -7003,7 +7003,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"inactive\":{\"opacity\":%s}}}}}" (Figure_PlotOptions_Pie_States_Inactive_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"inactive\\\":{\\\"opacity\\\":%s}}}}}" (Figure_PlotOptions_Pie_States_Inactive_Opacity.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
     type Figure_PlotOptions_Pie_States_Inactive() = 
@@ -7019,7 +7019,7 @@ module Figure =
             sprintf "{\"animation\":%s,\"opacity\":%s}" animation opacity
 
         member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":{\"inactive\":%s}}}}" (Figure_PlotOptions_Pie_States_Inactive.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":{\\\"inactive\\\":%s}}}}" (Figure_PlotOptions_Pie_States_Inactive.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
@@ -7044,7 +7044,7 @@ module Figure =
             sprintf "{\"normal\":%s,\"hover\":%s,\"select\":%s,\"inactive\":%s}" normal hover select inactive
 
         member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"states\":%s}}}" (Figure_PlotOptions_Pie_States.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"states\\\":%s}}}" (Figure_PlotOptions_Pie_States.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Pie_StickyTracking : <code>bool</code></summary>
@@ -7053,7 +7053,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"stickyTracking\":%s}}}" (Figure_PlotOptions_Pie_StickyTracking.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"stickyTracking\\\":%s}}}" (Figure_PlotOptions_Pie_StickyTracking.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_TurboThreshold : <code>int</code></summary>
     type Figure_PlotOptions_Pie_TurboThreshold() =
@@ -7061,15 +7061,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"turboThreshold\":%s}}}" (Figure_PlotOptions_Pie_TurboThreshold.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"turboThreshold\\\":%s}}}" (Figure_PlotOptions_Pie_TurboThreshold.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_FindNearestPointBy : <code>string</code></summary>
     type Figure_PlotOptions_Pie_FindNearestPointBy() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"findNearestPointBy\":%s}}}" (Figure_PlotOptions_Pie_FindNearestPointBy.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"findNearestPointBy\\\":%s}}}" (Figure_PlotOptions_Pie_FindNearestPointBy.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Center_Item : <code>float</code></summary>
     type Figure_PlotOptions_Pie_Center_Item() =
@@ -7077,7 +7077,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"center\":{\"item\":%s}}}}" (Figure_PlotOptions_Pie_Center_Item.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"center\\\":{\\\"item\\\":%s}}}}" (Figure_PlotOptions_Pie_Center_Item.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Center : <code>float seq</code></summary>
     type Figure_PlotOptions_Pie_Center() =
@@ -7091,7 +7091,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:float seq) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"center\":%s}}}" (Figure_PlotOptions_Pie_Center.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"center\\\":%s}}}" (Figure_PlotOptions_Pie_Center.ToJson o))
 
         member this.Item
             with get(_) =
@@ -7103,7 +7103,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"clip\":%s}}}" (Figure_PlotOptions_Pie_Clip.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"clip\\\":%s}}}" (Figure_PlotOptions_Pie_Clip.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_ColorByPoint : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_ColorByPoint() =
@@ -7111,7 +7111,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"colorByPoint\":%s}}}" (Figure_PlotOptions_Pie_ColorByPoint.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"colorByPoint\\\":%s}}}" (Figure_PlotOptions_Pie_ColorByPoint.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_IgnoreHiddenPoint : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_IgnoreHiddenPoint() =
@@ -7119,7 +7119,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"ignoreHiddenPoint\":%s}}}" (Figure_PlotOptions_Pie_IgnoreHiddenPoint.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"ignoreHiddenPoint\\\":%s}}}" (Figure_PlotOptions_Pie_IgnoreHiddenPoint.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_InactiveOtherPoints : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_InactiveOtherPoints() =
@@ -7127,15 +7127,15 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"inactiveOtherPoints\":%s}}}" (Figure_PlotOptions_Pie_InactiveOtherPoints.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"inactiveOtherPoints\\\":%s}}}" (Figure_PlotOptions_Pie_InactiveOtherPoints.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_LegendType : <code>string</code></summary>
     type Figure_PlotOptions_Pie_LegendType() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"legendType\":%s}}}" (Figure_PlotOptions_Pie_LegendType.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"legendType\\\":%s}}}" (Figure_PlotOptions_Pie_LegendType.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_Size : <code>float</code></summary>
     type Figure_PlotOptions_Pie_Size() =
@@ -7143,7 +7143,7 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"size\":%s}}}" (Figure_PlotOptions_Pie_Size.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"size\\\":%s}}}" (Figure_PlotOptions_Pie_Size.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_ShowInLegend : <code>bool</code></summary>
     type Figure_PlotOptions_Pie_ShowInLegend() =
@@ -7151,7 +7151,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"showInLegend\":%s}}}" (Figure_PlotOptions_Pie_ShowInLegend.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"showInLegend\\\":%s}}}" (Figure_PlotOptions_Pie_ShowInLegend.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_SlicedOffset : <code>int</code></summary>
     type Figure_PlotOptions_Pie_SlicedOffset() =
@@ -7159,15 +7159,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"slicedOffset\":%s}}}" (Figure_PlotOptions_Pie_SlicedOffset.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"slicedOffset\\\":%s}}}" (Figure_PlotOptions_Pie_SlicedOffset.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_BorderColor : <code>string</code></summary>
     type Figure_PlotOptions_Pie_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"borderColor\":%s}}}" (Figure_PlotOptions_Pie_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"borderColor\\\":%s}}}" (Figure_PlotOptions_Pie_BorderColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie_BorderWidth : <code>int</code></summary>
     type Figure_PlotOptions_Pie_BorderWidth() =
@@ -7175,7 +7175,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":{\"borderWidth\":%s}}}" (Figure_PlotOptions_Pie_BorderWidth.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":{\\\"borderWidth\\\":%s}}}" (Figure_PlotOptions_Pie_BorderWidth.ToJson o))
 
     ///<summary>Figure_PlotOptions_Pie : <code>{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:float seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:float; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}</code></summary>
     type Figure_PlotOptions_Pie() = 
@@ -7291,16 +7291,16 @@ module Figure =
             sprintf "{\"allowPointSelect\":%s,\"crisp\":%s,\"showCheckbox\":%s,\"animation\":%s,\"events\":%s,\"marker\":%s,\"point\":%s,\"dataLabels\":%s,\"cropThreshold\":%s,\"opacity\":%s,\"pointRange\":%s,\"softThreshold\":%s,\"states\":%s,\"stickyTracking\":%s,\"turboThreshold\":%s,\"findNearestPointBy\":%s,\"center\":%s,\"clip\":%s,\"colorByPoint\":%s,\"ignoreHiddenPoint\":%s,\"inactiveOtherPoints\":%s,\"legendType\":%s,\"size\":%s,\"showInLegend\":%s,\"slicedOffset\":%s,\"borderColor\":%s,\"borderWidth\":%s}" allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy center clip colorByPoint ignoreHiddenPoint inactiveOtherPoints legendType size showInLegend slicedOffset borderColor borderWidth
 
         member this.Set (o:{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:float seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:float; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"pie\":%s}}" (Figure_PlotOptions_Pie.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"pie\\\":%s}}" (Figure_PlotOptions_Pie.ToJson o))
 
 
     ///<summary>Figure_PlotOptions_Candlestick_LineColor : <code>string</code></summary>
     type Figure_PlotOptions_Candlestick_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"plotOptions\":{\"candlestick\":{\"lineColor\":%s}}}" (Figure_PlotOptions_Candlestick_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"candlestick\\\":{\\\"lineColor\\\":%s}}}" (Figure_PlotOptions_Candlestick_LineColor.ToJson o))
 
     ///<summary>Figure_PlotOptions_Candlestick : <code>{| lineColor:string |}</code></summary>
     type Figure_PlotOptions_Candlestick() = 
@@ -7312,7 +7312,7 @@ module Figure =
             sprintf "{\"lineColor\":%s}" lineColor
 
         member this.Set (o:{| lineColor:string |}) =
-            update 0 (sprintf "{\"plotOptions\":{\"candlestick\":%s}}" (Figure_PlotOptions_Candlestick.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":{\\\"candlestick\\\":%s}}" (Figure_PlotOptions_Candlestick.ToJson o))
 
 
     ///<summary>Figure_PlotOptions : <code>{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:float seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:float; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}</code></summary>
@@ -7357,24 +7357,24 @@ module Figure =
             sprintf "{\"line\":%s,\"area\":%s,\"spline\":%s,\"areaspline\":%s,\"column\":%s,\"bar\":%s,\"scatter\":%s,\"pie\":%s,\"candlestick\":%s}" line area spline areaspline column bar scatter pie candlestick
 
         member this.Set (o:{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:float; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:float; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:float seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:float; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}) =
-            update 0 (sprintf "{\"plotOptions\":%s}" (Figure_PlotOptions.ToJson o))
+            update 0 (sprintf "{\\\"plotOptions\\\":%s}" (Figure_PlotOptions.ToJson o))
 
 
     ///<summary>Figure_Labels_Style_Position : <code>string</code></summary>
     type Figure_Labels_Style_Position() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"labels\":{\"style\":{\"position\":%s}}}" (Figure_Labels_Style_Position.ToJson o))
+            update 0 (sprintf "{\\\"labels\\\":{\\\"style\\\":{\\\"position\\\":%s}}}" (Figure_Labels_Style_Position.ToJson o))
 
     ///<summary>Figure_Labels_Style_Color : <code>string</code></summary>
     type Figure_Labels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"labels\":{\"style\":{\"color\":%s}}}" (Figure_Labels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"labels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}" (Figure_Labels_Style_Color.ToJson o))
 
     ///<summary>Figure_Labels_Style : <code>{| position:string; color:string |}</code></summary>
     type Figure_Labels_Style() = 
@@ -7390,7 +7390,7 @@ module Figure =
             sprintf "{\"position\":%s,\"color\":%s}" position color
 
         member this.Set (o:{| position:string; color:string |}) =
-            update 0 (sprintf "{\"labels\":{\"style\":%s}}" (Figure_Labels_Style.ToJson o))
+            update 0 (sprintf "{\\\"labels\\\":{\\\"style\\\":%s}}" (Figure_Labels_Style.ToJson o))
 
 
     ///<summary>Figure_Labels : <code>{| style: {| position:string; color:string |} |}</code></summary>
@@ -7403,7 +7403,7 @@ module Figure =
             sprintf "{\"style\":%s}" style
 
         member this.Set (o:{| style: {| position:string; color:string |} |}) =
-            update 0 (sprintf "{\"labels\":%s}" (Figure_Labels.ToJson o))
+            update 0 (sprintf "{\\\"labels\\\":%s}" (Figure_Labels.ToJson o))
 
 
     ///<summary>Figure_Legend_Enabled : <code>bool</code></summary>
@@ -7412,15 +7412,15 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"legend\":{\"enabled\":%s}}" (Figure_Legend_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"enabled\\\":%s}}" (Figure_Legend_Enabled.ToJson o))
 
     ///<summary>Figure_Legend_Align : <code>string</code></summary>
     type Figure_Legend_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"align\":%s}}" (Figure_Legend_Align.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"align\\\":%s}}" (Figure_Legend_Align.ToJson o))
 
     ///<summary>Figure_Legend_AlignColumns : <code>bool</code></summary>
     type Figure_Legend_AlignColumns() =
@@ -7428,23 +7428,23 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"legend\":{\"alignColumns\":%s}}" (Figure_Legend_AlignColumns.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"alignColumns\\\":%s}}" (Figure_Legend_AlignColumns.ToJson o))
 
     ///<summary>Figure_Legend_Layout : <code>string</code></summary>
     type Figure_Legend_Layout() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"layout\":%s}}" (Figure_Legend_Layout.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"layout\\\":%s}}" (Figure_Legend_Layout.ToJson o))
 
     ///<summary>Figure_Legend_BorderColor : <code>string</code></summary>
     type Figure_Legend_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"borderColor\":%s}}" (Figure_Legend_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"borderColor\\\":%s}}" (Figure_Legend_BorderColor.ToJson o))
 
     ///<summary>Figure_Legend_BorderRadius : <code>int</code></summary>
     type Figure_Legend_BorderRadius() =
@@ -7452,23 +7452,23 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"legend\":{\"borderRadius\":%s}}" (Figure_Legend_BorderRadius.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"borderRadius\\\":%s}}" (Figure_Legend_BorderRadius.ToJson o))
 
     ///<summary>Figure_Legend_Navigation_ActiveColor : <code>string</code></summary>
     type Figure_Legend_Navigation_ActiveColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"navigation\":{\"activeColor\":%s}}}" (Figure_Legend_Navigation_ActiveColor.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"navigation\\\":{\\\"activeColor\\\":%s}}}" (Figure_Legend_Navigation_ActiveColor.ToJson o))
 
     ///<summary>Figure_Legend_Navigation_InactiveColor : <code>string</code></summary>
     type Figure_Legend_Navigation_InactiveColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"navigation\":{\"inactiveColor\":%s}}}" (Figure_Legend_Navigation_InactiveColor.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"navigation\\\":{\\\"inactiveColor\\\":%s}}}" (Figure_Legend_Navigation_InactiveColor.ToJson o))
 
     ///<summary>Figure_Legend_Navigation : <code>{| activeColor:string; inactiveColor:string |}</code></summary>
     type Figure_Legend_Navigation() = 
@@ -7484,56 +7484,56 @@ module Figure =
             sprintf "{\"activeColor\":%s,\"inactiveColor\":%s}" activeColor inactiveColor
 
         member this.Set (o:{| activeColor:string; inactiveColor:string |}) =
-            update 0 (sprintf "{\"legend\":{\"navigation\":%s}}" (Figure_Legend_Navigation.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"navigation\\\":%s}}" (Figure_Legend_Navigation.ToJson o))
 
 
     ///<summary>Figure_Legend_ItemStyle_Color : <code>string</code></summary>
     type Figure_Legend_ItemStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemStyle\":{\"color\":%s}}}" (Figure_Legend_ItemStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemStyle\\\":{\\\"color\\\":%s}}}" (Figure_Legend_ItemStyle_Color.ToJson o))
 
     ///<summary>Figure_Legend_ItemStyle_Cursor : <code>string</code></summary>
     type Figure_Legend_ItemStyle_Cursor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemStyle\":{\"cursor\":%s}}}" (Figure_Legend_ItemStyle_Cursor.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemStyle\\\":{\\\"cursor\\\":%s}}}" (Figure_Legend_ItemStyle_Cursor.ToJson o))
 
     ///<summary>Figure_Legend_ItemStyle_FontSize : <code>string</code></summary>
     type Figure_Legend_ItemStyle_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemStyle\":{\"fontSize\":%s}}}" (Figure_Legend_ItemStyle_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemStyle\\\":{\\\"fontSize\\\":%s}}}" (Figure_Legend_ItemStyle_FontSize.ToJson o))
 
     ///<summary>Figure_Legend_ItemStyle_FontWeight : <code>string</code></summary>
     type Figure_Legend_ItemStyle_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemStyle\":{\"fontWeight\":%s}}}" (Figure_Legend_ItemStyle_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemStyle\\\":{\\\"fontWeight\\\":%s}}}" (Figure_Legend_ItemStyle_FontWeight.ToJson o))
 
     ///<summary>Figure_Legend_ItemStyle_TextOverflow : <code>string</code></summary>
     type Figure_Legend_ItemStyle_TextOverflow() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemStyle\":{\"textOverflow\":%s}}}" (Figure_Legend_ItemStyle_TextOverflow.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemStyle\\\":{\\\"textOverflow\\\":%s}}}" (Figure_Legend_ItemStyle_TextOverflow.ToJson o))
 
     ///<summary>Figure_Legend_ItemStyle_Font : <code>string</code></summary>
     type Figure_Legend_ItemStyle_Font() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemStyle\":{\"font\":%s}}}" (Figure_Legend_ItemStyle_Font.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemStyle\\\":{\\\"font\\\":%s}}}" (Figure_Legend_ItemStyle_Font.ToJson o))
 
     ///<summary>Figure_Legend_ItemStyle : <code>{| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}</code></summary>
     type Figure_Legend_ItemStyle() = 
@@ -7565,16 +7565,16 @@ module Figure =
             sprintf "{\"color\":%s,\"cursor\":%s,\"fontSize\":%s,\"fontWeight\":%s,\"textOverflow\":%s,\"font\":%s}" color cursor fontSize fontWeight textOverflow font
 
         member this.Set (o:{| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}) =
-            update 0 (sprintf "{\"legend\":{\"itemStyle\":%s}}" (Figure_Legend_ItemStyle.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemStyle\\\":%s}}" (Figure_Legend_ItemStyle.ToJson o))
 
 
     ///<summary>Figure_Legend_ItemHoverStyle_Color : <code>string</code></summary>
     type Figure_Legend_ItemHoverStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemHoverStyle\":{\"color\":%s}}}" (Figure_Legend_ItemHoverStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemHoverStyle\\\":{\\\"color\\\":%s}}}" (Figure_Legend_ItemHoverStyle_Color.ToJson o))
 
     ///<summary>Figure_Legend_ItemHoverStyle : <code>{| color:string |}</code></summary>
     type Figure_Legend_ItemHoverStyle() = 
@@ -7586,16 +7586,16 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"legend\":{\"itemHoverStyle\":%s}}" (Figure_Legend_ItemHoverStyle.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemHoverStyle\\\":%s}}" (Figure_Legend_ItemHoverStyle.ToJson o))
 
 
     ///<summary>Figure_Legend_ItemHiddenStyle_Color : <code>string</code></summary>
     type Figure_Legend_ItemHiddenStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemHiddenStyle\":{\"color\":%s}}}" (Figure_Legend_ItemHiddenStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemHiddenStyle\\\":{\\\"color\\\":%s}}}" (Figure_Legend_ItemHiddenStyle_Color.ToJson o))
 
     ///<summary>Figure_Legend_ItemHiddenStyle : <code>{| color:string |}</code></summary>
     type Figure_Legend_ItemHiddenStyle() = 
@@ -7607,7 +7607,7 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"legend\":{\"itemHiddenStyle\":%s}}" (Figure_Legend_ItemHiddenStyle.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemHiddenStyle\\\":%s}}" (Figure_Legend_ItemHiddenStyle.ToJson o))
 
 
     ///<summary>Figure_Legend_Shadow : <code>bool</code></summary>
@@ -7616,31 +7616,31 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"legend\":{\"shadow\":%s}}" (Figure_Legend_Shadow.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"shadow\\\":%s}}" (Figure_Legend_Shadow.ToJson o))
 
     ///<summary>Figure_Legend_ItemCheckboxStyle_Position : <code>string</code></summary>
     type Figure_Legend_ItemCheckboxStyle_Position() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemCheckboxStyle\":{\"position\":%s}}}" (Figure_Legend_ItemCheckboxStyle_Position.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemCheckboxStyle\\\":{\\\"position\\\":%s}}}" (Figure_Legend_ItemCheckboxStyle_Position.ToJson o))
 
     ///<summary>Figure_Legend_ItemCheckboxStyle_Width : <code>string</code></summary>
     type Figure_Legend_ItemCheckboxStyle_Width() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemCheckboxStyle\":{\"width\":%s}}}" (Figure_Legend_ItemCheckboxStyle_Width.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemCheckboxStyle\\\":{\\\"width\\\":%s}}}" (Figure_Legend_ItemCheckboxStyle_Width.ToJson o))
 
     ///<summary>Figure_Legend_ItemCheckboxStyle_Height : <code>string</code></summary>
     type Figure_Legend_ItemCheckboxStyle_Height() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"itemCheckboxStyle\":{\"height\":%s}}}" (Figure_Legend_ItemCheckboxStyle_Height.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemCheckboxStyle\\\":{\\\"height\\\":%s}}}" (Figure_Legend_ItemCheckboxStyle_Height.ToJson o))
 
     ///<summary>Figure_Legend_ItemCheckboxStyle : <code>{| position:string; width:string; height:string |}</code></summary>
     type Figure_Legend_ItemCheckboxStyle() = 
@@ -7660,7 +7660,7 @@ module Figure =
             sprintf "{\"position\":%s,\"width\":%s,\"height\":%s}" position width height
 
         member this.Set (o:{| position:string; width:string; height:string |}) =
-            update 0 (sprintf "{\"legend\":{\"itemCheckboxStyle\":%s}}" (Figure_Legend_ItemCheckboxStyle.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"itemCheckboxStyle\\\":%s}}" (Figure_Legend_ItemCheckboxStyle.ToJson o))
 
 
     ///<summary>Figure_Legend_SquareSymbol : <code>bool</code></summary>
@@ -7669,7 +7669,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"legend\":{\"squareSymbol\":%s}}" (Figure_Legend_SquareSymbol.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"squareSymbol\\\":%s}}" (Figure_Legend_SquareSymbol.ToJson o))
 
     ///<summary>Figure_Legend_SymbolPadding : <code>int</code></summary>
     type Figure_Legend_SymbolPadding() =
@@ -7677,15 +7677,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"legend\":{\"symbolPadding\":%s}}" (Figure_Legend_SymbolPadding.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"symbolPadding\\\":%s}}" (Figure_Legend_SymbolPadding.ToJson o))
 
     ///<summary>Figure_Legend_VerticalAlign : <code>string</code></summary>
     type Figure_Legend_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"verticalAlign\":%s}}" (Figure_Legend_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"verticalAlign\\\":%s}}" (Figure_Legend_VerticalAlign.ToJson o))
 
     ///<summary>Figure_Legend_X : <code>int</code></summary>
     type Figure_Legend_X() =
@@ -7693,7 +7693,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"legend\":{\"x\":%s}}" (Figure_Legend_X.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"x\\\":%s}}" (Figure_Legend_X.ToJson o))
 
     ///<summary>Figure_Legend_Y : <code>int</code></summary>
     type Figure_Legend_Y() =
@@ -7701,23 +7701,23 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"legend\":{\"y\":%s}}" (Figure_Legend_Y.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"y\\\":%s}}" (Figure_Legend_Y.ToJson o))
 
     ///<summary>Figure_Legend_Title_Style_FontWeight : <code>string</code></summary>
     type Figure_Legend_Title_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"title\":{\"style\":{\"fontWeight\":%s}}}}" (Figure_Legend_Title_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"title\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}" (Figure_Legend_Title_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_Legend_Title_Style_Color : <code>string</code></summary>
     type Figure_Legend_Title_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"title\":{\"style\":{\"color\":%s}}}}" (Figure_Legend_Title_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"title\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}" (Figure_Legend_Title_Style_Color.ToJson o))
 
     ///<summary>Figure_Legend_Title_Style : <code>{| fontWeight:string; color:string |}</code></summary>
     type Figure_Legend_Title_Style() = 
@@ -7733,7 +7733,7 @@ module Figure =
             sprintf "{\"fontWeight\":%s,\"color\":%s}" fontWeight color
 
         member this.Set (o:{| fontWeight:string; color:string |}) =
-            update 0 (sprintf "{\"legend\":{\"title\":{\"style\":%s}}}" (Figure_Legend_Title_Style.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"title\\\":{\\\"style\\\":%s}}}" (Figure_Legend_Title_Style.ToJson o))
 
 
     ///<summary>Figure_Legend_Title : <code>{| style: {| fontWeight:string; color:string |} |}</code></summary>
@@ -7746,16 +7746,16 @@ module Figure =
             sprintf "{\"style\":%s}" style
 
         member this.Set (o:{| style: {| fontWeight:string; color:string |} |}) =
-            update 0 (sprintf "{\"legend\":{\"title\":%s}}" (Figure_Legend_Title.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"title\\\":%s}}" (Figure_Legend_Title.ToJson o))
 
 
     ///<summary>Figure_Legend_BackgroundColor : <code>string</code></summary>
     type Figure_Legend_BackgroundColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"legend\":{\"backgroundColor\":%s}}" (Figure_Legend_BackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":{\\\"backgroundColor\\\":%s}}" (Figure_Legend_BackgroundColor.ToJson o))
 
     ///<summary>Figure_Legend : <code>{| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}</code></summary>
     type Figure_Legend() = 
@@ -7839,32 +7839,32 @@ module Figure =
             sprintf "{\"enabled\":%s,\"align\":%s,\"alignColumns\":%s,\"layout\":%s,\"borderColor\":%s,\"borderRadius\":%s,\"navigation\":%s,\"itemStyle\":%s,\"itemHoverStyle\":%s,\"itemHiddenStyle\":%s,\"shadow\":%s,\"itemCheckboxStyle\":%s,\"squareSymbol\":%s,\"symbolPadding\":%s,\"verticalAlign\":%s,\"x\":%s,\"y\":%s,\"title\":%s,\"backgroundColor\":%s}" enabled align alignColumns layout borderColor borderRadius navigation itemStyle itemHoverStyle itemHiddenStyle shadow itemCheckboxStyle squareSymbol symbolPadding verticalAlign x y title backgroundColor
 
         member this.Set (o:{| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}) =
-            update 0 (sprintf "{\"legend\":%s}" (Figure_Legend.ToJson o))
+            update 0 (sprintf "{\\\"legend\\\":%s}" (Figure_Legend.ToJson o))
 
 
     ///<summary>Figure_Loading_LabelStyle_FontWeight : <code>string</code></summary>
     type Figure_Loading_LabelStyle_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"loading\":{\"labelStyle\":{\"fontWeight\":%s}}}" (Figure_Loading_LabelStyle_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"labelStyle\\\":{\\\"fontWeight\\\":%s}}}" (Figure_Loading_LabelStyle_FontWeight.ToJson o))
 
     ///<summary>Figure_Loading_LabelStyle_Position : <code>string</code></summary>
     type Figure_Loading_LabelStyle_Position() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"loading\":{\"labelStyle\":{\"position\":%s}}}" (Figure_Loading_LabelStyle_Position.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"labelStyle\\\":{\\\"position\\\":%s}}}" (Figure_Loading_LabelStyle_Position.ToJson o))
 
     ///<summary>Figure_Loading_LabelStyle_Top : <code>string</code></summary>
     type Figure_Loading_LabelStyle_Top() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"loading\":{\"labelStyle\":{\"top\":%s}}}" (Figure_Loading_LabelStyle_Top.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"labelStyle\\\":{\\\"top\\\":%s}}}" (Figure_Loading_LabelStyle_Top.ToJson o))
 
     ///<summary>Figure_Loading_LabelStyle : <code>{| fontWeight:string; position:string; top:string |}</code></summary>
     type Figure_Loading_LabelStyle() = 
@@ -7884,24 +7884,24 @@ module Figure =
             sprintf "{\"fontWeight\":%s,\"position\":%s,\"top\":%s}" fontWeight position top
 
         member this.Set (o:{| fontWeight:string; position:string; top:string |}) =
-            update 0 (sprintf "{\"loading\":{\"labelStyle\":%s}}" (Figure_Loading_LabelStyle.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"labelStyle\\\":%s}}" (Figure_Loading_LabelStyle.ToJson o))
 
 
     ///<summary>Figure_Loading_Style_Position : <code>string</code></summary>
     type Figure_Loading_Style_Position() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"loading\":{\"style\":{\"position\":%s}}}" (Figure_Loading_Style_Position.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"style\\\":{\\\"position\\\":%s}}}" (Figure_Loading_Style_Position.ToJson o))
 
     ///<summary>Figure_Loading_Style_BackgroundColor : <code>string</code></summary>
     type Figure_Loading_Style_BackgroundColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"loading\":{\"style\":{\"backgroundColor\":%s}}}" (Figure_Loading_Style_BackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"style\\\":{\\\"backgroundColor\\\":%s}}}" (Figure_Loading_Style_BackgroundColor.ToJson o))
 
     ///<summary>Figure_Loading_Style_Opacity : <code>int</code></summary>
     type Figure_Loading_Style_Opacity() =
@@ -7909,15 +7909,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"loading\":{\"style\":{\"opacity\":%s}}}" (Figure_Loading_Style_Opacity.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"style\\\":{\\\"opacity\\\":%s}}}" (Figure_Loading_Style_Opacity.ToJson o))
 
     ///<summary>Figure_Loading_Style_TextAlign : <code>string</code></summary>
     type Figure_Loading_Style_TextAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"loading\":{\"style\":{\"textAlign\":%s}}}" (Figure_Loading_Style_TextAlign.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"style\\\":{\\\"textAlign\\\":%s}}}" (Figure_Loading_Style_TextAlign.ToJson o))
 
     ///<summary>Figure_Loading_Style : <code>{| position:string; backgroundColor:string; opacity:int; textAlign:string |}</code></summary>
     type Figure_Loading_Style() = 
@@ -7941,7 +7941,7 @@ module Figure =
             sprintf "{\"position\":%s,\"backgroundColor\":%s,\"opacity\":%s,\"textAlign\":%s}" position backgroundColor opacity textAlign
 
         member this.Set (o:{| position:string; backgroundColor:string; opacity:int; textAlign:string |}) =
-            update 0 (sprintf "{\"loading\":{\"style\":%s}}" (Figure_Loading_Style.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":{\\\"style\\\":%s}}" (Figure_Loading_Style.ToJson o))
 
 
     ///<summary>Figure_Loading : <code>{| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}</code></summary>
@@ -7958,7 +7958,7 @@ module Figure =
             sprintf "{\"labelStyle\":%s,\"style\":%s}" labelStyle style
 
         member this.Set (o:{| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}) =
-            update 0 (sprintf "{\"loading\":%s}" (Figure_Loading.ToJson o))
+            update 0 (sprintf "{\\\"loading\\\":%s}" (Figure_Loading.ToJson o))
 
 
     ///<summary>Figure_Tooltip_Enabled : <code>bool</code></summary>
@@ -7967,7 +7967,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"tooltip\":{\"enabled\":%s}}" (Figure_Tooltip_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"enabled\\\":%s}}" (Figure_Tooltip_Enabled.ToJson o))
 
     ///<summary>Figure_Tooltip_Animation : <code>bool</code></summary>
     type Figure_Tooltip_Animation() =
@@ -7975,7 +7975,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"tooltip\":{\"animation\":%s}}" (Figure_Tooltip_Animation.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"animation\\\":%s}}" (Figure_Tooltip_Animation.ToJson o))
 
     ///<summary>Figure_Tooltip_BorderRadius : <code>int</code></summary>
     type Figure_Tooltip_BorderRadius() =
@@ -7983,71 +7983,71 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"tooltip\":{\"borderRadius\":%s}}" (Figure_Tooltip_BorderRadius.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"borderRadius\\\":%s}}" (Figure_Tooltip_BorderRadius.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Millisecond : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Millisecond() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"millisecond\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Millisecond.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"millisecond\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Millisecond.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Second : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Second() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"second\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Second.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"second\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Second.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Minute : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Minute() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"minute\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Minute.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"minute\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Minute.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Hour : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Hour() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"hour\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Hour.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"hour\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Hour.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Day : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Day() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"day\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Day.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"day\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Day.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Week : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Week() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"week\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Week.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"week\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Week.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Month : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Month() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"month\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Month.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"month\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Month.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats_Year : <code>string</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats_Year() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":{\"year\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Year.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":{\\\"year\\\":%s}}}" (Figure_Tooltip_DateTimeLabelFormats_Year.ToJson o))
 
     ///<summary>Figure_Tooltip_DateTimeLabelFormats : <code>{| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}</code></summary>
     type Figure_Tooltip_DateTimeLabelFormats() = 
@@ -8087,16 +8087,16 @@ module Figure =
             sprintf "{\"millisecond\":%s,\"second\":%s,\"minute\":%s,\"hour\":%s,\"day\":%s,\"week\":%s,\"month\":%s,\"year\":%s}" millisecond second minute hour day week month year
 
         member this.Set (o:{| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}) =
-            update 0 (sprintf "{\"tooltip\":{\"dateTimeLabelFormats\":%s}}" (Figure_Tooltip_DateTimeLabelFormats.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"dateTimeLabelFormats\\\":%s}}" (Figure_Tooltip_DateTimeLabelFormats.ToJson o))
 
 
     ///<summary>Figure_Tooltip_FooterFormat : <code>string</code></summary>
     type Figure_Tooltip_FooterFormat() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"footerFormat\":%s}}" (Figure_Tooltip_FooterFormat.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"footerFormat\\\":%s}}" (Figure_Tooltip_FooterFormat.ToJson o))
 
     ///<summary>Figure_Tooltip_Padding : <code>int</code></summary>
     type Figure_Tooltip_Padding() =
@@ -8104,7 +8104,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"tooltip\":{\"padding\":%s}}" (Figure_Tooltip_Padding.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"padding\\\":%s}}" (Figure_Tooltip_Padding.ToJson o))
 
     ///<summary>Figure_Tooltip_Snap : <code>int</code></summary>
     type Figure_Tooltip_Snap() =
@@ -8112,31 +8112,31 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"tooltip\":{\"snap\":%s}}" (Figure_Tooltip_Snap.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"snap\\\":%s}}" (Figure_Tooltip_Snap.ToJson o))
 
     ///<summary>Figure_Tooltip_HeaderFormat : <code>string</code></summary>
     type Figure_Tooltip_HeaderFormat() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"headerFormat\":%s}}" (Figure_Tooltip_HeaderFormat.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"headerFormat\\\":%s}}" (Figure_Tooltip_HeaderFormat.ToJson o))
 
     ///<summary>Figure_Tooltip_PointFormat : <code>string</code></summary>
     type Figure_Tooltip_PointFormat() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"pointFormat\":%s}}" (Figure_Tooltip_PointFormat.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"pointFormat\\\":%s}}" (Figure_Tooltip_PointFormat.ToJson o))
 
     ///<summary>Figure_Tooltip_BackgroundColor : <code>string</code></summary>
     type Figure_Tooltip_BackgroundColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"backgroundColor\":%s}}" (Figure_Tooltip_BackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"backgroundColor\\\":%s}}" (Figure_Tooltip_BackgroundColor.ToJson o))
 
     ///<summary>Figure_Tooltip_BorderWidth : <code>int</code></summary>
     type Figure_Tooltip_BorderWidth() =
@@ -8144,7 +8144,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"tooltip\":{\"borderWidth\":%s}}" (Figure_Tooltip_BorderWidth.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"borderWidth\\\":%s}}" (Figure_Tooltip_BorderWidth.ToJson o))
 
     ///<summary>Figure_Tooltip_Shadow : <code>bool</code></summary>
     type Figure_Tooltip_Shadow() =
@@ -8152,39 +8152,39 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"tooltip\":{\"shadow\":%s}}" (Figure_Tooltip_Shadow.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"shadow\\\":%s}}" (Figure_Tooltip_Shadow.ToJson o))
 
     ///<summary>Figure_Tooltip_Style_Color : <code>string</code></summary>
     type Figure_Tooltip_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"style\":{\"color\":%s}}}" (Figure_Tooltip_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"style\\\":{\\\"color\\\":%s}}}" (Figure_Tooltip_Style_Color.ToJson o))
 
     ///<summary>Figure_Tooltip_Style_Cursor : <code>string</code></summary>
     type Figure_Tooltip_Style_Cursor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"style\":{\"cursor\":%s}}}" (Figure_Tooltip_Style_Cursor.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"style\\\":{\\\"cursor\\\":%s}}}" (Figure_Tooltip_Style_Cursor.ToJson o))
 
     ///<summary>Figure_Tooltip_Style_FontSize : <code>string</code></summary>
     type Figure_Tooltip_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"style\":{\"fontSize\":%s}}}" (Figure_Tooltip_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}" (Figure_Tooltip_Style_FontSize.ToJson o))
 
     ///<summary>Figure_Tooltip_Style_WhiteSpace : <code>string</code></summary>
     type Figure_Tooltip_Style_WhiteSpace() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"tooltip\":{\"style\":{\"whiteSpace\":%s}}}" (Figure_Tooltip_Style_WhiteSpace.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"style\\\":{\\\"whiteSpace\\\":%s}}}" (Figure_Tooltip_Style_WhiteSpace.ToJson o))
 
     ///<summary>Figure_Tooltip_Style : <code>{| color:string; cursor:string; fontSize:string; whiteSpace:string |}</code></summary>
     type Figure_Tooltip_Style() = 
@@ -8208,7 +8208,7 @@ module Figure =
             sprintf "{\"color\":%s,\"cursor\":%s,\"fontSize\":%s,\"whiteSpace\":%s}" color cursor fontSize whiteSpace
 
         member this.Set (o:{| color:string; cursor:string; fontSize:string; whiteSpace:string |}) =
-            update 0 (sprintf "{\"tooltip\":{\"style\":%s}}" (Figure_Tooltip_Style.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":{\\\"style\\\":%s}}" (Figure_Tooltip_Style.ToJson o))
 
 
     ///<summary>Figure_Tooltip : <code>{| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}</code></summary>
@@ -8269,7 +8269,7 @@ module Figure =
             sprintf "{\"enabled\":%s,\"animation\":%s,\"borderRadius\":%s,\"dateTimeLabelFormats\":%s,\"footerFormat\":%s,\"padding\":%s,\"snap\":%s,\"headerFormat\":%s,\"pointFormat\":%s,\"backgroundColor\":%s,\"borderWidth\":%s,\"shadow\":%s,\"style\":%s}" enabled animation borderRadius dateTimeLabelFormats footerFormat padding snap headerFormat pointFormat backgroundColor borderWidth shadow style
 
         member this.Set (o:{| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}) =
-            update 0 (sprintf "{\"tooltip\":%s}" (Figure_Tooltip.ToJson o))
+            update 0 (sprintf "{\\\"tooltip\\\":%s}" (Figure_Tooltip.ToJson o))
 
 
     ///<summary>Figure_Credits_Enabled : <code>bool</code></summary>
@@ -8278,23 +8278,23 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"credits\":{\"enabled\":%s}}" (Figure_Credits_Enabled.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"enabled\\\":%s}}" (Figure_Credits_Enabled.ToJson o))
 
     ///<summary>Figure_Credits_Href : <code>string</code></summary>
     type Figure_Credits_Href() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"href\":%s}}" (Figure_Credits_Href.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"href\\\":%s}}" (Figure_Credits_Href.ToJson o))
 
     ///<summary>Figure_Credits_Position_Align : <code>string</code></summary>
     type Figure_Credits_Position_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"position\":{\"align\":%s}}}" (Figure_Credits_Position_Align.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"position\\\":{\\\"align\\\":%s}}}" (Figure_Credits_Position_Align.ToJson o))
 
     ///<summary>Figure_Credits_Position_X : <code>int</code></summary>
     type Figure_Credits_Position_X() =
@@ -8302,15 +8302,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"credits\":{\"position\":{\"x\":%s}}}" (Figure_Credits_Position_X.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"position\\\":{\\\"x\\\":%s}}}" (Figure_Credits_Position_X.ToJson o))
 
     ///<summary>Figure_Credits_Position_VerticalAlign : <code>string</code></summary>
     type Figure_Credits_Position_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"position\":{\"verticalAlign\":%s}}}" (Figure_Credits_Position_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"position\\\":{\\\"verticalAlign\\\":%s}}}" (Figure_Credits_Position_VerticalAlign.ToJson o))
 
     ///<summary>Figure_Credits_Position_Y : <code>int</code></summary>
     type Figure_Credits_Position_Y() =
@@ -8318,7 +8318,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"credits\":{\"position\":{\"y\":%s}}}" (Figure_Credits_Position_Y.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"position\\\":{\\\"y\\\":%s}}}" (Figure_Credits_Position_Y.ToJson o))
 
     ///<summary>Figure_Credits_Position : <code>{| align:string; x:int; verticalAlign:string; y:int |}</code></summary>
     type Figure_Credits_Position() = 
@@ -8342,40 +8342,40 @@ module Figure =
             sprintf "{\"align\":%s,\"x\":%s,\"verticalAlign\":%s,\"y\":%s}" align x verticalAlign y
 
         member this.Set (o:{| align:string; x:int; verticalAlign:string; y:int |}) =
-            update 0 (sprintf "{\"credits\":{\"position\":%s}}" (Figure_Credits_Position.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"position\\\":%s}}" (Figure_Credits_Position.ToJson o))
 
 
     ///<summary>Figure_Credits_Style_Cursor : <code>string</code></summary>
     type Figure_Credits_Style_Cursor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"style\":{\"cursor\":%s}}}" (Figure_Credits_Style_Cursor.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"style\\\":{\\\"cursor\\\":%s}}}" (Figure_Credits_Style_Cursor.ToJson o))
 
     ///<summary>Figure_Credits_Style_Color : <code>string</code></summary>
     type Figure_Credits_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"style\":{\"color\":%s}}}" (Figure_Credits_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"style\\\":{\\\"color\\\":%s}}}" (Figure_Credits_Style_Color.ToJson o))
 
     ///<summary>Figure_Credits_Style_FontSize : <code>string</code></summary>
     type Figure_Credits_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"style\":{\"fontSize\":%s}}}" (Figure_Credits_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}" (Figure_Credits_Style_FontSize.ToJson o))
 
     ///<summary>Figure_Credits_Style_Fill : <code>string</code></summary>
     type Figure_Credits_Style_Fill() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"style\":{\"fill\":%s}}}" (Figure_Credits_Style_Fill.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"style\\\":{\\\"fill\\\":%s}}}" (Figure_Credits_Style_Fill.ToJson o))
 
     ///<summary>Figure_Credits_Style : <code>{| cursor:string; color:string; fontSize:string; fill:string |}</code></summary>
     type Figure_Credits_Style() = 
@@ -8399,16 +8399,16 @@ module Figure =
             sprintf "{\"cursor\":%s,\"color\":%s,\"fontSize\":%s,\"fill\":%s}" cursor color fontSize fill
 
         member this.Set (o:{| cursor:string; color:string; fontSize:string; fill:string |}) =
-            update 0 (sprintf "{\"credits\":{\"style\":%s}}" (Figure_Credits_Style.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"style\\\":%s}}" (Figure_Credits_Style.ToJson o))
 
 
     ///<summary>Figure_Credits_Text : <code>string</code></summary>
     type Figure_Credits_Text() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"credits\":{\"text\":%s}}" (Figure_Credits_Text.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":{\\\"text\\\":%s}}" (Figure_Credits_Text.ToJson o))
 
     ///<summary>Figure_Credits : <code>{| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}</code></summary>
     type Figure_Credits() = 
@@ -8436,7 +8436,7 @@ module Figure =
             sprintf "{\"enabled\":%s,\"href\":%s,\"position\":%s,\"style\":%s,\"text\":%s}" enabled href position style text
 
         member this.Set (o:{| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}) =
-            update 0 (sprintf "{\"credits\":%s}" (Figure_Credits.ToJson o))
+            update 0 (sprintf "{\\\"credits\\\":%s}" (Figure_Credits.ToJson o))
 
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Padding : <code>int</code></summary>
@@ -8445,7 +8445,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"padding\":%s}}}}" (Figure_Navigation_ButtonOptions_Theme_Padding.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"padding\\\":%s}}}}" (Figure_Navigation_ButtonOptions_Theme_Padding.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X1 : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X1() =
@@ -8453,7 +8453,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"linearGradient\":{\"x1\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y1() =
@@ -8461,7 +8461,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"linearGradient\":{\"y1\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X2 : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X2() =
@@ -8469,7 +8469,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"linearGradient\":{\"x2\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y2() =
@@ -8477,7 +8477,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"linearGradient\":{\"y2\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient() = 
@@ -8501,7 +8501,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s}" x1 y1 x2 y2
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int |}) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"linearGradient\":%s}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":%s}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item : <code>int</code></summary>
@@ -8510,7 +8510,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"stops\":{\"item\":{\"item\":%s}}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item : <code>int seq</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item() =
@@ -8524,7 +8524,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"stops\":{\"item\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -8542,7 +8542,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":{\"stops\":%s}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_Stops.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":{\\\"stops\\\":%s}}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -8562,16 +8562,16 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"fill\":%s}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"fill\\\":%s}}}}" (Figure_Navigation_ButtonOptions_Theme_Fill.ToJson o))
 
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme_Stroke : <code>string</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Stroke() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":{\"stroke\":%s}}}}" (Figure_Navigation_ButtonOptions_Theme_Stroke.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":{\\\"stroke\\\":%s}}}}" (Figure_Navigation_ButtonOptions_Theme_Stroke.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Theme : <code>{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}</code></summary>
     type Figure_Navigation_ButtonOptions_Theme() = 
@@ -8591,7 +8591,7 @@ module Figure =
             sprintf "{\"padding\":%s,\"fill\":%s,\"stroke\":%s}" padding fill stroke
 
         member this.Set (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"theme\":%s}}}" (Figure_Navigation_ButtonOptions_Theme.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"theme\\\":%s}}}" (Figure_Navigation_ButtonOptions_Theme.ToJson o))
 
 
     ///<summary>Figure_Navigation_ButtonOptions_SymbolSize : <code>int</code></summary>
@@ -8600,7 +8600,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"symbolSize\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolSize.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"symbolSize\\\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolSize.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_SymbolX : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_SymbolX() =
@@ -8608,7 +8608,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"symbolX\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolX.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"symbolX\\\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolX.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_SymbolY : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_SymbolY() =
@@ -8616,15 +8616,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"symbolY\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolY.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"symbolY\\\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolY.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Align : <code>string</code></summary>
     type Figure_Navigation_ButtonOptions_Align() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"align\":%s}}}" (Figure_Navigation_ButtonOptions_Align.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"align\\\":%s}}}" (Figure_Navigation_ButtonOptions_Align.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_ButtonSpacing : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_ButtonSpacing() =
@@ -8632,7 +8632,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"buttonSpacing\":%s}}}" (Figure_Navigation_ButtonOptions_ButtonSpacing.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"buttonSpacing\\\":%s}}}" (Figure_Navigation_ButtonOptions_ButtonSpacing.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Height : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_Height() =
@@ -8640,15 +8640,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"height\":%s}}}" (Figure_Navigation_ButtonOptions_Height.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"height\\\":%s}}}" (Figure_Navigation_ButtonOptions_Height.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_VerticalAlign : <code>string</code></summary>
     type Figure_Navigation_ButtonOptions_VerticalAlign() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"verticalAlign\":%s}}}" (Figure_Navigation_ButtonOptions_VerticalAlign.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"verticalAlign\\\":%s}}}" (Figure_Navigation_ButtonOptions_VerticalAlign.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_Width : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_Width() =
@@ -8656,23 +8656,23 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"width\":%s}}}" (Figure_Navigation_ButtonOptions_Width.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"width\\\":%s}}}" (Figure_Navigation_ButtonOptions_Width.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_SymbolFill : <code>string</code></summary>
     type Figure_Navigation_ButtonOptions_SymbolFill() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"symbolFill\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolFill.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"symbolFill\\\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolFill.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_SymbolStroke : <code>string</code></summary>
     type Figure_Navigation_ButtonOptions_SymbolStroke() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"symbolStroke\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolStroke.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"symbolStroke\\\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolStroke.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions_SymbolStrokeWidth : <code>int</code></summary>
     type Figure_Navigation_ButtonOptions_SymbolStrokeWidth() =
@@ -8680,7 +8680,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":{\"symbolStrokeWidth\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolStrokeWidth.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":{\\\"symbolStrokeWidth\\\":%s}}}" (Figure_Navigation_ButtonOptions_SymbolStrokeWidth.ToJson o))
 
     ///<summary>Figure_Navigation_ButtonOptions : <code>{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}</code></summary>
     type Figure_Navigation_ButtonOptions() = 
@@ -8736,32 +8736,32 @@ module Figure =
             sprintf "{\"theme\":%s,\"symbolSize\":%s,\"symbolX\":%s,\"symbolY\":%s,\"align\":%s,\"buttonSpacing\":%s,\"height\":%s,\"verticalAlign\":%s,\"width\":%s,\"symbolFill\":%s,\"symbolStroke\":%s,\"symbolStrokeWidth\":%s}" theme symbolSize symbolX symbolY align buttonSpacing height verticalAlign width symbolFill symbolStroke symbolStrokeWidth
 
         member this.Set (o:{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}) =
-            update 0 (sprintf "{\"navigation\":{\"buttonOptions\":%s}}" (Figure_Navigation_ButtonOptions.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"buttonOptions\\\":%s}}" (Figure_Navigation_ButtonOptions.ToJson o))
 
 
     ///<summary>Figure_Navigation_MenuStyle_Border : <code>string</code></summary>
     type Figure_Navigation_MenuStyle_Border() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuStyle\":{\"border\":%s}}}" (Figure_Navigation_MenuStyle_Border.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuStyle\\\":{\\\"border\\\":%s}}}" (Figure_Navigation_MenuStyle_Border.ToJson o))
 
     ///<summary>Figure_Navigation_MenuStyle_Background : <code>string</code></summary>
     type Figure_Navigation_MenuStyle_Background() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuStyle\":{\"background\":%s}}}" (Figure_Navigation_MenuStyle_Background.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuStyle\\\":{\\\"background\\\":%s}}}" (Figure_Navigation_MenuStyle_Background.ToJson o))
 
     ///<summary>Figure_Navigation_MenuStyle_Padding : <code>string</code></summary>
     type Figure_Navigation_MenuStyle_Padding() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuStyle\":{\"padding\":%s}}}" (Figure_Navigation_MenuStyle_Padding.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuStyle\\\":{\\\"padding\\\":%s}}}" (Figure_Navigation_MenuStyle_Padding.ToJson o))
 
     ///<summary>Figure_Navigation_MenuStyle : <code>{| border:string; background:string; padding:string |}</code></summary>
     type Figure_Navigation_MenuStyle() = 
@@ -8781,48 +8781,48 @@ module Figure =
             sprintf "{\"border\":%s,\"background\":%s,\"padding\":%s}" border background padding
 
         member this.Set (o:{| border:string; background:string; padding:string |}) =
-            update 0 (sprintf "{\"navigation\":{\"menuStyle\":%s}}" (Figure_Navigation_MenuStyle.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuStyle\\\":%s}}" (Figure_Navigation_MenuStyle.ToJson o))
 
 
     ///<summary>Figure_Navigation_MenuItemStyle_Padding : <code>string</code></summary>
     type Figure_Navigation_MenuItemStyle_Padding() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemStyle\":{\"padding\":%s}}}" (Figure_Navigation_MenuItemStyle_Padding.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemStyle\\\":{\\\"padding\\\":%s}}}" (Figure_Navigation_MenuItemStyle_Padding.ToJson o))
 
     ///<summary>Figure_Navigation_MenuItemStyle_Color : <code>string</code></summary>
     type Figure_Navigation_MenuItemStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemStyle\":{\"color\":%s}}}" (Figure_Navigation_MenuItemStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemStyle\\\":{\\\"color\\\":%s}}}" (Figure_Navigation_MenuItemStyle_Color.ToJson o))
 
     ///<summary>Figure_Navigation_MenuItemStyle_Background : <code>string</code></summary>
     type Figure_Navigation_MenuItemStyle_Background() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemStyle\":{\"background\":%s}}}" (Figure_Navigation_MenuItemStyle_Background.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemStyle\\\":{\\\"background\\\":%s}}}" (Figure_Navigation_MenuItemStyle_Background.ToJson o))
 
     ///<summary>Figure_Navigation_MenuItemStyle_FontSize : <code>string</code></summary>
     type Figure_Navigation_MenuItemStyle_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemStyle\":{\"fontSize\":%s}}}" (Figure_Navigation_MenuItemStyle_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemStyle\\\":{\\\"fontSize\\\":%s}}}" (Figure_Navigation_MenuItemStyle_FontSize.ToJson o))
 
     ///<summary>Figure_Navigation_MenuItemStyle_Transition : <code>string</code></summary>
     type Figure_Navigation_MenuItemStyle_Transition() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemStyle\":{\"transition\":%s}}}" (Figure_Navigation_MenuItemStyle_Transition.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemStyle\\\":{\\\"transition\\\":%s}}}" (Figure_Navigation_MenuItemStyle_Transition.ToJson o))
 
     ///<summary>Figure_Navigation_MenuItemStyle : <code>{| padding:string; color:string; background:string; fontSize:string; transition:string |}</code></summary>
     type Figure_Navigation_MenuItemStyle() = 
@@ -8850,24 +8850,24 @@ module Figure =
             sprintf "{\"padding\":%s,\"color\":%s,\"background\":%s,\"fontSize\":%s,\"transition\":%s}" padding color background fontSize transition
 
         member this.Set (o:{| padding:string; color:string; background:string; fontSize:string; transition:string |}) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemStyle\":%s}}" (Figure_Navigation_MenuItemStyle.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemStyle\\\":%s}}" (Figure_Navigation_MenuItemStyle.ToJson o))
 
 
     ///<summary>Figure_Navigation_MenuItemHoverStyle_Background : <code>string</code></summary>
     type Figure_Navigation_MenuItemHoverStyle_Background() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemHoverStyle\":{\"background\":%s}}}" (Figure_Navigation_MenuItemHoverStyle_Background.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemHoverStyle\\\":{\\\"background\\\":%s}}}" (Figure_Navigation_MenuItemHoverStyle_Background.ToJson o))
 
     ///<summary>Figure_Navigation_MenuItemHoverStyle_Color : <code>string</code></summary>
     type Figure_Navigation_MenuItemHoverStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemHoverStyle\":{\"color\":%s}}}" (Figure_Navigation_MenuItemHoverStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemHoverStyle\\\":{\\\"color\\\":%s}}}" (Figure_Navigation_MenuItemHoverStyle_Color.ToJson o))
 
     ///<summary>Figure_Navigation_MenuItemHoverStyle : <code>{| background:string; color:string |}</code></summary>
     type Figure_Navigation_MenuItemHoverStyle() = 
@@ -8883,7 +8883,7 @@ module Figure =
             sprintf "{\"background\":%s,\"color\":%s}" background color
 
         member this.Set (o:{| background:string; color:string |}) =
-            update 0 (sprintf "{\"navigation\":{\"menuItemHoverStyle\":%s}}" (Figure_Navigation_MenuItemHoverStyle.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":{\\\"menuItemHoverStyle\\\":%s}}" (Figure_Navigation_MenuItemHoverStyle.ToJson o))
 
 
     ///<summary>Figure_Navigation : <code>{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}</code></summary>
@@ -8908,24 +8908,24 @@ module Figure =
             sprintf "{\"buttonOptions\":%s,\"menuStyle\":%s,\"menuItemStyle\":%s,\"menuItemHoverStyle\":%s}" buttonOptions menuStyle menuItemStyle menuItemHoverStyle
 
         member this.Set (o:{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}) =
-            update 0 (sprintf "{\"navigation\":%s}" (Figure_Navigation.ToJson o))
+            update 0 (sprintf "{\\\"navigation\\\":%s}" (Figure_Navigation.ToJson o))
 
 
     ///<summary>Figure_Exporting_Type : <code>string</code></summary>
     type Figure_Exporting_Type() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"type\":%s}}" (Figure_Exporting_Type.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"type\\\":%s}}" (Figure_Exporting_Type.ToJson o))
 
     ///<summary>Figure_Exporting_Url : <code>string</code></summary>
     type Figure_Exporting_Url() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"url\":%s}}" (Figure_Exporting_Url.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"url\\\":%s}}" (Figure_Exporting_Url.ToJson o))
 
     ///<summary>Figure_Exporting_PrintMaxWidth : <code>int</code></summary>
     type Figure_Exporting_PrintMaxWidth() =
@@ -8933,7 +8933,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"exporting\":{\"printMaxWidth\":%s}}" (Figure_Exporting_PrintMaxWidth.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"printMaxWidth\\\":%s}}" (Figure_Exporting_PrintMaxWidth.ToJson o))
 
     ///<summary>Figure_Exporting_Scale : <code>int</code></summary>
     type Figure_Exporting_Scale() =
@@ -8941,47 +8941,47 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"exporting\":{\"scale\":%s}}" (Figure_Exporting_Scale.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"scale\\\":%s}}" (Figure_Exporting_Scale.ToJson o))
 
     ///<summary>Figure_Exporting_Buttons_ContextButton_ClassName : <code>string</code></summary>
     type Figure_Exporting_Buttons_ContextButton_ClassName() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":{\"contextButton\":{\"className\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_ClassName.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":{\\\"contextButton\\\":{\\\"className\\\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_ClassName.ToJson o))
 
     ///<summary>Figure_Exporting_Buttons_ContextButton_MenuClassName : <code>string</code></summary>
     type Figure_Exporting_Buttons_ContextButton_MenuClassName() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":{\"contextButton\":{\"menuClassName\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_MenuClassName.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":{\\\"contextButton\\\":{\\\"menuClassName\\\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_MenuClassName.ToJson o))
 
     ///<summary>Figure_Exporting_Buttons_ContextButton_Symbol : <code>string</code></summary>
     type Figure_Exporting_Buttons_ContextButton_Symbol() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":{\"contextButton\":{\"symbol\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_Symbol.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":{\\\"contextButton\\\":{\\\"symbol\\\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_Symbol.ToJson o))
 
     ///<summary>Figure_Exporting_Buttons_ContextButton_TitleKey : <code>string</code></summary>
     type Figure_Exporting_Buttons_ContextButton_TitleKey() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":{\"contextButton\":{\"titleKey\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_TitleKey.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":{\\\"contextButton\\\":{\\\"titleKey\\\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_TitleKey.ToJson o))
 
     ///<summary>Figure_Exporting_Buttons_ContextButton_MenuItems_Item : <code>string</code></summary>
     type Figure_Exporting_Buttons_ContextButton_MenuItems_Item() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":{\"contextButton\":{\"menuItems\":{\"item\":%s}}}}}" (Figure_Exporting_Buttons_ContextButton_MenuItems_Item.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":{\\\"contextButton\\\":{\\\"menuItems\\\":{\\\"item\\\":%s}}}}}" (Figure_Exporting_Buttons_ContextButton_MenuItems_Item.ToJson o))
 
     ///<summary>Figure_Exporting_Buttons_ContextButton_MenuItems : <code>string seq</code></summary>
     type Figure_Exporting_Buttons_ContextButton_MenuItems() =
@@ -8995,7 +8995,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:string seq) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":{\"contextButton\":{\"menuItems\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_MenuItems.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":{\\\"contextButton\\\":{\\\"menuItems\\\":%s}}}}" (Figure_Exporting_Buttons_ContextButton_MenuItems.ToJson o))
 
         member this.Item
             with get(_) =
@@ -9027,7 +9027,7 @@ module Figure =
             sprintf "{\"className\":%s,\"menuClassName\":%s,\"symbol\":%s,\"titleKey\":%s,\"menuItems\":%s}" className menuClassName symbol titleKey menuItems
 
         member this.Set (o:{| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |}) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":{\"contextButton\":%s}}}" (Figure_Exporting_Buttons_ContextButton.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":{\\\"contextButton\\\":%s}}}" (Figure_Exporting_Buttons_ContextButton.ToJson o))
 
 
     ///<summary>Figure_Exporting_Buttons : <code>{| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}</code></summary>
@@ -9040,16 +9040,16 @@ module Figure =
             sprintf "{\"contextButton\":%s}" contextButton
 
         member this.Set (o:{| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}) =
-            update 0 (sprintf "{\"exporting\":{\"buttons\":%s}}" (Figure_Exporting_Buttons.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"buttons\\\":%s}}" (Figure_Exporting_Buttons.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_ViewFullscreen_TextKey : <code>string</code></summary>
     type Figure_Exporting_MenuItemDefinitions_ViewFullscreen_TextKey() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"viewFullscreen\":{\"textKey\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_ViewFullscreen_TextKey.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"viewFullscreen\\\":{\\\"textKey\\\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_ViewFullscreen_TextKey.ToJson o))
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_ViewFullscreen : <code>{| textKey:string |}</code></summary>
     type Figure_Exporting_MenuItemDefinitions_ViewFullscreen() = 
@@ -9061,16 +9061,16 @@ module Figure =
             sprintf "{\"textKey\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"viewFullscreen\":%s}}}" (Figure_Exporting_MenuItemDefinitions_ViewFullscreen.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"viewFullscreen\\\":%s}}}" (Figure_Exporting_MenuItemDefinitions_ViewFullscreen.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_PrintChart_TextKey : <code>string</code></summary>
     type Figure_Exporting_MenuItemDefinitions_PrintChart_TextKey() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"printChart\":{\"textKey\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_PrintChart_TextKey.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"printChart\\\":{\\\"textKey\\\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_PrintChart_TextKey.ToJson o))
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_PrintChart : <code>{| textKey:string |}</code></summary>
     type Figure_Exporting_MenuItemDefinitions_PrintChart() = 
@@ -9082,7 +9082,7 @@ module Figure =
             sprintf "{\"textKey\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"printChart\":%s}}}" (Figure_Exporting_MenuItemDefinitions_PrintChart.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"printChart\\\":%s}}}" (Figure_Exporting_MenuItemDefinitions_PrintChart.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_Separator_Separator : <code>bool</code></summary>
@@ -9091,7 +9091,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"separator\":{\"separator\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_Separator_Separator.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"separator\\\":{\\\"separator\\\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_Separator_Separator.ToJson o))
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_Separator : <code>{| separator:bool |}</code></summary>
     type Figure_Exporting_MenuItemDefinitions_Separator() = 
@@ -9103,16 +9103,16 @@ module Figure =
             sprintf "{\"separator\":%s}" separator
 
         member this.Set (o:{| separator:bool |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"separator\":%s}}}" (Figure_Exporting_MenuItemDefinitions_Separator.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"separator\\\":%s}}}" (Figure_Exporting_MenuItemDefinitions_Separator.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadPNG_TextKey : <code>string</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadPNG_TextKey() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadPNG\":{\"textKey\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPNG_TextKey.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadPNG\\\":{\\\"textKey\\\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPNG_TextKey.ToJson o))
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadPNG : <code>{| textKey:string |}</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadPNG() = 
@@ -9124,16 +9124,16 @@ module Figure =
             sprintf "{\"textKey\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadPNG\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPNG.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadPNG\\\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPNG.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadJPEG_TextKey : <code>string</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadJPEG_TextKey() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadJPEG\":{\"textKey\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadJPEG_TextKey.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadJPEG\\\":{\\\"textKey\\\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadJPEG_TextKey.ToJson o))
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadJPEG : <code>{| textKey:string |}</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadJPEG() = 
@@ -9145,16 +9145,16 @@ module Figure =
             sprintf "{\"textKey\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadJPEG\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadJPEG.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadJPEG\\\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadJPEG.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadPDF_TextKey : <code>string</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadPDF_TextKey() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadPDF\":{\"textKey\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPDF_TextKey.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadPDF\\\":{\\\"textKey\\\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPDF_TextKey.ToJson o))
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadPDF : <code>{| textKey:string |}</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadPDF() = 
@@ -9166,16 +9166,16 @@ module Figure =
             sprintf "{\"textKey\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadPDF\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPDF.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadPDF\\\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadPDF.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadSVG_TextKey : <code>string</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadSVG_TextKey() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadSVG\":{\"textKey\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadSVG_TextKey.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadSVG\\\":{\\\"textKey\\\":%s}}}}" (Figure_Exporting_MenuItemDefinitions_DownloadSVG_TextKey.ToJson o))
 
     ///<summary>Figure_Exporting_MenuItemDefinitions_DownloadSVG : <code>{| textKey:string |}</code></summary>
     type Figure_Exporting_MenuItemDefinitions_DownloadSVG() = 
@@ -9187,7 +9187,7 @@ module Figure =
             sprintf "{\"textKey\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":{\"downloadSVG\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadSVG.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":{\\\"downloadSVG\\\":%s}}}" (Figure_Exporting_MenuItemDefinitions_DownloadSVG.ToJson o))
 
 
     ///<summary>Figure_Exporting_MenuItemDefinitions : <code>{| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |}</code></summary>
@@ -9224,7 +9224,7 @@ module Figure =
             sprintf "{\"viewFullscreen\":%s,\"printChart\":%s,\"separator\":%s,\"downloadPNG\":%s,\"downloadJPEG\":%s,\"downloadPDF\":%s,\"downloadSVG\":%s}" viewFullscreen printChart separator downloadPNG downloadJPEG downloadPDF downloadSVG
 
         member this.Set (o:{| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |}) =
-            update 0 (sprintf "{\"exporting\":{\"menuItemDefinitions\":%s}}" (Figure_Exporting_MenuItemDefinitions.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":{\\\"menuItemDefinitions\\\":%s}}" (Figure_Exporting_MenuItemDefinitions.ToJson o))
 
 
     ///<summary>Figure_Exporting : <code>{| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}</code></summary>
@@ -9257,16 +9257,16 @@ module Figure =
             sprintf "{\"_type\":%s,\"url\":%s,\"printMaxWidth\":%s,\"scale\":%s,\"buttons\":%s,\"menuItemDefinitions\":%s}" _type url printMaxWidth scale buttons menuItemDefinitions
 
         member this.Set (o:{| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}) =
-            update 0 (sprintf "{\"exporting\":%s}" (Figure_Exporting.ToJson o))
+            update 0 (sprintf "{\\\"exporting\\\":%s}" (Figure_Exporting.ToJson o))
 
 
     ///<summary>Figure_XAxis_Item_GridLineColor : <code>string</code></summary>
     type Figure_XAxis_Item_GridLineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"gridLineColor\":%s}}}" (Figure_XAxis_Item_GridLineColor.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"gridLineColor\\\":%s}}}" (Figure_XAxis_Item_GridLineColor.ToJson o))
 
     ///<summary>Figure_XAxis_Item_GridLineWidth : <code>int</code></summary>
     type Figure_XAxis_Item_GridLineWidth() =
@@ -9274,15 +9274,15 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"gridLineWidth\":%s}}}" (Figure_XAxis_Item_GridLineWidth.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"gridLineWidth\\\":%s}}}" (Figure_XAxis_Item_GridLineWidth.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Labels_Style_Color : <code>string</code></summary>
     type Figure_XAxis_Item_Labels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"labels\":{\"style\":{\"color\":%s}}}}}" (Figure_XAxis_Item_Labels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"labels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_XAxis_Item_Labels_Style_Color.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Labels_Style : <code>{| color:string |}</code></summary>
     type Figure_XAxis_Item_Labels_Style() = 
@@ -9294,7 +9294,7 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"labels\":{\"style\":%s}}}}" (Figure_XAxis_Item_Labels_Style.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"labels\\\":{\\\"style\\\":%s}}}}" (Figure_XAxis_Item_Labels_Style.ToJson o))
 
 
     ///<summary>Figure_XAxis_Item_Labels : <code>{| style: {| color:string |} |}</code></summary>
@@ -9307,56 +9307,56 @@ module Figure =
             sprintf "{\"style\":%s}" style
 
         member this.Set (o:{| style: {| color:string |} |}) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"labels\":%s}}}" (Figure_XAxis_Item_Labels.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"labels\\\":%s}}}" (Figure_XAxis_Item_Labels.ToJson o))
 
 
     ///<summary>Figure_XAxis_Item_LineColor : <code>string</code></summary>
     type Figure_XAxis_Item_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"lineColor\":%s}}}" (Figure_XAxis_Item_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"lineColor\\\":%s}}}" (Figure_XAxis_Item_LineColor.ToJson o))
 
     ///<summary>Figure_XAxis_Item_TickColor : <code>string</code></summary>
     type Figure_XAxis_Item_TickColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"tickColor\":%s}}}" (Figure_XAxis_Item_TickColor.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"tickColor\\\":%s}}}" (Figure_XAxis_Item_TickColor.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Title_Style_Color : <code>string</code></summary>
     type Figure_XAxis_Item_Title_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"title\":{\"style\":{\"color\":%s}}}}}" (Figure_XAxis_Item_Title_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_XAxis_Item_Title_Style_Color.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Title_Style_FontWeight : <code>string</code></summary>
     type Figure_XAxis_Item_Title_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"title\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_XAxis_Item_Title_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_XAxis_Item_Title_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Title_Style_FontSize : <code>string</code></summary>
     type Figure_XAxis_Item_Title_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"title\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_XAxis_Item_Title_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_XAxis_Item_Title_Style_FontSize.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Title_Style_FontFamily : <code>string</code></summary>
     type Figure_XAxis_Item_Title_Style_FontFamily() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"title\":{\"style\":{\"fontFamily\":%s}}}}}" (Figure_XAxis_Item_Title_Style_FontFamily.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"fontFamily\\\":%s}}}}}" (Figure_XAxis_Item_Title_Style_FontFamily.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Title_Style : <code>{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}</code></summary>
     type Figure_XAxis_Item_Title_Style() = 
@@ -9380,16 +9380,16 @@ module Figure =
             sprintf "{\"color\":%s,\"fontWeight\":%s,\"fontSize\":%s,\"fontFamily\":%s}" color fontWeight fontSize fontFamily
 
         member this.Set (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"title\":{\"style\":%s}}}}" (Figure_XAxis_Item_Title_Style.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":%s}}}}" (Figure_XAxis_Item_Title_Style.ToJson o))
 
 
     ///<summary>Figure_XAxis_Item_Title_Text : <code>string</code></summary>
     type Figure_XAxis_Item_Title_Text() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"title\":{\"text\":%s}}}}" (Figure_XAxis_Item_Title_Text.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"text\\\":%s}}}}" (Figure_XAxis_Item_Title_Text.ToJson o))
 
     ///<summary>Figure_XAxis_Item_Title : <code>{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}</code></summary>
     type Figure_XAxis_Item_Title() = 
@@ -9405,7 +9405,7 @@ module Figure =
             sprintf "{\"style\":%s,\"text\":%s}" style text
 
         member this.Set (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"title\":%s}}}" (Figure_XAxis_Item_Title.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"title\\\":%s}}}" (Figure_XAxis_Item_Title.ToJson o))
 
 
     ///<summary>Figure_XAxis_Item_Index : <code>int</code></summary>
@@ -9414,7 +9414,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"index\":%s}}}" (Figure_XAxis_Item_Index.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"index\\\":%s}}}" (Figure_XAxis_Item_Index.ToJson o))
 
     ///<summary>Figure_XAxis_Item_IsX : <code>bool</code></summary>
     type Figure_XAxis_Item_IsX() =
@@ -9422,7 +9422,7 @@ module Figure =
             sprintf "%b" o
 
         member this.Set (o:bool) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":{\"isX\":%s}}}" (Figure_XAxis_Item_IsX.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":{\\\"isX\\\":%s}}}" (Figure_XAxis_Item_IsX.ToJson o))
 
     ///<summary>Figure_XAxis_Item : <code>{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |}</code></summary>
     type Figure_XAxis_Item() = 
@@ -9462,7 +9462,7 @@ module Figure =
             sprintf "{\"gridLineColor\":%s,\"gridLineWidth\":%s,\"labels\":%s,\"lineColor\":%s,\"tickColor\":%s,\"title\":%s,\"index\":%s,\"isX\":%s}" gridLineColor gridLineWidth labels lineColor tickColor title index isX
 
         member this.Set (o:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |}) =
-            update 0 (sprintf "{\"xAxis\":{\"item\":%s}}" (Figure_XAxis_Item.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":{\\\"item\\\":%s}}" (Figure_XAxis_Item.ToJson o))
 
 
     ///<summary>Figure_XAxis : <code>{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq</code></summary>
@@ -9477,7 +9477,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq) =
-            update 0 (sprintf "{\"xAxis\":%s}" (Figure_XAxis.ToJson o))
+            update 0 (sprintf "{\\\"xAxis\\\":%s}" (Figure_XAxis.ToJson o))
 
         member this.Item
             with get(_) =
@@ -9486,18 +9486,18 @@ module Figure =
     ///<summary>Figure_YAxis_Item_GridLineColor : <code>string</code></summary>
     type Figure_YAxis_Item_GridLineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"gridLineColor\":%s}}}" (Figure_YAxis_Item_GridLineColor.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"gridLineColor\\\":%s}}}" (Figure_YAxis_Item_GridLineColor.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Labels_Style_Color : <code>string</code></summary>
     type Figure_YAxis_Item_Labels_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"labels\":{\"style\":{\"color\":%s}}}}}" (Figure_YAxis_Item_Labels_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"labels\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_YAxis_Item_Labels_Style_Color.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Labels_Style : <code>{| color:string |}</code></summary>
     type Figure_YAxis_Item_Labels_Style() = 
@@ -9509,7 +9509,7 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"labels\":{\"style\":%s}}}}" (Figure_YAxis_Item_Labels_Style.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"labels\\\":{\\\"style\\\":%s}}}}" (Figure_YAxis_Item_Labels_Style.ToJson o))
 
 
     ///<summary>Figure_YAxis_Item_Labels : <code>{| style: {| color:string |} |}</code></summary>
@@ -9522,16 +9522,16 @@ module Figure =
             sprintf "{\"style\":%s}" style
 
         member this.Set (o:{| style: {| color:string |} |}) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"labels\":%s}}}" (Figure_YAxis_Item_Labels.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"labels\\\":%s}}}" (Figure_YAxis_Item_Labels.ToJson o))
 
 
     ///<summary>Figure_YAxis_Item_LineColor : <code>string</code></summary>
     type Figure_YAxis_Item_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"lineColor\":%s}}}" (Figure_YAxis_Item_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"lineColor\\\":%s}}}" (Figure_YAxis_Item_LineColor.ToJson o))
 
     ///<summary>Figure_YAxis_Item_MinorTickInterval : <code>float</code></summary>
     type Figure_YAxis_Item_MinorTickInterval() =
@@ -9539,15 +9539,15 @@ module Figure =
             sprintf "%f" o
 
         member this.Set (o:float) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"minorTickInterval\":%s}}}" (Figure_YAxis_Item_MinorTickInterval.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"minorTickInterval\\\":%s}}}" (Figure_YAxis_Item_MinorTickInterval.ToJson o))
 
     ///<summary>Figure_YAxis_Item_TickColor : <code>string</code></summary>
     type Figure_YAxis_Item_TickColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"tickColor\":%s}}}" (Figure_YAxis_Item_TickColor.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"tickColor\\\":%s}}}" (Figure_YAxis_Item_TickColor.ToJson o))
 
     ///<summary>Figure_YAxis_Item_TickWidth : <code>int</code></summary>
     type Figure_YAxis_Item_TickWidth() =
@@ -9555,39 +9555,39 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"tickWidth\":%s}}}" (Figure_YAxis_Item_TickWidth.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"tickWidth\\\":%s}}}" (Figure_YAxis_Item_TickWidth.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Title_Style_Color : <code>string</code></summary>
     type Figure_YAxis_Item_Title_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"title\":{\"style\":{\"color\":%s}}}}}" (Figure_YAxis_Item_Title_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}" (Figure_YAxis_Item_Title_Style_Color.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Title_Style_FontWeight : <code>string</code></summary>
     type Figure_YAxis_Item_Title_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"title\":{\"style\":{\"fontWeight\":%s}}}}}" (Figure_YAxis_Item_Title_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}}" (Figure_YAxis_Item_Title_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Title_Style_FontSize : <code>string</code></summary>
     type Figure_YAxis_Item_Title_Style_FontSize() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"title\":{\"style\":{\"fontSize\":%s}}}}}" (Figure_YAxis_Item_Title_Style_FontSize.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"fontSize\\\":%s}}}}}" (Figure_YAxis_Item_Title_Style_FontSize.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Title_Style_FontFamily : <code>string</code></summary>
     type Figure_YAxis_Item_Title_Style_FontFamily() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"title\":{\"style\":{\"fontFamily\":%s}}}}}" (Figure_YAxis_Item_Title_Style_FontFamily.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":{\\\"fontFamily\\\":%s}}}}}" (Figure_YAxis_Item_Title_Style_FontFamily.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Title_Style : <code>{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}</code></summary>
     type Figure_YAxis_Item_Title_Style() = 
@@ -9611,16 +9611,16 @@ module Figure =
             sprintf "{\"color\":%s,\"fontWeight\":%s,\"fontSize\":%s,\"fontFamily\":%s}" color fontWeight fontSize fontFamily
 
         member this.Set (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"title\":{\"style\":%s}}}}" (Figure_YAxis_Item_Title_Style.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"style\\\":%s}}}}" (Figure_YAxis_Item_Title_Style.ToJson o))
 
 
     ///<summary>Figure_YAxis_Item_Title_Text : <code>string</code></summary>
     type Figure_YAxis_Item_Title_Text() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"title\":{\"text\":%s}}}}" (Figure_YAxis_Item_Title_Text.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"title\\\":{\\\"text\\\":%s}}}}" (Figure_YAxis_Item_Title_Text.ToJson o))
 
     ///<summary>Figure_YAxis_Item_Title : <code>{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}</code></summary>
     type Figure_YAxis_Item_Title() = 
@@ -9636,7 +9636,7 @@ module Figure =
             sprintf "{\"style\":%s,\"text\":%s}" style text
 
         member this.Set (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"title\":%s}}}" (Figure_YAxis_Item_Title.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"title\\\":%s}}}" (Figure_YAxis_Item_Title.ToJson o))
 
 
     ///<summary>Figure_YAxis_Item_Index : <code>int</code></summary>
@@ -9645,7 +9645,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":{\"index\":%s}}}" (Figure_YAxis_Item_Index.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":{\\\"index\\\":%s}}}" (Figure_YAxis_Item_Index.ToJson o))
 
     ///<summary>Figure_YAxis_Item : <code>{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:float; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |}</code></summary>
     type Figure_YAxis_Item() = 
@@ -9685,7 +9685,7 @@ module Figure =
             sprintf "{\"gridLineColor\":%s,\"labels\":%s,\"lineColor\":%s,\"minorTickInterval\":%s,\"tickColor\":%s,\"tickWidth\":%s,\"title\":%s,\"index\":%s}" gridLineColor labels lineColor minorTickInterval tickColor tickWidth title index
 
         member this.Set (o:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:float; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |}) =
-            update 0 (sprintf "{\"yAxis\":{\"item\":%s}}" (Figure_YAxis_Item.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":{\\\"item\\\":%s}}" (Figure_YAxis_Item.ToJson o))
 
 
     ///<summary>Figure_YAxis : <code>{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:float; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq</code></summary>
@@ -9700,7 +9700,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:float; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq) =
-            update 0 (sprintf "{\"yAxis\":%s}" (Figure_YAxis.ToJson o))
+            update 0 (sprintf "{\\\"yAxis\\\":%s}" (Figure_YAxis.ToJson o))
 
         member this.Item
             with get(_) =
@@ -9709,10 +9709,10 @@ module Figure =
     ///<summary>Figure_Toolbar_ItemStyle_Color : <code>string</code></summary>
     type Figure_Toolbar_ItemStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"toolbar\":{\"itemStyle\":{\"color\":%s}}}" (Figure_Toolbar_ItemStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"toolbar\\\":{\\\"itemStyle\\\":{\\\"color\\\":%s}}}" (Figure_Toolbar_ItemStyle_Color.ToJson o))
 
     ///<summary>Figure_Toolbar_ItemStyle : <code>{| color:string |}</code></summary>
     type Figure_Toolbar_ItemStyle() = 
@@ -9724,7 +9724,7 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"toolbar\":{\"itemStyle\":%s}}" (Figure_Toolbar_ItemStyle.ToJson o))
+            update 0 (sprintf "{\\\"toolbar\\\":{\\\"itemStyle\\\":%s}}" (Figure_Toolbar_ItemStyle.ToJson o))
 
 
     ///<summary>Figure_Toolbar : <code>{| itemStyle: {| color:string |} |}</code></summary>
@@ -9737,7 +9737,7 @@ module Figure =
             sprintf "{\"itemStyle\":%s}" itemStyle
 
         member this.Set (o:{| itemStyle: {| color:string |} |}) =
-            update 0 (sprintf "{\"toolbar\":%s}" (Figure_Toolbar.ToJson o))
+            update 0 (sprintf "{\\\"toolbar\\\":%s}" (Figure_Toolbar.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_X1 : <code>int</code></summary>
@@ -9746,7 +9746,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"linearGradient\":{\"x1\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y1() =
@@ -9754,7 +9754,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"linearGradient\":{\"y1\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_X2 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_X2() =
@@ -9762,7 +9762,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"linearGradient\":{\"x2\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y2() =
@@ -9770,7 +9770,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"linearGradient\":{\"y2\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_LinearGradient() = 
@@ -9794,7 +9794,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s}" x1 y1 x2 y2
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"linearGradient\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"linearGradient\\\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item : <code>int</code></summary>
@@ -9803,7 +9803,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"stops\":{\"item\":{\"item\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops_Item : <code>int seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_Stops_Item() =
@@ -9817,7 +9817,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"stops\":{\"item\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_Fill_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -9835,7 +9835,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":{\"stops\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Fill_Stops.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":{\\\"stops\\\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Fill_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -9855,32 +9855,32 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"fill\":%s}}}" (Figure_RangeSelector_ButtonTheme_Fill.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"fill\\\":%s}}}" (Figure_RangeSelector_ButtonTheme_Fill.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Stroke : <code>string</code></summary>
     type Figure_RangeSelector_ButtonTheme_Stroke() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"stroke\":%s}}}" (Figure_RangeSelector_ButtonTheme_Stroke.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"stroke\\\":%s}}}" (Figure_RangeSelector_ButtonTheme_Stroke.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Style_Color : <code>string</code></summary>
     type Figure_RangeSelector_ButtonTheme_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"style\":{\"color\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Style_Color.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Style_FontWeight : <code>string</code></summary>
     type Figure_RangeSelector_ButtonTheme_Style_FontWeight() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"style\":{\"fontWeight\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Style_FontWeight.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"style\\\":{\\\"fontWeight\\\":%s}}}}" (Figure_RangeSelector_ButtonTheme_Style_FontWeight.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_Style : <code>{| color:string; fontWeight:string |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_Style() = 
@@ -9896,7 +9896,7 @@ module Figure =
             sprintf "{\"color\":%s,\"fontWeight\":%s}" color fontWeight
 
         member this.Set (o:{| color:string; fontWeight:string |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"style\":%s}}}" (Figure_RangeSelector_ButtonTheme_Style.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"style\\\":%s}}}" (Figure_RangeSelector_ButtonTheme_Style.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_X1 : <code>int</code></summary>
@@ -9905,7 +9905,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"linearGradient\":{\"x1\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y1() =
@@ -9913,7 +9913,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"linearGradient\":{\"y1\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_X2 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_X2() =
@@ -9921,7 +9921,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"linearGradient\":{\"x2\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y2() =
@@ -9929,7 +9929,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"linearGradient\":{\"y2\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient() = 
@@ -9953,7 +9953,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s}" x1 y1 x2 y2
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"linearGradient\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"linearGradient\\\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item : <code>int</code></summary>
@@ -9962,7 +9962,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"stops\":{\"item\":{\"item\":%s}}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item : <code>int seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item() =
@@ -9976,7 +9976,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"stops\":{\"item\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -9994,7 +9994,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":{\"stops\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":{\\\"stops\\\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10014,24 +10014,24 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"fill\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"fill\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Fill.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Stroke : <code>string</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Stroke() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"stroke\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Stroke.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"stroke\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Stroke.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Style_Color : <code>string</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"style\":{\"color\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Style_Color.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Style : <code>{| color:string |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Style() = 
@@ -10043,7 +10043,7 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":{\"style\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Style.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":{\\\"style\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover_Style.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}</code></summary>
@@ -10064,7 +10064,7 @@ module Figure =
             sprintf "{\"fill\":%s,\"stroke\":%s,\"style\":%s}" fill stroke style
 
         member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"hover\":%s}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"hover\\\":%s}}}}" (Figure_RangeSelector_ButtonTheme_States_Hover.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_X1 : <code>int</code></summary>
@@ -10073,7 +10073,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"linearGradient\":{\"x1\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y1() =
@@ -10081,7 +10081,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"linearGradient\":{\"y1\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_X2 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_X2() =
@@ -10089,7 +10089,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"linearGradient\":{\"x2\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y2() =
@@ -10097,7 +10097,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"linearGradient\":{\"y2\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient() = 
@@ -10121,7 +10121,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s}" x1 y1 x2 y2
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"linearGradient\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"linearGradient\\\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item : <code>int</code></summary>
@@ -10130,7 +10130,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"stops\":{\"item\":{\"item\":%s}}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item : <code>int seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item() =
@@ -10144,7 +10144,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"stops\":{\"item\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10162,7 +10162,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":{\"stops\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":{\\\"stops\\\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10182,24 +10182,24 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"fill\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"fill\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Fill.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Stroke : <code>string</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Stroke() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"stroke\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Stroke.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"stroke\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Stroke.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Style_Color : <code>string</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Style_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"style\":{\"color\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Style_Color.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"style\\\":{\\\"color\\\":%s}}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Style_Color.ToJson o))
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Style : <code>{| color:string |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Style() = 
@@ -10211,7 +10211,7 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":{\"style\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Style.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":{\\\"style\\\":%s}}}}}" (Figure_RangeSelector_ButtonTheme_States_Select_Style.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States_Select : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}</code></summary>
@@ -10232,7 +10232,7 @@ module Figure =
             sprintf "{\"fill\":%s,\"stroke\":%s,\"style\":%s}" fill stroke style
 
         member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":{\"select\":%s}}}}" (Figure_RangeSelector_ButtonTheme_States_Select.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":{\\\"select\\\":%s}}}}" (Figure_RangeSelector_ButtonTheme_States_Select.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme_States : <code>{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |}</code></summary>
@@ -10249,7 +10249,7 @@ module Figure =
             sprintf "{\"hover\":%s,\"select\":%s}" hover select
 
         member this.Set (o:{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":{\"states\":%s}}}" (Figure_RangeSelector_ButtonTheme_States.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":{\\\"states\\\":%s}}}" (Figure_RangeSelector_ButtonTheme_States.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_ButtonTheme : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}</code></summary>
@@ -10274,24 +10274,24 @@ module Figure =
             sprintf "{\"fill\":%s,\"stroke\":%s,\"style\":%s,\"states\":%s}" fill stroke style states
 
         member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"buttonTheme\":%s}}" (Figure_RangeSelector_ButtonTheme.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"buttonTheme\\\":%s}}" (Figure_RangeSelector_ButtonTheme.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_InputStyle_BackgroundColor : <code>string</code></summary>
     type Figure_RangeSelector_InputStyle_BackgroundColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"inputStyle\":{\"backgroundColor\":%s}}}" (Figure_RangeSelector_InputStyle_BackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"inputStyle\\\":{\\\"backgroundColor\\\":%s}}}" (Figure_RangeSelector_InputStyle_BackgroundColor.ToJson o))
 
     ///<summary>Figure_RangeSelector_InputStyle_Color : <code>string</code></summary>
     type Figure_RangeSelector_InputStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"inputStyle\":{\"color\":%s}}}" (Figure_RangeSelector_InputStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"inputStyle\\\":{\\\"color\\\":%s}}}" (Figure_RangeSelector_InputStyle_Color.ToJson o))
 
     ///<summary>Figure_RangeSelector_InputStyle : <code>{| backgroundColor:string; color:string |}</code></summary>
     type Figure_RangeSelector_InputStyle() = 
@@ -10307,16 +10307,16 @@ module Figure =
             sprintf "{\"backgroundColor\":%s,\"color\":%s}" backgroundColor color
 
         member this.Set (o:{| backgroundColor:string; color:string |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"inputStyle\":%s}}" (Figure_RangeSelector_InputStyle.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"inputStyle\\\":%s}}" (Figure_RangeSelector_InputStyle.ToJson o))
 
 
     ///<summary>Figure_RangeSelector_LabelStyle_Color : <code>string</code></summary>
     type Figure_RangeSelector_LabelStyle_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"rangeSelector\":{\"labelStyle\":{\"color\":%s}}}" (Figure_RangeSelector_LabelStyle_Color.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"labelStyle\\\":{\\\"color\\\":%s}}}" (Figure_RangeSelector_LabelStyle_Color.ToJson o))
 
     ///<summary>Figure_RangeSelector_LabelStyle : <code>{| color:string |}</code></summary>
     type Figure_RangeSelector_LabelStyle() = 
@@ -10328,7 +10328,7 @@ module Figure =
             sprintf "{\"color\":%s}" color
 
         member this.Set (o:{| color:string |}) =
-            update 0 (sprintf "{\"rangeSelector\":{\"labelStyle\":%s}}" (Figure_RangeSelector_LabelStyle.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":{\\\"labelStyle\\\":%s}}" (Figure_RangeSelector_LabelStyle.ToJson o))
 
 
     ///<summary>Figure_RangeSelector : <code>{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}</code></summary>
@@ -10349,24 +10349,24 @@ module Figure =
             sprintf "{\"buttonTheme\":%s,\"inputStyle\":%s,\"labelStyle\":%s}" buttonTheme inputStyle labelStyle
 
         member this.Set (o:{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}) =
-            update 0 (sprintf "{\"rangeSelector\":%s}" (Figure_RangeSelector.ToJson o))
+            update 0 (sprintf "{\\\"rangeSelector\\\":%s}" (Figure_RangeSelector.ToJson o))
 
 
     ///<summary>Figure_Navigator_Handles_BackgroundColor : <code>string</code></summary>
     type Figure_Navigator_Handles_BackgroundColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigator\":{\"handles\":{\"backgroundColor\":%s}}}" (Figure_Navigator_Handles_BackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"handles\\\":{\\\"backgroundColor\\\":%s}}}" (Figure_Navigator_Handles_BackgroundColor.ToJson o))
 
     ///<summary>Figure_Navigator_Handles_BorderColor : <code>string</code></summary>
     type Figure_Navigator_Handles_BorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigator\":{\"handles\":{\"borderColor\":%s}}}" (Figure_Navigator_Handles_BorderColor.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"handles\\\":{\\\"borderColor\\\":%s}}}" (Figure_Navigator_Handles_BorderColor.ToJson o))
 
     ///<summary>Figure_Navigator_Handles : <code>{| backgroundColor:string; borderColor:string |}</code></summary>
     type Figure_Navigator_Handles() = 
@@ -10382,40 +10382,40 @@ module Figure =
             sprintf "{\"backgroundColor\":%s,\"borderColor\":%s}" backgroundColor borderColor
 
         member this.Set (o:{| backgroundColor:string; borderColor:string |}) =
-            update 0 (sprintf "{\"navigator\":{\"handles\":%s}}" (Figure_Navigator_Handles.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"handles\\\":%s}}" (Figure_Navigator_Handles.ToJson o))
 
 
     ///<summary>Figure_Navigator_OutlineColor : <code>string</code></summary>
     type Figure_Navigator_OutlineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigator\":{\"outlineColor\":%s}}" (Figure_Navigator_OutlineColor.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"outlineColor\\\":%s}}" (Figure_Navigator_OutlineColor.ToJson o))
 
     ///<summary>Figure_Navigator_MaskFill : <code>string</code></summary>
     type Figure_Navigator_MaskFill() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigator\":{\"maskFill\":%s}}" (Figure_Navigator_MaskFill.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"maskFill\\\":%s}}" (Figure_Navigator_MaskFill.ToJson o))
 
     ///<summary>Figure_Navigator_Series_Color : <code>string</code></summary>
     type Figure_Navigator_Series_Color() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigator\":{\"series\":{\"color\":%s}}}" (Figure_Navigator_Series_Color.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"series\\\":{\\\"color\\\":%s}}}" (Figure_Navigator_Series_Color.ToJson o))
 
     ///<summary>Figure_Navigator_Series_LineColor : <code>string</code></summary>
     type Figure_Navigator_Series_LineColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"navigator\":{\"series\":{\"lineColor\":%s}}}" (Figure_Navigator_Series_LineColor.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"series\\\":{\\\"lineColor\\\":%s}}}" (Figure_Navigator_Series_LineColor.ToJson o))
 
     ///<summary>Figure_Navigator_Series : <code>{| color:string; lineColor:string |}</code></summary>
     type Figure_Navigator_Series() = 
@@ -10431,7 +10431,7 @@ module Figure =
             sprintf "{\"color\":%s,\"lineColor\":%s}" color lineColor
 
         member this.Set (o:{| color:string; lineColor:string |}) =
-            update 0 (sprintf "{\"navigator\":{\"series\":%s}}" (Figure_Navigator_Series.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":{\\\"series\\\":%s}}" (Figure_Navigator_Series.ToJson o))
 
 
     ///<summary>Figure_Navigator : <code>{| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}</code></summary>
@@ -10456,7 +10456,7 @@ module Figure =
             sprintf "{\"handles\":%s,\"outlineColor\":%s,\"maskFill\":%s,\"series\":%s}" handles outlineColor maskFill series
 
         member this.Set (o:{| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}) =
-            update 0 (sprintf "{\"navigator\":%s}" (Figure_Navigator.ToJson o))
+            update 0 (sprintf "{\\\"navigator\\\":%s}" (Figure_Navigator.ToJson o))
 
 
     ///<summary>Figure_Scrollbar_BarBackgroundColor_LinearGradient_X1 : <code>int</code></summary>
@@ -10465,7 +10465,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"linearGradient\":{\"x1\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y1() =
@@ -10473,7 +10473,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"linearGradient\":{\"y1\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_Scrollbar_BarBackgroundColor_LinearGradient_X2 : <code>int</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_LinearGradient_X2() =
@@ -10481,7 +10481,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"linearGradient\":{\"x2\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y2() =
@@ -10489,7 +10489,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"linearGradient\":{\"y2\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_Scrollbar_BarBackgroundColor_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_LinearGradient() = 
@@ -10513,7 +10513,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s}" x1 y1 x2 y2
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int |}) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"linearGradient\":%s}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"linearGradient\\\":%s}}}" (Figure_Scrollbar_BarBackgroundColor_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item : <code>int</code></summary>
@@ -10522,7 +10522,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"stops\":{\"item\":{\"item\":%s}}}}}" (Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}" (Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops_Item : <code>int seq</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_Stops_Item() =
@@ -10536,7 +10536,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"stops\":{\"item\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}" (Figure_Scrollbar_BarBackgroundColor_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10554,7 +10554,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":{\"stops\":%s}}}" (Figure_Scrollbar_BarBackgroundColor_Stops.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":{\\\"stops\\\":%s}}}" (Figure_Scrollbar_BarBackgroundColor_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10574,24 +10574,24 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBackgroundColor\":%s}}" (Figure_Scrollbar_BarBackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBackgroundColor\\\":%s}}" (Figure_Scrollbar_BarBackgroundColor.ToJson o))
 
 
     ///<summary>Figure_Scrollbar_BarBorderColor : <code>string</code></summary>
     type Figure_Scrollbar_BarBorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"scrollbar\":{\"barBorderColor\":%s}}" (Figure_Scrollbar_BarBorderColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"barBorderColor\\\":%s}}" (Figure_Scrollbar_BarBorderColor.ToJson o))
 
     ///<summary>Figure_Scrollbar_ButtonArrowColor : <code>string</code></summary>
     type Figure_Scrollbar_ButtonArrowColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonArrowColor\":%s}}" (Figure_Scrollbar_ButtonArrowColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonArrowColor\\\":%s}}" (Figure_Scrollbar_ButtonArrowColor.ToJson o))
 
     ///<summary>Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X1 : <code>int</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X1() =
@@ -10599,7 +10599,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"linearGradient\":{\"x1\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y1() =
@@ -10607,7 +10607,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"linearGradient\":{\"y1\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X2 : <code>int</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X2() =
@@ -10615,7 +10615,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"linearGradient\":{\"x2\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y2() =
@@ -10623,7 +10623,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"linearGradient\":{\"y2\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_Scrollbar_ButtonBackgroundColor_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_LinearGradient() = 
@@ -10647,7 +10647,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s}" x1 y1 x2 y2
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int |}) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"linearGradient\":%s}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"linearGradient\\\":%s}}}" (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item : <code>int</code></summary>
@@ -10656,7 +10656,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"stops\":{\"item\":{\"item\":%s}}}}}" (Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}" (Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops_Item : <code>int seq</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_Stops_Item() =
@@ -10670,7 +10670,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"stops\":{\"item\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}" (Figure_Scrollbar_ButtonBackgroundColor_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10688,7 +10688,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":{\"stops\":%s}}}" (Figure_Scrollbar_ButtonBackgroundColor_Stops.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":{\\\"stops\\\":%s}}}" (Figure_Scrollbar_ButtonBackgroundColor_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10708,24 +10708,24 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBackgroundColor\":%s}}" (Figure_Scrollbar_ButtonBackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBackgroundColor\\\":%s}}" (Figure_Scrollbar_ButtonBackgroundColor.ToJson o))
 
 
     ///<summary>Figure_Scrollbar_ButtonBorderColor : <code>string</code></summary>
     type Figure_Scrollbar_ButtonBorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"scrollbar\":{\"buttonBorderColor\":%s}}" (Figure_Scrollbar_ButtonBorderColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"buttonBorderColor\\\":%s}}" (Figure_Scrollbar_ButtonBorderColor.ToJson o))
 
     ///<summary>Figure_Scrollbar_RifleColor : <code>string</code></summary>
     type Figure_Scrollbar_RifleColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"scrollbar\":{\"rifleColor\":%s}}" (Figure_Scrollbar_RifleColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"rifleColor\\\":%s}}" (Figure_Scrollbar_RifleColor.ToJson o))
 
     ///<summary>Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X1 : <code>int</code></summary>
     type Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X1() =
@@ -10733,7 +10733,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"linearGradient\":{\"x1\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X1.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"x1\\\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X1.ToJson o))
 
     ///<summary>Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y1 : <code>int</code></summary>
     type Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y1() =
@@ -10741,7 +10741,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"linearGradient\":{\"y1\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y1.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"y1\\\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y1.ToJson o))
 
     ///<summary>Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X2 : <code>int</code></summary>
     type Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X2() =
@@ -10749,7 +10749,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"linearGradient\":{\"x2\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X2.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"x2\\\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_X2.ToJson o))
 
     ///<summary>Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y2 : <code>int</code></summary>
     type Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y2() =
@@ -10757,7 +10757,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"linearGradient\":{\"y2\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y2.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"linearGradient\\\":{\\\"y2\\\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient_Y2.ToJson o))
 
     ///<summary>Figure_Scrollbar_TrackBackgroundColor_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
     type Figure_Scrollbar_TrackBackgroundColor_LinearGradient() = 
@@ -10781,7 +10781,7 @@ module Figure =
             sprintf "{\"x1\":%s,\"y1\":%s,\"x2\":%s,\"y2\":%s}" x1 y1 x2 y2
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int |}) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"linearGradient\":%s}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"linearGradient\\\":%s}}}" (Figure_Scrollbar_TrackBackgroundColor_LinearGradient.ToJson o))
 
 
     ///<summary>Figure_Scrollbar_TrackBackgroundColor_Stops_Item_Item : <code>int</code></summary>
@@ -10790,7 +10790,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"stops\":{\"item\":{\"item\":%s}}}}}" (Figure_Scrollbar_TrackBackgroundColor_Stops_Item_Item.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":{\\\"item\\\":%s}}}}}" (Figure_Scrollbar_TrackBackgroundColor_Stops_Item_Item.ToJson o))
 
     ///<summary>Figure_Scrollbar_TrackBackgroundColor_Stops_Item : <code>int seq</code></summary>
     type Figure_Scrollbar_TrackBackgroundColor_Stops_Item() =
@@ -10804,7 +10804,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"stops\":{\"item\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_Stops_Item.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"stops\\\":{\\\"item\\\":%s}}}}" (Figure_Scrollbar_TrackBackgroundColor_Stops_Item.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10822,7 +10822,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq seq) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":{\"stops\":%s}}}" (Figure_Scrollbar_TrackBackgroundColor_Stops.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":{\\\"stops\\\":%s}}}" (Figure_Scrollbar_TrackBackgroundColor_Stops.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10842,16 +10842,16 @@ module Figure =
             sprintf "{\"linearGradient\":%s,\"stops\":%s}" linearGradient stops
 
         member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBackgroundColor\":%s}}" (Figure_Scrollbar_TrackBackgroundColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBackgroundColor\\\":%s}}" (Figure_Scrollbar_TrackBackgroundColor.ToJson o))
 
 
     ///<summary>Figure_Scrollbar_TrackBorderColor : <code>string</code></summary>
     type Figure_Scrollbar_TrackBorderColor() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"scrollbar\":{\"trackBorderColor\":%s}}" (Figure_Scrollbar_TrackBorderColor.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":{\\\"trackBorderColor\\\":%s}}" (Figure_Scrollbar_TrackBorderColor.ToJson o))
 
     ///<summary>Figure_Scrollbar : <code>{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}</code></summary>
     type Figure_Scrollbar() = 
@@ -10891,16 +10891,16 @@ module Figure =
             sprintf "{\"barBackgroundColor\":%s,\"barBorderColor\":%s,\"buttonArrowColor\":%s,\"buttonBackgroundColor\":%s,\"buttonBorderColor\":%s,\"rifleColor\":%s,\"trackBackgroundColor\":%s,\"trackBorderColor\":%s}" barBackgroundColor barBorderColor buttonArrowColor buttonBackgroundColor buttonBorderColor rifleColor trackBackgroundColor trackBorderColor
 
         member this.Set (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
-            update 0 (sprintf "{\"scrollbar\":%s}" (Figure_Scrollbar.ToJson o))
+            update 0 (sprintf "{\\\"scrollbar\\\":%s}" (Figure_Scrollbar.ToJson o))
 
 
     ///<summary>Figure_Series_Item_Name : <code>string</code></summary>
     type Figure_Series_Item_Name() =
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update 0 (sprintf "{\"series\":{\"item\":{\"name\":%s}}}" (Figure_Series_Item_Name.ToJson o))
+            update 0 (sprintf "{\\\"series\\\":{\\\"item\\\":{\\\"name\\\":%s}}}" (Figure_Series_Item_Name.ToJson o))
 
     ///<summary>Figure_Series_Item_Data_Item : <code>int</code></summary>
     type Figure_Series_Item_Data_Item() =
@@ -10908,7 +10908,7 @@ module Figure =
             sprintf "%i" o
 
         member this.Set (o:int) =
-            update 0 (sprintf "{\"series\":{\"item\":{\"data\":{\"item\":%s}}}}" (Figure_Series_Item_Data_Item.ToJson o))
+            update 0 (sprintf "{\\\"series\\\":{\\\"item\\\":{\\\"data\\\":{\\\"item\\\":%s}}}}" (Figure_Series_Item_Data_Item.ToJson o))
 
     ///<summary>Figure_Series_Item_Data : <code>int seq</code></summary>
     type Figure_Series_Item_Data() =
@@ -10922,7 +10922,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:int seq) =
-            update 0 (sprintf "{\"series\":{\"item\":{\"data\":%s}}}" (Figure_Series_Item_Data.ToJson o))
+            update 0 (sprintf "{\\\"series\\\":{\\\"item\\\":{\\\"data\\\":%s}}}" (Figure_Series_Item_Data.ToJson o))
 
         member this.Item
             with get(_) =
@@ -10942,7 +10942,7 @@ module Figure =
             sprintf "{\"name\":%s,\"data\":%s}" name data
 
         member this.Set (o:{| name:string; data:int seq |}) =
-            update 0 (sprintf "{\"series\":{\"item\":%s}}" (Figure_Series_Item.ToJson o))
+            update 0 (sprintf "{\\\"series\\\":{\\\"item\\\":%s}}" (Figure_Series_Item.ToJson o))
 
 
     ///<summary>Figure_Series : <code>{| name:string; data:int seq |} seq</code></summary>
@@ -10957,7 +10957,7 @@ module Figure =
                 |> fun s -> s.Substring(1)
 
         member this.Set (o:{| name:string; data:int seq |} seq) =
-            update 0 (sprintf "{\"series\":%s}" (Figure_Series.ToJson o))
+            update 0 (sprintf "{\\\"series\\\":%s}" (Figure_Series.ToJson o))
 
         member this.Item
             with get(_) =
