@@ -16,7 +16,7 @@ In the root folder, open a terminal and type:
 dotnet run --project Demo/Demo.fsproj
 ```
 
-Then navigate to https://localhost:5001/ in your browser.
+This will open your browser and navigate to http://localhost:5000/ to show your plot.
 
 # API Reference
 
@@ -25,7 +25,7 @@ Then navigate to https://localhost:5001/ in your browser.
 From a .Net application, add the package reference, and generate a chart like so:
 
 ```
-open FPlot.HighCharts
+open FPlot.HighCharts.Plot
 
 let xy = [(0.0,2.2),(1.0,1.4),(2.0,0.8)]
 
@@ -41,17 +41,18 @@ Refer to the [Demo.fsx](./Demo/Demo.fsx) script for additional examples.
 
 ## Advanced Usage
 
-To obtain the current figure object state as JSON, you can query this using ```chart.get`` like this:
+To access more chart-specific options (e.g. tooltips and lgend properties) you need to use the ```fig``` object, which exposes all available options:
 
 ```
-getFig 0
-|> printfn "Figure object: %s"
+fig.tooltip.padding.Set 12
+fig.title.text.Set "Hello"
 ```
 
-You can set any figure property using dot notation to access the underlying javascript object, with the static ```fig``` object as reference, and dot notation:
+You will get intellisense on all available objects when pressing the ```.``` after fig, and each successive property.
+Where properties are not described by simple srings or numbers, anonymous records are used to define the property values:
 
 ```
-setFig 0 fig.xAxis.title.text "\"My X\""
+fig.legend.navigation.Set {| activeColor="a2412f"; inactiveColor="6a6a6a" |}
 ```
 
 # FSI Interative
