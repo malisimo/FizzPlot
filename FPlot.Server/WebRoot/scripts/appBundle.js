@@ -296,9 +296,13 @@ function addChartSeries(chart, seriesObj)
     chart.addSeries(seriesObj);
 }
 
-function updateChartElement(chart, chartObj)
+function updateChartElement(chart, target, chartObj)
 {
-    chart.update(chartObj);
+    if (target) {
+        chart[target].update(chartObj);
+    } else {
+        chart.update(chartObj);
+    }
 }
 
 function createNewChart(chartId) {
@@ -353,7 +357,7 @@ function openWebSocket(appData) {
                 break;
             case 'update':
                 console.info('Updating chart');
-                updateChartElement(appData.charts[0], JSON.parse(messageObj.json));
+                updateChartElement(appData.charts[0], JSON.parse(messageObj.target), JSON.parse(messageObj.json));
                 break;
             case 'delete':
                 console.info('Deleting chart or series');                    

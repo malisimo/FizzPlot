@@ -8,6 +8,7 @@ module internal Server =
     open System.Text
     open System.Net
     open System.Net.Http
+    open FPlot.StringUtils
 
     let serverAddress = "http://localhost:5000"
     let mutable serverProc:Process option = None
@@ -48,6 +49,48 @@ module internal Server =
             return (HttpStatusCode.InternalServerError,"")
     }
 
+    let asyncRender json = async {
+        try
+            use clientHandler = new HttpClientHandler()
+            clientHandler.ServerCertificateCustomValidationCallback <- (fun sender cert chain sslPolicyErrors -> true)
+
+            use client = new HttpClient(clientHandler)
+            client.Timeout <- TimeSpan.FromSeconds(3.)
+
+            let jsonTemplate = "{
+                \"infile\":##JSON##,
+                \"width\":800,
+                \"scale\":false,
+                \"constr\":\"Chart\",
+                \"callback\":\"\",
+                \"styledMode\":false,
+                \"type\":\"image/png\",
+                \"asyncRendering\":false,
+                \"async\":false,
+                \"resources\":\"\"
+            }"
+
+            let contentStr = strRep "##JSON##" json jsonTemplate
+            printfn "-=- Sending %s to HighCharts Export server..." contentStr
+            use content = new StringContent(contentStr, Encoding.UTF8, "application/json")
+
+            let! resp = client.PostAsync("http://export.highcharts.com/", content) |> Async.AwaitTask        
+            printfn "Response code %s sending to server" (string resp.StatusCode)
+            
+            match resp.StatusCode with
+            | HttpStatusCode.OK ->
+                printfn "Request to server OK"
+                let! content = resp.Content.ReadAsStreamAsync() |> Async.AwaitTask
+                printfn "Got %i bytes in response: (%s)" content.Length (resp.ToString())
+                return (resp.StatusCode,Some content)
+            | _ ->
+                printfn "Failed posting to server: %s" (string resp.StatusCode)
+                return (resp.StatusCode,None)
+        with ex ->
+            printfn "Exception posting to server: %s" (string ex)
+            return (HttpStatusCode.InternalServerError,None)
+    }
+
     let send json =
         asyncSend false json |> Async.RunSynchronously |> ignore
 
@@ -58,6 +101,14 @@ module internal Server =
     let update target json =
         let msg = sprintf "{\"Operation\":\"update\",\"target\":%i,\"Json\":\"%s\"}" target json
         send msg
+
+    let render json =
+        let resp,stream = asyncRender json |> Async.RunSynchronously
+        if resp = HttpStatusCode.OK then
+            stream
+        else
+            None
+        
 
     let killServer() =
         match serverProc with
