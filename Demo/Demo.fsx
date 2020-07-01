@@ -28,7 +28,11 @@ xlabel "x"
 ylabel "y"
 
 fig.tooltip.padding.Set 12
-fig.legend.navigation.Set {| activeColor="a2412f"; inactiveColor="6a6a6a" |}
+fig.colors.[0].Set "#F123A2"
+fig.plotOptions.line.lineWidth.Set 8
+fig.legend.navigation.Set {| activeColor="#A2412F"; inactiveColor="#6A6A6A" |}
+fig.legend.layout.Set "horizontal"
+fig.xAxis.[0].title.text.Set "lsjdjwm"
 
 // Change the data in current series 
 let data2 = [ for i in 0..n -> (0.1 * ~~i, 5.0 + rand.NextDouble() + ~~i) ]

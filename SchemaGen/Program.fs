@@ -120,7 +120,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                     else
                         nextState.ChildRecords
                         |> List.rev
-                        |> List.fold (fun str child -> sprintf "%s,\\\"%s\\\":%ss" str child "%") ""
+                        |> List.fold (fun str child -> sprintf "%s,\\\\\\\"%s\\\\\\\":%ss" str child "%") ""
                         |> fun s -> s.Substring(1)
                 ""
                 >~> sprintf "%s///<summary>%s : <code>{| %s |}</code></summary>" ~~1 (pathToType curPath) nextState.CurCodeSb
@@ -252,9 +252,9 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 
             let curJsonSb =
                 if String.IsNullOrEmpty state.CurJsonSb then
-                    sprintf "%slet %s = sprintf \"%ss\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+                    sprintf "%slet %s = sprintf \"\\\\\\\"%ss\\\\\\\"\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
                 else
-                    sprintf "\n%slet %s = sprintf \"%ss\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+                    sprintf "\n%slet %s = sprintf \"\\\\\\\"%ss\\\\\\\"\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
             
 
             let curType =
