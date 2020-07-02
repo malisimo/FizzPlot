@@ -296,10 +296,14 @@ function addChartSeries(chart, seriesObj)
     chart.addSeries(seriesObj);
 }
 
-function updateChartElement(chart, target, chartObj)
+function updateChartElement(chart, target, targetIndex, chartObj)
 {
     if (target) {
-        chart[target].update(chartObj);
+        if (targetIndex >= 0) {
+            chart[target][targetIndex].update(chartObj);
+        } else {
+            chart[target].update(chartObj);
+        }
     } else {
         chart.update(chartObj);
     }
@@ -353,19 +357,19 @@ function openWebSocket(appData) {
                 }
 
                 console.info('Adding series to chart');
-                addChartSeries(appData.charts[0], JSON.parse(messageObj.json));
+                addChartSeries(appData.charts[messageObj.chartIndex], JSON.parse(messageObj.json));
                 break;
             case 'update':
                 console.info('Updating chart');
-                updateChartElement(appData.charts[0], JSON.parse(messageObj.target), JSON.parse(messageObj.json));
+                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, messageObj.targetIndex, JSON.parse(messageObj.json));
                 break;
             case 'delete':
                 console.info('Deleting chart or series');                    
                 break;
             case 'fetch':
-                if (appData.charts.length > 0) {
+                if (appData.charts.length > messageObj.chartIndex) {
                     console.info('Fetching chart data');
-                    socket.send(JSON.stringify(appData.charts[0].userOptions));
+                    socket.send(JSON.stringify(appData.charts[messageObj.chartIndex].userOptions));
                 }
                 else {
                     console.warn('Failed to fetch chart obj (no charts)');

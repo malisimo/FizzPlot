@@ -130,7 +130,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%ssprintf \"{%s}\" %s" ~~3 recFormats recordsStr
                 >~> ""
                 >~> sprintf "%smember this.Set (o:{| %s |}) =" ~~2 nextState.CurCodeSb
-                >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
+                >~> sprintf "%supdate currentChartIndex \"\" (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
                 >~> ""
             
             let curSb =
@@ -192,7 +192,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 
                 >~> ""
                 >~> sprintf "%smember this.Set (o:%s seq) =" ~~2 nextState.CurCodeSb
-                >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
+                >~> sprintf "%supdate currentChartIndex \"\" (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
                 >~> ""
                 >~> sprintf "%smember this.Item" ~~2
                 >~> sprintf "%swith get(_) =" ~~3
@@ -265,7 +265,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%ssprintf \"\\\\\\\"%ss\\\\\\\"\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:string) =" ~~2
-                >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
+                >~> sprintf "%supdate currentChartIndex \"\" (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
 
             { state with
                 CurSb = curSb
@@ -306,7 +306,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%ssprintf \"%sf\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:float) =" ~~2
-                >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
+                >~> sprintf "%supdate currentChartIndex \"\" (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
 
             { state with
                 CurSb = curSb
@@ -349,7 +349,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%ssprintf \"%si\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:int) =" ~~2
-                >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
+                >~> sprintf "%supdate currentChartIndex \"\" (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
 
             { state with
                 CurSb = curSb
@@ -392,7 +392,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%ssprintf \"%sb\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:bool) =" ~~2
-                >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
+                >~> sprintf "%supdate currentChartIndex \"\" (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
 
             { state with
                 CurSb = curSb
@@ -435,7 +435,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%ssprintf \"%sf\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:float) =" ~~2
-                >~> sprintf "%supdate 0 (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
+                >~> sprintf "%supdate currentChartIndex \"\" (sprintf \"%s\" (%s.ToJson o))" ~~3 (pathToJson curPath) (pathToType curPath)
 
             { state with
                 CurSb = curSb
@@ -459,6 +459,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
     sb.AppendLine(sprintf "namespace %s\n\n" namespaceName) |> ignore
     sb.AppendLine(sprintf "module %s =" moduleName) |> ignore
     sb.AppendLine("    open Server") |> ignore
+    sb.AppendLine() |> ignore
+    sb.AppendLine("    let mutable currentChartIndex = 0") |> ignore
     sb.AppendLine(typeStr) |> ignore
 
     sb.ToString()
