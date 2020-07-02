@@ -94,12 +94,12 @@ module internal Server =
     let send json =
         asyncSend false json |> Async.RunSynchronously |> ignore
 
-    let add target json =
-        let msg = sprintf "{\"Operation\":\"add\",\"target\":%i,\"Json\":\"%s\"}" target json
+    let add chartIndex target json =
+        let msg = sprintf "{\"operation\":\"add\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex target json
         send msg
 
-    let update target json =
-        let msg = sprintf "{\"Operation\":\"update\",\"target\":%i,\"Json\":\"%s\"}" target json
+    let update chartIndex target json =
+        let msg = sprintf "{\"operation\":\"update\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex target json
         send msg
 
     let render json =
