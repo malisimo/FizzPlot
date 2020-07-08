@@ -1,0 +1,224 @@
+{
+    "font": {
+        "family": "\"Open Sans\", verdana, arial, sans-serif",
+        "size": 12,
+        "color": "#444"
+    },
+    "title": {
+        "text": "Sales Growth",
+        "font": {
+            "family": "\"Open Sans\", verdana, arial, sans-serif",
+            "size": 17,
+            "color": "#444"
+        },
+        "xref": "container",
+        "yref": "container",
+        "x": 0.5,
+        "y": "auto",
+        "xanchor": "auto",
+        "yanchor": "auto",
+        "pad": {
+            "t": 0,
+            "r": 0,
+            "b": 0,
+            "l": 0
+        }
+    },
+    "uniformtext": {
+        "mode": false
+    },
+    "autosize": true,
+    "width": 1709,
+    "height": 450,
+    "margin": {
+        "l": 80,
+        "r": 80,
+        "t": 100,
+        "b": 80,
+        "pad": 0,
+        "autoexpand": true
+    },
+    "paper_bgcolor": "#fff",
+    "separators": ".,",
+    "hidesources": false,
+    "colorway": [
+        "#1f77b4",
+        "#ff7f0e",
+        "#2ca02c",
+        "#d62728",
+        "#9467bd",
+        "#8c564b",
+        "#e377c2",
+        "#7f7f7f",
+        "#bcbd22",
+        "#17becf"
+    ],
+    "modebar": {
+        "orientation": "h",
+        "bgcolor": "rgba(255, 255, 255, 0.5)",
+        "color": "rgba(68, 68, 68, 0.3)",
+        "activecolor": "rgba(68, 68, 68, 0.7)"
+    },
+    "newshape": {
+        "drawdirection": "diagonal",
+        "layer": "above",
+        "fillcolor": "rgba(0,0,0,0)",
+        "fillrule": "evenodd",
+        "opacity": 1,
+        "line": {
+            "width": 4,
+            "color": "#444",
+            "dash": "solid"
+        }
+    },
+    "activeshape": {
+        "fillcolor": "rgb(255,0,255)",
+        "opacity": 0.5
+    },
+    "calendar": "gregorian",
+    "hoverlabel": {
+        "namelength": 15,
+        "font": {
+            "family": "Arial, sans-serif",
+            "size": 13
+        },
+        "align": "auto"
+    },
+    "plot_bgcolor": "#2e5",
+    "clickmode": "event",
+    "hovermode": "x",
+    "xaxis": {
+        "type": "linear",
+        "visible": true,
+        "autorange": true,
+        "rangemode": "normal",
+        "range": [
+            1998.8243184768498,
+            2002.1756815231502
+        ],
+        "hoverformat": "",
+        "color": "#444",
+        "tickprefix": "",
+        "ticksuffix": "",
+        "title": {
+            "text": "Year",
+            "font": {
+                "family": "\"Open Sans\", verdana, arial, sans-serif",
+                "size": 14,
+                "color": "#444"
+            }
+        },
+        "tickmode": "auto",
+        "nticks": 0,
+        "showticklabels": true,
+        "tickfont": {
+            "family": "\"Open Sans\", verdana, arial, sans-serif",
+            "size": 12,
+            "color": "#444"
+        },
+        "tickangle": "auto",
+        "tickformat": "",
+        "showexponent": "all",
+        "exponentformat": "B",
+        "separatethousands": false,
+        "ticks": "",
+        "showline": false,
+        "showgrid": false,
+        "zeroline": false,
+        "automargin": false,
+        "showspikes": false,
+        "anchor": "y",
+        "side": "bottom",
+        "domain": [
+            0,
+            1
+        ],
+        "layer": "above traces",
+        "fixedrange": false,
+        "constrain": "range",
+        "constraintoward": "center",
+        "tick0": 0,
+        "dtick": 0.5
+    },
+    "showlegend": false,
+    "hoverdistance": 20,
+    "spikedistance": 20,
+    "dragmode": "zoom",
+    "annotations": [],
+    "shapes": [],
+    "images": [],
+    "updatemenus": [],
+    "sliders": [],
+    "colorscale": {
+        "sequential": [
+            [
+                0,
+                "rgb(220,220,220)"
+            ],
+            [
+                0.2,
+                "rgb(245,195,157)"
+            ],
+            [
+                0.4,
+                "rgb(245,160,105)"
+            ],
+            [
+                1,
+                "rgb(178,10,28)"
+            ]
+        ],
+        "sequentialminus": [
+            [
+                0,
+                "rgb(5,10,172)"
+            ],
+            [
+                0.35,
+                "rgb(40,60,190)"
+            ],
+            [
+                0.5,
+                "rgb(70,100,245)"
+            ],
+            [
+                0.6,
+                "rgb(90,120,245)"
+            ],
+            [
+                0.7,
+                "rgb(106,137,247)"
+            ],
+            [
+                1,
+                "rgb(220,220,220)"
+            ]
+        ],
+        "diverging": [
+            [
+                0,
+                "rgb(5,10,172)"
+            ],
+            [
+                0.35,
+                "rgb(106,137,247)"
+            ],
+            [
+                0.5,
+                "rgb(190,190,190)"
+            ],
+            [
+                0.6,
+                "rgb(220,170,132)"
+            ],
+            [
+                0.7,
+                "rgb(230,145,90)"
+            ],
+            [
+                1,
+                "rgb(178,10,28)"
+            ]
+        ]
+    }
+}
