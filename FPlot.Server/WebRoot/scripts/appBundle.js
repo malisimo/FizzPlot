@@ -243,6 +243,64 @@ function initApp()
     Highcharts.setOptions(Highcharts.theme);
 }
 
+function createGuid()
+{
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+
+// Set the [id] properties of current object based on those of a source,
+// according to the targets passed (path and index)
+function setTargetIds(source, current, target) {
+    function mapTargetId(s, c) {
+        var src = s;
+        var cur = c;
+
+        function getIds(prop, o) {
+            ids = [];
+            arr = _.get(o,prop);
+        
+            for (var a in arr) {
+                if (arr[a].id !== undefined) {
+                    ids.push(arr[a].id);
+                }
+            }
+        
+            return ids;
+        }
+
+        function foldInner(t) {
+            let tInfo = t.split('#');
+            let targetPath = tInfo[0];
+            let targetIndex = parseInt(tInfo[1]);
+
+            let ids = getIds(targetPath,src);
+            let curSub = _.get(cur,targetPath);
+
+            srcSub = _.get(src,targetPath);
+            curSub[0].id = ids[targetIndex];
+
+            cur = curSub[0];
+            src = srcSub[targetIndex];
+
+            return current;
+        }
+
+        return foldInner;
+    }
+
+    let targets = target.split(',')
+    if (targets.length > 0) {
+        let res = targets.map(mapTargetId(_.cloneDeep(source),current));
+        return res[res.length-1];
+    }
+
+    return current;
+}
+
 function initElement(el, parentId)
 {
     switch (el.type)
@@ -296,14 +354,10 @@ function addChartSeries(chart, seriesObj)
     chart.addSeries(seriesObj);
 }
 
-function updateChartElement(chart, target, targetIndex, chartObj)
+function updateChartElement(chart, target, chartObj)
 {
     if (target) {
-        if (targetIndex >= 0) {
-            chart[target][targetIndex].update(chartObj);
-        } else {
-            chart[target].update(chartObj);
-        }
+        _.get(chart, target).update(chartObj);
     } else {
         chart.update(chartObj);
     }
@@ -357,14 +411,21 @@ function openWebSocket(appData) {
                 }
 
                 console.info('Adding series to chart');
-                addChartSeries(appData.charts[messageObj.chartIndex], JSON.parse(messageObj.json));
+                let seriesObj = JSON.parse(messageObj.json);
+                seriesObj.id = createGuid();
+                addChartSeries(appData.charts[messageObj.chartIndex], seriesObj);
                 break;
             case 'update':
                 console.info('Updating chart');
-                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, messageObj.targetIndex, JSON.parse(messageObj.json));
+                let msgObj = setTargetIds(appData.charts[messageObj.chartIndex].options,
+                    JSON.parse(messageObj.json),
+                    messageObj.target);
+                    
+                console.log(msgObj);
+                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, msgObj);
                 break;
             case 'delete':
-                console.info('Deleting chart or series');                    
+                console.info('Deleting chart or series');
                 break;
             case 'fetch':
                 if (appData.charts.length > messageObj.chartIndex) {
