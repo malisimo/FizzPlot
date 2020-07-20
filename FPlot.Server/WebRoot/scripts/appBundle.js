@@ -380,7 +380,7 @@ function createNewChart(chartId) {
 }
 
 function openWebSocket(appData) {
-    var socket = new WebSocket('ws://localhost:5000/ws')
+    var socket = new WebSocket('ws://localhost:2387/ws')
     socket.onopen = function () {
         //console.log('INFO: WebSocket opened successfully');
     }

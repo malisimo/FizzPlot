@@ -7,7 +7,7 @@ module Plot =
     open Server
     open Figure
 
-    let fig = Figure()
+    let fig = Figure(None)
     let mutable serverProc:Process option = None
 
     let kill() =
