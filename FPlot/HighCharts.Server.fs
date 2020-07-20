@@ -10,7 +10,7 @@ module internal Server =
     open System.Net.Http
     open FPlot.StringUtils
 
-    let serverAddress = "http://localhost:5000"
+    let serverAddress = "http://localhost:2387"
     let mutable serverProc:Process option = None
 
     let asyncSend wait json = async {
@@ -163,7 +163,7 @@ module internal Server =
         
         waitForProcessStart 0 proc
 
-        Process.Start("cmd", sprintf "/C start %s" "http://localhost:5000") |> ignore
+        Process.Start("cmd", sprintf "/C start %s" "http://localhost:2387") |> ignore
 
         proc
 

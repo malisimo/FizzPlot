@@ -16,7 +16,7 @@ In the root folder, open a terminal and type:
 dotnet run --project Demo/Demo.fsproj
 ```
 
-This will open your browser and navigate to http://localhost:5000/ to show your plot.
+This will open your browser and navigate to http://localhost:2387/ to show your plot.
 
 # API Reference
 
