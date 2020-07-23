@@ -297,7 +297,7 @@ function addChartSeries(chart, seriesObj)
 }
 
 function updateChartElement(chart, target, chartObj)
-{
+{    
     if (target) {
         _.set(chart.options, target, chartObj);
         chart.isDirtyBox = true;
@@ -363,7 +363,7 @@ function openWebSocket(appData) {
                 console.info('Updating chart');
                 let msgObj = JSON.parse(messageObj.json);
                 console.log(msgObj);
-                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, );
+                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, msgObj);
                 break;
             case 'delete':
                 console.info('Deleting chart or series');

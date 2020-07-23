@@ -319,9 +319,9 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 
             let curJsonSb =
                 if String.IsNullOrEmpty state.CurJsonSb then
-                    sprintf "%slet %s = sprintf \"%ss\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
-                else
-                    sprintf "\n%slet %s = sprintf \"%ss\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+                    sprintf "%slet %s = sprintf \"\\\\\\\"%ss\\\\\\\"\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+                else                
+                    sprintf "\n%slet %s = sprintf \"\\\\\\\"%ss\\\\\\\"\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
 
             let curType =
                 ""

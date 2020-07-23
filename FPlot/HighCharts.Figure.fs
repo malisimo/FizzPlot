@@ -568,23 +568,23 @@ module Figure =
                 |> Option.defaultValue "lang"
 
         static member ToJson (o:{| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}) =
-            let loading = sprintf "%s" o.loading
+            let loading = sprintf "\\\"%s\\\"" o.loading
             let months = Figure_Lang_Months.ToJson o.months
             let shortMonths = Figure_Lang_ShortMonths.ToJson o.shortMonths
             let weekdays = Figure_Lang_Weekdays.ToJson o.weekdays
-            let decimalPoint = sprintf "%s" o.decimalPoint
+            let decimalPoint = sprintf "\\\"%s\\\"" o.decimalPoint
             let numericSymbols = Figure_Lang_NumericSymbols.ToJson o.numericSymbols
-            let resetZoom = sprintf "%s" o.resetZoom
-            let resetZoomTitle = sprintf "%s" o.resetZoomTitle
-            let thousandsSep = sprintf "%s" o.thousandsSep
-            let viewFullscreen = sprintf "%s" o.viewFullscreen
-            let exitFullscreen = sprintf "%s" o.exitFullscreen
-            let printChart = sprintf "%s" o.printChart
-            let downloadPNG = sprintf "%s" o.downloadPNG
-            let downloadJPEG = sprintf "%s" o.downloadJPEG
-            let downloadPDF = sprintf "%s" o.downloadPDF
-            let downloadSVG = sprintf "%s" o.downloadSVG
-            let contextButtonTitle = sprintf "%s" o.contextButtonTitle
+            let resetZoom = sprintf "\\\"%s\\\"" o.resetZoom
+            let resetZoomTitle = sprintf "\\\"%s\\\"" o.resetZoomTitle
+            let thousandsSep = sprintf "\\\"%s\\\"" o.thousandsSep
+            let viewFullscreen = sprintf "\\\"%s\\\"" o.viewFullscreen
+            let exitFullscreen = sprintf "\\\"%s\\\"" o.exitFullscreen
+            let printChart = sprintf "\\\"%s\\\"" o.printChart
+            let downloadPNG = sprintf "\\\"%s\\\"" o.downloadPNG
+            let downloadJPEG = sprintf "\\\"%s\\\"" o.downloadJPEG
+            let downloadPDF = sprintf "\\\"%s\\\"" o.downloadPDF
+            let downloadSVG = sprintf "\\\"%s\\\"" o.downloadSVG
+            let contextButtonTitle = sprintf "\\\"%s\\\"" o.contextButtonTitle
             sprintf "{\\\"loading\\\":%s,\\\"months\\\":%s,\\\"shortMonths\\\":%s,\\\"weekdays\\\":%s,\\\"decimalPoint\\\":%s,\\\"numericSymbols\\\":%s,\\\"resetZoom\\\":%s,\\\"resetZoomTitle\\\":%s,\\\"thousandsSep\\\":%s,\\\"viewFullscreen\\\":%s,\\\"exitFullscreen\\\":%s,\\\"printChart\\\":%s,\\\"downloadPNG\\\":%s,\\\"downloadJPEG\\\":%s,\\\"downloadPDF\\\":%s,\\\"downloadSVG\\\":%s,\\\"contextButtonTitle\\\":%s}" loading months shortMonths weekdays decimalPoint numericSymbols resetZoom resetZoomTitle thousandsSep viewFullscreen exitFullscreen printChart downloadPNG downloadJPEG downloadPDF downloadSVG contextButtonTitle
 
         member this.Set (o:{| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}) =
@@ -902,7 +902,7 @@ module Figure =
                 |> Option.defaultValue "position"
 
         static member ToJson (o:{| align:string; x:int; y:int |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
             sprintf "{\\\"align\\\":%s,\\\"x\\\":%s,\\\"y\\\":%s}" align x y
@@ -1096,7 +1096,7 @@ module Figure =
             let y1 = sprintf "%i" o.y1
             let x2 = sprintf "%i" o.x2
             let y2 = sprintf "%i" o.y2
-            let id = sprintf "%s" o.id
+            let id = sprintf "\\\"%s\\\"" o.id
             sprintf "{\\\"x1\\\":%s,\\\"y1\\\":%s,\\\"x2\\\":%s,\\\"y2\\\":%s,\\\"id\\\":%s}" x1 y1 x2 y2 id
 
         member this.Set (o:{| x1:int; y1:int; x2:int; y2:int; id:string |}) =
@@ -1350,18 +1350,18 @@ module Figure =
             let styledMode = sprintf "%b" o.styledMode
             let borderRadius = sprintf "%i" o.borderRadius
             let colorCount = sprintf "%i" o.colorCount
-            let defaultSeriesType = sprintf "%s" o.defaultSeriesType
+            let defaultSeriesType = sprintf "\\\"%s\\\"" o.defaultSeriesType
             let ignoreHiddenSeries = sprintf "%b" o.ignoreHiddenSeries
             let spacing = Figure_Chart_Spacing.ToJson o.spacing
             let resetZoomButton = Figure_Chart_ResetZoomButton.ToJson o.resetZoomButton
             let width = sprintf "%s" o.width
             let height = sprintf "%s" o.height
-            let borderColor = sprintf "%s" o.borderColor
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             let backgroundColor = Figure_Chart_BackgroundColor.ToJson o.backgroundColor
-            let plotBorderColor = sprintf "%s" o.plotBorderColor
+            let plotBorderColor = sprintf "\\\"%s\\\"" o.plotBorderColor
             let borderWidth = sprintf "%i" o.borderWidth
-            let className = sprintf "%s" o.className
-            let plotBackgroundColor = sprintf "%s" o.plotBackgroundColor
+            let className = sprintf "\\\"%s\\\"" o.className
+            let plotBackgroundColor = sprintf "\\\"%s\\\"" o.plotBackgroundColor
             let plotBorderWidth = sprintf "%i" o.plotBorderWidth
             sprintf "{\\\"styledMode\\\":%s,\\\"borderRadius\\\":%s,\\\"colorCount\\\":%s,\\\"defaultSeriesType\\\":%s,\\\"ignoreHiddenSeries\\\":%s,\\\"spacing\\\":%s,\\\"resetZoomButton\\\":%s,\\\"width\\\":%s,\\\"height\\\":%s,\\\"borderColor\\\":%s,\\\"backgroundColor\\\":%s,\\\"plotBorderColor\\\":%s,\\\"borderWidth\\\":%s,\\\"className\\\":%s,\\\"plotBackgroundColor\\\":%s,\\\"plotBorderWidth\\\":%s}" styledMode borderRadius colorCount defaultSeriesType ignoreHiddenSeries spacing resetZoomButton width height borderColor backgroundColor plotBorderColor borderWidth className plotBackgroundColor plotBorderWidth
 
@@ -1476,11 +1476,11 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontSize:string; font:string; fill:string; width:string |}) =
-            let color = sprintf "%s" o.color
-            let fontSize = sprintf "%s" o.fontSize
-            let font = sprintf "%s" o.font
-            let fill = sprintf "%s" o.fill
-            let width = sprintf "%s" o.width
+            let color = sprintf "\\\"%s\\\"" o.color
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let font = sprintf "\\\"%s\\\"" o.font
+            let fill = sprintf "\\\"%s\\\"" o.fill
+            let width = sprintf "\\\"%s\\\"" o.width
             sprintf "{\\\"color\\\":%s,\\\"fontSize\\\":%s,\\\"font\\\":%s,\\\"fill\\\":%s,\\\"width\\\":%s}" color fontSize font fill width
 
         member this.Set (o:{| color:string; fontSize:string; font:string; fill:string; width:string |}) =
@@ -1579,8 +1579,8 @@ module Figure =
 
         static member ToJson (o:{| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}) =
             let style = Figure_Title_Style.ToJson o.style
-            let text = sprintf "%s" o.text
-            let align = sprintf "%s" o.align
+            let text = sprintf "\\\"%s\\\"" o.text
+            let align = sprintf "\\\"%s\\\"" o.align
             let margin = sprintf "%i" o.margin
             let widthAdjust = sprintf "%i" o.widthAdjust
             sprintf "{\\\"style\\\":%s,\\\"text\\\":%s,\\\"align\\\":%s,\\\"margin\\\":%s,\\\"widthAdjust\\\":%s}" style text align margin widthAdjust
@@ -1677,10 +1677,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; font:string; fill:string; width:string |}) =
-            let color = sprintf "%s" o.color
-            let font = sprintf "%s" o.font
-            let fill = sprintf "%s" o.fill
-            let width = sprintf "%s" o.width
+            let color = sprintf "\\\"%s\\\"" o.color
+            let font = sprintf "\\\"%s\\\"" o.font
+            let fill = sprintf "\\\"%s\\\"" o.fill
+            let width = sprintf "\\\"%s\\\"" o.width
             sprintf "{\\\"color\\\":%s,\\\"font\\\":%s,\\\"fill\\\":%s,\\\"width\\\":%s}" color font fill width
 
         member this.Set (o:{| color:string; font:string; fill:string; width:string |}) =
@@ -1760,8 +1760,8 @@ module Figure =
 
         static member ToJson (o:{| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}) =
             let style = Figure_Subtitle_Style.ToJson o.style
-            let text = sprintf "%s" o.text
-            let align = sprintf "%s" o.align
+            let text = sprintf "\\\"%s\\\"" o.text
+            let align = sprintf "\\\"%s\\\"" o.align
             let widthAdjust = sprintf "%i" o.widthAdjust
             sprintf "{\\\"style\\\":%s,\\\"text\\\":%s,\\\"align\\\":%s,\\\"widthAdjust\\\":%s}" style text align widthAdjust
 
@@ -1838,9 +1838,9 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fill:string; width:string |}) =
-            let color = sprintf "%s" o.color
-            let fill = sprintf "%s" o.fill
-            let width = sprintf "%s" o.width
+            let color = sprintf "\\\"%s\\\"" o.color
+            let fill = sprintf "\\\"%s\\\"" o.fill
+            let width = sprintf "\\\"%s\\\"" o.width
             sprintf "{\\\"color\\\":%s,\\\"fill\\\":%s,\\\"width\\\":%s}" color fill width
 
         member this.Set (o:{| color:string; fill:string; width:string |}) =
@@ -1940,9 +1940,9 @@ module Figure =
         static member ToJson (o:{| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}) =
             let style = Figure_Caption_Style.ToJson o.style
             let margin = sprintf "%i" o.margin
-            let text = sprintf "%s" o.text
-            let align = sprintf "%s" o.align
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let text = sprintf "\\\"%s\\\"" o.text
+            let align = sprintf "\\\"%s\\\"" o.align
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             sprintf "{\\\"style\\\":%s,\\\"margin\\\":%s,\\\"text\\\":%s,\\\"align\\\":%s,\\\"verticalAlign\\\":%s}" style margin text align verticalAlign
 
         member this.Set (o:{| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}) =
@@ -2361,8 +2361,8 @@ module Figure =
                 |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            let fillColor = sprintf "%s" o.fillColor
-            let lineColor = sprintf "%s" o.lineColor
+            let fillColor = sprintf "\\\"%s\\\"" o.fillColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             sprintf "{\\\"fillColor\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s}" fillColor lineColor lineWidth
 
@@ -2428,7 +2428,7 @@ module Figure =
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
-            let lineColor = sprintf "%s" o.lineColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             let radius = sprintf "%i" o.radius
             let states = Figure_PlotOptions_Line_Marker_States.ToJson o.states
@@ -2599,10 +2599,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -2706,13 +2706,13 @@ module Figure =
                 |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let padding = sprintf "%i" o.padding
             let style = Figure_PlotOptions_Line_DataLabels_Style.ToJson o.style
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"align\\\":%s,\\\"padding\\\":%s,\\\"style\\\":%s,\\\"verticalAlign\\\":%s,\\\"x\\\":%s,\\\"y\\\":%s,\\\"color\\\":%s}" align padding style verticalAlign x y color
 
         member this.Set (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}) =
@@ -3287,7 +3287,7 @@ module Figure =
             let states = Figure_PlotOptions_Line_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
@@ -3706,8 +3706,8 @@ module Figure =
                 |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            let fillColor = sprintf "%s" o.fillColor
-            let lineColor = sprintf "%s" o.lineColor
+            let fillColor = sprintf "\\\"%s\\\"" o.fillColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             sprintf "{\\\"fillColor\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s}" fillColor lineColor lineWidth
 
@@ -3773,7 +3773,7 @@ module Figure =
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
-            let lineColor = sprintf "%s" o.lineColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             let radius = sprintf "%i" o.radius
             let states = Figure_PlotOptions_Area_Marker_States.ToJson o.states
@@ -3944,10 +3944,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -4032,10 +4032,10 @@ module Figure =
                 |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let padding = sprintf "%i" o.padding
             let style = Figure_PlotOptions_Area_DataLabels_Style.ToJson o.style
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
             sprintf "{\\\"align\\\":%s,\\\"padding\\\":%s,\\\"style\\\":%s,\\\"verticalAlign\\\":%s,\\\"x\\\":%s,\\\"y\\\":%s}" align padding style verticalAlign x y
@@ -4631,7 +4631,7 @@ module Figure =
             let states = Figure_PlotOptions_Area_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let threshold = sprintf "%i" o.threshold
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"threshold\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy threshold
 
@@ -5051,8 +5051,8 @@ module Figure =
                 |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            let fillColor = sprintf "%s" o.fillColor
-            let lineColor = sprintf "%s" o.lineColor
+            let fillColor = sprintf "\\\"%s\\\"" o.fillColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             sprintf "{\\\"fillColor\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s}" fillColor lineColor lineWidth
 
@@ -5118,7 +5118,7 @@ module Figure =
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
-            let lineColor = sprintf "%s" o.lineColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             let radius = sprintf "%i" o.radius
             let states = Figure_PlotOptions_Spline_Marker_States.ToJson o.states
@@ -5289,10 +5289,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -5377,10 +5377,10 @@ module Figure =
                 |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let padding = sprintf "%i" o.padding
             let style = Figure_PlotOptions_Spline_DataLabels_Style.ToJson o.style
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
             sprintf "{\\\"align\\\":%s,\\\"padding\\\":%s,\\\"style\\\":%s,\\\"verticalAlign\\\":%s,\\\"x\\\":%s,\\\"y\\\":%s}" align padding style verticalAlign x y
@@ -5957,7 +5957,7 @@ module Figure =
             let states = Figure_PlotOptions_Spline_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
@@ -6376,8 +6376,8 @@ module Figure =
                 |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            let fillColor = sprintf "%s" o.fillColor
-            let lineColor = sprintf "%s" o.lineColor
+            let fillColor = sprintf "\\\"%s\\\"" o.fillColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             sprintf "{\\\"fillColor\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s}" fillColor lineColor lineWidth
 
@@ -6443,7 +6443,7 @@ module Figure =
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
-            let lineColor = sprintf "%s" o.lineColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             let radius = sprintf "%i" o.radius
             let states = Figure_PlotOptions_Areaspline_Marker_States.ToJson o.states
@@ -6614,10 +6614,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -6702,10 +6702,10 @@ module Figure =
                 |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let padding = sprintf "%i" o.padding
             let style = Figure_PlotOptions_Areaspline_DataLabels_Style.ToJson o.style
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
             sprintf "{\\\"align\\\":%s,\\\"padding\\\":%s,\\\"style\\\":%s,\\\"verticalAlign\\\":%s,\\\"x\\\":%s,\\\"y\\\":%s}" align padding style verticalAlign x y
@@ -7301,7 +7301,7 @@ module Figure =
             let states = Figure_PlotOptions_Areaspline_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let threshold = sprintf "%i" o.threshold
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"threshold\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy threshold
 
@@ -7591,10 +7591,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -7984,8 +7984,8 @@ module Figure =
 
         static member ToJson (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
             let animation = Figure_PlotOptions_Column_States_Select_Animation.ToJson o.animation
-            let color = sprintf "%s" o.color
-            let borderColor = sprintf "%s" o.borderColor
+            let color = sprintf "\\\"%s\\\"" o.color
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             sprintf "{\\\"animation\\\":%s,\\\"color\\\":%s,\\\"borderColor\\\":%s}" animation color borderColor
 
         member this.Set (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
@@ -8385,7 +8385,7 @@ module Figure =
             let states = Figure_PlotOptions_Column_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let borderRadius = sprintf "%i" o.borderRadius
             let centerInCategory = sprintf "%b" o.centerInCategory
             let groupPadding = sprintf "%i" o.groupPadding
@@ -8393,7 +8393,7 @@ module Figure =
             let minPointLength = sprintf "%i" o.minPointLength
             let startFromThreshold = sprintf "%b" o.startFromThreshold
             let threshold = sprintf "%i" o.threshold
-            let borderColor = sprintf "%s" o.borderColor
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"borderRadius\\\":%s,\\\"centerInCategory\\\":%s,\\\"groupPadding\\\":%s,\\\"pointPadding\\\":%s,\\\"minPointLength\\\":%s,\\\"startFromThreshold\\\":%s,\\\"threshold\\\":%s,\\\"borderColor\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy borderRadius centerInCategory groupPadding pointPadding minPointLength startFromThreshold threshold borderColor
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
@@ -8682,10 +8682,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -9075,8 +9075,8 @@ module Figure =
 
         static member ToJson (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
             let animation = Figure_PlotOptions_Bar_States_Select_Animation.ToJson o.animation
-            let color = sprintf "%s" o.color
-            let borderColor = sprintf "%s" o.borderColor
+            let color = sprintf "\\\"%s\\\"" o.color
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             sprintf "{\\\"animation\\\":%s,\\\"color\\\":%s,\\\"borderColor\\\":%s}" animation color borderColor
 
         member this.Set (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
@@ -9476,7 +9476,7 @@ module Figure =
             let states = Figure_PlotOptions_Bar_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let borderRadius = sprintf "%i" o.borderRadius
             let centerInCategory = sprintf "%b" o.centerInCategory
             let groupPadding = sprintf "%i" o.groupPadding
@@ -9484,7 +9484,7 @@ module Figure =
             let minPointLength = sprintf "%i" o.minPointLength
             let startFromThreshold = sprintf "%b" o.startFromThreshold
             let threshold = sprintf "%i" o.threshold
-            let borderColor = sprintf "%s" o.borderColor
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"borderRadius\\\":%s,\\\"centerInCategory\\\":%s,\\\"groupPadding\\\":%s,\\\"pointPadding\\\":%s,\\\"minPointLength\\\":%s,\\\"startFromThreshold\\\":%s,\\\"threshold\\\":%s,\\\"borderColor\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy borderRadius centerInCategory groupPadding pointPadding minPointLength startFromThreshold threshold borderColor
 
         member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
@@ -9903,8 +9903,8 @@ module Figure =
                 |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
-            let fillColor = sprintf "%s" o.fillColor
-            let lineColor = sprintf "%s" o.lineColor
+            let fillColor = sprintf "\\\"%s\\\"" o.fillColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             sprintf "{\\\"fillColor\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s}" fillColor lineColor lineWidth
 
@@ -9989,7 +9989,7 @@ module Figure =
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
-            let lineColor = sprintf "%s" o.lineColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let lineWidth = sprintf "%i" o.lineWidth
             let radius = sprintf "%i" o.radius
             let states = Figure_PlotOptions_Scatter_Marker_States.ToJson o.states
@@ -10161,10 +10161,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -10249,10 +10249,10 @@ module Figure =
                 |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let padding = sprintf "%i" o.padding
             let style = Figure_PlotOptions_Scatter_DataLabels_Style.ToJson o.style
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
             sprintf "{\\\"align\\\":%s,\\\"padding\\\":%s,\\\"style\\\":%s,\\\"verticalAlign\\\":%s,\\\"x\\\":%s,\\\"y\\\":%s}" align padding style verticalAlign x y
@@ -10890,7 +10890,7 @@ module Figure =
             let states = Figure_PlotOptions_Scatter_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let jitter = Figure_PlotOptions_Scatter_Jitter.ToJson o.jitter
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"jitter\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy jitter
 
@@ -11180,10 +11180,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
-            let textOutline = sprintf "%s" o.textOutline
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let textOutline = sprintf "\\\"%s\\\"" o.textOutline
             sprintf "{\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"color\\\":%s,\\\"textOutline\\\":%s}" fontSize fontWeight color textOutline
 
         member this.Set (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
@@ -11401,16 +11401,16 @@ module Figure =
                 |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let padding = sprintf "%i" o.padding
             let style = Figure_PlotOptions_Pie_DataLabels_Style.ToJson o.style
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
             let allowOverlap = sprintf "%b" o.allowOverlap
             let connectorPadding = sprintf "%i" o.connectorPadding
-            let connectorShape = sprintf "%s" o.connectorShape
-            let crookDistance = sprintf "%s" o.crookDistance
+            let connectorShape = sprintf "\\\"%s\\\"" o.connectorShape
+            let crookDistance = sprintf "\\\"%s\\\"" o.crookDistance
             let distance = sprintf "%i" o.distance
             let enabled = sprintf "%b" o.enabled
             let softConnector = sprintf "%b" o.softConnector
@@ -12244,17 +12244,17 @@ module Figure =
             let states = Figure_PlotOptions_Pie_States.ToJson o.states
             let stickyTracking = sprintf "%b" o.stickyTracking
             let turboThreshold = sprintf "%i" o.turboThreshold
-            let findNearestPointBy = sprintf "%s" o.findNearestPointBy
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let center = Figure_PlotOptions_Pie_Center.ToJson o.center
             let clip = sprintf "%b" o.clip
             let colorByPoint = sprintf "%b" o.colorByPoint
             let ignoreHiddenPoint = sprintf "%b" o.ignoreHiddenPoint
             let inactiveOtherPoints = sprintf "%b" o.inactiveOtherPoints
-            let legendType = sprintf "%s" o.legendType
+            let legendType = sprintf "\\\"%s\\\"" o.legendType
             let size = sprintf "%s" o.size
             let showInLegend = sprintf "%b" o.showInLegend
             let slicedOffset = sprintf "%i" o.slicedOffset
-            let borderColor = sprintf "%s" o.borderColor
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             let borderWidth = sprintf "%i" o.borderWidth
             sprintf "{\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"center\\\":%s,\\\"clip\\\":%s,\\\"colorByPoint\\\":%s,\\\"ignoreHiddenPoint\\\":%s,\\\"inactiveOtherPoints\\\":%s,\\\"legendType\\\":%s,\\\"size\\\":%s,\\\"showInLegend\\\":%s,\\\"slicedOffset\\\":%s,\\\"borderColor\\\":%s,\\\"borderWidth\\\":%s}" allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy center clip colorByPoint ignoreHiddenPoint inactiveOtherPoints legendType size showInLegend slicedOffset borderColor borderWidth
 
@@ -12293,7 +12293,7 @@ module Figure =
                 |> Option.defaultValue "candlestick"
 
         static member ToJson (o:{| lineColor:string |}) =
-            let lineColor = sprintf "%s" o.lineColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             sprintf "{\\\"lineColor\\\":%s}" lineColor
 
         member this.Set (o:{| lineColor:string |}) =
@@ -12404,8 +12404,8 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| position:string; color:string |}) =
-            let position = sprintf "%s" o.position
-            let color = sprintf "%s" o.color
+            let position = sprintf "\\\"%s\\\"" o.position
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"position\\\":%s,\\\"color\\\":%s}" position color
 
         member this.Set (o:{| position:string; color:string |}) =
@@ -12580,8 +12580,8 @@ module Figure =
                 |> Option.defaultValue "navigation"
 
         static member ToJson (o:{| activeColor:string; inactiveColor:string |}) =
-            let activeColor = sprintf "%s" o.activeColor
-            let inactiveColor = sprintf "%s" o.inactiveColor
+            let activeColor = sprintf "\\\"%s\\\"" o.activeColor
+            let inactiveColor = sprintf "\\\"%s\\\"" o.inactiveColor
             sprintf "{\\\"activeColor\\\":%s,\\\"inactiveColor\\\":%s}" activeColor inactiveColor
 
         member this.Set (o:{| activeColor:string; inactiveColor:string |}) =
@@ -12714,12 +12714,12 @@ module Figure =
                 |> Option.defaultValue "itemStyle"
 
         static member ToJson (o:{| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}) =
-            let color = sprintf "%s" o.color
-            let cursor = sprintf "%s" o.cursor
-            let fontSize = sprintf "%s" o.fontSize
-            let fontWeight = sprintf "%s" o.fontWeight
-            let textOverflow = sprintf "%s" o.textOverflow
-            let font = sprintf "%s" o.font
+            let color = sprintf "\\\"%s\\\"" o.color
+            let cursor = sprintf "\\\"%s\\\"" o.cursor
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let textOverflow = sprintf "\\\"%s\\\"" o.textOverflow
+            let font = sprintf "\\\"%s\\\"" o.font
             sprintf "{\\\"color\\\":%s,\\\"cursor\\\":%s,\\\"fontSize\\\":%s,\\\"fontWeight\\\":%s,\\\"textOverflow\\\":%s,\\\"font\\\":%s}" color cursor fontSize fontWeight textOverflow font
 
         member this.Set (o:{| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}) =
@@ -12757,7 +12757,7 @@ module Figure =
                 |> Option.defaultValue "itemHoverStyle"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -12795,7 +12795,7 @@ module Figure =
                 |> Option.defaultValue "itemHiddenStyle"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -12887,9 +12887,9 @@ module Figure =
                 |> Option.defaultValue "itemCheckboxStyle"
 
         static member ToJson (o:{| position:string; width:string; height:string |}) =
-            let position = sprintf "%s" o.position
-            let width = sprintf "%s" o.width
-            let height = sprintf "%s" o.height
+            let position = sprintf "\\\"%s\\\"" o.position
+            let width = sprintf "\\\"%s\\\"" o.width
+            let height = sprintf "\\\"%s\\\"" o.height
             sprintf "{\\\"position\\\":%s,\\\"width\\\":%s,\\\"height\\\":%s}" position width height
 
         member this.Set (o:{| position:string; width:string; height:string |}) =
@@ -13026,8 +13026,8 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontWeight:string; color:string |}) =
-            let fontWeight = sprintf "%s" o.fontWeight
-            let color = sprintf "%s" o.color
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"fontWeight\\\":%s,\\\"color\\\":%s}" fontWeight color
 
         member this.Set (o:{| fontWeight:string; color:string |}) =
@@ -13142,10 +13142,10 @@ module Figure =
 
         static member ToJson (o:{| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}) =
             let enabled = sprintf "%b" o.enabled
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let alignColumns = sprintf "%b" o.alignColumns
-            let layout = sprintf "%s" o.layout
-            let borderColor = sprintf "%s" o.borderColor
+            let layout = sprintf "\\\"%s\\\"" o.layout
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             let borderRadius = sprintf "%i" o.borderRadius
             let navigation = Figure_Legend_Navigation.ToJson o.navigation
             let itemStyle = Figure_Legend_ItemStyle.ToJson o.itemStyle
@@ -13155,11 +13155,11 @@ module Figure =
             let itemCheckboxStyle = Figure_Legend_ItemCheckboxStyle.ToJson o.itemCheckboxStyle
             let squareSymbol = sprintf "%b" o.squareSymbol
             let symbolPadding = sprintf "%i" o.symbolPadding
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let x = sprintf "%i" o.x
             let y = sprintf "%i" o.y
             let title = Figure_Legend_Title.ToJson o.title
-            let backgroundColor = sprintf "%s" o.backgroundColor
+            let backgroundColor = sprintf "\\\"%s\\\"" o.backgroundColor
             sprintf "{\\\"enabled\\\":%s,\\\"align\\\":%s,\\\"alignColumns\\\":%s,\\\"layout\\\":%s,\\\"borderColor\\\":%s,\\\"borderRadius\\\":%s,\\\"navigation\\\":%s,\\\"itemStyle\\\":%s,\\\"itemHoverStyle\\\":%s,\\\"itemHiddenStyle\\\":%s,\\\"shadow\\\":%s,\\\"itemCheckboxStyle\\\":%s,\\\"squareSymbol\\\":%s,\\\"symbolPadding\\\":%s,\\\"verticalAlign\\\":%s,\\\"x\\\":%s,\\\"y\\\":%s,\\\"title\\\":%s,\\\"backgroundColor\\\":%s}" enabled align alignColumns layout borderColor borderRadius navigation itemStyle itemHoverStyle itemHiddenStyle shadow itemCheckboxStyle squareSymbol symbolPadding verticalAlign x y title backgroundColor
 
         member this.Set (o:{| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}) =
@@ -13235,9 +13235,9 @@ module Figure =
                 |> Option.defaultValue "labelStyle"
 
         static member ToJson (o:{| fontWeight:string; position:string; top:string |}) =
-            let fontWeight = sprintf "%s" o.fontWeight
-            let position = sprintf "%s" o.position
-            let top = sprintf "%s" o.top
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let position = sprintf "\\\"%s\\\"" o.position
+            let top = sprintf "\\\"%s\\\"" o.top
             sprintf "{\\\"fontWeight\\\":%s,\\\"position\\\":%s,\\\"top\\\":%s}" fontWeight position top
 
         member this.Set (o:{| fontWeight:string; position:string; top:string |}) =
@@ -13332,10 +13332,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| position:string; backgroundColor:string; opacity:int; textAlign:string |}) =
-            let position = sprintf "%s" o.position
-            let backgroundColor = sprintf "%s" o.backgroundColor
+            let position = sprintf "\\\"%s\\\"" o.position
+            let backgroundColor = sprintf "\\\"%s\\\"" o.backgroundColor
             let opacity = sprintf "%i" o.opacity
-            let textAlign = sprintf "%s" o.textAlign
+            let textAlign = sprintf "\\\"%s\\\"" o.textAlign
             sprintf "{\\\"position\\\":%s,\\\"backgroundColor\\\":%s,\\\"opacity\\\":%s,\\\"textAlign\\\":%s}" position backgroundColor opacity textAlign
 
         member this.Set (o:{| position:string; backgroundColor:string; opacity:int; textAlign:string |}) =
@@ -13580,14 +13580,14 @@ module Figure =
                 |> Option.defaultValue "dateTimeLabelFormats"
 
         static member ToJson (o:{| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}) =
-            let millisecond = sprintf "%s" o.millisecond
-            let second = sprintf "%s" o.second
-            let minute = sprintf "%s" o.minute
-            let hour = sprintf "%s" o.hour
-            let day = sprintf "%s" o.day
-            let week = sprintf "%s" o.week
-            let month = sprintf "%s" o.month
-            let year = sprintf "%s" o.year
+            let millisecond = sprintf "\\\"%s\\\"" o.millisecond
+            let second = sprintf "\\\"%s\\\"" o.second
+            let minute = sprintf "\\\"%s\\\"" o.minute
+            let hour = sprintf "\\\"%s\\\"" o.hour
+            let day = sprintf "\\\"%s\\\"" o.day
+            let week = sprintf "\\\"%s\\\"" o.week
+            let month = sprintf "\\\"%s\\\"" o.month
+            let year = sprintf "\\\"%s\\\"" o.year
             sprintf "{\\\"millisecond\\\":%s,\\\"second\\\":%s,\\\"minute\\\":%s,\\\"hour\\\":%s,\\\"day\\\":%s,\\\"week\\\":%s,\\\"month\\\":%s,\\\"year\\\":%s}" millisecond second minute hour day week month year
 
         member this.Set (o:{| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}) =
@@ -13810,10 +13810,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; cursor:string; fontSize:string; whiteSpace:string |}) =
-            let color = sprintf "%s" o.color
-            let cursor = sprintf "%s" o.cursor
-            let fontSize = sprintf "%s" o.fontSize
-            let whiteSpace = sprintf "%s" o.whiteSpace
+            let color = sprintf "\\\"%s\\\"" o.color
+            let cursor = sprintf "\\\"%s\\\"" o.cursor
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let whiteSpace = sprintf "\\\"%s\\\"" o.whiteSpace
             sprintf "{\\\"color\\\":%s,\\\"cursor\\\":%s,\\\"fontSize\\\":%s,\\\"whiteSpace\\\":%s}" color cursor fontSize whiteSpace
 
         member this.Set (o:{| color:string; cursor:string; fontSize:string; whiteSpace:string |}) =
@@ -13875,12 +13875,12 @@ module Figure =
             let animation = sprintf "%b" o.animation
             let borderRadius = sprintf "%i" o.borderRadius
             let dateTimeLabelFormats = Figure_Tooltip_DateTimeLabelFormats.ToJson o.dateTimeLabelFormats
-            let footerFormat = sprintf "%s" o.footerFormat
+            let footerFormat = sprintf "\\\"%s\\\"" o.footerFormat
             let padding = sprintf "%i" o.padding
             let snap = sprintf "%i" o.snap
-            let headerFormat = sprintf "%s" o.headerFormat
-            let pointFormat = sprintf "%s" o.pointFormat
-            let backgroundColor = sprintf "%s" o.backgroundColor
+            let headerFormat = sprintf "\\\"%s\\\"" o.headerFormat
+            let pointFormat = sprintf "\\\"%s\\\"" o.pointFormat
+            let backgroundColor = sprintf "\\\"%s\\\"" o.backgroundColor
             let borderWidth = sprintf "%i" o.borderWidth
             let shadow = sprintf "%b" o.shadow
             let style = Figure_Tooltip_Style.ToJson o.style
@@ -14010,9 +14010,9 @@ module Figure =
                 |> Option.defaultValue "position"
 
         static member ToJson (o:{| align:string; x:int; verticalAlign:string; y:int |}) =
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let x = sprintf "%i" o.x
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let y = sprintf "%i" o.y
             sprintf "{\\\"align\\\":%s,\\\"x\\\":%s,\\\"verticalAlign\\\":%s,\\\"y\\\":%s}" align x verticalAlign y
 
@@ -14108,10 +14108,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| cursor:string; color:string; fontSize:string; fill:string |}) =
-            let cursor = sprintf "%s" o.cursor
-            let color = sprintf "%s" o.color
-            let fontSize = sprintf "%s" o.fontSize
-            let fill = sprintf "%s" o.fill
+            let cursor = sprintf "\\\"%s\\\"" o.cursor
+            let color = sprintf "\\\"%s\\\"" o.color
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fill = sprintf "\\\"%s\\\"" o.fill
             sprintf "{\\\"cursor\\\":%s,\\\"color\\\":%s,\\\"fontSize\\\":%s,\\\"fill\\\":%s}" cursor color fontSize fill
 
         member this.Set (o:{| cursor:string; color:string; fontSize:string; fill:string |}) =
@@ -14162,10 +14162,10 @@ module Figure =
 
         static member ToJson (o:{| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}) =
             let enabled = sprintf "%b" o.enabled
-            let href = sprintf "%s" o.href
+            let href = sprintf "\\\"%s\\\"" o.href
             let position = Figure_Credits_Position.ToJson o.position
             let style = Figure_Credits_Style.ToJson o.style
-            let text = sprintf "%s" o.text
+            let text = sprintf "\\\"%s\\\"" o.text
             sprintf "{\\\"enabled\\\":%s,\\\"href\\\":%s,\\\"position\\\":%s,\\\"style\\\":%s,\\\"text\\\":%s}" enabled href position style text
 
         member this.Set (o:{| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}) =
@@ -14429,7 +14429,7 @@ module Figure =
         static member ToJson (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}) =
             let padding = sprintf "%i" o.padding
             let fill = Figure_Navigation_ButtonOptions_Theme_Fill.ToJson o.fill
-            let stroke = sprintf "%s" o.stroke
+            let stroke = sprintf "\\\"%s\\\"" o.stroke
             sprintf "{\\\"padding\\\":%s,\\\"fill\\\":%s,\\\"stroke\\\":%s}" padding fill stroke
 
         member this.Set (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}) =
@@ -14664,13 +14664,13 @@ module Figure =
             let symbolSize = sprintf "%i" o.symbolSize
             let symbolX = sprintf "%i" o.symbolX
             let symbolY = sprintf "%i" o.symbolY
-            let align = sprintf "%s" o.align
+            let align = sprintf "\\\"%s\\\"" o.align
             let buttonSpacing = sprintf "%i" o.buttonSpacing
             let height = sprintf "%i" o.height
-            let verticalAlign = sprintf "%s" o.verticalAlign
+            let verticalAlign = sprintf "\\\"%s\\\"" o.verticalAlign
             let width = sprintf "%i" o.width
-            let symbolFill = sprintf "%s" o.symbolFill
-            let symbolStroke = sprintf "%s" o.symbolStroke
+            let symbolFill = sprintf "\\\"%s\\\"" o.symbolFill
+            let symbolStroke = sprintf "\\\"%s\\\"" o.symbolStroke
             let symbolStrokeWidth = sprintf "%i" o.symbolStrokeWidth
             sprintf "{\\\"theme\\\":%s,\\\"symbolSize\\\":%s,\\\"symbolX\\\":%s,\\\"symbolY\\\":%s,\\\"align\\\":%s,\\\"buttonSpacing\\\":%s,\\\"height\\\":%s,\\\"verticalAlign\\\":%s,\\\"width\\\":%s,\\\"symbolFill\\\":%s,\\\"symbolStroke\\\":%s,\\\"symbolStrokeWidth\\\":%s}" theme symbolSize symbolX symbolY align buttonSpacing height verticalAlign width symbolFill symbolStroke symbolStrokeWidth
 
@@ -14747,9 +14747,9 @@ module Figure =
                 |> Option.defaultValue "menuStyle"
 
         static member ToJson (o:{| border:string; background:string; padding:string |}) =
-            let border = sprintf "%s" o.border
-            let background = sprintf "%s" o.background
-            let padding = sprintf "%s" o.padding
+            let border = sprintf "\\\"%s\\\"" o.border
+            let background = sprintf "\\\"%s\\\"" o.background
+            let padding = sprintf "\\\"%s\\\"" o.padding
             sprintf "{\\\"border\\\":%s,\\\"background\\\":%s,\\\"padding\\\":%s}" border background padding
 
         member this.Set (o:{| border:string; background:string; padding:string |}) =
@@ -14863,11 +14863,11 @@ module Figure =
                 |> Option.defaultValue "menuItemStyle"
 
         static member ToJson (o:{| padding:string; color:string; background:string; fontSize:string; transition:string |}) =
-            let padding = sprintf "%s" o.padding
-            let color = sprintf "%s" o.color
-            let background = sprintf "%s" o.background
-            let fontSize = sprintf "%s" o.fontSize
-            let transition = sprintf "%s" o.transition
+            let padding = sprintf "\\\"%s\\\"" o.padding
+            let color = sprintf "\\\"%s\\\"" o.color
+            let background = sprintf "\\\"%s\\\"" o.background
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let transition = sprintf "\\\"%s\\\"" o.transition
             sprintf "{\\\"padding\\\":%s,\\\"color\\\":%s,\\\"background\\\":%s,\\\"fontSize\\\":%s,\\\"transition\\\":%s}" padding color background fontSize transition
 
         member this.Set (o:{| padding:string; color:string; background:string; fontSize:string; transition:string |}) =
@@ -14924,8 +14924,8 @@ module Figure =
                 |> Option.defaultValue "menuItemHoverStyle"
 
         static member ToJson (o:{| background:string; color:string |}) =
-            let background = sprintf "%s" o.background
-            let color = sprintf "%s" o.color
+            let background = sprintf "\\\"%s\\\"" o.background
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"background\\\":%s,\\\"color\\\":%s}" background color
 
         member this.Set (o:{| background:string; color:string |}) =
@@ -15168,10 +15168,10 @@ module Figure =
                 |> Option.defaultValue "contextButton"
 
         static member ToJson (o:{| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |}) =
-            let className = sprintf "%s" o.className
-            let menuClassName = sprintf "%s" o.menuClassName
-            let symbol = sprintf "%s" o.symbol
-            let titleKey = sprintf "%s" o.titleKey
+            let className = sprintf "\\\"%s\\\"" o.className
+            let menuClassName = sprintf "\\\"%s\\\"" o.menuClassName
+            let symbol = sprintf "\\\"%s\\\"" o.symbol
+            let titleKey = sprintf "\\\"%s\\\"" o.titleKey
             let menuItems = Figure_Exporting_Buttons_ContextButton_MenuItems.ToJson o.menuItems
             sprintf "{\\\"className\\\":%s,\\\"menuClassName\\\":%s,\\\"symbol\\\":%s,\\\"titleKey\\\":%s,\\\"menuItems\\\":%s}" className menuClassName symbol titleKey menuItems
 
@@ -15232,7 +15232,7 @@ module Figure =
                 |> Option.defaultValue "viewFullscreen"
 
         static member ToJson (o:{| textKey:string |}) =
-            let textKey = sprintf "%s" o.textKey
+            let textKey = sprintf "\\\"%s\\\"" o.textKey
             sprintf "{\\\"textKey\\\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
@@ -15270,7 +15270,7 @@ module Figure =
                 |> Option.defaultValue "printChart"
 
         static member ToJson (o:{| textKey:string |}) =
-            let textKey = sprintf "%s" o.textKey
+            let textKey = sprintf "\\\"%s\\\"" o.textKey
             sprintf "{\\\"textKey\\\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
@@ -15346,7 +15346,7 @@ module Figure =
                 |> Option.defaultValue "downloadPNG"
 
         static member ToJson (o:{| textKey:string |}) =
-            let textKey = sprintf "%s" o.textKey
+            let textKey = sprintf "\\\"%s\\\"" o.textKey
             sprintf "{\\\"textKey\\\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
@@ -15384,7 +15384,7 @@ module Figure =
                 |> Option.defaultValue "downloadJPEG"
 
         static member ToJson (o:{| textKey:string |}) =
-            let textKey = sprintf "%s" o.textKey
+            let textKey = sprintf "\\\"%s\\\"" o.textKey
             sprintf "{\\\"textKey\\\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
@@ -15422,7 +15422,7 @@ module Figure =
                 |> Option.defaultValue "downloadPDF"
 
         static member ToJson (o:{| textKey:string |}) =
-            let textKey = sprintf "%s" o.textKey
+            let textKey = sprintf "\\\"%s\\\"" o.textKey
             sprintf "{\\\"textKey\\\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
@@ -15460,7 +15460,7 @@ module Figure =
                 |> Option.defaultValue "downloadSVG"
 
         static member ToJson (o:{| textKey:string |}) =
-            let textKey = sprintf "%s" o.textKey
+            let textKey = sprintf "\\\"%s\\\"" o.textKey
             sprintf "{\\\"textKey\\\":%s}" textKey
 
         member this.Set (o:{| textKey:string |}) =
@@ -15543,8 +15543,8 @@ module Figure =
                 |> Option.defaultValue "exporting"
 
         static member ToJson (o:{| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}) =
-            let _type = sprintf "%s" o._type
-            let url = sprintf "%s" o.url
+            let _type = sprintf "\\\"%s\\\"" o._type
+            let url = sprintf "\\\"%s\\\"" o.url
             let printMaxWidth = sprintf "%i" o.printMaxWidth
             let scale = sprintf "%i" o.scale
             let buttons = Figure_Exporting_Buttons.ToJson o.buttons
@@ -15618,7 +15618,7 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -15767,10 +15767,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
-            let color = sprintf "%s" o.color
-            let fontWeight = sprintf "%s" o.fontWeight
-            let fontSize = sprintf "%s" o.fontSize
-            let fontFamily = sprintf "%s" o.fontFamily
+            let color = sprintf "\\\"%s\\\"" o.color
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontFamily = sprintf "\\\"%s\\\"" o.fontFamily
             sprintf "{\\\"color\\\":%s,\\\"fontWeight\\\":%s,\\\"fontSize\\\":%s,\\\"fontFamily\\\":%s}" color fontWeight fontSize fontFamily
 
         member this.Set (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
@@ -15812,7 +15812,7 @@ module Figure =
 
         static member ToJson (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
             let style = Figure_XAxis_Item_Title_Style.ToJson o.style
-            let text = sprintf "%s" o.text
+            let text = sprintf "\\\"%s\\\"" o.text
             sprintf "{\\\"style\\\":%s,\\\"text\\\":%s}" style text
 
         member this.Set (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
@@ -15891,11 +15891,11 @@ module Figure =
                 lastIndex <- index
 
         static member ToJson (o:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |}) =
-            let gridLineColor = sprintf "%s" o.gridLineColor
+            let gridLineColor = sprintf "\\\"%s\\\"" o.gridLineColor
             let gridLineWidth = sprintf "%i" o.gridLineWidth
             let labels = Figure_XAxis_Item_Labels.ToJson o.labels
-            let lineColor = sprintf "%s" o.lineColor
-            let tickColor = sprintf "%s" o.tickColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
+            let tickColor = sprintf "\\\"%s\\\"" o.tickColor
             let title = Figure_XAxis_Item_Title.ToJson o.title
             let index = sprintf "%i" o.index
             let isX = sprintf "%b" o.isX
@@ -15979,7 +15979,7 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -16160,10 +16160,10 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
-            let color = sprintf "%s" o.color
-            let fontWeight = sprintf "%s" o.fontWeight
-            let fontSize = sprintf "%s" o.fontSize
-            let fontFamily = sprintf "%s" o.fontFamily
+            let color = sprintf "\\\"%s\\\"" o.color
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
+            let fontSize = sprintf "\\\"%s\\\"" o.fontSize
+            let fontFamily = sprintf "\\\"%s\\\"" o.fontFamily
             sprintf "{\\\"color\\\":%s,\\\"fontWeight\\\":%s,\\\"fontSize\\\":%s,\\\"fontFamily\\\":%s}" color fontWeight fontSize fontFamily
 
         member this.Set (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
@@ -16205,7 +16205,7 @@ module Figure =
 
         static member ToJson (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
             let style = Figure_YAxis_Item_Title_Style.ToJson o.style
-            let text = sprintf "%s" o.text
+            let text = sprintf "\\\"%s\\\"" o.text
             sprintf "{\\\"style\\\":%s,\\\"text\\\":%s}" style text
 
         member this.Set (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
@@ -16268,11 +16268,11 @@ module Figure =
                 lastIndex <- index
 
         static member ToJson (o:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |}) =
-            let gridLineColor = sprintf "%s" o.gridLineColor
+            let gridLineColor = sprintf "\\\"%s\\\"" o.gridLineColor
             let labels = Figure_YAxis_Item_Labels.ToJson o.labels
-            let lineColor = sprintf "%s" o.lineColor
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             let minorTickInterval = sprintf "%s" o.minorTickInterval
-            let tickColor = sprintf "%s" o.tickColor
+            let tickColor = sprintf "\\\"%s\\\"" o.tickColor
             let tickWidth = sprintf "%i" o.tickWidth
             let title = Figure_YAxis_Item_Title.ToJson o.title
             let index = sprintf "%i" o.index
@@ -16340,7 +16340,7 @@ module Figure =
                 |> Option.defaultValue "itemStyle"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -16637,8 +16637,8 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontWeight:string |}) =
-            let color = sprintf "%s" o.color
-            let fontWeight = sprintf "%s" o.fontWeight
+            let color = sprintf "\\\"%s\\\"" o.color
+            let fontWeight = sprintf "\\\"%s\\\"" o.fontWeight
             sprintf "{\\\"color\\\":%s,\\\"fontWeight\\\":%s}" color fontWeight
 
         member this.Set (o:{| color:string; fontWeight:string |}) =
@@ -16894,7 +16894,7 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -16923,7 +16923,7 @@ module Figure =
 
         static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_States_Hover_Fill.ToJson o.fill
-            let stroke = sprintf "%s" o.stroke
+            let stroke = sprintf "\\\"%s\\\"" o.stroke
             let style = Figure_RangeSelector_ButtonTheme_States_Hover_Style.ToJson o.style
             sprintf "{\\\"fill\\\":%s,\\\"stroke\\\":%s,\\\"style\\\":%s}" fill stroke style
 
@@ -17180,7 +17180,7 @@ module Figure =
                 |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -17209,7 +17209,7 @@ module Figure =
 
         static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_States_Select_Fill.ToJson o.fill
-            let stroke = sprintf "%s" o.stroke
+            let stroke = sprintf "\\\"%s\\\"" o.stroke
             let style = Figure_RangeSelector_ButtonTheme_States_Select_Style.ToJson o.style
             sprintf "{\\\"fill\\\":%s,\\\"stroke\\\":%s,\\\"style\\\":%s}" fill stroke style
 
@@ -17268,7 +17268,7 @@ module Figure =
 
         static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_Fill.ToJson o.fill
-            let stroke = sprintf "%s" o.stroke
+            let stroke = sprintf "\\\"%s\\\"" o.stroke
             let style = Figure_RangeSelector_ButtonTheme_Style.ToJson o.style
             let states = Figure_RangeSelector_ButtonTheme_States.ToJson o.states
             sprintf "{\\\"fill\\\":%s,\\\"stroke\\\":%s,\\\"style\\\":%s,\\\"states\\\":%s}" fill stroke style states
@@ -17327,8 +17327,8 @@ module Figure =
                 |> Option.defaultValue "inputStyle"
 
         static member ToJson (o:{| backgroundColor:string; color:string |}) =
-            let backgroundColor = sprintf "%s" o.backgroundColor
-            let color = sprintf "%s" o.color
+            let backgroundColor = sprintf "\\\"%s\\\"" o.backgroundColor
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"backgroundColor\\\":%s,\\\"color\\\":%s}" backgroundColor color
 
         member this.Set (o:{| backgroundColor:string; color:string |}) =
@@ -17366,7 +17366,7 @@ module Figure =
                 |> Option.defaultValue "labelStyle"
 
         static member ToJson (o:{| color:string |}) =
-            let color = sprintf "%s" o.color
+            let color = sprintf "\\\"%s\\\"" o.color
             sprintf "{\\\"color\\\":%s}" color
 
         member this.Set (o:{| color:string |}) =
@@ -17453,8 +17453,8 @@ module Figure =
                 |> Option.defaultValue "handles"
 
         static member ToJson (o:{| backgroundColor:string; borderColor:string |}) =
-            let backgroundColor = sprintf "%s" o.backgroundColor
-            let borderColor = sprintf "%s" o.borderColor
+            let backgroundColor = sprintf "\\\"%s\\\"" o.backgroundColor
+            let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             sprintf "{\\\"backgroundColor\\\":%s,\\\"borderColor\\\":%s}" backgroundColor borderColor
 
         member this.Set (o:{| backgroundColor:string; borderColor:string |}) =
@@ -17543,8 +17543,8 @@ module Figure =
                 |> Option.defaultValue "series"
 
         static member ToJson (o:{| color:string; lineColor:string |}) =
-            let color = sprintf "%s" o.color
-            let lineColor = sprintf "%s" o.lineColor
+            let color = sprintf "\\\"%s\\\"" o.color
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
             sprintf "{\\\"color\\\":%s,\\\"lineColor\\\":%s}" color lineColor
 
         member this.Set (o:{| color:string; lineColor:string |}) =
@@ -17576,8 +17576,8 @@ module Figure =
 
         static member ToJson (o:{| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}) =
             let handles = Figure_Navigator_Handles.ToJson o.handles
-            let outlineColor = sprintf "%s" o.outlineColor
-            let maskFill = sprintf "%s" o.maskFill
+            let outlineColor = sprintf "\\\"%s\\\"" o.outlineColor
+            let maskFill = sprintf "\\\"%s\\\"" o.maskFill
             let series = Figure_Navigator_Series.ToJson o.series
             sprintf "{\\\"handles\\\":%s,\\\"outlineColor\\\":%s,\\\"maskFill\\\":%s,\\\"series\\\":%s}" handles outlineColor maskFill series
 
@@ -18308,13 +18308,13 @@ module Figure =
 
         static member ToJson (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
             let barBackgroundColor = Figure_Scrollbar_BarBackgroundColor.ToJson o.barBackgroundColor
-            let barBorderColor = sprintf "%s" o.barBorderColor
-            let buttonArrowColor = sprintf "%s" o.buttonArrowColor
+            let barBorderColor = sprintf "\\\"%s\\\"" o.barBorderColor
+            let buttonArrowColor = sprintf "\\\"%s\\\"" o.buttonArrowColor
             let buttonBackgroundColor = Figure_Scrollbar_ButtonBackgroundColor.ToJson o.buttonBackgroundColor
-            let buttonBorderColor = sprintf "%s" o.buttonBorderColor
-            let rifleColor = sprintf "%s" o.rifleColor
+            let buttonBorderColor = sprintf "\\\"%s\\\"" o.buttonBorderColor
+            let rifleColor = sprintf "\\\"%s\\\"" o.rifleColor
             let trackBackgroundColor = Figure_Scrollbar_TrackBackgroundColor.ToJson o.trackBackgroundColor
-            let trackBorderColor = sprintf "%s" o.trackBorderColor
+            let trackBorderColor = sprintf "\\\"%s\\\"" o.trackBorderColor
             sprintf "{\\\"barBackgroundColor\\\":%s,\\\"barBorderColor\\\":%s,\\\"buttonArrowColor\\\":%s,\\\"buttonBackgroundColor\\\":%s,\\\"buttonBorderColor\\\":%s,\\\"rifleColor\\\":%s,\\\"trackBackgroundColor\\\":%s,\\\"trackBorderColor\\\":%s}" barBackgroundColor barBorderColor buttonArrowColor buttonBackgroundColor buttonBorderColor rifleColor trackBackgroundColor trackBorderColor
 
         member this.Set (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
@@ -18406,7 +18406,7 @@ module Figure =
                 lastIndex <- index
 
         static member ToJson (o:{| name:string; data:int seq |}) =
-            let name = sprintf "%s" o.name
+            let name = sprintf "\\\"%s\\\"" o.name
             let data = Figure_Series_Item_Data.ToJson o.data
             sprintf "{\\\"name\\\":%s,\\\"data\\\":%s}" name data
 
