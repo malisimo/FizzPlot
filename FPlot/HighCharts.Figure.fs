@@ -5,7 +5,7 @@ module Figure =
     open Server
 
     type IFigureItem =
-        abstract GetPath : unit -> string list
+        abstract GetPath : unit -> string
 
     type IFigureArrayElement =
         abstract SetLastIndex : index:int -> unit
@@ -22,15 +22,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Colors_Item.ToJson o)
@@ -44,8 +44,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "colors"::parent.GetPath())
-                |> Option.defaultValue ["colors"]
+                |> Option.map (fun parent -> sprintf "%s.colors" (parent.GetPath()))
+                |> Option.defaultValue "colors"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -69,15 +69,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Symbols_Item.ToJson o)
@@ -91,8 +91,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbols"::parent.GetPath())
-                |> Option.defaultValue ["symbols"]
+                |> Option.map (fun parent -> sprintf "%s.symbols" (parent.GetPath()))
+                |> Option.defaultValue "symbols"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -116,11 +116,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "loading"::parent.GetPath())
-                |> Option.defaultValue ["loading"]
+                |> Option.map (fun parent -> sprintf "%s.loading" (parent.GetPath()))
+                |> Option.defaultValue "loading"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_Loading.ToJson o)
@@ -132,15 +132,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_Months_Item.ToJson o)
@@ -154,8 +154,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "months"::parent.GetPath())
-                |> Option.defaultValue ["months"]
+                |> Option.map (fun parent -> sprintf "%s.months" (parent.GetPath()))
+                |> Option.defaultValue "months"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -179,15 +179,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_ShortMonths_Item.ToJson o)
@@ -201,8 +201,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "shortMonths"::parent.GetPath())
-                |> Option.defaultValue ["shortMonths"]
+                |> Option.map (fun parent -> sprintf "%s.shortMonths" (parent.GetPath()))
+                |> Option.defaultValue "shortMonths"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -226,15 +226,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_Weekdays_Item.ToJson o)
@@ -248,8 +248,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "weekdays"::parent.GetPath())
-                |> Option.defaultValue ["weekdays"]
+                |> Option.map (fun parent -> sprintf "%s.weekdays" (parent.GetPath()))
+                |> Option.defaultValue "weekdays"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -273,11 +273,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "decimalPoint"::parent.GetPath())
-                |> Option.defaultValue ["decimalPoint"]
+                |> Option.map (fun parent -> sprintf "%s.decimalPoint" (parent.GetPath()))
+                |> Option.defaultValue "decimalPoint"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_DecimalPoint.ToJson o)
@@ -289,15 +289,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_NumericSymbols_Item.ToJson o)
@@ -311,8 +311,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "numericSymbols"::parent.GetPath())
-                |> Option.defaultValue ["numericSymbols"]
+                |> Option.map (fun parent -> sprintf "%s.numericSymbols" (parent.GetPath()))
+                |> Option.defaultValue "numericSymbols"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -336,11 +336,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "resetZoom"::parent.GetPath())
-                |> Option.defaultValue ["resetZoom"]
+                |> Option.map (fun parent -> sprintf "%s.resetZoom" (parent.GetPath()))
+                |> Option.defaultValue "resetZoom"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_ResetZoom.ToJson o)
@@ -352,11 +352,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "resetZoomTitle"::parent.GetPath())
-                |> Option.defaultValue ["resetZoomTitle"]
+                |> Option.map (fun parent -> sprintf "%s.resetZoomTitle" (parent.GetPath()))
+                |> Option.defaultValue "resetZoomTitle"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_ResetZoomTitle.ToJson o)
@@ -368,11 +368,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "thousandsSep"::parent.GetPath())
-                |> Option.defaultValue ["thousandsSep"]
+                |> Option.map (fun parent -> sprintf "%s.thousandsSep" (parent.GetPath()))
+                |> Option.defaultValue "thousandsSep"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_ThousandsSep.ToJson o)
@@ -384,11 +384,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "viewFullscreen"::parent.GetPath())
-                |> Option.defaultValue ["viewFullscreen"]
+                |> Option.map (fun parent -> sprintf "%s.viewFullscreen" (parent.GetPath()))
+                |> Option.defaultValue "viewFullscreen"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_ViewFullscreen.ToJson o)
@@ -400,11 +400,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "exitFullscreen"::parent.GetPath())
-                |> Option.defaultValue ["exitFullscreen"]
+                |> Option.map (fun parent -> sprintf "%s.exitFullscreen" (parent.GetPath()))
+                |> Option.defaultValue "exitFullscreen"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_ExitFullscreen.ToJson o)
@@ -416,11 +416,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "printChart"::parent.GetPath())
-                |> Option.defaultValue ["printChart"]
+                |> Option.map (fun parent -> sprintf "%s.printChart" (parent.GetPath()))
+                |> Option.defaultValue "printChart"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_PrintChart.ToJson o)
@@ -432,11 +432,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadPNG"::parent.GetPath())
-                |> Option.defaultValue ["downloadPNG"]
+                |> Option.map (fun parent -> sprintf "%s.downloadPNG" (parent.GetPath()))
+                |> Option.defaultValue "downloadPNG"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_DownloadPNG.ToJson o)
@@ -448,11 +448,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadJPEG"::parent.GetPath())
-                |> Option.defaultValue ["downloadJPEG"]
+                |> Option.map (fun parent -> sprintf "%s.downloadJPEG" (parent.GetPath()))
+                |> Option.defaultValue "downloadJPEG"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_DownloadJPEG.ToJson o)
@@ -464,11 +464,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadPDF"::parent.GetPath())
-                |> Option.defaultValue ["downloadPDF"]
+                |> Option.map (fun parent -> sprintf "%s.downloadPDF" (parent.GetPath()))
+                |> Option.defaultValue "downloadPDF"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_DownloadPDF.ToJson o)
@@ -480,11 +480,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadSVG"::parent.GetPath())
-                |> Option.defaultValue ["downloadSVG"]
+                |> Option.map (fun parent -> sprintf "%s.downloadSVG" (parent.GetPath()))
+                |> Option.defaultValue "downloadSVG"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_DownloadSVG.ToJson o)
@@ -496,11 +496,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "contextButtonTitle"::parent.GetPath())
-                |> Option.defaultValue ["contextButtonTitle"]
+                |> Option.map (fun parent -> sprintf "%s.contextButtonTitle" (parent.GetPath()))
+                |> Option.defaultValue "contextButtonTitle"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Lang_ContextButtonTitle.ToJson o)
@@ -564,8 +564,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lang"::parent.GetPath())
-                |> Option.defaultValue ["lang"]
+                |> Option.map (fun parent -> sprintf "%s.lang" (parent.GetPath()))
+                |> Option.defaultValue "lang"
 
         static member ToJson (o:{| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}) =
             let loading = sprintf "%s" o.loading
@@ -599,8 +599,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "global"::parent.GetPath())
-                |> Option.defaultValue ["global"]
+                |> Option.map (fun parent -> sprintf "%s.global" (parent.GetPath()))
+                |> Option.defaultValue "global"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -617,8 +617,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "timezoneOffset"::parent.GetPath())
-                |> Option.defaultValue ["timezoneOffset"]
+                |> Option.map (fun parent -> sprintf "%s.timezoneOffset" (parent.GetPath()))
+                |> Option.defaultValue "timezoneOffset"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -633,8 +633,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "useUTC"::parent.GetPath())
-                |> Option.defaultValue ["useUTC"]
+                |> Option.map (fun parent -> sprintf "%s.useUTC" (parent.GetPath()))
+                |> Option.defaultValue "useUTC"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -656,8 +656,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "time"::parent.GetPath())
-                |> Option.defaultValue ["time"]
+                |> Option.map (fun parent -> sprintf "%s.time" (parent.GetPath()))
+                |> Option.defaultValue "time"
 
         static member ToJson (o:{| timezoneOffset:int; useUTC:bool |}) =
             let timezoneOffset = sprintf "%i" o.timezoneOffset
@@ -675,8 +675,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "styledMode"::parent.GetPath())
-                |> Option.defaultValue ["styledMode"]
+                |> Option.map (fun parent -> sprintf "%s.styledMode" (parent.GetPath()))
+                |> Option.defaultValue "styledMode"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -691,8 +691,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderRadius"::parent.GetPath())
-                |> Option.defaultValue ["borderRadius"]
+                |> Option.map (fun parent -> sprintf "%s.borderRadius" (parent.GetPath()))
+                |> Option.defaultValue "borderRadius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -707,8 +707,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "colorCount"::parent.GetPath())
-                |> Option.defaultValue ["colorCount"]
+                |> Option.map (fun parent -> sprintf "%s.colorCount" (parent.GetPath()))
+                |> Option.defaultValue "colorCount"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -723,11 +723,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "defaultSeriesType"::parent.GetPath())
-                |> Option.defaultValue ["defaultSeriesType"]
+                |> Option.map (fun parent -> sprintf "%s.defaultSeriesType" (parent.GetPath()))
+                |> Option.defaultValue "defaultSeriesType"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_DefaultSeriesType.ToJson o)
@@ -739,8 +739,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "ignoreHiddenSeries"::parent.GetPath())
-                |> Option.defaultValue ["ignoreHiddenSeries"]
+                |> Option.map (fun parent -> sprintf "%s.ignoreHiddenSeries" (parent.GetPath()))
+                |> Option.defaultValue "ignoreHiddenSeries"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -755,8 +755,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -777,8 +777,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "spacing"::parent.GetPath())
-                |> Option.defaultValue ["spacing"]
+                |> Option.map (fun parent -> sprintf "%s.spacing" (parent.GetPath()))
+                |> Option.defaultValue "spacing"
 
         static member ToJson (o:int seq) =
             if Seq.isEmpty o then "[]"
@@ -802,8 +802,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "zIndex"::parent.GetPath())
-                |> Option.defaultValue ["zIndex"]
+                |> Option.map (fun parent -> sprintf "%s.zIndex" (parent.GetPath()))
+                |> Option.defaultValue "zIndex"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -822,8 +822,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "theme"::parent.GetPath())
-                |> Option.defaultValue ["theme"]
+                |> Option.map (fun parent -> sprintf "%s.theme" (parent.GetPath()))
+                |> Option.defaultValue "theme"
 
         static member ToJson (o:{| zIndex:int |}) =
             let zIndex = sprintf "%i" o.zIndex
@@ -840,11 +840,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_ResetZoomButton_Position_Align.ToJson o)
@@ -856,8 +856,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -872,8 +872,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -898,8 +898,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "position"::parent.GetPath())
-                |> Option.defaultValue ["position"]
+                |> Option.map (fun parent -> sprintf "%s.position" (parent.GetPath()))
+                |> Option.defaultValue "position"
 
         static member ToJson (o:{| align:string; x:int; y:int |}) =
             let align = sprintf "%s" o.align
@@ -925,8 +925,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "resetZoomButton"::parent.GetPath())
-                |> Option.defaultValue ["resetZoomButton"]
+                |> Option.map (fun parent -> sprintf "%s.resetZoomButton" (parent.GetPath()))
+                |> Option.defaultValue "resetZoomButton"
 
         static member ToJson (o:{| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}) =
             let theme = Figure_Chart_ResetZoomButton_Theme.ToJson o.theme
@@ -944,11 +944,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "width"::parent.GetPath())
-                |> Option.defaultValue ["width"]
+                |> Option.map (fun parent -> sprintf "%s.width" (parent.GetPath()))
+                |> Option.defaultValue "width"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_Width.ToJson o)
@@ -960,11 +960,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "height"::parent.GetPath())
-                |> Option.defaultValue ["height"]
+                |> Option.map (fun parent -> sprintf "%s.height" (parent.GetPath()))
+                |> Option.defaultValue "height"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_Height.ToJson o)
@@ -976,11 +976,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_BorderColor.ToJson o)
@@ -992,8 +992,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1008,8 +1008,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1024,8 +1024,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1040,8 +1040,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1056,11 +1056,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "id"::parent.GetPath())
-                |> Option.defaultValue ["id"]
+                |> Option.map (fun parent -> sprintf "%s.id" (parent.GetPath()))
+                |> Option.defaultValue "id"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_BackgroundColor_LinearGradient_Id.ToJson o)
@@ -1088,8 +1088,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int; id:string |}) =
             let x1 = sprintf "%i" o.x1
@@ -1110,8 +1110,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -1132,8 +1132,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -1163,8 +1163,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -1195,8 +1195,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "backgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["backgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.backgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "backgroundColor"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}) =
             let linearGradient = Figure_Chart_BackgroundColor_LinearGradient.ToJson o.linearGradient
@@ -1214,11 +1214,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "plotBorderColor"::parent.GetPath())
-                |> Option.defaultValue ["plotBorderColor"]
+                |> Option.map (fun parent -> sprintf "%s.plotBorderColor" (parent.GetPath()))
+                |> Option.defaultValue "plotBorderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_PlotBorderColor.ToJson o)
@@ -1230,8 +1230,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderWidth"::parent.GetPath())
-                |> Option.defaultValue ["borderWidth"]
+                |> Option.map (fun parent -> sprintf "%s.borderWidth" (parent.GetPath()))
+                |> Option.defaultValue "borderWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1246,11 +1246,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "className"::parent.GetPath())
-                |> Option.defaultValue ["className"]
+                |> Option.map (fun parent -> sprintf "%s.className" (parent.GetPath()))
+                |> Option.defaultValue "className"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_ClassName.ToJson o)
@@ -1262,11 +1262,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "plotBackgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["plotBackgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.plotBackgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "plotBackgroundColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Chart_PlotBackgroundColor.ToJson o)
@@ -1278,8 +1278,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "plotBorderWidth"::parent.GetPath())
-                |> Option.defaultValue ["plotBorderWidth"]
+                |> Option.map (fun parent -> sprintf "%s.plotBorderWidth" (parent.GetPath()))
+                |> Option.defaultValue "plotBorderWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1343,8 +1343,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "chart"::parent.GetPath())
-                |> Option.defaultValue ["chart"]
+                |> Option.map (fun parent -> sprintf "%s.chart" (parent.GetPath()))
+                |> Option.defaultValue "chart"
 
         static member ToJson (o:{| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}) =
             let styledMode = sprintf "%b" o.styledMode
@@ -1376,11 +1376,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Title_Style_Color.ToJson o)
@@ -1392,11 +1392,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Title_Style_FontSize.ToJson o)
@@ -1408,11 +1408,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "font"::parent.GetPath())
-                |> Option.defaultValue ["font"]
+                |> Option.map (fun parent -> sprintf "%s.font" (parent.GetPath()))
+                |> Option.defaultValue "font"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Title_Style_Font.ToJson o)
@@ -1424,11 +1424,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Title_Style_Fill.ToJson o)
@@ -1440,11 +1440,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "width"::parent.GetPath())
-                |> Option.defaultValue ["width"]
+                |> Option.map (fun parent -> sprintf "%s.width" (parent.GetPath()))
+                |> Option.defaultValue "width"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Title_Style_Width.ToJson o)
@@ -1472,8 +1472,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontSize:string; font:string; fill:string; width:string |}) =
             let color = sprintf "%s" o.color
@@ -1494,11 +1494,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "text"::parent.GetPath())
-                |> Option.defaultValue ["text"]
+                |> Option.map (fun parent -> sprintf "%s.text" (parent.GetPath()))
+                |> Option.defaultValue "text"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Title_Text.ToJson o)
@@ -1510,11 +1510,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Title_Align.ToJson o)
@@ -1526,8 +1526,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "margin"::parent.GetPath())
-                |> Option.defaultValue ["margin"]
+                |> Option.map (fun parent -> sprintf "%s.margin" (parent.GetPath()))
+                |> Option.defaultValue "margin"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1542,8 +1542,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "widthAdjust"::parent.GetPath())
-                |> Option.defaultValue ["widthAdjust"]
+                |> Option.map (fun parent -> sprintf "%s.widthAdjust" (parent.GetPath()))
+                |> Option.defaultValue "widthAdjust"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1574,8 +1574,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "title"::parent.GetPath())
-                |> Option.defaultValue ["title"]
+                |> Option.map (fun parent -> sprintf "%s.title" (parent.GetPath()))
+                |> Option.defaultValue "title"
 
         static member ToJson (o:{| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}) =
             let style = Figure_Title_Style.ToJson o.style
@@ -1596,11 +1596,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Subtitle_Style_Color.ToJson o)
@@ -1612,11 +1612,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "font"::parent.GetPath())
-                |> Option.defaultValue ["font"]
+                |> Option.map (fun parent -> sprintf "%s.font" (parent.GetPath()))
+                |> Option.defaultValue "font"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Subtitle_Style_Font.ToJson o)
@@ -1628,11 +1628,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Subtitle_Style_Fill.ToJson o)
@@ -1644,11 +1644,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "width"::parent.GetPath())
-                |> Option.defaultValue ["width"]
+                |> Option.map (fun parent -> sprintf "%s.width" (parent.GetPath()))
+                |> Option.defaultValue "width"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Subtitle_Style_Width.ToJson o)
@@ -1673,8 +1673,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; font:string; fill:string; width:string |}) =
             let color = sprintf "%s" o.color
@@ -1694,11 +1694,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "text"::parent.GetPath())
-                |> Option.defaultValue ["text"]
+                |> Option.map (fun parent -> sprintf "%s.text" (parent.GetPath()))
+                |> Option.defaultValue "text"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Subtitle_Text.ToJson o)
@@ -1710,11 +1710,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Subtitle_Align.ToJson o)
@@ -1726,8 +1726,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "widthAdjust"::parent.GetPath())
-                |> Option.defaultValue ["widthAdjust"]
+                |> Option.map (fun parent -> sprintf "%s.widthAdjust" (parent.GetPath()))
+                |> Option.defaultValue "widthAdjust"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1755,8 +1755,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "subtitle"::parent.GetPath())
-                |> Option.defaultValue ["subtitle"]
+                |> Option.map (fun parent -> sprintf "%s.subtitle" (parent.GetPath()))
+                |> Option.defaultValue "subtitle"
 
         static member ToJson (o:{| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}) =
             let style = Figure_Subtitle_Style.ToJson o.style
@@ -1776,11 +1776,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Caption_Style_Color.ToJson o)
@@ -1792,11 +1792,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Caption_Style_Fill.ToJson o)
@@ -1808,11 +1808,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "width"::parent.GetPath())
-                |> Option.defaultValue ["width"]
+                |> Option.map (fun parent -> sprintf "%s.width" (parent.GetPath()))
+                |> Option.defaultValue "width"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Caption_Style_Width.ToJson o)
@@ -1834,8 +1834,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fill:string; width:string |}) =
             let color = sprintf "%s" o.color
@@ -1854,8 +1854,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "margin"::parent.GetPath())
-                |> Option.defaultValue ["margin"]
+                |> Option.map (fun parent -> sprintf "%s.margin" (parent.GetPath()))
+                |> Option.defaultValue "margin"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1870,11 +1870,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "text"::parent.GetPath())
-                |> Option.defaultValue ["text"]
+                |> Option.map (fun parent -> sprintf "%s.text" (parent.GetPath()))
+                |> Option.defaultValue "text"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Caption_Text.ToJson o)
@@ -1886,11 +1886,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Caption_Align.ToJson o)
@@ -1902,11 +1902,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Caption_VerticalAlign.ToJson o)
@@ -1934,8 +1934,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "caption"::parent.GetPath())
-                |> Option.defaultValue ["caption"]
+                |> Option.map (fun parent -> sprintf "%s.caption" (parent.GetPath()))
+                |> Option.defaultValue "caption"
 
         static member ToJson (o:{| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}) =
             let style = Figure_Caption_Style.ToJson o.style
@@ -1956,8 +1956,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -1972,8 +1972,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -1988,8 +1988,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -2004,8 +2004,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -2020,8 +2020,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2040,8 +2040,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -2059,8 +2059,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -2077,8 +2077,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabledThreshold"::parent.GetPath())
-                |> Option.defaultValue ["enabledThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.enabledThreshold" (parent.GetPath()))
+                |> Option.defaultValue "enabledThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2093,11 +2093,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_Marker_LineColor.ToJson o)
@@ -2109,8 +2109,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2125,8 +2125,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radius"::parent.GetPath())
-                |> Option.defaultValue ["radius"]
+                |> Option.map (fun parent -> sprintf "%s.radius" (parent.GetPath()))
+                |> Option.defaultValue "radius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2141,8 +2141,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -2161,8 +2161,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -2179,8 +2179,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2199,8 +2199,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -2217,8 +2217,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -2233,8 +2233,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radiusPlus"::parent.GetPath())
-                |> Option.defaultValue ["radiusPlus"]
+                |> Option.map (fun parent -> sprintf "%s.radiusPlus" (parent.GetPath()))
+                |> Option.defaultValue "radiusPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2249,8 +2249,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2278,8 +2278,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
             let animation = Figure_PlotOptions_Line_Marker_States_Hover_Animation.ToJson o.animation
@@ -2299,11 +2299,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fillColor"::parent.GetPath())
-                |> Option.defaultValue ["fillColor"]
+                |> Option.map (fun parent -> sprintf "%s.fillColor" (parent.GetPath()))
+                |> Option.defaultValue "fillColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_Marker_States_Select_FillColor.ToJson o)
@@ -2315,11 +2315,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_Marker_States_Select_LineColor.ToJson o)
@@ -2331,8 +2331,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2357,8 +2357,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
             let fillColor = sprintf "%s" o.fillColor
@@ -2387,8 +2387,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
             let normal = Figure_PlotOptions_Line_Marker_States_Normal.ToJson o.normal
@@ -2423,8 +2423,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
@@ -2446,8 +2446,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -2468,8 +2468,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Line_Point_Events.ToJson o.events
@@ -2486,11 +2486,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_DataLabels_Align.ToJson o)
@@ -2502,8 +2502,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2518,11 +2518,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_DataLabels_Style_FontSize.ToJson o)
@@ -2534,11 +2534,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_DataLabels_Style_FontWeight.ToJson o)
@@ -2550,11 +2550,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_DataLabels_Style_Color.ToJson o)
@@ -2566,11 +2566,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_DataLabels_Style_TextOutline.ToJson o)
@@ -2595,8 +2595,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -2616,11 +2616,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_DataLabels_VerticalAlign.ToJson o)
@@ -2632,8 +2632,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2648,8 +2648,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2664,11 +2664,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_DataLabels_Color.ToJson o)
@@ -2702,8 +2702,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}) =
             let align = sprintf "%s" o.align
@@ -2726,8 +2726,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2742,8 +2742,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2758,8 +2758,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2774,8 +2774,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -2790,8 +2790,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -2810,8 +2810,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -2828,8 +2828,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2848,8 +2848,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -2866,8 +2866,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2883,8 +2883,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -2901,8 +2901,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "size"::parent.GetPath())
-                |> Option.defaultValue ["size"]
+                |> Option.map (fun parent -> sprintf "%s.size" (parent.GetPath()))
+                |> Option.defaultValue "size"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2917,8 +2917,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -2940,8 +2940,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:{| size:int; opacity:int |}) =
             let size = sprintf "%i" o.size
@@ -2972,8 +2972,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
             let animation = Figure_PlotOptions_Line_States_Hover_Animation.ToJson o.animation
@@ -2993,8 +2993,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3013,8 +3013,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -3035,8 +3035,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |} |}) =
             let animation = Figure_PlotOptions_Line_States_Select_Animation.ToJson o.animation
@@ -3053,8 +3053,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3073,8 +3073,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -3091,8 +3091,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3114,8 +3114,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Line_States_Inactive_Animation.ToJson o.animation
@@ -3146,8 +3146,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Line_States_Normal.ToJson o.normal
@@ -3167,8 +3167,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -3183,8 +3183,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3199,11 +3199,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_FindNearestPointBy.ToJson o)
@@ -3267,8 +3267,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "line"::parent.GetPath())
-                |> Option.defaultValue ["line"]
+                |> Option.map (fun parent -> sprintf "%s.line" (parent.GetPath()))
+                |> Option.defaultValue "line"
 
         static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
@@ -3301,8 +3301,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3317,8 +3317,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -3333,8 +3333,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -3349,8 +3349,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -3365,8 +3365,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3385,8 +3385,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -3404,8 +3404,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -3422,8 +3422,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabledThreshold"::parent.GetPath())
-                |> Option.defaultValue ["enabledThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.enabledThreshold" (parent.GetPath()))
+                |> Option.defaultValue "enabledThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3438,11 +3438,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_Marker_LineColor.ToJson o)
@@ -3454,8 +3454,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3470,8 +3470,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radius"::parent.GetPath())
-                |> Option.defaultValue ["radius"]
+                |> Option.map (fun parent -> sprintf "%s.radius" (parent.GetPath()))
+                |> Option.defaultValue "radius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3486,8 +3486,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -3506,8 +3506,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -3524,8 +3524,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3544,8 +3544,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -3562,8 +3562,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -3578,8 +3578,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radiusPlus"::parent.GetPath())
-                |> Option.defaultValue ["radiusPlus"]
+                |> Option.map (fun parent -> sprintf "%s.radiusPlus" (parent.GetPath()))
+                |> Option.defaultValue "radiusPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3594,8 +3594,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3623,8 +3623,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
             let animation = Figure_PlotOptions_Area_Marker_States_Hover_Animation.ToJson o.animation
@@ -3644,11 +3644,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fillColor"::parent.GetPath())
-                |> Option.defaultValue ["fillColor"]
+                |> Option.map (fun parent -> sprintf "%s.fillColor" (parent.GetPath()))
+                |> Option.defaultValue "fillColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_Marker_States_Select_FillColor.ToJson o)
@@ -3660,11 +3660,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_Marker_States_Select_LineColor.ToJson o)
@@ -3676,8 +3676,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3702,8 +3702,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
             let fillColor = sprintf "%s" o.fillColor
@@ -3732,8 +3732,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
             let normal = Figure_PlotOptions_Area_Marker_States_Normal.ToJson o.normal
@@ -3768,8 +3768,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
@@ -3791,8 +3791,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -3813,8 +3813,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Area_Point_Events.ToJson o.events
@@ -3831,11 +3831,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_DataLabels_Align.ToJson o)
@@ -3847,8 +3847,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3863,11 +3863,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_DataLabels_Style_FontSize.ToJson o)
@@ -3879,11 +3879,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_DataLabels_Style_FontWeight.ToJson o)
@@ -3895,11 +3895,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_DataLabels_Style_Color.ToJson o)
@@ -3911,11 +3911,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_DataLabels_Style_TextOutline.ToJson o)
@@ -3940,8 +3940,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -3961,11 +3961,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_DataLabels_VerticalAlign.ToJson o)
@@ -3977,8 +3977,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -3993,8 +3993,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4028,8 +4028,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
             let align = sprintf "%s" o.align
@@ -4051,8 +4051,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4067,8 +4067,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4083,8 +4083,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4099,8 +4099,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4115,8 +4115,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4135,8 +4135,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -4153,8 +4153,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4173,8 +4173,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -4191,8 +4191,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4208,8 +4208,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -4226,8 +4226,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "size"::parent.GetPath())
-                |> Option.defaultValue ["size"]
+                |> Option.map (fun parent -> sprintf "%s.size" (parent.GetPath()))
+                |> Option.defaultValue "size"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4242,8 +4242,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4265,8 +4265,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:{| size:int; opacity:int |}) =
             let size = sprintf "%i" o.size
@@ -4297,8 +4297,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
             let animation = Figure_PlotOptions_Area_States_Hover_Animation.ToJson o.animation
@@ -4318,8 +4318,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4338,8 +4338,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -4360,8 +4360,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |} |}) =
             let animation = Figure_PlotOptions_Area_States_Select_Animation.ToJson o.animation
@@ -4378,8 +4378,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4398,8 +4398,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -4416,8 +4416,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4439,8 +4439,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Area_States_Inactive_Animation.ToJson o.animation
@@ -4471,8 +4471,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Area_States_Normal.ToJson o.normal
@@ -4492,8 +4492,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4508,8 +4508,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4524,11 +4524,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_FindNearestPointBy.ToJson o)
@@ -4540,8 +4540,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "threshold"::parent.GetPath())
-                |> Option.defaultValue ["threshold"]
+                |> Option.map (fun parent -> sprintf "%s.threshold" (parent.GetPath()))
+                |> Option.defaultValue "threshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4611,8 +4611,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "area"::parent.GetPath())
-                |> Option.defaultValue ["area"]
+                |> Option.map (fun parent -> sprintf "%s.area" (parent.GetPath()))
+                |> Option.defaultValue "area"
 
         static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
             let lineWidth = sprintf "%i" o.lineWidth
@@ -4646,8 +4646,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4662,8 +4662,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4678,8 +4678,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4694,8 +4694,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4710,8 +4710,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4730,8 +4730,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -4749,8 +4749,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -4767,8 +4767,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabledThreshold"::parent.GetPath())
-                |> Option.defaultValue ["enabledThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.enabledThreshold" (parent.GetPath()))
+                |> Option.defaultValue "enabledThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4783,11 +4783,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_Marker_LineColor.ToJson o)
@@ -4799,8 +4799,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4815,8 +4815,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radius"::parent.GetPath())
-                |> Option.defaultValue ["radius"]
+                |> Option.map (fun parent -> sprintf "%s.radius" (parent.GetPath()))
+                |> Option.defaultValue "radius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4831,8 +4831,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4851,8 +4851,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -4869,8 +4869,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4889,8 +4889,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -4907,8 +4907,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -4923,8 +4923,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radiusPlus"::parent.GetPath())
-                |> Option.defaultValue ["radiusPlus"]
+                |> Option.map (fun parent -> sprintf "%s.radiusPlus" (parent.GetPath()))
+                |> Option.defaultValue "radiusPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4939,8 +4939,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -4968,8 +4968,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
             let animation = Figure_PlotOptions_Spline_Marker_States_Hover_Animation.ToJson o.animation
@@ -4989,11 +4989,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fillColor"::parent.GetPath())
-                |> Option.defaultValue ["fillColor"]
+                |> Option.map (fun parent -> sprintf "%s.fillColor" (parent.GetPath()))
+                |> Option.defaultValue "fillColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_Marker_States_Select_FillColor.ToJson o)
@@ -5005,11 +5005,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_Marker_States_Select_LineColor.ToJson o)
@@ -5021,8 +5021,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5047,8 +5047,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
             let fillColor = sprintf "%s" o.fillColor
@@ -5077,8 +5077,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
             let normal = Figure_PlotOptions_Spline_Marker_States_Normal.ToJson o.normal
@@ -5113,8 +5113,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
@@ -5136,8 +5136,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -5158,8 +5158,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Spline_Point_Events.ToJson o.events
@@ -5176,11 +5176,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_DataLabels_Align.ToJson o)
@@ -5192,8 +5192,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5208,11 +5208,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_DataLabels_Style_FontSize.ToJson o)
@@ -5224,11 +5224,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_DataLabels_Style_FontWeight.ToJson o)
@@ -5240,11 +5240,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_DataLabels_Style_Color.ToJson o)
@@ -5256,11 +5256,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_DataLabels_Style_TextOutline.ToJson o)
@@ -5285,8 +5285,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -5306,11 +5306,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_DataLabels_VerticalAlign.ToJson o)
@@ -5322,8 +5322,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5338,8 +5338,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5373,8 +5373,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
             let align = sprintf "%s" o.align
@@ -5396,8 +5396,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5412,8 +5412,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5428,8 +5428,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5444,8 +5444,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -5460,8 +5460,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -5480,8 +5480,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -5498,8 +5498,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5518,8 +5518,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -5536,8 +5536,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5553,8 +5553,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -5571,8 +5571,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "size"::parent.GetPath())
-                |> Option.defaultValue ["size"]
+                |> Option.map (fun parent -> sprintf "%s.size" (parent.GetPath()))
+                |> Option.defaultValue "size"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5587,8 +5587,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5610,8 +5610,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:{| size:int; opacity:int |}) =
             let size = sprintf "%i" o.size
@@ -5642,8 +5642,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
             let animation = Figure_PlotOptions_Spline_States_Hover_Animation.ToJson o.animation
@@ -5663,8 +5663,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5683,8 +5683,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -5705,8 +5705,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |} |}) =
             let animation = Figure_PlotOptions_Spline_States_Select_Animation.ToJson o.animation
@@ -5723,8 +5723,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5743,8 +5743,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -5761,8 +5761,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5784,8 +5784,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Spline_States_Inactive_Animation.ToJson o.animation
@@ -5816,8 +5816,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Spline_States_Normal.ToJson o.normal
@@ -5837,8 +5837,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -5853,8 +5853,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5869,11 +5869,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_FindNearestPointBy.ToJson o)
@@ -5937,8 +5937,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "spline"::parent.GetPath())
-                |> Option.defaultValue ["spline"]
+                |> Option.map (fun parent -> sprintf "%s.spline" (parent.GetPath()))
+                |> Option.defaultValue "spline"
 
         static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
@@ -5971,8 +5971,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -5987,8 +5987,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -6003,8 +6003,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -6019,8 +6019,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -6035,8 +6035,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6055,8 +6055,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -6074,8 +6074,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -6092,8 +6092,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabledThreshold"::parent.GetPath())
-                |> Option.defaultValue ["enabledThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.enabledThreshold" (parent.GetPath()))
+                |> Option.defaultValue "enabledThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6108,11 +6108,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_Marker_LineColor.ToJson o)
@@ -6124,8 +6124,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6140,8 +6140,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radius"::parent.GetPath())
-                |> Option.defaultValue ["radius"]
+                |> Option.map (fun parent -> sprintf "%s.radius" (parent.GetPath()))
+                |> Option.defaultValue "radius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6156,8 +6156,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -6176,8 +6176,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -6194,8 +6194,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6214,8 +6214,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -6232,8 +6232,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -6248,8 +6248,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radiusPlus"::parent.GetPath())
-                |> Option.defaultValue ["radiusPlus"]
+                |> Option.map (fun parent -> sprintf "%s.radiusPlus" (parent.GetPath()))
+                |> Option.defaultValue "radiusPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6264,8 +6264,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6293,8 +6293,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
             let animation = Figure_PlotOptions_Areaspline_Marker_States_Hover_Animation.ToJson o.animation
@@ -6314,11 +6314,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fillColor"::parent.GetPath())
-                |> Option.defaultValue ["fillColor"]
+                |> Option.map (fun parent -> sprintf "%s.fillColor" (parent.GetPath()))
+                |> Option.defaultValue "fillColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_Marker_States_Select_FillColor.ToJson o)
@@ -6330,11 +6330,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_Marker_States_Select_LineColor.ToJson o)
@@ -6346,8 +6346,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6372,8 +6372,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
             let fillColor = sprintf "%s" o.fillColor
@@ -6402,8 +6402,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
             let normal = Figure_PlotOptions_Areaspline_Marker_States_Normal.ToJson o.normal
@@ -6438,8 +6438,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
@@ -6461,8 +6461,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -6483,8 +6483,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Areaspline_Point_Events.ToJson o.events
@@ -6501,11 +6501,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_DataLabels_Align.ToJson o)
@@ -6517,8 +6517,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6533,11 +6533,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_DataLabels_Style_FontSize.ToJson o)
@@ -6549,11 +6549,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_DataLabels_Style_FontWeight.ToJson o)
@@ -6565,11 +6565,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_DataLabels_Style_Color.ToJson o)
@@ -6581,11 +6581,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_DataLabels_Style_TextOutline.ToJson o)
@@ -6610,8 +6610,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -6631,11 +6631,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_DataLabels_VerticalAlign.ToJson o)
@@ -6647,8 +6647,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6663,8 +6663,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6698,8 +6698,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
             let align = sprintf "%s" o.align
@@ -6721,8 +6721,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6737,8 +6737,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6753,8 +6753,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6769,8 +6769,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -6785,8 +6785,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -6805,8 +6805,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -6823,8 +6823,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6843,8 +6843,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -6861,8 +6861,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6878,8 +6878,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -6896,8 +6896,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "size"::parent.GetPath())
-                |> Option.defaultValue ["size"]
+                |> Option.map (fun parent -> sprintf "%s.size" (parent.GetPath()))
+                |> Option.defaultValue "size"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6912,8 +6912,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -6935,8 +6935,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:{| size:int; opacity:int |}) =
             let size = sprintf "%i" o.size
@@ -6967,8 +6967,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
             let animation = Figure_PlotOptions_Areaspline_States_Hover_Animation.ToJson o.animation
@@ -6988,8 +6988,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7008,8 +7008,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -7030,8 +7030,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |} |}) =
             let animation = Figure_PlotOptions_Areaspline_States_Select_Animation.ToJson o.animation
@@ -7048,8 +7048,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7068,8 +7068,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -7086,8 +7086,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7109,8 +7109,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Areaspline_States_Inactive_Animation.ToJson o.animation
@@ -7141,8 +7141,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Areaspline_States_Normal.ToJson o.normal
@@ -7162,8 +7162,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -7178,8 +7178,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7194,11 +7194,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_FindNearestPointBy.ToJson o)
@@ -7210,8 +7210,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "threshold"::parent.GetPath())
-                |> Option.defaultValue ["threshold"]
+                |> Option.map (fun parent -> sprintf "%s.threshold" (parent.GetPath()))
+                |> Option.defaultValue "threshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7281,8 +7281,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "areaspline"::parent.GetPath())
-                |> Option.defaultValue ["areaspline"]
+                |> Option.map (fun parent -> sprintf "%s.areaspline" (parent.GetPath()))
+                |> Option.defaultValue "areaspline"
 
         static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
             let lineWidth = sprintf "%i" o.lineWidth
@@ -7316,8 +7316,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7332,8 +7332,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -7348,8 +7348,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -7364,8 +7364,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -7380,8 +7380,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7400,8 +7400,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -7419,8 +7419,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -7437,11 +7437,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_Marker.ToJson o)
@@ -7454,8 +7454,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -7476,8 +7476,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Column_Point_Events.ToJson o.events
@@ -7494,8 +7494,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7510,11 +7510,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_DataLabels_Style_FontSize.ToJson o)
@@ -7526,11 +7526,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_DataLabels_Style_FontWeight.ToJson o)
@@ -7542,11 +7542,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_DataLabels_Style_Color.ToJson o)
@@ -7558,11 +7558,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_DataLabels_Style_TextOutline.ToJson o)
@@ -7587,8 +7587,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -7608,8 +7608,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7634,8 +7634,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}) =
             let padding = sprintf "%i" o.padding
@@ -7654,8 +7654,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7670,8 +7670,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7686,11 +7686,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_PointRange.ToJson o)
@@ -7702,8 +7702,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -7718,8 +7718,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -7738,8 +7738,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -7756,8 +7756,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7776,8 +7776,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -7794,8 +7794,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7811,8 +7811,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -7829,8 +7829,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -7845,8 +7845,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "brightness"::parent.GetPath())
-                |> Option.defaultValue ["brightness"]
+                |> Option.map (fun parent -> sprintf "%s.brightness" (parent.GetPath()))
+                |> Option.defaultValue "brightness"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7877,8 +7877,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
             let animation = Figure_PlotOptions_Column_States_Hover_Animation.ToJson o.animation
@@ -7899,8 +7899,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -7919,8 +7919,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -7937,11 +7937,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Select_Color.ToJson o)
@@ -7953,11 +7953,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Select_BorderColor.ToJson o)
@@ -7979,8 +7979,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
             let animation = Figure_PlotOptions_Column_States_Select_Animation.ToJson o.animation
@@ -7999,8 +7999,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8019,8 +8019,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -8037,8 +8037,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8060,8 +8060,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Column_States_Inactive_Animation.ToJson o.animation
@@ -8092,8 +8092,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Column_States_Normal.ToJson o.normal
@@ -8113,8 +8113,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8129,8 +8129,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8145,11 +8145,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_FindNearestPointBy.ToJson o)
@@ -8161,8 +8161,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderRadius"::parent.GetPath())
-                |> Option.defaultValue ["borderRadius"]
+                |> Option.map (fun parent -> sprintf "%s.borderRadius" (parent.GetPath()))
+                |> Option.defaultValue "borderRadius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8177,8 +8177,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "centerInCategory"::parent.GetPath())
-                |> Option.defaultValue ["centerInCategory"]
+                |> Option.map (fun parent -> sprintf "%s.centerInCategory" (parent.GetPath()))
+                |> Option.defaultValue "centerInCategory"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8193,8 +8193,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "groupPadding"::parent.GetPath())
-                |> Option.defaultValue ["groupPadding"]
+                |> Option.map (fun parent -> sprintf "%s.groupPadding" (parent.GetPath()))
+                |> Option.defaultValue "groupPadding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8209,8 +8209,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointPadding"::parent.GetPath())
-                |> Option.defaultValue ["pointPadding"]
+                |> Option.map (fun parent -> sprintf "%s.pointPadding" (parent.GetPath()))
+                |> Option.defaultValue "pointPadding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8225,8 +8225,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "minPointLength"::parent.GetPath())
-                |> Option.defaultValue ["minPointLength"]
+                |> Option.map (fun parent -> sprintf "%s.minPointLength" (parent.GetPath()))
+                |> Option.defaultValue "minPointLength"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8241,8 +8241,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "startFromThreshold"::parent.GetPath())
-                |> Option.defaultValue ["startFromThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.startFromThreshold" (parent.GetPath()))
+                |> Option.defaultValue "startFromThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8257,8 +8257,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "threshold"::parent.GetPath())
-                |> Option.defaultValue ["threshold"]
+                |> Option.map (fun parent -> sprintf "%s.threshold" (parent.GetPath()))
+                |> Option.defaultValue "threshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8273,11 +8273,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_BorderColor.ToJson o)
@@ -8365,8 +8365,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "column"::parent.GetPath())
-                |> Option.defaultValue ["column"]
+                |> Option.map (fun parent -> sprintf "%s.column" (parent.GetPath()))
+                |> Option.defaultValue "column"
 
         static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
@@ -8407,8 +8407,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8423,8 +8423,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8439,8 +8439,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8455,8 +8455,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8471,8 +8471,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8491,8 +8491,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -8510,8 +8510,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -8528,11 +8528,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_Marker.ToJson o)
@@ -8545,8 +8545,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -8567,8 +8567,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Bar_Point_Events.ToJson o.events
@@ -8585,8 +8585,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8601,11 +8601,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_DataLabels_Style_FontSize.ToJson o)
@@ -8617,11 +8617,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_DataLabels_Style_FontWeight.ToJson o)
@@ -8633,11 +8633,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_DataLabels_Style_Color.ToJson o)
@@ -8649,11 +8649,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_DataLabels_Style_TextOutline.ToJson o)
@@ -8678,8 +8678,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -8699,8 +8699,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8725,8 +8725,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}) =
             let padding = sprintf "%i" o.padding
@@ -8745,8 +8745,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8761,8 +8761,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8777,11 +8777,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_PointRange.ToJson o)
@@ -8793,8 +8793,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8809,8 +8809,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8829,8 +8829,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -8847,8 +8847,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8867,8 +8867,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -8885,8 +8885,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8902,8 +8902,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -8920,8 +8920,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -8936,8 +8936,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "brightness"::parent.GetPath())
-                |> Option.defaultValue ["brightness"]
+                |> Option.map (fun parent -> sprintf "%s.brightness" (parent.GetPath()))
+                |> Option.defaultValue "brightness"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -8968,8 +8968,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
             let animation = Figure_PlotOptions_Bar_States_Hover_Animation.ToJson o.animation
@@ -8990,8 +8990,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9010,8 +9010,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -9028,11 +9028,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Select_Color.ToJson o)
@@ -9044,11 +9044,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Select_BorderColor.ToJson o)
@@ -9070,8 +9070,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |}; color:string; borderColor:string |}) =
             let animation = Figure_PlotOptions_Bar_States_Select_Animation.ToJson o.animation
@@ -9090,8 +9090,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9110,8 +9110,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -9128,8 +9128,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9151,8 +9151,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Bar_States_Inactive_Animation.ToJson o.animation
@@ -9183,8 +9183,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Bar_States_Normal.ToJson o.normal
@@ -9204,8 +9204,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9220,8 +9220,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9236,11 +9236,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_FindNearestPointBy.ToJson o)
@@ -9252,8 +9252,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderRadius"::parent.GetPath())
-                |> Option.defaultValue ["borderRadius"]
+                |> Option.map (fun parent -> sprintf "%s.borderRadius" (parent.GetPath()))
+                |> Option.defaultValue "borderRadius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9268,8 +9268,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "centerInCategory"::parent.GetPath())
-                |> Option.defaultValue ["centerInCategory"]
+                |> Option.map (fun parent -> sprintf "%s.centerInCategory" (parent.GetPath()))
+                |> Option.defaultValue "centerInCategory"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9284,8 +9284,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "groupPadding"::parent.GetPath())
-                |> Option.defaultValue ["groupPadding"]
+                |> Option.map (fun parent -> sprintf "%s.groupPadding" (parent.GetPath()))
+                |> Option.defaultValue "groupPadding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9300,8 +9300,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointPadding"::parent.GetPath())
-                |> Option.defaultValue ["pointPadding"]
+                |> Option.map (fun parent -> sprintf "%s.pointPadding" (parent.GetPath()))
+                |> Option.defaultValue "pointPadding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9316,8 +9316,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "minPointLength"::parent.GetPath())
-                |> Option.defaultValue ["minPointLength"]
+                |> Option.map (fun parent -> sprintf "%s.minPointLength" (parent.GetPath()))
+                |> Option.defaultValue "minPointLength"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9332,8 +9332,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "startFromThreshold"::parent.GetPath())
-                |> Option.defaultValue ["startFromThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.startFromThreshold" (parent.GetPath()))
+                |> Option.defaultValue "startFromThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9348,8 +9348,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "threshold"::parent.GetPath())
-                |> Option.defaultValue ["threshold"]
+                |> Option.map (fun parent -> sprintf "%s.threshold" (parent.GetPath()))
+                |> Option.defaultValue "threshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9364,11 +9364,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_BorderColor.ToJson o)
@@ -9456,8 +9456,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "bar"::parent.GetPath())
-                |> Option.defaultValue ["bar"]
+                |> Option.map (fun parent -> sprintf "%s.bar" (parent.GetPath()))
+                |> Option.defaultValue "bar"
 
         static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
@@ -9498,8 +9498,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9514,8 +9514,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9530,8 +9530,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9546,8 +9546,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9562,8 +9562,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9582,8 +9582,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -9601,8 +9601,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -9619,8 +9619,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabledThreshold"::parent.GetPath())
-                |> Option.defaultValue ["enabledThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.enabledThreshold" (parent.GetPath()))
+                |> Option.defaultValue "enabledThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9635,11 +9635,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_Marker_LineColor.ToJson o)
@@ -9651,8 +9651,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9667,8 +9667,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radius"::parent.GetPath())
-                |> Option.defaultValue ["radius"]
+                |> Option.map (fun parent -> sprintf "%s.radius" (parent.GetPath()))
+                |> Option.defaultValue "radius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9683,8 +9683,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9703,8 +9703,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -9721,8 +9721,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9741,8 +9741,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -9759,8 +9759,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9775,8 +9775,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "radiusPlus"::parent.GetPath())
-                |> Option.defaultValue ["radiusPlus"]
+                |> Option.map (fun parent -> sprintf "%s.radiusPlus" (parent.GetPath()))
+                |> Option.defaultValue "radiusPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9791,8 +9791,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9820,8 +9820,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}) =
             let animation = Figure_PlotOptions_Scatter_Marker_States_Hover_Animation.ToJson o.animation
@@ -9841,11 +9841,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fillColor"::parent.GetPath())
-                |> Option.defaultValue ["fillColor"]
+                |> Option.map (fun parent -> sprintf "%s.fillColor" (parent.GetPath()))
+                |> Option.defaultValue "fillColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_Marker_States_Select_FillColor.ToJson o)
@@ -9857,11 +9857,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_Marker_States_Select_LineColor.ToJson o)
@@ -9873,8 +9873,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidth"::parent.GetPath())
-                |> Option.defaultValue ["lineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -9899,8 +9899,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| fillColor:string; lineColor:string; lineWidth:int |}) =
             let fillColor = sprintf "%s" o.fillColor
@@ -9929,8 +9929,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}) =
             let normal = Figure_PlotOptions_Scatter_Marker_States_Normal.ToJson o.normal
@@ -9949,8 +9949,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -9984,8 +9984,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}) =
             let enabledThreshold = sprintf "%i" o.enabledThreshold
@@ -10008,8 +10008,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -10030,8 +10030,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Scatter_Point_Events.ToJson o.events
@@ -10048,11 +10048,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_DataLabels_Align.ToJson o)
@@ -10064,8 +10064,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10080,11 +10080,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_DataLabels_Style_FontSize.ToJson o)
@@ -10096,11 +10096,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_DataLabels_Style_FontWeight.ToJson o)
@@ -10112,11 +10112,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_DataLabels_Style_Color.ToJson o)
@@ -10128,11 +10128,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_DataLabels_Style_TextOutline.ToJson o)
@@ -10157,8 +10157,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -10178,11 +10178,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_DataLabels_VerticalAlign.ToJson o)
@@ -10194,8 +10194,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10210,8 +10210,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10245,8 +10245,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}) =
             let align = sprintf "%s" o.align
@@ -10268,8 +10268,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10284,8 +10284,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10300,8 +10300,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10316,8 +10316,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -10332,8 +10332,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -10352,8 +10352,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -10370,8 +10370,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10390,8 +10390,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -10408,8 +10408,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10425,8 +10425,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -10443,8 +10443,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "size"::parent.GetPath())
-                |> Option.defaultValue ["size"]
+                |> Option.map (fun parent -> sprintf "%s.size" (parent.GetPath()))
+                |> Option.defaultValue "size"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10459,8 +10459,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10482,8 +10482,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:{| size:int; opacity:int |}) =
             let size = sprintf "%i" o.size
@@ -10514,8 +10514,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
             let animation = Figure_PlotOptions_Scatter_States_Hover_Animation.ToJson o.animation
@@ -10535,8 +10535,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10555,8 +10555,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -10577,8 +10577,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |} |}) =
             let animation = Figure_PlotOptions_Scatter_States_Select_Animation.ToJson o.animation
@@ -10595,8 +10595,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10615,8 +10615,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -10633,8 +10633,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10656,8 +10656,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Scatter_States_Inactive_Animation.ToJson o.animation
@@ -10688,8 +10688,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Scatter_States_Normal.ToJson o.normal
@@ -10709,8 +10709,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -10725,8 +10725,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10741,11 +10741,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_FindNearestPointBy.ToJson o)
@@ -10757,8 +10757,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10773,8 +10773,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10796,8 +10796,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "jitter"::parent.GetPath())
-                |> Option.defaultValue ["jitter"]
+                |> Option.map (fun parent -> sprintf "%s.jitter" (parent.GetPath()))
+                |> Option.defaultValue "jitter"
 
         static member ToJson (o:{| x:int; y:int |}) =
             let x = sprintf "%i" o.x
@@ -10870,8 +10870,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "scatter"::parent.GetPath())
-                |> Option.defaultValue ["scatter"]
+                |> Option.map (fun parent -> sprintf "%s.scatter" (parent.GetPath()))
+                |> Option.defaultValue "scatter"
 
         static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}) =
             let lineWidth = sprintf "%i" o.lineWidth
@@ -10905,8 +10905,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowPointSelect"::parent.GetPath())
-                |> Option.defaultValue ["allowPointSelect"]
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -10921,8 +10921,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crisp"::parent.GetPath())
-                |> Option.defaultValue ["crisp"]
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -10937,8 +10937,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showCheckbox"::parent.GetPath())
-                |> Option.defaultValue ["showCheckbox"]
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -10953,8 +10953,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -10973,8 +10973,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -10992,8 +10992,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -11010,11 +11010,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_Marker.ToJson o)
@@ -11027,8 +11027,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "events"::parent.GetPath())
-                |> Option.defaultValue ["events"]
+                |> Option.map (fun parent -> sprintf "%s.events" (parent.GetPath()))
+                |> Option.defaultValue "events"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -11049,8 +11049,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "point"::parent.GetPath())
-                |> Option.defaultValue ["point"]
+                |> Option.map (fun parent -> sprintf "%s.point" (parent.GetPath()))
+                |> Option.defaultValue "point"
 
         static member ToJson (o:{| events: {| dummy:string |} |}) =
             let events = Figure_PlotOptions_Pie_Point_Events.ToJson o.events
@@ -11067,11 +11067,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_Align.ToJson o)
@@ -11083,8 +11083,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11099,11 +11099,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_Style_FontSize.ToJson o)
@@ -11115,11 +11115,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_Style_FontWeight.ToJson o)
@@ -11131,11 +11131,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_Style_Color.ToJson o)
@@ -11147,11 +11147,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOutline"::parent.GetPath())
-                |> Option.defaultValue ["textOutline"]
+                |> Option.map (fun parent -> sprintf "%s.textOutline" (parent.GetPath()))
+                |> Option.defaultValue "textOutline"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_Style_TextOutline.ToJson o)
@@ -11176,8 +11176,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontSize:string; fontWeight:string; color:string; textOutline:string |}) =
             let fontSize = sprintf "%s" o.fontSize
@@ -11197,11 +11197,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_VerticalAlign.ToJson o)
@@ -11213,8 +11213,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11229,8 +11229,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11245,8 +11245,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "allowOverlap"::parent.GetPath())
-                |> Option.defaultValue ["allowOverlap"]
+                |> Option.map (fun parent -> sprintf "%s.allowOverlap" (parent.GetPath()))
+                |> Option.defaultValue "allowOverlap"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -11261,8 +11261,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "connectorPadding"::parent.GetPath())
-                |> Option.defaultValue ["connectorPadding"]
+                |> Option.map (fun parent -> sprintf "%s.connectorPadding" (parent.GetPath()))
+                |> Option.defaultValue "connectorPadding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11277,11 +11277,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "connectorShape"::parent.GetPath())
-                |> Option.defaultValue ["connectorShape"]
+                |> Option.map (fun parent -> sprintf "%s.connectorShape" (parent.GetPath()))
+                |> Option.defaultValue "connectorShape"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_ConnectorShape.ToJson o)
@@ -11293,11 +11293,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "crookDistance"::parent.GetPath())
-                |> Option.defaultValue ["crookDistance"]
+                |> Option.map (fun parent -> sprintf "%s.crookDistance" (parent.GetPath()))
+                |> Option.defaultValue "crookDistance"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_DataLabels_CrookDistance.ToJson o)
@@ -11309,8 +11309,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "distance"::parent.GetPath())
-                |> Option.defaultValue ["distance"]
+                |> Option.map (fun parent -> sprintf "%s.distance" (parent.GetPath()))
+                |> Option.defaultValue "distance"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11325,8 +11325,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -11341,8 +11341,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softConnector"::parent.GetPath())
-                |> Option.defaultValue ["softConnector"]
+                |> Option.map (fun parent -> sprintf "%s.softConnector" (parent.GetPath()))
+                |> Option.defaultValue "softConnector"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -11397,8 +11397,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dataLabels"::parent.GetPath())
-                |> Option.defaultValue ["dataLabels"]
+                |> Option.map (fun parent -> sprintf "%s.dataLabels" (parent.GetPath()))
+                |> Option.defaultValue "dataLabels"
 
         static member ToJson (o:{| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}) =
             let align = sprintf "%s" o.align
@@ -11427,8 +11427,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cropThreshold"::parent.GetPath())
-                |> Option.defaultValue ["cropThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11443,8 +11443,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11459,8 +11459,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointRange"::parent.GetPath())
-                |> Option.defaultValue ["pointRange"]
+                |> Option.map (fun parent -> sprintf "%s.pointRange" (parent.GetPath()))
+                |> Option.defaultValue "pointRange"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11475,8 +11475,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "softThreshold"::parent.GetPath())
-                |> Option.defaultValue ["softThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -11491,8 +11491,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -11511,8 +11511,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "normal"::parent.GetPath())
-                |> Option.defaultValue ["normal"]
+                |> Option.map (fun parent -> sprintf "%s.normal" (parent.GetPath()))
+                |> Option.defaultValue "normal"
 
         static member ToJson (o:{| animation:bool |}) =
             let animation = sprintf "%b" o.animation
@@ -11529,8 +11529,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11549,8 +11549,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -11567,8 +11567,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineWidthPlus"::parent.GetPath())
-                |> Option.defaultValue ["lineWidthPlus"]
+                |> Option.map (fun parent -> sprintf "%s.lineWidthPlus" (parent.GetPath()))
+                |> Option.defaultValue "lineWidthPlus"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11584,8 +11584,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "marker"::parent.GetPath())
-                |> Option.defaultValue ["marker"]
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
 
         static member ToJson (o:{| dummy:string |}) =
 
@@ -11602,8 +11602,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "size"::parent.GetPath())
-                |> Option.defaultValue ["size"]
+                |> Option.map (fun parent -> sprintf "%s.size" (parent.GetPath()))
+                |> Option.defaultValue "size"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11618,8 +11618,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11641,8 +11641,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "halo"::parent.GetPath())
-                |> Option.defaultValue ["halo"]
+                |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
+                |> Option.defaultValue "halo"
 
         static member ToJson (o:{| size:int; opacity:int |}) =
             let size = sprintf "%i" o.size
@@ -11660,8 +11660,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "brightness"::parent.GetPath())
-                |> Option.defaultValue ["brightness"]
+                |> Option.map (fun parent -> sprintf "%s.brightness" (parent.GetPath()))
+                |> Option.defaultValue "brightness"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11692,8 +11692,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}) =
             let animation = Figure_PlotOptions_Pie_States_Hover_Animation.ToJson o.animation
@@ -11714,8 +11714,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11734,8 +11734,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -11756,8 +11756,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| animation: {| duration:int |} |}) =
             let animation = Figure_PlotOptions_Pie_States_Select_Animation.ToJson o.animation
@@ -11774,8 +11774,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "duration"::parent.GetPath())
-                |> Option.defaultValue ["duration"]
+                |> Option.map (fun parent -> sprintf "%s.duration" (parent.GetPath()))
+                |> Option.defaultValue "duration"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11794,8 +11794,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:{| duration:int |}) =
             let duration = sprintf "%i" o.duration
@@ -11812,8 +11812,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11835,8 +11835,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactive"::parent.GetPath())
-                |> Option.defaultValue ["inactive"]
+                |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
+                |> Option.defaultValue "inactive"
 
         static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
             let animation = Figure_PlotOptions_Pie_States_Inactive_Animation.ToJson o.animation
@@ -11867,8 +11867,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
             let normal = Figure_PlotOptions_Pie_States_Normal.ToJson o.normal
@@ -11888,8 +11888,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stickyTracking"::parent.GetPath())
-                |> Option.defaultValue ["stickyTracking"]
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -11904,8 +11904,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "turboThreshold"::parent.GetPath())
-                |> Option.defaultValue ["turboThreshold"]
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -11920,11 +11920,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "findNearestPointBy"::parent.GetPath())
-                |> Option.defaultValue ["findNearestPointBy"]
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_FindNearestPointBy.ToJson o)
@@ -11936,15 +11936,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_Center_Item.ToJson o)
@@ -11958,8 +11958,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "center"::parent.GetPath())
-                |> Option.defaultValue ["center"]
+                |> Option.map (fun parent -> sprintf "%s.center" (parent.GetPath()))
+                |> Option.defaultValue "center"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -11983,8 +11983,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "clip"::parent.GetPath())
-                |> Option.defaultValue ["clip"]
+                |> Option.map (fun parent -> sprintf "%s.clip" (parent.GetPath()))
+                |> Option.defaultValue "clip"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -11999,8 +11999,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "colorByPoint"::parent.GetPath())
-                |> Option.defaultValue ["colorByPoint"]
+                |> Option.map (fun parent -> sprintf "%s.colorByPoint" (parent.GetPath()))
+                |> Option.defaultValue "colorByPoint"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12015,8 +12015,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "ignoreHiddenPoint"::parent.GetPath())
-                |> Option.defaultValue ["ignoreHiddenPoint"]
+                |> Option.map (fun parent -> sprintf "%s.ignoreHiddenPoint" (parent.GetPath()))
+                |> Option.defaultValue "ignoreHiddenPoint"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12031,8 +12031,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactiveOtherPoints"::parent.GetPath())
-                |> Option.defaultValue ["inactiveOtherPoints"]
+                |> Option.map (fun parent -> sprintf "%s.inactiveOtherPoints" (parent.GetPath()))
+                |> Option.defaultValue "inactiveOtherPoints"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12047,11 +12047,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "legendType"::parent.GetPath())
-                |> Option.defaultValue ["legendType"]
+                |> Option.map (fun parent -> sprintf "%s.legendType" (parent.GetPath()))
+                |> Option.defaultValue "legendType"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_LegendType.ToJson o)
@@ -12063,11 +12063,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "size"::parent.GetPath())
-                |> Option.defaultValue ["size"]
+                |> Option.map (fun parent -> sprintf "%s.size" (parent.GetPath()))
+                |> Option.defaultValue "size"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_Size.ToJson o)
@@ -12079,8 +12079,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "showInLegend"::parent.GetPath())
-                |> Option.defaultValue ["showInLegend"]
+                |> Option.map (fun parent -> sprintf "%s.showInLegend" (parent.GetPath()))
+                |> Option.defaultValue "showInLegend"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12095,8 +12095,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "slicedOffset"::parent.GetPath())
-                |> Option.defaultValue ["slicedOffset"]
+                |> Option.map (fun parent -> sprintf "%s.slicedOffset" (parent.GetPath()))
+                |> Option.defaultValue "slicedOffset"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -12111,11 +12111,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_BorderColor.ToJson o)
@@ -12127,8 +12127,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderWidth"::parent.GetPath())
-                |> Option.defaultValue ["borderWidth"]
+                |> Option.map (fun parent -> sprintf "%s.borderWidth" (parent.GetPath()))
+                |> Option.defaultValue "borderWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -12225,8 +12225,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pie"::parent.GetPath())
-                |> Option.defaultValue ["pie"]
+                |> Option.map (fun parent -> sprintf "%s.pie" (parent.GetPath()))
+                |> Option.defaultValue "pie"
 
         static member ToJson (o:{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}) =
             let allowPointSelect = sprintf "%b" o.allowPointSelect
@@ -12269,11 +12269,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Candlestick_LineColor.ToJson o)
@@ -12289,8 +12289,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "candlestick"::parent.GetPath())
-                |> Option.defaultValue ["candlestick"]
+                |> Option.map (fun parent -> sprintf "%s.candlestick" (parent.GetPath()))
+                |> Option.defaultValue "candlestick"
 
         static member ToJson (o:{| lineColor:string |}) =
             let lineColor = sprintf "%s" o.lineColor
@@ -12335,8 +12335,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "plotOptions"::parent.GetPath())
-                |> Option.defaultValue ["plotOptions"]
+                |> Option.map (fun parent -> sprintf "%s.plotOptions" (parent.GetPath()))
+                |> Option.defaultValue "plotOptions"
 
         static member ToJson (o:{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}) =
             let line = Figure_PlotOptions_Line.ToJson o.line
@@ -12361,11 +12361,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "position"::parent.GetPath())
-                |> Option.defaultValue ["position"]
+                |> Option.map (fun parent -> sprintf "%s.position" (parent.GetPath()))
+                |> Option.defaultValue "position"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Labels_Style_Position.ToJson o)
@@ -12377,11 +12377,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Labels_Style_Color.ToJson o)
@@ -12400,8 +12400,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| position:string; color:string |}) =
             let position = sprintf "%s" o.position
@@ -12423,8 +12423,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "labels"::parent.GetPath())
-                |> Option.defaultValue ["labels"]
+                |> Option.map (fun parent -> sprintf "%s.labels" (parent.GetPath()))
+                |> Option.defaultValue "labels"
 
         static member ToJson (o:{| style: {| position:string; color:string |} |}) =
             let style = Figure_Labels_Style.ToJson o.style
@@ -12441,8 +12441,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12457,11 +12457,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_Align.ToJson o)
@@ -12473,8 +12473,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "alignColumns"::parent.GetPath())
-                |> Option.defaultValue ["alignColumns"]
+                |> Option.map (fun parent -> sprintf "%s.alignColumns" (parent.GetPath()))
+                |> Option.defaultValue "alignColumns"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12489,11 +12489,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "layout"::parent.GetPath())
-                |> Option.defaultValue ["layout"]
+                |> Option.map (fun parent -> sprintf "%s.layout" (parent.GetPath()))
+                |> Option.defaultValue "layout"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_Layout.ToJson o)
@@ -12505,11 +12505,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_BorderColor.ToJson o)
@@ -12521,8 +12521,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderRadius"::parent.GetPath())
-                |> Option.defaultValue ["borderRadius"]
+                |> Option.map (fun parent -> sprintf "%s.borderRadius" (parent.GetPath()))
+                |> Option.defaultValue "borderRadius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -12537,11 +12537,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "activeColor"::parent.GetPath())
-                |> Option.defaultValue ["activeColor"]
+                |> Option.map (fun parent -> sprintf "%s.activeColor" (parent.GetPath()))
+                |> Option.defaultValue "activeColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_Navigation_ActiveColor.ToJson o)
@@ -12553,11 +12553,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inactiveColor"::parent.GetPath())
-                |> Option.defaultValue ["inactiveColor"]
+                |> Option.map (fun parent -> sprintf "%s.inactiveColor" (parent.GetPath()))
+                |> Option.defaultValue "inactiveColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_Navigation_InactiveColor.ToJson o)
@@ -12576,8 +12576,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "navigation"::parent.GetPath())
-                |> Option.defaultValue ["navigation"]
+                |> Option.map (fun parent -> sprintf "%s.navigation" (parent.GetPath()))
+                |> Option.defaultValue "navigation"
 
         static member ToJson (o:{| activeColor:string; inactiveColor:string |}) =
             let activeColor = sprintf "%s" o.activeColor
@@ -12595,11 +12595,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemStyle_Color.ToJson o)
@@ -12611,11 +12611,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cursor"::parent.GetPath())
-                |> Option.defaultValue ["cursor"]
+                |> Option.map (fun parent -> sprintf "%s.cursor" (parent.GetPath()))
+                |> Option.defaultValue "cursor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemStyle_Cursor.ToJson o)
@@ -12627,11 +12627,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemStyle_FontSize.ToJson o)
@@ -12643,11 +12643,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemStyle_FontWeight.ToJson o)
@@ -12659,11 +12659,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textOverflow"::parent.GetPath())
-                |> Option.defaultValue ["textOverflow"]
+                |> Option.map (fun parent -> sprintf "%s.textOverflow" (parent.GetPath()))
+                |> Option.defaultValue "textOverflow"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemStyle_TextOverflow.ToJson o)
@@ -12675,11 +12675,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "font"::parent.GetPath())
-                |> Option.defaultValue ["font"]
+                |> Option.map (fun parent -> sprintf "%s.font" (parent.GetPath()))
+                |> Option.defaultValue "font"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemStyle_Font.ToJson o)
@@ -12710,8 +12710,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "itemStyle"::parent.GetPath())
-                |> Option.defaultValue ["itemStyle"]
+                |> Option.map (fun parent -> sprintf "%s.itemStyle" (parent.GetPath()))
+                |> Option.defaultValue "itemStyle"
 
         static member ToJson (o:{| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}) =
             let color = sprintf "%s" o.color
@@ -12733,11 +12733,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemHoverStyle_Color.ToJson o)
@@ -12753,8 +12753,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "itemHoverStyle"::parent.GetPath())
-                |> Option.defaultValue ["itemHoverStyle"]
+                |> Option.map (fun parent -> sprintf "%s.itemHoverStyle" (parent.GetPath()))
+                |> Option.defaultValue "itemHoverStyle"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -12771,11 +12771,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemHiddenStyle_Color.ToJson o)
@@ -12791,8 +12791,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "itemHiddenStyle"::parent.GetPath())
-                |> Option.defaultValue ["itemHiddenStyle"]
+                |> Option.map (fun parent -> sprintf "%s.itemHiddenStyle" (parent.GetPath()))
+                |> Option.defaultValue "itemHiddenStyle"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -12809,8 +12809,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "shadow"::parent.GetPath())
-                |> Option.defaultValue ["shadow"]
+                |> Option.map (fun parent -> sprintf "%s.shadow" (parent.GetPath()))
+                |> Option.defaultValue "shadow"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12825,11 +12825,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "position"::parent.GetPath())
-                |> Option.defaultValue ["position"]
+                |> Option.map (fun parent -> sprintf "%s.position" (parent.GetPath()))
+                |> Option.defaultValue "position"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemCheckboxStyle_Position.ToJson o)
@@ -12841,11 +12841,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "width"::parent.GetPath())
-                |> Option.defaultValue ["width"]
+                |> Option.map (fun parent -> sprintf "%s.width" (parent.GetPath()))
+                |> Option.defaultValue "width"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemCheckboxStyle_Width.ToJson o)
@@ -12857,11 +12857,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "height"::parent.GetPath())
-                |> Option.defaultValue ["height"]
+                |> Option.map (fun parent -> sprintf "%s.height" (parent.GetPath()))
+                |> Option.defaultValue "height"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_ItemCheckboxStyle_Height.ToJson o)
@@ -12883,8 +12883,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "itemCheckboxStyle"::parent.GetPath())
-                |> Option.defaultValue ["itemCheckboxStyle"]
+                |> Option.map (fun parent -> sprintf "%s.itemCheckboxStyle" (parent.GetPath()))
+                |> Option.defaultValue "itemCheckboxStyle"
 
         static member ToJson (o:{| position:string; width:string; height:string |}) =
             let position = sprintf "%s" o.position
@@ -12903,8 +12903,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "squareSymbol"::parent.GetPath())
-                |> Option.defaultValue ["squareSymbol"]
+                |> Option.map (fun parent -> sprintf "%s.squareSymbol" (parent.GetPath()))
+                |> Option.defaultValue "squareSymbol"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -12919,8 +12919,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbolPadding"::parent.GetPath())
-                |> Option.defaultValue ["symbolPadding"]
+                |> Option.map (fun parent -> sprintf "%s.symbolPadding" (parent.GetPath()))
+                |> Option.defaultValue "symbolPadding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -12935,11 +12935,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_VerticalAlign.ToJson o)
@@ -12951,8 +12951,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -12967,8 +12967,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -12983,11 +12983,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_Title_Style_FontWeight.ToJson o)
@@ -12999,11 +12999,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_Title_Style_Color.ToJson o)
@@ -13022,8 +13022,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| fontWeight:string; color:string |}) =
             let fontWeight = sprintf "%s" o.fontWeight
@@ -13045,8 +13045,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "title"::parent.GetPath())
-                |> Option.defaultValue ["title"]
+                |> Option.map (fun parent -> sprintf "%s.title" (parent.GetPath()))
+                |> Option.defaultValue "title"
 
         static member ToJson (o:{| style: {| fontWeight:string; color:string |} |}) =
             let style = Figure_Legend_Title_Style.ToJson o.style
@@ -13063,11 +13063,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "backgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["backgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.backgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "backgroundColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Legend_BackgroundColor.ToJson o)
@@ -13137,8 +13137,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "legend"::parent.GetPath())
-                |> Option.defaultValue ["legend"]
+                |> Option.map (fun parent -> sprintf "%s.legend" (parent.GetPath()))
+                |> Option.defaultValue "legend"
 
         static member ToJson (o:{| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}) =
             let enabled = sprintf "%b" o.enabled
@@ -13173,11 +13173,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Loading_LabelStyle_FontWeight.ToJson o)
@@ -13189,11 +13189,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "position"::parent.GetPath())
-                |> Option.defaultValue ["position"]
+                |> Option.map (fun parent -> sprintf "%s.position" (parent.GetPath()))
+                |> Option.defaultValue "position"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Loading_LabelStyle_Position.ToJson o)
@@ -13205,11 +13205,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "top"::parent.GetPath())
-                |> Option.defaultValue ["top"]
+                |> Option.map (fun parent -> sprintf "%s.top" (parent.GetPath()))
+                |> Option.defaultValue "top"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Loading_LabelStyle_Top.ToJson o)
@@ -13231,8 +13231,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "labelStyle"::parent.GetPath())
-                |> Option.defaultValue ["labelStyle"]
+                |> Option.map (fun parent -> sprintf "%s.labelStyle" (parent.GetPath()))
+                |> Option.defaultValue "labelStyle"
 
         static member ToJson (o:{| fontWeight:string; position:string; top:string |}) =
             let fontWeight = sprintf "%s" o.fontWeight
@@ -13251,11 +13251,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "position"::parent.GetPath())
-                |> Option.defaultValue ["position"]
+                |> Option.map (fun parent -> sprintf "%s.position" (parent.GetPath()))
+                |> Option.defaultValue "position"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Loading_Style_Position.ToJson o)
@@ -13267,11 +13267,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "backgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["backgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.backgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "backgroundColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Loading_Style_BackgroundColor.ToJson o)
@@ -13283,8 +13283,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "opacity"::parent.GetPath())
-                |> Option.defaultValue ["opacity"]
+                |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
+                |> Option.defaultValue "opacity"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -13299,11 +13299,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textAlign"::parent.GetPath())
-                |> Option.defaultValue ["textAlign"]
+                |> Option.map (fun parent -> sprintf "%s.textAlign" (parent.GetPath()))
+                |> Option.defaultValue "textAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Loading_Style_TextAlign.ToJson o)
@@ -13328,8 +13328,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| position:string; backgroundColor:string; opacity:int; textAlign:string |}) =
             let position = sprintf "%s" o.position
@@ -13356,8 +13356,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "loading"::parent.GetPath())
-                |> Option.defaultValue ["loading"]
+                |> Option.map (fun parent -> sprintf "%s.loading" (parent.GetPath()))
+                |> Option.defaultValue "loading"
 
         static member ToJson (o:{| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}) =
             let labelStyle = Figure_Loading_LabelStyle.ToJson o.labelStyle
@@ -13375,8 +13375,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -13391,8 +13391,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "animation"::parent.GetPath())
-                |> Option.defaultValue ["animation"]
+                |> Option.map (fun parent -> sprintf "%s.animation" (parent.GetPath()))
+                |> Option.defaultValue "animation"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -13407,8 +13407,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderRadius"::parent.GetPath())
-                |> Option.defaultValue ["borderRadius"]
+                |> Option.map (fun parent -> sprintf "%s.borderRadius" (parent.GetPath()))
+                |> Option.defaultValue "borderRadius"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -13423,11 +13423,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "millisecond"::parent.GetPath())
-                |> Option.defaultValue ["millisecond"]
+                |> Option.map (fun parent -> sprintf "%s.millisecond" (parent.GetPath()))
+                |> Option.defaultValue "millisecond"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Millisecond.ToJson o)
@@ -13439,11 +13439,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "second"::parent.GetPath())
-                |> Option.defaultValue ["second"]
+                |> Option.map (fun parent -> sprintf "%s.second" (parent.GetPath()))
+                |> Option.defaultValue "second"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Second.ToJson o)
@@ -13455,11 +13455,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "minute"::parent.GetPath())
-                |> Option.defaultValue ["minute"]
+                |> Option.map (fun parent -> sprintf "%s.minute" (parent.GetPath()))
+                |> Option.defaultValue "minute"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Minute.ToJson o)
@@ -13471,11 +13471,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hour"::parent.GetPath())
-                |> Option.defaultValue ["hour"]
+                |> Option.map (fun parent -> sprintf "%s.hour" (parent.GetPath()))
+                |> Option.defaultValue "hour"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Hour.ToJson o)
@@ -13487,11 +13487,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "day"::parent.GetPath())
-                |> Option.defaultValue ["day"]
+                |> Option.map (fun parent -> sprintf "%s.day" (parent.GetPath()))
+                |> Option.defaultValue "day"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Day.ToJson o)
@@ -13503,11 +13503,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "week"::parent.GetPath())
-                |> Option.defaultValue ["week"]
+                |> Option.map (fun parent -> sprintf "%s.week" (parent.GetPath()))
+                |> Option.defaultValue "week"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Week.ToJson o)
@@ -13519,11 +13519,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "month"::parent.GetPath())
-                |> Option.defaultValue ["month"]
+                |> Option.map (fun parent -> sprintf "%s.month" (parent.GetPath()))
+                |> Option.defaultValue "month"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Month.ToJson o)
@@ -13535,11 +13535,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "year"::parent.GetPath())
-                |> Option.defaultValue ["year"]
+                |> Option.map (fun parent -> sprintf "%s.year" (parent.GetPath()))
+                |> Option.defaultValue "year"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_DateTimeLabelFormats_Year.ToJson o)
@@ -13576,8 +13576,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "dateTimeLabelFormats"::parent.GetPath())
-                |> Option.defaultValue ["dateTimeLabelFormats"]
+                |> Option.map (fun parent -> sprintf "%s.dateTimeLabelFormats" (parent.GetPath()))
+                |> Option.defaultValue "dateTimeLabelFormats"
 
         static member ToJson (o:{| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}) =
             let millisecond = sprintf "%s" o.millisecond
@@ -13601,11 +13601,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "footerFormat"::parent.GetPath())
-                |> Option.defaultValue ["footerFormat"]
+                |> Option.map (fun parent -> sprintf "%s.footerFormat" (parent.GetPath()))
+                |> Option.defaultValue "footerFormat"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_FooterFormat.ToJson o)
@@ -13617,8 +13617,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -13633,8 +13633,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "snap"::parent.GetPath())
-                |> Option.defaultValue ["snap"]
+                |> Option.map (fun parent -> sprintf "%s.snap" (parent.GetPath()))
+                |> Option.defaultValue "snap"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -13649,11 +13649,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "headerFormat"::parent.GetPath())
-                |> Option.defaultValue ["headerFormat"]
+                |> Option.map (fun parent -> sprintf "%s.headerFormat" (parent.GetPath()))
+                |> Option.defaultValue "headerFormat"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_HeaderFormat.ToJson o)
@@ -13665,11 +13665,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "pointFormat"::parent.GetPath())
-                |> Option.defaultValue ["pointFormat"]
+                |> Option.map (fun parent -> sprintf "%s.pointFormat" (parent.GetPath()))
+                |> Option.defaultValue "pointFormat"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_PointFormat.ToJson o)
@@ -13681,11 +13681,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "backgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["backgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.backgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "backgroundColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_BackgroundColor.ToJson o)
@@ -13697,8 +13697,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderWidth"::parent.GetPath())
-                |> Option.defaultValue ["borderWidth"]
+                |> Option.map (fun parent -> sprintf "%s.borderWidth" (parent.GetPath()))
+                |> Option.defaultValue "borderWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -13713,8 +13713,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "shadow"::parent.GetPath())
-                |> Option.defaultValue ["shadow"]
+                |> Option.map (fun parent -> sprintf "%s.shadow" (parent.GetPath()))
+                |> Option.defaultValue "shadow"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -13729,11 +13729,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_Style_Color.ToJson o)
@@ -13745,11 +13745,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cursor"::parent.GetPath())
-                |> Option.defaultValue ["cursor"]
+                |> Option.map (fun parent -> sprintf "%s.cursor" (parent.GetPath()))
+                |> Option.defaultValue "cursor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_Style_Cursor.ToJson o)
@@ -13761,11 +13761,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_Style_FontSize.ToJson o)
@@ -13777,11 +13777,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "whiteSpace"::parent.GetPath())
-                |> Option.defaultValue ["whiteSpace"]
+                |> Option.map (fun parent -> sprintf "%s.whiteSpace" (parent.GetPath()))
+                |> Option.defaultValue "whiteSpace"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Tooltip_Style_WhiteSpace.ToJson o)
@@ -13806,8 +13806,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; cursor:string; fontSize:string; whiteSpace:string |}) =
             let color = sprintf "%s" o.color
@@ -13867,8 +13867,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "tooltip"::parent.GetPath())
-                |> Option.defaultValue ["tooltip"]
+                |> Option.map (fun parent -> sprintf "%s.tooltip" (parent.GetPath()))
+                |> Option.defaultValue "tooltip"
 
         static member ToJson (o:{| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}) =
             let enabled = sprintf "%b" o.enabled
@@ -13897,8 +13897,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "enabled"::parent.GetPath())
-                |> Option.defaultValue ["enabled"]
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -13913,11 +13913,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "href"::parent.GetPath())
-                |> Option.defaultValue ["href"]
+                |> Option.map (fun parent -> sprintf "%s.href" (parent.GetPath()))
+                |> Option.defaultValue "href"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Href.ToJson o)
@@ -13929,11 +13929,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Position_Align.ToJson o)
@@ -13945,8 +13945,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x"::parent.GetPath())
-                |> Option.defaultValue ["x"]
+                |> Option.map (fun parent -> sprintf "%s.x" (parent.GetPath()))
+                |> Option.defaultValue "x"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -13961,11 +13961,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Position_VerticalAlign.ToJson o)
@@ -13977,8 +13977,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y"::parent.GetPath())
-                |> Option.defaultValue ["y"]
+                |> Option.map (fun parent -> sprintf "%s.y" (parent.GetPath()))
+                |> Option.defaultValue "y"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14006,8 +14006,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "position"::parent.GetPath())
-                |> Option.defaultValue ["position"]
+                |> Option.map (fun parent -> sprintf "%s.position" (parent.GetPath()))
+                |> Option.defaultValue "position"
 
         static member ToJson (o:{| align:string; x:int; verticalAlign:string; y:int |}) =
             let align = sprintf "%s" o.align
@@ -14027,11 +14027,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "cursor"::parent.GetPath())
-                |> Option.defaultValue ["cursor"]
+                |> Option.map (fun parent -> sprintf "%s.cursor" (parent.GetPath()))
+                |> Option.defaultValue "cursor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Style_Cursor.ToJson o)
@@ -14043,11 +14043,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Style_Color.ToJson o)
@@ -14059,11 +14059,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Style_FontSize.ToJson o)
@@ -14075,11 +14075,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Style_Fill.ToJson o)
@@ -14104,8 +14104,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| cursor:string; color:string; fontSize:string; fill:string |}) =
             let cursor = sprintf "%s" o.cursor
@@ -14125,11 +14125,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "text"::parent.GetPath())
-                |> Option.defaultValue ["text"]
+                |> Option.map (fun parent -> sprintf "%s.text" (parent.GetPath()))
+                |> Option.defaultValue "text"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Credits_Text.ToJson o)
@@ -14157,8 +14157,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "credits"::parent.GetPath())
-                |> Option.defaultValue ["credits"]
+                |> Option.map (fun parent -> sprintf "%s.credits" (parent.GetPath()))
+                |> Option.defaultValue "credits"
 
         static member ToJson (o:{| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}) =
             let enabled = sprintf "%b" o.enabled
@@ -14179,8 +14179,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14195,8 +14195,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14211,8 +14211,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14227,8 +14227,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14243,8 +14243,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14272,8 +14272,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int |}) =
             let x1 = sprintf "%i" o.x1
@@ -14293,8 +14293,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -14315,8 +14315,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -14346,8 +14346,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -14378,8 +14378,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
             let linearGradient = Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient.ToJson o.linearGradient
@@ -14397,11 +14397,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stroke"::parent.GetPath())
-                |> Option.defaultValue ["stroke"]
+                |> Option.map (fun parent -> sprintf "%s.stroke" (parent.GetPath()))
+                |> Option.defaultValue "stroke"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme_Stroke.ToJson o)
@@ -14423,8 +14423,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "theme"::parent.GetPath())
-                |> Option.defaultValue ["theme"]
+                |> Option.map (fun parent -> sprintf "%s.theme" (parent.GetPath()))
+                |> Option.defaultValue "theme"
 
         static member ToJson (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}) =
             let padding = sprintf "%i" o.padding
@@ -14443,8 +14443,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbolSize"::parent.GetPath())
-                |> Option.defaultValue ["symbolSize"]
+                |> Option.map (fun parent -> sprintf "%s.symbolSize" (parent.GetPath()))
+                |> Option.defaultValue "symbolSize"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14459,8 +14459,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbolX"::parent.GetPath())
-                |> Option.defaultValue ["symbolX"]
+                |> Option.map (fun parent -> sprintf "%s.symbolX" (parent.GetPath()))
+                |> Option.defaultValue "symbolX"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14475,8 +14475,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbolY"::parent.GetPath())
-                |> Option.defaultValue ["symbolY"]
+                |> Option.map (fun parent -> sprintf "%s.symbolY" (parent.GetPath()))
+                |> Option.defaultValue "symbolY"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14491,11 +14491,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "align"::parent.GetPath())
-                |> Option.defaultValue ["align"]
+                |> Option.map (fun parent -> sprintf "%s.align" (parent.GetPath()))
+                |> Option.defaultValue "align"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Align.ToJson o)
@@ -14507,8 +14507,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "buttonSpacing"::parent.GetPath())
-                |> Option.defaultValue ["buttonSpacing"]
+                |> Option.map (fun parent -> sprintf "%s.buttonSpacing" (parent.GetPath()))
+                |> Option.defaultValue "buttonSpacing"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14523,8 +14523,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "height"::parent.GetPath())
-                |> Option.defaultValue ["height"]
+                |> Option.map (fun parent -> sprintf "%s.height" (parent.GetPath()))
+                |> Option.defaultValue "height"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14539,11 +14539,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "verticalAlign"::parent.GetPath())
-                |> Option.defaultValue ["verticalAlign"]
+                |> Option.map (fun parent -> sprintf "%s.verticalAlign" (parent.GetPath()))
+                |> Option.defaultValue "verticalAlign"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_VerticalAlign.ToJson o)
@@ -14555,8 +14555,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "width"::parent.GetPath())
-                |> Option.defaultValue ["width"]
+                |> Option.map (fun parent -> sprintf "%s.width" (parent.GetPath()))
+                |> Option.defaultValue "width"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14571,11 +14571,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbolFill"::parent.GetPath())
-                |> Option.defaultValue ["symbolFill"]
+                |> Option.map (fun parent -> sprintf "%s.symbolFill" (parent.GetPath()))
+                |> Option.defaultValue "symbolFill"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_SymbolFill.ToJson o)
@@ -14587,11 +14587,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbolStroke"::parent.GetPath())
-                |> Option.defaultValue ["symbolStroke"]
+                |> Option.map (fun parent -> sprintf "%s.symbolStroke" (parent.GetPath()))
+                |> Option.defaultValue "symbolStroke"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_SymbolStroke.ToJson o)
@@ -14603,8 +14603,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbolStrokeWidth"::parent.GetPath())
-                |> Option.defaultValue ["symbolStrokeWidth"]
+                |> Option.map (fun parent -> sprintf "%s.symbolStrokeWidth" (parent.GetPath()))
+                |> Option.defaultValue "symbolStrokeWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -14656,8 +14656,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "buttonOptions"::parent.GetPath())
-                |> Option.defaultValue ["buttonOptions"]
+                |> Option.map (fun parent -> sprintf "%s.buttonOptions" (parent.GetPath()))
+                |> Option.defaultValue "buttonOptions"
 
         static member ToJson (o:{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}) =
             let theme = Figure_Navigation_ButtonOptions_Theme.ToJson o.theme
@@ -14685,11 +14685,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "border"::parent.GetPath())
-                |> Option.defaultValue ["border"]
+                |> Option.map (fun parent -> sprintf "%s.border" (parent.GetPath()))
+                |> Option.defaultValue "border"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuStyle_Border.ToJson o)
@@ -14701,11 +14701,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "background"::parent.GetPath())
-                |> Option.defaultValue ["background"]
+                |> Option.map (fun parent -> sprintf "%s.background" (parent.GetPath()))
+                |> Option.defaultValue "background"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuStyle_Background.ToJson o)
@@ -14717,11 +14717,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuStyle_Padding.ToJson o)
@@ -14743,8 +14743,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "menuStyle"::parent.GetPath())
-                |> Option.defaultValue ["menuStyle"]
+                |> Option.map (fun parent -> sprintf "%s.menuStyle" (parent.GetPath()))
+                |> Option.defaultValue "menuStyle"
 
         static member ToJson (o:{| border:string; background:string; padding:string |}) =
             let border = sprintf "%s" o.border
@@ -14763,11 +14763,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "padding"::parent.GetPath())
-                |> Option.defaultValue ["padding"]
+                |> Option.map (fun parent -> sprintf "%s.padding" (parent.GetPath()))
+                |> Option.defaultValue "padding"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemStyle_Padding.ToJson o)
@@ -14779,11 +14779,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemStyle_Color.ToJson o)
@@ -14795,11 +14795,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "background"::parent.GetPath())
-                |> Option.defaultValue ["background"]
+                |> Option.map (fun parent -> sprintf "%s.background" (parent.GetPath()))
+                |> Option.defaultValue "background"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemStyle_Background.ToJson o)
@@ -14811,11 +14811,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemStyle_FontSize.ToJson o)
@@ -14827,11 +14827,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "transition"::parent.GetPath())
-                |> Option.defaultValue ["transition"]
+                |> Option.map (fun parent -> sprintf "%s.transition" (parent.GetPath()))
+                |> Option.defaultValue "transition"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemStyle_Transition.ToJson o)
@@ -14859,8 +14859,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "menuItemStyle"::parent.GetPath())
-                |> Option.defaultValue ["menuItemStyle"]
+                |> Option.map (fun parent -> sprintf "%s.menuItemStyle" (parent.GetPath()))
+                |> Option.defaultValue "menuItemStyle"
 
         static member ToJson (o:{| padding:string; color:string; background:string; fontSize:string; transition:string |}) =
             let padding = sprintf "%s" o.padding
@@ -14881,11 +14881,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "background"::parent.GetPath())
-                |> Option.defaultValue ["background"]
+                |> Option.map (fun parent -> sprintf "%s.background" (parent.GetPath()))
+                |> Option.defaultValue "background"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemHoverStyle_Background.ToJson o)
@@ -14897,11 +14897,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemHoverStyle_Color.ToJson o)
@@ -14920,8 +14920,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "menuItemHoverStyle"::parent.GetPath())
-                |> Option.defaultValue ["menuItemHoverStyle"]
+                |> Option.map (fun parent -> sprintf "%s.menuItemHoverStyle" (parent.GetPath()))
+                |> Option.defaultValue "menuItemHoverStyle"
 
         static member ToJson (o:{| background:string; color:string |}) =
             let background = sprintf "%s" o.background
@@ -14952,8 +14952,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "navigation"::parent.GetPath())
-                |> Option.defaultValue ["navigation"]
+                |> Option.map (fun parent -> sprintf "%s.navigation" (parent.GetPath()))
+                |> Option.defaultValue "navigation"
 
         static member ToJson (o:{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}) =
             let buttonOptions = Figure_Navigation_ButtonOptions.ToJson o.buttonOptions
@@ -14973,11 +14973,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "type"::parent.GetPath())
-                |> Option.defaultValue ["type"]
+                |> Option.map (fun parent -> sprintf "%s.type" (parent.GetPath()))
+                |> Option.defaultValue "type"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_Type.ToJson o)
@@ -14989,11 +14989,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "url"::parent.GetPath())
-                |> Option.defaultValue ["url"]
+                |> Option.map (fun parent -> sprintf "%s.url" (parent.GetPath()))
+                |> Option.defaultValue "url"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_Url.ToJson o)
@@ -15005,8 +15005,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "printMaxWidth"::parent.GetPath())
-                |> Option.defaultValue ["printMaxWidth"]
+                |> Option.map (fun parent -> sprintf "%s.printMaxWidth" (parent.GetPath()))
+                |> Option.defaultValue "printMaxWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -15021,8 +15021,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "scale"::parent.GetPath())
-                |> Option.defaultValue ["scale"]
+                |> Option.map (fun parent -> sprintf "%s.scale" (parent.GetPath()))
+                |> Option.defaultValue "scale"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -15037,11 +15037,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "className"::parent.GetPath())
-                |> Option.defaultValue ["className"]
+                |> Option.map (fun parent -> sprintf "%s.className" (parent.GetPath()))
+                |> Option.defaultValue "className"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_Buttons_ContextButton_ClassName.ToJson o)
@@ -15053,11 +15053,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "menuClassName"::parent.GetPath())
-                |> Option.defaultValue ["menuClassName"]
+                |> Option.map (fun parent -> sprintf "%s.menuClassName" (parent.GetPath()))
+                |> Option.defaultValue "menuClassName"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_Buttons_ContextButton_MenuClassName.ToJson o)
@@ -15069,11 +15069,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "symbol"::parent.GetPath())
-                |> Option.defaultValue ["symbol"]
+                |> Option.map (fun parent -> sprintf "%s.symbol" (parent.GetPath()))
+                |> Option.defaultValue "symbol"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_Buttons_ContextButton_Symbol.ToJson o)
@@ -15085,11 +15085,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "titleKey"::parent.GetPath())
-                |> Option.defaultValue ["titleKey"]
+                |> Option.map (fun parent -> sprintf "%s.titleKey" (parent.GetPath()))
+                |> Option.defaultValue "titleKey"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_Buttons_ContextButton_TitleKey.ToJson o)
@@ -15101,15 +15101,15 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
                 lastIndex <- index
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_Buttons_ContextButton_MenuItems_Item.ToJson o)
@@ -15123,8 +15123,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "menuItems"::parent.GetPath())
-                |> Option.defaultValue ["menuItems"]
+                |> Option.map (fun parent -> sprintf "%s.menuItems" (parent.GetPath()))
+                |> Option.defaultValue "menuItems"
 
         static member ToJson (o:string seq) =
             if Seq.isEmpty o then "[]"
@@ -15164,8 +15164,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "contextButton"::parent.GetPath())
-                |> Option.defaultValue ["contextButton"]
+                |> Option.map (fun parent -> sprintf "%s.contextButton" (parent.GetPath()))
+                |> Option.defaultValue "contextButton"
 
         static member ToJson (o:{| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |}) =
             let className = sprintf "%s" o.className
@@ -15190,8 +15190,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "buttons"::parent.GetPath())
-                |> Option.defaultValue ["buttons"]
+                |> Option.map (fun parent -> sprintf "%s.buttons" (parent.GetPath()))
+                |> Option.defaultValue "buttons"
 
         static member ToJson (o:{| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}) =
             let contextButton = Figure_Exporting_Buttons_ContextButton.ToJson o.contextButton
@@ -15208,11 +15208,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textKey"::parent.GetPath())
-                |> Option.defaultValue ["textKey"]
+                |> Option.map (fun parent -> sprintf "%s.textKey" (parent.GetPath()))
+                |> Option.defaultValue "textKey"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_MenuItemDefinitions_ViewFullscreen_TextKey.ToJson o)
@@ -15228,8 +15228,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "viewFullscreen"::parent.GetPath())
-                |> Option.defaultValue ["viewFullscreen"]
+                |> Option.map (fun parent -> sprintf "%s.viewFullscreen" (parent.GetPath()))
+                |> Option.defaultValue "viewFullscreen"
 
         static member ToJson (o:{| textKey:string |}) =
             let textKey = sprintf "%s" o.textKey
@@ -15246,11 +15246,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textKey"::parent.GetPath())
-                |> Option.defaultValue ["textKey"]
+                |> Option.map (fun parent -> sprintf "%s.textKey" (parent.GetPath()))
+                |> Option.defaultValue "textKey"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_MenuItemDefinitions_PrintChart_TextKey.ToJson o)
@@ -15266,8 +15266,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "printChart"::parent.GetPath())
-                |> Option.defaultValue ["printChart"]
+                |> Option.map (fun parent -> sprintf "%s.printChart" (parent.GetPath()))
+                |> Option.defaultValue "printChart"
 
         static member ToJson (o:{| textKey:string |}) =
             let textKey = sprintf "%s" o.textKey
@@ -15284,8 +15284,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "separator"::parent.GetPath())
-                |> Option.defaultValue ["separator"]
+                |> Option.map (fun parent -> sprintf "%s.separator" (parent.GetPath()))
+                |> Option.defaultValue "separator"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -15304,8 +15304,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "separator"::parent.GetPath())
-                |> Option.defaultValue ["separator"]
+                |> Option.map (fun parent -> sprintf "%s.separator" (parent.GetPath()))
+                |> Option.defaultValue "separator"
 
         static member ToJson (o:{| separator:bool |}) =
             let separator = sprintf "%b" o.separator
@@ -15322,11 +15322,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textKey"::parent.GetPath())
-                |> Option.defaultValue ["textKey"]
+                |> Option.map (fun parent -> sprintf "%s.textKey" (parent.GetPath()))
+                |> Option.defaultValue "textKey"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_MenuItemDefinitions_DownloadPNG_TextKey.ToJson o)
@@ -15342,8 +15342,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadPNG"::parent.GetPath())
-                |> Option.defaultValue ["downloadPNG"]
+                |> Option.map (fun parent -> sprintf "%s.downloadPNG" (parent.GetPath()))
+                |> Option.defaultValue "downloadPNG"
 
         static member ToJson (o:{| textKey:string |}) =
             let textKey = sprintf "%s" o.textKey
@@ -15360,11 +15360,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textKey"::parent.GetPath())
-                |> Option.defaultValue ["textKey"]
+                |> Option.map (fun parent -> sprintf "%s.textKey" (parent.GetPath()))
+                |> Option.defaultValue "textKey"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_MenuItemDefinitions_DownloadJPEG_TextKey.ToJson o)
@@ -15380,8 +15380,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadJPEG"::parent.GetPath())
-                |> Option.defaultValue ["downloadJPEG"]
+                |> Option.map (fun parent -> sprintf "%s.downloadJPEG" (parent.GetPath()))
+                |> Option.defaultValue "downloadJPEG"
 
         static member ToJson (o:{| textKey:string |}) =
             let textKey = sprintf "%s" o.textKey
@@ -15398,11 +15398,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textKey"::parent.GetPath())
-                |> Option.defaultValue ["textKey"]
+                |> Option.map (fun parent -> sprintf "%s.textKey" (parent.GetPath()))
+                |> Option.defaultValue "textKey"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_MenuItemDefinitions_DownloadPDF_TextKey.ToJson o)
@@ -15418,8 +15418,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadPDF"::parent.GetPath())
-                |> Option.defaultValue ["downloadPDF"]
+                |> Option.map (fun parent -> sprintf "%s.downloadPDF" (parent.GetPath()))
+                |> Option.defaultValue "downloadPDF"
 
         static member ToJson (o:{| textKey:string |}) =
             let textKey = sprintf "%s" o.textKey
@@ -15436,11 +15436,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "textKey"::parent.GetPath())
-                |> Option.defaultValue ["textKey"]
+                |> Option.map (fun parent -> sprintf "%s.textKey" (parent.GetPath()))
+                |> Option.defaultValue "textKey"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Exporting_MenuItemDefinitions_DownloadSVG_TextKey.ToJson o)
@@ -15456,8 +15456,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "downloadSVG"::parent.GetPath())
-                |> Option.defaultValue ["downloadSVG"]
+                |> Option.map (fun parent -> sprintf "%s.downloadSVG" (parent.GetPath()))
+                |> Option.defaultValue "downloadSVG"
 
         static member ToJson (o:{| textKey:string |}) =
             let textKey = sprintf "%s" o.textKey
@@ -15496,8 +15496,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "menuItemDefinitions"::parent.GetPath())
-                |> Option.defaultValue ["menuItemDefinitions"]
+                |> Option.map (fun parent -> sprintf "%s.menuItemDefinitions" (parent.GetPath()))
+                |> Option.defaultValue "menuItemDefinitions"
 
         static member ToJson (o:{| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |}) =
             let viewFullscreen = Figure_Exporting_MenuItemDefinitions_ViewFullscreen.ToJson o.viewFullscreen
@@ -15539,8 +15539,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "exporting"::parent.GetPath())
-                |> Option.defaultValue ["exporting"]
+                |> Option.map (fun parent -> sprintf "%s.exporting" (parent.GetPath()))
+                |> Option.defaultValue "exporting"
 
         static member ToJson (o:{| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}) =
             let _type = sprintf "%s" o._type
@@ -15562,11 +15562,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "gridLineColor"::parent.GetPath())
-                |> Option.defaultValue ["gridLineColor"]
+                |> Option.map (fun parent -> sprintf "%s.gridLineColor" (parent.GetPath()))
+                |> Option.defaultValue "gridLineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_GridLineColor.ToJson o)
@@ -15578,8 +15578,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "gridLineWidth"::parent.GetPath())
-                |> Option.defaultValue ["gridLineWidth"]
+                |> Option.map (fun parent -> sprintf "%s.gridLineWidth" (parent.GetPath()))
+                |> Option.defaultValue "gridLineWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -15594,11 +15594,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Labels_Style_Color.ToJson o)
@@ -15614,8 +15614,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -15636,8 +15636,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "labels"::parent.GetPath())
-                |> Option.defaultValue ["labels"]
+                |> Option.map (fun parent -> sprintf "%s.labels" (parent.GetPath()))
+                |> Option.defaultValue "labels"
 
         static member ToJson (o:{| style: {| color:string |} |}) =
             let style = Figure_XAxis_Item_Labels_Style.ToJson o.style
@@ -15654,11 +15654,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_LineColor.ToJson o)
@@ -15670,11 +15670,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "tickColor"::parent.GetPath())
-                |> Option.defaultValue ["tickColor"]
+                |> Option.map (fun parent -> sprintf "%s.tickColor" (parent.GetPath()))
+                |> Option.defaultValue "tickColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_TickColor.ToJson o)
@@ -15686,11 +15686,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Title_Style_Color.ToJson o)
@@ -15702,11 +15702,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Title_Style_FontWeight.ToJson o)
@@ -15718,11 +15718,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Title_Style_FontSize.ToJson o)
@@ -15734,11 +15734,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontFamily"::parent.GetPath())
-                |> Option.defaultValue ["fontFamily"]
+                |> Option.map (fun parent -> sprintf "%s.fontFamily" (parent.GetPath()))
+                |> Option.defaultValue "fontFamily"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Title_Style_FontFamily.ToJson o)
@@ -15763,8 +15763,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
             let color = sprintf "%s" o.color
@@ -15784,11 +15784,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "text"::parent.GetPath())
-                |> Option.defaultValue ["text"]
+                |> Option.map (fun parent -> sprintf "%s.text" (parent.GetPath()))
+                |> Option.defaultValue "text"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Title_Text.ToJson o)
@@ -15807,8 +15807,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "title"::parent.GetPath())
-                |> Option.defaultValue ["title"]
+                |> Option.map (fun parent -> sprintf "%s.title" (parent.GetPath()))
+                |> Option.defaultValue "title"
 
         static member ToJson (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
             let style = Figure_XAxis_Item_Title_Style.ToJson o.style
@@ -15826,8 +15826,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "index"::parent.GetPath())
-                |> Option.defaultValue ["index"]
+                |> Option.map (fun parent -> sprintf "%s.index" (parent.GetPath()))
+                |> Option.defaultValue "index"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -15842,8 +15842,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "isX"::parent.GetPath())
-                |> Option.defaultValue ["isX"]
+                |> Option.map (fun parent -> sprintf "%s.isX" (parent.GetPath()))
+                |> Option.defaultValue "isX"
 
         static member ToJson (o:bool) =
             sprintf "%b" o
@@ -15883,8 +15883,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -15914,8 +15914,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "xAxis"::parent.GetPath())
-                |> Option.defaultValue ["xAxis"]
+                |> Option.map (fun parent -> sprintf "%s.xAxis" (parent.GetPath()))
+                |> Option.defaultValue "xAxis"
 
         static member ToJson (o:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq) =
             if Seq.isEmpty o then "[]"
@@ -15939,11 +15939,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "gridLineColor"::parent.GetPath())
-                |> Option.defaultValue ["gridLineColor"]
+                |> Option.map (fun parent -> sprintf "%s.gridLineColor" (parent.GetPath()))
+                |> Option.defaultValue "gridLineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_GridLineColor.ToJson o)
@@ -15955,11 +15955,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Labels_Style_Color.ToJson o)
@@ -15975,8 +15975,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -15997,8 +15997,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "labels"::parent.GetPath())
-                |> Option.defaultValue ["labels"]
+                |> Option.map (fun parent -> sprintf "%s.labels" (parent.GetPath()))
+                |> Option.defaultValue "labels"
 
         static member ToJson (o:{| style: {| color:string |} |}) =
             let style = Figure_YAxis_Item_Labels_Style.ToJson o.style
@@ -16015,11 +16015,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_LineColor.ToJson o)
@@ -16031,11 +16031,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "minorTickInterval"::parent.GetPath())
-                |> Option.defaultValue ["minorTickInterval"]
+                |> Option.map (fun parent -> sprintf "%s.minorTickInterval" (parent.GetPath()))
+                |> Option.defaultValue "minorTickInterval"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MinorTickInterval.ToJson o)
@@ -16047,11 +16047,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "tickColor"::parent.GetPath())
-                |> Option.defaultValue ["tickColor"]
+                |> Option.map (fun parent -> sprintf "%s.tickColor" (parent.GetPath()))
+                |> Option.defaultValue "tickColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_TickColor.ToJson o)
@@ -16063,8 +16063,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "tickWidth"::parent.GetPath())
-                |> Option.defaultValue ["tickWidth"]
+                |> Option.map (fun parent -> sprintf "%s.tickWidth" (parent.GetPath()))
+                |> Option.defaultValue "tickWidth"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16079,11 +16079,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Title_Style_Color.ToJson o)
@@ -16095,11 +16095,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Title_Style_FontWeight.ToJson o)
@@ -16111,11 +16111,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontSize"::parent.GetPath())
-                |> Option.defaultValue ["fontSize"]
+                |> Option.map (fun parent -> sprintf "%s.fontSize" (parent.GetPath()))
+                |> Option.defaultValue "fontSize"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Title_Style_FontSize.ToJson o)
@@ -16127,11 +16127,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontFamily"::parent.GetPath())
-                |> Option.defaultValue ["fontFamily"]
+                |> Option.map (fun parent -> sprintf "%s.fontFamily" (parent.GetPath()))
+                |> Option.defaultValue "fontFamily"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Title_Style_FontFamily.ToJson o)
@@ -16156,8 +16156,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontWeight:string; fontSize:string; fontFamily:string |}) =
             let color = sprintf "%s" o.color
@@ -16177,11 +16177,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "text"::parent.GetPath())
-                |> Option.defaultValue ["text"]
+                |> Option.map (fun parent -> sprintf "%s.text" (parent.GetPath()))
+                |> Option.defaultValue "text"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Title_Text.ToJson o)
@@ -16200,8 +16200,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "title"::parent.GetPath())
-                |> Option.defaultValue ["title"]
+                |> Option.map (fun parent -> sprintf "%s.title" (parent.GetPath()))
+                |> Option.defaultValue "title"
 
         static member ToJson (o:{| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}) =
             let style = Figure_YAxis_Item_Title_Style.ToJson o.style
@@ -16219,8 +16219,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "index"::parent.GetPath())
-                |> Option.defaultValue ["index"]
+                |> Option.map (fun parent -> sprintf "%s.index" (parent.GetPath()))
+                |> Option.defaultValue "index"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16260,8 +16260,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -16291,8 +16291,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "yAxis"::parent.GetPath())
-                |> Option.defaultValue ["yAxis"]
+                |> Option.map (fun parent -> sprintf "%s.yAxis" (parent.GetPath()))
+                |> Option.defaultValue "yAxis"
 
         static member ToJson (o:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq) =
             if Seq.isEmpty o then "[]"
@@ -16316,11 +16316,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Toolbar_ItemStyle_Color.ToJson o)
@@ -16336,8 +16336,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "itemStyle"::parent.GetPath())
-                |> Option.defaultValue ["itemStyle"]
+                |> Option.map (fun parent -> sprintf "%s.itemStyle" (parent.GetPath()))
+                |> Option.defaultValue "itemStyle"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -16358,8 +16358,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "toolbar"::parent.GetPath())
-                |> Option.defaultValue ["toolbar"]
+                |> Option.map (fun parent -> sprintf "%s.toolbar" (parent.GetPath()))
+                |> Option.defaultValue "toolbar"
 
         static member ToJson (o:{| itemStyle: {| color:string |} |}) =
             let itemStyle = Figure_Toolbar_ItemStyle.ToJson o.itemStyle
@@ -16376,8 +16376,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16392,8 +16392,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16408,8 +16408,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16424,8 +16424,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16453,8 +16453,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int |}) =
             let x1 = sprintf "%i" o.x1
@@ -16474,8 +16474,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -16496,8 +16496,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -16527,8 +16527,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -16559,8 +16559,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
             let linearGradient = Figure_RangeSelector_ButtonTheme_Fill_LinearGradient.ToJson o.linearGradient
@@ -16578,11 +16578,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stroke"::parent.GetPath())
-                |> Option.defaultValue ["stroke"]
+                |> Option.map (fun parent -> sprintf "%s.stroke" (parent.GetPath()))
+                |> Option.defaultValue "stroke"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Stroke.ToJson o)
@@ -16594,11 +16594,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Style_Color.ToJson o)
@@ -16610,11 +16610,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fontWeight"::parent.GetPath())
-                |> Option.defaultValue ["fontWeight"]
+                |> Option.map (fun parent -> sprintf "%s.fontWeight" (parent.GetPath()))
+                |> Option.defaultValue "fontWeight"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Style_FontWeight.ToJson o)
@@ -16633,8 +16633,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string; fontWeight:string |}) =
             let color = sprintf "%s" o.color
@@ -16652,8 +16652,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16668,8 +16668,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16684,8 +16684,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16700,8 +16700,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16729,8 +16729,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int |}) =
             let x1 = sprintf "%i" o.x1
@@ -16750,8 +16750,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -16772,8 +16772,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -16803,8 +16803,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -16835,8 +16835,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
             let linearGradient = Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient.ToJson o.linearGradient
@@ -16854,11 +16854,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stroke"::parent.GetPath())
-                |> Option.defaultValue ["stroke"]
+                |> Option.map (fun parent -> sprintf "%s.stroke" (parent.GetPath()))
+                |> Option.defaultValue "stroke"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Stroke.ToJson o)
@@ -16870,11 +16870,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Style_Color.ToJson o)
@@ -16890,8 +16890,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -16918,8 +16918,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "hover"::parent.GetPath())
-                |> Option.defaultValue ["hover"]
+                |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
+                |> Option.defaultValue "hover"
 
         static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_States_Hover_Fill.ToJson o.fill
@@ -16938,8 +16938,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16954,8 +16954,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16970,8 +16970,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -16986,8 +16986,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17015,8 +17015,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int |}) =
             let x1 = sprintf "%i" o.x1
@@ -17036,8 +17036,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -17058,8 +17058,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -17089,8 +17089,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -17121,8 +17121,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "fill"::parent.GetPath())
-                |> Option.defaultValue ["fill"]
+                |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
+                |> Option.defaultValue "fill"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
             let linearGradient = Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient.ToJson o.linearGradient
@@ -17140,11 +17140,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stroke"::parent.GetPath())
-                |> Option.defaultValue ["stroke"]
+                |> Option.map (fun parent -> sprintf "%s.stroke" (parent.GetPath()))
+                |> Option.defaultValue "stroke"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Stroke.ToJson o)
@@ -17156,11 +17156,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Style_Color.ToJson o)
@@ -17176,8 +17176,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "style"::parent.GetPath())
-                |> Option.defaultValue ["style"]
+                |> Option.map (fun parent -> sprintf "%s.style" (parent.GetPath()))
+                |> Option.defaultValue "style"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -17204,8 +17204,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "select"::parent.GetPath())
-                |> Option.defaultValue ["select"]
+                |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
+                |> Option.defaultValue "select"
 
         static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_States_Select_Fill.ToJson o.fill
@@ -17231,8 +17231,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "states"::parent.GetPath())
-                |> Option.defaultValue ["states"]
+                |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
+                |> Option.defaultValue "states"
 
         static member ToJson (o:{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |}) =
             let hover = Figure_RangeSelector_ButtonTheme_States_Hover.ToJson o.hover
@@ -17263,8 +17263,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "buttonTheme"::parent.GetPath())
-                |> Option.defaultValue ["buttonTheme"]
+                |> Option.map (fun parent -> sprintf "%s.buttonTheme" (parent.GetPath()))
+                |> Option.defaultValue "buttonTheme"
 
         static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_Fill.ToJson o.fill
@@ -17284,11 +17284,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "backgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["backgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.backgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "backgroundColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_InputStyle_BackgroundColor.ToJson o)
@@ -17300,11 +17300,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_InputStyle_Color.ToJson o)
@@ -17323,8 +17323,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "inputStyle"::parent.GetPath())
-                |> Option.defaultValue ["inputStyle"]
+                |> Option.map (fun parent -> sprintf "%s.inputStyle" (parent.GetPath()))
+                |> Option.defaultValue "inputStyle"
 
         static member ToJson (o:{| backgroundColor:string; color:string |}) =
             let backgroundColor = sprintf "%s" o.backgroundColor
@@ -17342,11 +17342,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_LabelStyle_Color.ToJson o)
@@ -17362,8 +17362,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "labelStyle"::parent.GetPath())
-                |> Option.defaultValue ["labelStyle"]
+                |> Option.map (fun parent -> sprintf "%s.labelStyle" (parent.GetPath()))
+                |> Option.defaultValue "labelStyle"
 
         static member ToJson (o:{| color:string |}) =
             let color = sprintf "%s" o.color
@@ -17390,8 +17390,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "rangeSelector"::parent.GetPath())
-                |> Option.defaultValue ["rangeSelector"]
+                |> Option.map (fun parent -> sprintf "%s.rangeSelector" (parent.GetPath()))
+                |> Option.defaultValue "rangeSelector"
 
         static member ToJson (o:{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}) =
             let buttonTheme = Figure_RangeSelector_ButtonTheme.ToJson o.buttonTheme
@@ -17410,11 +17410,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "backgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["backgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.backgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "backgroundColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigator_Handles_BackgroundColor.ToJson o)
@@ -17426,11 +17426,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "borderColor"::parent.GetPath())
-                |> Option.defaultValue ["borderColor"]
+                |> Option.map (fun parent -> sprintf "%s.borderColor" (parent.GetPath()))
+                |> Option.defaultValue "borderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigator_Handles_BorderColor.ToJson o)
@@ -17449,8 +17449,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "handles"::parent.GetPath())
-                |> Option.defaultValue ["handles"]
+                |> Option.map (fun parent -> sprintf "%s.handles" (parent.GetPath()))
+                |> Option.defaultValue "handles"
 
         static member ToJson (o:{| backgroundColor:string; borderColor:string |}) =
             let backgroundColor = sprintf "%s" o.backgroundColor
@@ -17468,11 +17468,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "outlineColor"::parent.GetPath())
-                |> Option.defaultValue ["outlineColor"]
+                |> Option.map (fun parent -> sprintf "%s.outlineColor" (parent.GetPath()))
+                |> Option.defaultValue "outlineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigator_OutlineColor.ToJson o)
@@ -17484,11 +17484,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "maskFill"::parent.GetPath())
-                |> Option.defaultValue ["maskFill"]
+                |> Option.map (fun parent -> sprintf "%s.maskFill" (parent.GetPath()))
+                |> Option.defaultValue "maskFill"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigator_MaskFill.ToJson o)
@@ -17500,11 +17500,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "color"::parent.GetPath())
-                |> Option.defaultValue ["color"]
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigator_Series_Color.ToJson o)
@@ -17516,11 +17516,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "lineColor"::parent.GetPath())
-                |> Option.defaultValue ["lineColor"]
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigator_Series_LineColor.ToJson o)
@@ -17539,8 +17539,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "series"::parent.GetPath())
-                |> Option.defaultValue ["series"]
+                |> Option.map (fun parent -> sprintf "%s.series" (parent.GetPath()))
+                |> Option.defaultValue "series"
 
         static member ToJson (o:{| color:string; lineColor:string |}) =
             let color = sprintf "%s" o.color
@@ -17571,8 +17571,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "navigator"::parent.GetPath())
-                |> Option.defaultValue ["navigator"]
+                |> Option.map (fun parent -> sprintf "%s.navigator" (parent.GetPath()))
+                |> Option.defaultValue "navigator"
 
         static member ToJson (o:{| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}) =
             let handles = Figure_Navigator_Handles.ToJson o.handles
@@ -17592,8 +17592,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17608,8 +17608,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17624,8 +17624,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17640,8 +17640,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17669,8 +17669,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int |}) =
             let x1 = sprintf "%i" o.x1
@@ -17690,8 +17690,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -17712,8 +17712,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -17743,8 +17743,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -17775,8 +17775,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "barBackgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["barBackgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.barBackgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "barBackgroundColor"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
             let linearGradient = Figure_Scrollbar_BarBackgroundColor_LinearGradient.ToJson o.linearGradient
@@ -17794,11 +17794,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "barBorderColor"::parent.GetPath())
-                |> Option.defaultValue ["barBorderColor"]
+                |> Option.map (fun parent -> sprintf "%s.barBorderColor" (parent.GetPath()))
+                |> Option.defaultValue "barBorderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_BarBorderColor.ToJson o)
@@ -17810,11 +17810,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "buttonArrowColor"::parent.GetPath())
-                |> Option.defaultValue ["buttonArrowColor"]
+                |> Option.map (fun parent -> sprintf "%s.buttonArrowColor" (parent.GetPath()))
+                |> Option.defaultValue "buttonArrowColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_ButtonArrowColor.ToJson o)
@@ -17826,8 +17826,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17842,8 +17842,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17858,8 +17858,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17874,8 +17874,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -17903,8 +17903,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int |}) =
             let x1 = sprintf "%i" o.x1
@@ -17924,8 +17924,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -17946,8 +17946,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -17977,8 +17977,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -18009,8 +18009,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "buttonBackgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["buttonBackgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.buttonBackgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "buttonBackgroundColor"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
             let linearGradient = Figure_Scrollbar_ButtonBackgroundColor_LinearGradient.ToJson o.linearGradient
@@ -18028,11 +18028,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "buttonBorderColor"::parent.GetPath())
-                |> Option.defaultValue ["buttonBorderColor"]
+                |> Option.map (fun parent -> sprintf "%s.buttonBorderColor" (parent.GetPath()))
+                |> Option.defaultValue "buttonBorderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_ButtonBorderColor.ToJson o)
@@ -18044,11 +18044,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "rifleColor"::parent.GetPath())
-                |> Option.defaultValue ["rifleColor"]
+                |> Option.map (fun parent -> sprintf "%s.rifleColor" (parent.GetPath()))
+                |> Option.defaultValue "rifleColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_RifleColor.ToJson o)
@@ -18060,8 +18060,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x1"::parent.GetPath())
-                |> Option.defaultValue ["x1"]
+                |> Option.map (fun parent -> sprintf "%s.x1" (parent.GetPath()))
+                |> Option.defaultValue "x1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -18076,8 +18076,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y1"::parent.GetPath())
-                |> Option.defaultValue ["y1"]
+                |> Option.map (fun parent -> sprintf "%s.y1" (parent.GetPath()))
+                |> Option.defaultValue "y1"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -18092,8 +18092,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "x2"::parent.GetPath())
-                |> Option.defaultValue ["x2"]
+                |> Option.map (fun parent -> sprintf "%s.x2" (parent.GetPath()))
+                |> Option.defaultValue "x2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -18108,8 +18108,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "y2"::parent.GetPath())
-                |> Option.defaultValue ["y2"]
+                |> Option.map (fun parent -> sprintf "%s.y2" (parent.GetPath()))
+                |> Option.defaultValue "y2"
 
         static member ToJson (o:int) =
             sprintf "%i" o
@@ -18137,8 +18137,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "linearGradient"::parent.GetPath())
-                |> Option.defaultValue ["linearGradient"]
+                |> Option.map (fun parent -> sprintf "%s.linearGradient" (parent.GetPath()))
+                |> Option.defaultValue "linearGradient"
 
         static member ToJson (o:{| x1:int; y1:int; x2:int; y2:int |}) =
             let x1 = sprintf "%i" o.x1
@@ -18158,8 +18158,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -18180,8 +18180,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -18211,8 +18211,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "stops"::parent.GetPath())
-                |> Option.defaultValue ["stops"]
+                |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
+                |> Option.defaultValue "stops"
 
         static member ToJson (o:int seq seq) =
             if Seq.isEmpty o then "[]"
@@ -18243,8 +18243,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "trackBackgroundColor"::parent.GetPath())
-                |> Option.defaultValue ["trackBackgroundColor"]
+                |> Option.map (fun parent -> sprintf "%s.trackBackgroundColor" (parent.GetPath()))
+                |> Option.defaultValue "trackBackgroundColor"
 
         static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
             let linearGradient = Figure_Scrollbar_TrackBackgroundColor_LinearGradient.ToJson o.linearGradient
@@ -18262,11 +18262,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "trackBorderColor"::parent.GetPath())
-                |> Option.defaultValue ["trackBorderColor"]
+                |> Option.map (fun parent -> sprintf "%s.trackBorderColor" (parent.GetPath()))
+                |> Option.defaultValue "trackBorderColor"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_TrackBorderColor.ToJson o)
@@ -18303,8 +18303,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "scrollbar"::parent.GetPath())
-                |> Option.defaultValue ["scrollbar"]
+                |> Option.map (fun parent -> sprintf "%s.scrollbar" (parent.GetPath()))
+                |> Option.defaultValue "scrollbar"
 
         static member ToJson (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
             let barBackgroundColor = Figure_Scrollbar_BarBackgroundColor.ToJson o.barBackgroundColor
@@ -18328,11 +18328,11 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "name"::parent.GetPath())
-                |> Option.defaultValue ["name"]
+                |> Option.map (fun parent -> sprintf "%s.name" (parent.GetPath()))
+                |> Option.defaultValue "name"
 
         static member ToJson (o:string) =
-            sprintf "%s" o
+            sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Name.ToJson o)
@@ -18344,8 +18344,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -18366,8 +18366,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "data"::parent.GetPath())
-                |> Option.defaultValue ["data"]
+                |> Option.map (fun parent -> sprintf "%s.data" (parent.GetPath()))
+                |> Option.defaultValue "data"
 
         static member ToJson (o:int seq) =
             if Seq.isEmpty o then "[]"
@@ -18398,8 +18398,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> (sprintf "[%i]" lastIndex)::parent.GetPath())
-                |> Option.defaultValue [(sprintf "[%i]" lastIndex)]
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
 
         interface IFigureArrayElement with
             member this.SetLastIndex index =
@@ -18423,8 +18423,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "series"::parent.GetPath())
-                |> Option.defaultValue ["series"]
+                |> Option.map (fun parent -> sprintf "%s.series" (parent.GetPath()))
+                |> Option.defaultValue "series"
 
         static member ToJson (o:{| name:string; data:int seq |} seq) =
             if Seq.isEmpty o then "[]"
@@ -18521,8 +18521,8 @@ module Figure =
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> "Figure"::parent.GetPath())
-                |> Option.defaultValue ["Figure"]
+                |> Option.map (fun parent -> sprintf "%s.Figure" (parent.GetPath()))
+                |> Option.defaultValue "Figure"
 
         static member ToJson (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| position:string; color:string |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq; yAxis:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| name:string; data:int seq |} seq |}) =
             let colors = Figure_Colors.ToJson o.colors

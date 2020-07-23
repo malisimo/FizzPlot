@@ -107,7 +107,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 //#region [rgba(162,145,130,0.2)]
         | JsonValue.Record(r) ->
             let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
             let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
             let arrStr2 =
                 if isParentArray then
@@ -118,16 +119,6 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                     >~> ""
                 else
                     ""
-
-                // match curKey,state.CurIndexPath.Length,state.ParentPath.Length with
-                // | "item",_,p when p > 1 ->
-                //     state.CurIndexPath
-                // | "item",_,_ ->
-                //     ""
-                // | _,i,p when i > 0 && p > 1 ->
-                //     sprintf "%s.%s" state.CurIndexPath curKey
-                // | _,_,_ ->
-                //     curKey
 
             let nextState =
                 match r with
@@ -157,8 +148,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%sinterface IFigureItem with" ~~2
                 >~> sprintf "%smember this.GetPath() =" ~~3
                 >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s::parent.GetPath())" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue [%s]" ~~4 pathStr
+                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:{| %s |}) =" ~~2 nextState.CurCodeSb
                 >~> sprintf "%s" nextState.CurJsonSb
@@ -207,7 +198,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 //#region [rgba(162,85,230,0.2)]
         | JsonValue.Array(arr) ->
             let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
             let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
             let arrStr2 =
                 if isParentArray then
@@ -238,8 +230,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%sinterface IFigureItem with" ~~2
                 >~> sprintf "%smember this.GetPath() =" ~~3
                 >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s::parent.GetPath())" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue [%s]" ~~4 pathStr
+                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:%s seq) =" ~~2 nextState.CurCodeSb
                 >~> sprintf "%sif Seq.isEmpty o then \"[]\"" ~~3
@@ -296,7 +288,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 //#region [rgba(62,145,230,0.2)]
         | JsonValue.String(_) ->
             let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
             let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
             let arrStr2 =
                 if isParentArray then
@@ -339,11 +332,11 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%sinterface IFigureItem with" ~~2
                 >~> sprintf "%smember this.GetPath() =" ~~3
                 >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s::parent.GetPath())" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue [%s]" ~~4 pathStr
+                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:string) =" ~~2
-                >~> sprintf "%ssprintf \"%ss\" o" ~~3 "%"
+                >~> sprintf "%ssprintf \"\\\\\\\"%ss\\\\\\\"\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:string) =" ~~2
                 >~> sprintf "%supdate currentChartIndex ((this :> IFigureItem).GetPath()) (%s.ToJson o)" ~~3 (pathToType curPath)
@@ -360,7 +353,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 //#region [rgba(162,15,120,0.2)]
         | JsonValue.Float(_) ->
             let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
             let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
             let arrStr2 =
                 if isParentArray then
@@ -403,8 +397,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%sinterface IFigureItem with" ~~2
                 >~> sprintf "%smember this.GetPath() =" ~~3
                 >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s::parent.GetPath())" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue [%s]" ~~4 pathStr
+                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:float) =" ~~2
                 >~> sprintf "%ssprintf \"%ss\" o" ~~3 "%"
@@ -424,7 +418,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 //#region [rgba(62,45,230,0.2)]
         | JsonValue.Number(_) ->
             let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
             let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
             let arrStr2 =
                 if isParentArray then
@@ -467,8 +462,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%sinterface IFigureItem with" ~~2
                 >~> sprintf "%smember this.GetPath() =" ~~3
                 >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s::parent.GetPath())" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue [%s]" ~~4 pathStr
+                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:int) =" ~~2
                 >~> sprintf "%ssprintf \"%si\" o" ~~3 "%"
@@ -488,7 +483,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 //#region [rgba(232,30,45,0.2)]
         | JsonValue.Boolean(_) ->
             let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
             let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
             let arrStr2 =
                 if isParentArray then
@@ -531,8 +527,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%sinterface IFigureItem with" ~~2
                 >~> sprintf "%smember this.GetPath() =" ~~3
                 >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s::parent.GetPath())" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue [%s]" ~~4 pathStr
+                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:bool) =" ~~2
                 >~> sprintf "%ssprintf \"%sb\" o" ~~3 "%"
@@ -552,7 +548,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
 //#region [rgba(32,130,45,0.2)]
         | JsonValue.Null ->
             let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
             let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
             let arrStr2 =
                 if isParentArray then
@@ -595,11 +592,11 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%sinterface IFigureItem with" ~~2
                 >~> sprintf "%smember this.GetPath() =" ~~3
                 >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s::parent.GetPath())" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue [%s]" ~~4 pathStr
+                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:string) =" ~~2
-                >~> sprintf "%ssprintf \"%ss\" o" ~~3 "%"
+                >~> sprintf "%ssprintf \"\\\\\\\"%ss\\\\\\\"\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:string) =" ~~2
                 >~> sprintf "%supdate currentChartIndex ((this :> IFigureItem).GetPath()) (%s.ToJson o)" ~~3 (pathToType curPath)
@@ -629,7 +626,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
     sb.AppendLine("    open Server") |> ignore
     sb.AppendLine() |> ignore
     sb.AppendLine("    type IFigureItem =") |> ignore
-    sb.AppendLine("        abstract GetPath : unit -> string list") |> ignore
+    sb.AppendLine("        abstract GetPath : unit -> string") |> ignore
     sb.AppendLine() |> ignore
     sb.AppendLine("    type IFigureArrayElement =") |> ignore
     sb.AppendLine("        abstract SetLastIndex : index:int -> unit") |> ignore

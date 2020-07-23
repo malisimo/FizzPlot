@@ -243,64 +243,6 @@ function initApp()
     Highcharts.setOptions(Highcharts.theme);
 }
 
-function createGuid()
-{
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}
-
-
-// Set the [id] properties of current object based on those of a source,
-// according to the targets passed (path and index)
-function setTargetIds(source, current, target) {
-    function mapTargetId(s, c) {
-        var src = s;
-        var cur = c;
-
-        function getIds(prop, o) {
-            ids = [];
-            arr = _.get(o,prop);
-        
-            for (var a in arr) {
-                if (arr[a].id !== undefined) {
-                    ids.push(arr[a].id);
-                }
-            }
-        
-            return ids;
-        }
-
-        function foldInner(t) {
-            let tInfo = t.split('#');
-            let targetPath = tInfo[0];
-            let targetIndex = parseInt(tInfo[1]);
-
-            let ids = getIds(targetPath,src);
-            let curSub = _.get(cur,targetPath);
-
-            srcSub = _.get(src,targetPath);
-            curSub[0].id = ids[targetIndex];
-
-            cur = curSub[0];
-            src = srcSub[targetIndex];
-
-            return current;
-        }
-
-        return foldInner;
-    }
-
-    let targets = target.split(',')
-    if (targets.length > 0) {
-        let res = targets.map(mapTargetId(_.cloneDeep(source),current));
-        return res[res.length-1];
-    }
-
-    return current;
-}
-
 function initElement(el, parentId)
 {
     switch (el.type)
@@ -415,17 +357,13 @@ function openWebSocket(appData) {
 
                 console.info('Adding series to chart');
                 let seriesObj = JSON.parse(messageObj.json);
-                seriesObj.id = createGuid();
                 addChartSeries(appData.charts[messageObj.chartIndex], seriesObj);
                 break;
             case 'update':
                 console.info('Updating chart');
-                let msgObj = setTargetIds(appData.charts[messageObj.chartIndex].options,
-                    JSON.parse(messageObj.json),
-                    messageObj.target);
-                    
+                let msgObj = JSON.parse(messageObj.json);
                 console.log(msgObj);
-                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, msgObj);
+                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, );
                 break;
             case 'delete':
                 console.info('Deleting chart or series');

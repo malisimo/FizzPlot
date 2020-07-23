@@ -98,12 +98,14 @@ module internal Server =
         let msg = sprintf "{\"operation\":\"add\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex target json
         send msg
 
-    let update chartIndex (targetIndexes:string list) json =    
-        let targetStr =
-            targetIndexes
-            |> String.concat ","
+    let update chartIndex (target:string) json =
+        let targetTrimmed =
+            if target.StartsWith("Figure.") then
+                target.Substring(7)
+            else
+                target
 
-        let msg = sprintf "{\"operation\":\"update\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex targetStr json
+        let msg = sprintf "{\"operation\":\"update\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex targetTrimmed json
         send msg
 
     let render json =
