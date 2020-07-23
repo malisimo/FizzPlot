@@ -23,7 +23,6 @@ let indexHandler =
         Operation = string Update
         ChartIndex = 0
         Target = "title"
-        TargetIndex = 0
         Json = "{\"text\":\"\"}"
     }
     
@@ -38,7 +37,7 @@ let handleFetch : HttpHandler =
             //receivedMessages.Clear()
             
             Console.WriteLine("Sending message to sockets")
-            do! sendMessageToSockets (serializer.SerializeToString { Operation = "fetch"; ChartIndex = 0; Target = ""; TargetIndex = 0; Json = "{}"})
+            do! sendMessageToSockets (serializer.SerializeToString { Operation = "fetch"; ChartIndex = 0; Target = ""; Json = "{}"})
 
             // Wait for some time for a message in the received queue
             let rec waitMessage i =

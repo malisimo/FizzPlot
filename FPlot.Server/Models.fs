@@ -19,6 +19,5 @@ type Message = {
     Operation : string
     ChartIndex : int
     Target : string
-    TargetIndex : int
     Json : string
 }

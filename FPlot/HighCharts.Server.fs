@@ -98,8 +98,12 @@ module internal Server =
         let msg = sprintf "{\"operation\":\"add\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex target json
         send msg
 
-    let update chartIndex target json =
-        let msg = sprintf "{\"operation\":\"update\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex target json
+    let update chartIndex (targetIndexes:string list) json =    
+        let targetStr =
+            targetIndexes
+            |> String.concat ","
+
+        let msg = sprintf "{\"operation\":\"update\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex targetStr json
         send msg
 
     let render json =
@@ -108,7 +112,6 @@ module internal Server =
             stream
         else
             None
-        
 
     let killServer() =
         match serverProc with
