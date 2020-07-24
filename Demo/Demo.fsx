@@ -18,7 +18,7 @@ let rand = Random()
 let data1 = [ for i in 0..n -> (0.1 * ~~i, 1.0 + rand.NextDouble() + ~~i) ]
 plot data1
 
-save "C:\\Users\\Installer\\Documents\\Source\\Repos\\FPlot\\img.png"
+save ".\\img.png"
 
 // Update the title
 title "data1"
@@ -27,6 +27,7 @@ title "data1"
 xlabel "x"
 ylabel "y"
 
+fig.series.[0].name.Set "First"
 fig.legend.backgroundColor.Set "rgba(220,180,20,0.4)"
 fig.tooltip.padding.Set 12
 fig.colors.[0].Set "#F123A2"
@@ -42,6 +43,7 @@ fig.series.[0].lineWidth.Set 4
 // Change the data in current series 
 let data2 = [ for i in 0..n -> (0.1 * ~~i, 5.0 + rand.NextDouble() + ~~i) ]
 plot data2 |> ignore
+fig.series.[1].name.Set "Second"
 
 // Update the title again
 title "data2"

@@ -13,6 +13,7 @@ module internal Server =
     let serverAddress = "http://localhost:2387"
     let mutable serverProc:Process option = None
 
+    /// Send JSON message asynchronously, and optionally retrieve response
     let asyncSend wait json = async {
         try
             printfn "-=- Sending %s to server..." json
@@ -91,13 +92,16 @@ module internal Server =
             return (HttpStatusCode.InternalServerError,None)
     }
 
+    /// Send JSON message synchronously
     let send json =
         asyncSend false json |> Async.RunSynchronously |> ignore
 
+    /// Add series to existing chart
     let add chartIndex target json =
         let msg = sprintf "{\"operation\":\"add\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex target json
         send msg
 
+    /// Update a single chart property
     let update chartIndex (target:string) json =
         let targetTrimmed =
             if target.StartsWith("Figure.") then
@@ -108,6 +112,7 @@ module internal Server =
         let msg = sprintf "{\"operation\":\"update\",\"chartIndex\":%i,\"target\":\"%s\",\"json\":\"%s\"}" chartIndex targetTrimmed json
         send msg
 
+    /// Render chart to PNG
     let render json =
         let resp,stream = asyncRender json |> Async.RunSynchronously
         if resp = HttpStatusCode.OK then
@@ -115,6 +120,7 @@ module internal Server =
         else
             None
 
+    /// Terminate this server instance
     let killServer() =
         match serverProc with
         | Some(proc) ->
@@ -124,6 +130,7 @@ module internal Server =
         | None ->
             ()
 
+    /// Utility to pause until server has started
     let rec waitForProcessStart i (proc:Process) = 
         if i >= 20 then
             () 
@@ -136,6 +143,7 @@ module internal Server =
                 Thread.Sleep(100)
                 waitForProcessStart (i+1) proc
 
+    /// Start server instance
     let private startServer (initData:string option) =
         let workDir = "FPlot.Server"
         let binDir = "bin/Debug/netcoreapp2.2/"
@@ -169,6 +177,7 @@ module internal Server =
 
         proc
 
+    /// Start server if not already started
     let checkServer initData =
         match serverProc with
         | Some(proc) ->

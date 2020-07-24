@@ -22,8 +22,8 @@ let indexHandler =
     let model = {
         Operation = string Update
         ChartIndex = 0
-        Target = "title"
-        Json = "{\"text\":\"\"}"
+        Target = "title.text"
+        Json = "\"\"}"
     }
     
     razorHtmlView "Index" (Some model) None

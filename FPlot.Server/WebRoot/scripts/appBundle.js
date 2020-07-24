@@ -7,7 +7,7 @@ function initApp()
             backgroundColor: {
                 linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
                 stops: [
-                    [0, 'rgb(48, 48, 96)'],
+                    [0, 'rgb(48, 48, 66)'],
                     [1, 'rgb(0, 0, 0)']
                 ]
             },
@@ -88,19 +88,6 @@ function initApp()
                 marker: {
                     lineColor: '#333'
                 }
-            },
-            spline: {
-                marker: {
-                    lineColor: '#333'
-                }
-            },
-            scatter: {
-                marker: {
-                    lineColor: '#333'
-                }
-            },
-            candlestick: {
-                lineColor: 'white'
             }
         },
         legend: {
@@ -243,40 +230,6 @@ function initApp()
     Highcharts.setOptions(Highcharts.theme);
 }
 
-function initElement(el, parentId)
-{
-    switch (el.type)
-    {
-        case "Title":
-            initTitleElement(el, parentId);
-            break;
-        case "TextBlock":
-            initTextBlockElement(el, parentId);
-            break;
-        case "Chart":
-            initChartElement(el, parentId);
-            break;
-    }
-}
-
-function initTitleElement(el, parentId)
-{
-    var titleHeader = document.createElement("h1");
-    titleHeader.setAttribute("id", el.id);
-    titleHeader.setAttribute("class", "title");
-    titleHeader.innerHTML = el.text;
-    document.getElementById(parentId).appendChild(titleHeader);
-}
-
-function initTextBlockElement(el, parentId)
-{
-    var textP = document.createElement("p");
-    textP.setAttribute("id", el.id);
-    textP.setAttribute("class", "textBlock");
-    textP.innerHTML = el.text;
-    document.getElementById(parentId).appendChild(textP);
-}
-
 function initChartElement(el, parentId)
 {
     var element = document.getElementById(el.id);
@@ -326,12 +279,10 @@ function createNewChart(chartId) {
 function openWebSocket(appData) {
     var socket = new WebSocket('ws://localhost:2387/ws')
     socket.onopen = function () {
-        //console.log('INFO: WebSocket opened successfully');
+        console.info('WebSocket opened successfully');
     }
     socket.onclose = function (event) {
-        //console.log('INFO: WebSocket closed');
         console.info('WebSocket closed');
-        console.log(event);
         openWebSocket(appData);
     }
     socket.onerror = function (error) {
@@ -341,7 +292,7 @@ function openWebSocket(appData) {
     socket.onmessage = function (messageEvent) {
         console.info('Got websocket message');
         messageObj = JSON.parse(messageEvent.data);
-        console.log(messageObj);
+        //console.log(messageObj);
 
         switch (messageObj.operation) {
             case 'create':
@@ -353,16 +304,23 @@ function openWebSocket(appData) {
                     console.info('Adding new chart');
                     appData.charts.unshift(createNewChart('chart_' + appData.charts.length.toString()));
                 }
-
-                console.info('Adding series to chart');
+                
+                if (appData.charts.length > messageObj.chartIndex) {
+                    console.info('Adding series to chart');
                 let seriesObj = JSON.parse(messageObj.json);
-                addChartSeries(appData.charts[messageObj.chartIndex], seriesObj);
+                    addChartSeries(appData.charts[messageObj.chartIndex], seriesObj);
+                } else {
+                    console.warn('Failed to add series (chart index out of range)');
+                }
                 break;
             case 'update':
-                console.info('Updating chart');
-                let msgObj = JSON.parse(messageObj.json);
-                console.log(msgObj);
-                updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, msgObj);
+                if (appData.charts.length > messageObj.chartIndex) {
+                    console.info('Updating chart');
+                    let msgObj = JSON.parse(messageObj.json);
+                    updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, msgObj);
+                } else {
+                    console.warn('Failed to update chart (chart index out of range)');
+                }
                 break;
             case 'delete':
                 console.info('Deleting chart or series');
@@ -370,11 +328,18 @@ function openWebSocket(appData) {
             case 'fetch':
                 if (appData.charts.length > messageObj.chartIndex) {
                     console.info('Fetching chart data');
-                    socket.send(JSON.stringify(appData.charts[messageObj.chartIndex].userOptions));
-                }
-                else {
-                    console.warn('Failed to fetch chart obj (no charts)');
+                    socket.send(JSON.stringify(appData.charts[messageObj.chartIndex].options));
+                } else {
+                    console.warn('Failed to fetch chart props (chart index out of range)');
                     socket.send("{}");
+                }
+                break;
+            case 'restore':
+                if (appData.charts.length > messageObj.chartIndex) {
+                    console.info('Restoring chart');
+                    updateChartElement(appData.charts[messageObj.chartIndex], messageObj.target, msgObj);
+                } else {
+                    console.warn('Failed to restore chart (chart index out of range)');
                 }                 
                 break;
         }
