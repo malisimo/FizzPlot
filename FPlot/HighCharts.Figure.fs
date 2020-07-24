@@ -18321,21 +18321,229 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar.ToJson o)
 
 
-    ///<summary>Figure_Series_Item_Name : <code>string</code></summary>
-    type Figure_Series_Item_Name(parent:IFigureItem option) =
+    ///<summary>Figure_Series_Item_AllowPointSelect : <code>bool</code></summary>
+    type Figure_Series_Item_AllowPointSelect(parent:IFigureItem option) =
         let parentItem = parent
 
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
-                |> Option.map (fun parent -> sprintf "%s.name" (parent.GetPath()))
-                |> Option.defaultValue "name"
+                |> Option.map (fun parent -> sprintf "%s.allowPointSelect" (parent.GetPath()))
+                |> Option.defaultValue "allowPointSelect"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_AllowPointSelect.ToJson o)
+
+    ///<summary>Figure_Series_Item_AnimationLimit : <code>int</code></summary>
+    type Figure_Series_Item_AnimationLimit(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.animationLimit" (parent.GetPath()))
+                |> Option.defaultValue "animationLimit"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_AnimationLimit.ToJson o)
+
+    ///<summary>Figure_Series_Item_BoostThreshold : <code>int</code></summary>
+    type Figure_Series_Item_BoostThreshold(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.boostThreshold" (parent.GetPath()))
+                |> Option.defaultValue "boostThreshold"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_BoostThreshold.ToJson o)
+
+    ///<summary>Figure_Series_Item_ClassName : <code>string</code></summary>
+    type Figure_Series_Item_ClassName(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.className" (parent.GetPath()))
+                |> Option.defaultValue "className"
 
         static member ToJson (o:string) =
             sprintf "\\\"%s\\\"" o
 
         member this.Set (o:string) =
-            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Name.ToJson o)
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ClassName.ToJson o)
+
+    ///<summary>Figure_Series_Item_Clip : <code>bool</code></summary>
+    type Figure_Series_Item_Clip(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.clip" (parent.GetPath()))
+                |> Option.defaultValue "clip"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Clip.ToJson o)
+
+    ///<summary>Figure_Series_Item_Color : <code>string</code></summary>
+    type Figure_Series_Item_Color(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.color" (parent.GetPath()))
+                |> Option.defaultValue "color"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Color.ToJson o)
+
+    ///<summary>Figure_Series_Item_ColorAxis : <code>int</code></summary>
+    type Figure_Series_Item_ColorAxis(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.colorAxis" (parent.GetPath()))
+                |> Option.defaultValue "colorAxis"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ColorAxis.ToJson o)
+
+    ///<summary>Figure_Series_Item_ColorIndex : <code>int</code></summary>
+    type Figure_Series_Item_ColorIndex(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.colorIndex" (parent.GetPath()))
+                |> Option.defaultValue "colorIndex"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ColorIndex.ToJson o)
+
+    ///<summary>Figure_Series_Item_ColorKey : <code>string</code></summary>
+    type Figure_Series_Item_ColorKey(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.colorKey" (parent.GetPath()))
+                |> Option.defaultValue "colorKey"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ColorKey.ToJson o)
+
+    ///<summary>Figure_Series_Item_ConnectEnds : <code>bool</code></summary>
+    type Figure_Series_Item_ConnectEnds(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.connectEnds" (parent.GetPath()))
+                |> Option.defaultValue "connectEnds"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ConnectEnds.ToJson o)
+
+    ///<summary>Figure_Series_Item_ConnectNulls : <code>bool</code></summary>
+    type Figure_Series_Item_ConnectNulls(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.connectNulls" (parent.GetPath()))
+                |> Option.defaultValue "connectNulls"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ConnectNulls.ToJson o)
+
+    ///<summary>Figure_Series_Item_Crisp : <code>bool</code></summary>
+    type Figure_Series_Item_Crisp(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.crisp" (parent.GetPath()))
+                |> Option.defaultValue "crisp"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Crisp.ToJson o)
+
+    ///<summary>Figure_Series_Item_CropThreshold : <code>int</code></summary>
+    type Figure_Series_Item_CropThreshold(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.cropThreshold" (parent.GetPath()))
+                |> Option.defaultValue "cropThreshold"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_CropThreshold.ToJson o)
+
+    ///<summary>Figure_Series_Item_Cursor : <code>string</code></summary>
+    type Figure_Series_Item_Cursor(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.cursor" (parent.GetPath()))
+                |> Option.defaultValue "cursor"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Cursor.ToJson o)
 
     ///<summary>Figure_Series_Item_Data_Item : <code>int</code></summary>
     type Figure_Series_Item_Data_Item(parent:IFigureItem option) =
@@ -18384,17 +18592,138 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_Series_Item : <code>{| name:string; data:int seq |}</code></summary>
-    type Figure_Series_Item(parent:IFigureItem option) =
+    ///<summary>Figure_Series_Item_DashStyle : <code>string</code></summary>
+    type Figure_Series_Item_DashStyle(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.dashStyle" (parent.GetPath()))
+                |> Option.defaultValue "dashStyle"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_DashStyle.ToJson o)
+
+    ///<summary>Figure_Series_Item_Description : <code>string</code></summary>
+    type Figure_Series_Item_Description(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.description" (parent.GetPath()))
+                |> Option.defaultValue "description"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Description.ToJson o)
+
+    ///<summary>Figure_Series_Item_EnableMouseTracking : <code>bool</code></summary>
+    type Figure_Series_Item_EnableMouseTracking(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.enableMouseTracking" (parent.GetPath()))
+                |> Option.defaultValue "enableMouseTracking"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_EnableMouseTracking.ToJson o)
+
+    ///<summary>Figure_Series_Item_FindNearestPointBy : <code>string</code></summary>
+    type Figure_Series_Item_FindNearestPointBy(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.findNearestPointBy" (parent.GetPath()))
+                |> Option.defaultValue "findNearestPointBy"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_FindNearestPointBy.ToJson o)
+
+    ///<summary>Figure_Series_Item_GetExtremesFromAll : <code>bool</code></summary>
+    type Figure_Series_Item_GetExtremesFromAll(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.getExtremesFromAll" (parent.GetPath()))
+                |> Option.defaultValue "getExtremesFromAll"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_GetExtremesFromAll.ToJson o)
+
+    ///<summary>Figure_Series_Item_Id : <code>string</code></summary>
+    type Figure_Series_Item_Id(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.id" (parent.GetPath()))
+                |> Option.defaultValue "id"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Id.ToJson o)
+
+    ///<summary>Figure_Series_Item_IncludeInDataExport : <code>bool</code></summary>
+    type Figure_Series_Item_IncludeInDataExport(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.includeInDataExport" (parent.GetPath()))
+                |> Option.defaultValue "includeInDataExport"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_IncludeInDataExport.ToJson o)
+
+    ///<summary>Figure_Series_Item_Index : <code>int</code></summary>
+    type Figure_Series_Item_Index(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.index" (parent.GetPath()))
+                |> Option.defaultValue "index"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Index.ToJson o)
+
+    ///<summary>Figure_Series_Item_Keys_Item : <code>string</code></summary>
+    type Figure_Series_Item_Keys_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
-
-
-        ///<summary>Figure_Series_Item_Name : <code>string</code></summary>
-        member this.name = Figure_Series_Item_Name(Some (this :> IFigureItem))
-
-        ///<summary>Figure_Series_Item_Data : <code>int seq</code></summary>
-        member this.data = Figure_Series_Item_Data(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
                 parentItem
@@ -18405,16 +18734,920 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| name:string; data:int seq |}) =
-            let name = sprintf "\\\"%s\\\"" o.name
-            let data = Figure_Series_Item_Data.ToJson o.data
-            sprintf "{\\\"name\\\":%s,\\\"data\\\":%s}" name data
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
 
-        member this.Set (o:{| name:string; data:int seq |}) =
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Keys_Item.ToJson o)
+
+    ///<summary>Figure_Series_Item_Keys : <code>string seq</code></summary>
+    type Figure_Series_Item_Keys(parent:IFigureItem option) as this =
+        let parentItem = parent
+        let item = Figure_Series_Item_Keys_Item(Some (this :> IFigureItem))
+
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.keys" (parent.GetPath()))
+                |> Option.defaultValue "keys"
+
+        static member ToJson (o:string seq) =
+            if Seq.isEmpty o then "[]"
+            else
+                o
+                |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Series_Item_Keys_Item.ToJson oi)) ""
+                |> fun s -> s.Substring(1)
+
+        member this.Set (o:string seq) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Keys.ToJson o)
+
+        member this.Item
+            with get(i) =
+                (item :> IFigureArrayElement).SetLastIndex(i)
+                item
+
+    ///<summary>Figure_Series_Item_LegendIndex : <code>int</code></summary>
+    type Figure_Series_Item_LegendIndex(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.legendIndex" (parent.GetPath()))
+                |> Option.defaultValue "legendIndex"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_LegendIndex.ToJson o)
+
+    ///<summary>Figure_Series_Item_Linecap : <code>string</code></summary>
+    type Figure_Series_Item_Linecap(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.linecap" (parent.GetPath()))
+                |> Option.defaultValue "linecap"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Linecap.ToJson o)
+
+    ///<summary>Figure_Series_Item_LineWidth : <code>int</code></summary>
+    type Figure_Series_Item_LineWidth(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_LineWidth.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_Enabled : <code>bool</code></summary>
+    type Figure_Series_Item_Marker_Enabled(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.enabled" (parent.GetPath()))
+                |> Option.defaultValue "enabled"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_Enabled.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_EnabledThreshold : <code>int</code></summary>
+    type Figure_Series_Item_Marker_EnabledThreshold(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.enabledThreshold" (parent.GetPath()))
+                |> Option.defaultValue "enabledThreshold"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_EnabledThreshold.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_FillColor : <code>string</code></summary>
+    type Figure_Series_Item_Marker_FillColor(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.fillColor" (parent.GetPath()))
+                |> Option.defaultValue "fillColor"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_FillColor.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_Height : <code>int</code></summary>
+    type Figure_Series_Item_Marker_Height(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.height" (parent.GetPath()))
+                |> Option.defaultValue "height"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_Height.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_LineColor : <code>string</code></summary>
+    type Figure_Series_Item_Marker_LineColor(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.lineColor" (parent.GetPath()))
+                |> Option.defaultValue "lineColor"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_LineColor.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_LineWidth : <code>int</code></summary>
+    type Figure_Series_Item_Marker_LineWidth(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.lineWidth" (parent.GetPath()))
+                |> Option.defaultValue "lineWidth"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_LineWidth.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_Radius : <code>int</code></summary>
+    type Figure_Series_Item_Marker_Radius(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.radius" (parent.GetPath()))
+                |> Option.defaultValue "radius"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_Radius.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_Symbol : <code>string</code></summary>
+    type Figure_Series_Item_Marker_Symbol(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.symbol" (parent.GetPath()))
+                |> Option.defaultValue "symbol"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_Symbol.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker_Width : <code>int</code></summary>
+    type Figure_Series_Item_Marker_Width(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.width" (parent.GetPath()))
+                |> Option.defaultValue "width"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker_Width.ToJson o)
+
+    ///<summary>Figure_Series_Item_Marker : <code>{| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}</code></summary>
+    type Figure_Series_Item_Marker(parent:IFigureItem option) =
+        let parentItem = parent
+
+
+
+        ///<summary>Figure_Series_Item_Marker_Enabled : <code>bool</code></summary>
+        member this.enabled = Figure_Series_Item_Marker_Enabled(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_EnabledThreshold : <code>int</code></summary>
+        member this.enabledThreshold = Figure_Series_Item_Marker_EnabledThreshold(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_FillColor : <code>string</code></summary>
+        member this.fillColor = Figure_Series_Item_Marker_FillColor(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_Height : <code>int</code></summary>
+        member this.height = Figure_Series_Item_Marker_Height(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_LineColor : <code>string</code></summary>
+        member this.lineColor = Figure_Series_Item_Marker_LineColor(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_LineWidth : <code>int</code></summary>
+        member this.lineWidth = Figure_Series_Item_Marker_LineWidth(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_Radius : <code>int</code></summary>
+        member this.radius = Figure_Series_Item_Marker_Radius(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_Symbol : <code>string</code></summary>
+        member this.symbol = Figure_Series_Item_Marker_Symbol(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker_Width : <code>int</code></summary>
+        member this.width = Figure_Series_Item_Marker_Width(Some (this :> IFigureItem))
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.marker" (parent.GetPath()))
+                |> Option.defaultValue "marker"
+
+        static member ToJson (o:{| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}) =
+            let enabled = sprintf "%b" o.enabled
+            let enabledThreshold = sprintf "%i" o.enabledThreshold
+            let fillColor = sprintf "\\\"%s\\\"" o.fillColor
+            let height = sprintf "%i" o.height
+            let lineColor = sprintf "\\\"%s\\\"" o.lineColor
+            let lineWidth = sprintf "%i" o.lineWidth
+            let radius = sprintf "%i" o.radius
+            let symbol = sprintf "\\\"%s\\\"" o.symbol
+            let width = sprintf "%i" o.width
+            sprintf "{\\\"enabled\\\":%s,\\\"enabledThreshold\\\":%s,\\\"fillColor\\\":%s,\\\"height\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s,\\\"radius\\\":%s,\\\"symbol\\\":%s,\\\"width\\\":%s}" enabled enabledThreshold fillColor height lineColor lineWidth radius symbol width
+
+        member this.Set (o:{| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Marker.ToJson o)
+
+
+    ///<summary>Figure_Series_Item_Name : <code>string</code></summary>
+    type Figure_Series_Item_Name(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.name" (parent.GetPath()))
+                |> Option.defaultValue "name"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Name.ToJson o)
+
+    ///<summary>Figure_Series_Item_NegativeColor : <code>string</code></summary>
+    type Figure_Series_Item_NegativeColor(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.negativeColor" (parent.GetPath()))
+                |> Option.defaultValue "negativeColor"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_NegativeColor.ToJson o)
+
+    ///<summary>Figure_Series_Item_Opactiy : <code>int</code></summary>
+    type Figure_Series_Item_Opactiy(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.opactiy" (parent.GetPath()))
+                |> Option.defaultValue "opactiy"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Opactiy.ToJson o)
+
+    ///<summary>Figure_Series_Item_PointInterval : <code>int</code></summary>
+    type Figure_Series_Item_PointInterval(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.pointInterval" (parent.GetPath()))
+                |> Option.defaultValue "pointInterval"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_PointInterval.ToJson o)
+
+    ///<summary>Figure_Series_Item_PointIntervalUnit : <code>string</code></summary>
+    type Figure_Series_Item_PointIntervalUnit(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.pointIntervalUnit" (parent.GetPath()))
+                |> Option.defaultValue "pointIntervalUnit"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_PointIntervalUnit.ToJson o)
+
+    ///<summary>Figure_Series_Item_PointPlacement : <code>int</code></summary>
+    type Figure_Series_Item_PointPlacement(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.pointPlacement" (parent.GetPath()))
+                |> Option.defaultValue "pointPlacement"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_PointPlacement.ToJson o)
+
+    ///<summary>Figure_Series_Item_PointStart : <code>int</code></summary>
+    type Figure_Series_Item_PointStart(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.pointStart" (parent.GetPath()))
+                |> Option.defaultValue "pointStart"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_PointStart.ToJson o)
+
+    ///<summary>Figure_Series_Item_Selected : <code>bool</code></summary>
+    type Figure_Series_Item_Selected(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.selected" (parent.GetPath()))
+                |> Option.defaultValue "selected"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Selected.ToJson o)
+
+    ///<summary>Figure_Series_Item_Shadow : <code>bool</code></summary>
+    type Figure_Series_Item_Shadow(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.shadow" (parent.GetPath()))
+                |> Option.defaultValue "shadow"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Shadow.ToJson o)
+
+    ///<summary>Figure_Series_Item_ShowCheckbox : <code>bool</code></summary>
+    type Figure_Series_Item_ShowCheckbox(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.showCheckbox" (parent.GetPath()))
+                |> Option.defaultValue "showCheckbox"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ShowCheckbox.ToJson o)
+
+    ///<summary>Figure_Series_Item_ShowInLegend : <code>bool</code></summary>
+    type Figure_Series_Item_ShowInLegend(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.showInLegend" (parent.GetPath()))
+                |> Option.defaultValue "showInLegend"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ShowInLegend.ToJson o)
+
+    ///<summary>Figure_Series_Item_SkipKeyboardNavigation : <code>bool</code></summary>
+    type Figure_Series_Item_SkipKeyboardNavigation(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.skipKeyboardNavigation" (parent.GetPath()))
+                |> Option.defaultValue "skipKeyboardNavigation"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_SkipKeyboardNavigation.ToJson o)
+
+    ///<summary>Figure_Series_Item_SoftThreshold : <code>bool</code></summary>
+    type Figure_Series_Item_SoftThreshold(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.softThreshold" (parent.GetPath()))
+                |> Option.defaultValue "softThreshold"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_SoftThreshold.ToJson o)
+
+    ///<summary>Figure_Series_Item_Stack : <code>string</code></summary>
+    type Figure_Series_Item_Stack(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.stack" (parent.GetPath()))
+                |> Option.defaultValue "stack"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Stack.ToJson o)
+
+    ///<summary>Figure_Series_Item_Stacking : <code>string</code></summary>
+    type Figure_Series_Item_Stacking(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.stacking" (parent.GetPath()))
+                |> Option.defaultValue "stacking"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Stacking.ToJson o)
+
+    ///<summary>Figure_Series_Item_Step : <code>string</code></summary>
+    type Figure_Series_Item_Step(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.step" (parent.GetPath()))
+                |> Option.defaultValue "step"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Step.ToJson o)
+
+    ///<summary>Figure_Series_Item_StickyTracking : <code>bool</code></summary>
+    type Figure_Series_Item_StickyTracking(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.stickyTracking" (parent.GetPath()))
+                |> Option.defaultValue "stickyTracking"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_StickyTracking.ToJson o)
+
+    ///<summary>Figure_Series_Item_Threshold : <code>int</code></summary>
+    type Figure_Series_Item_Threshold(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.threshold" (parent.GetPath()))
+                |> Option.defaultValue "threshold"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Threshold.ToJson o)
+
+    ///<summary>Figure_Series_Item_TurboThreshold : <code>int</code></summary>
+    type Figure_Series_Item_TurboThreshold(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.turboThreshold" (parent.GetPath()))
+                |> Option.defaultValue "turboThreshold"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_TurboThreshold.ToJson o)
+
+    ///<summary>Figure_Series_Item_Type : <code>string</code></summary>
+    type Figure_Series_Item_Type(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.type" (parent.GetPath()))
+                |> Option.defaultValue "type"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Type.ToJson o)
+
+    ///<summary>Figure_Series_Item_Visible : <code>bool</code></summary>
+    type Figure_Series_Item_Visible(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.visible" (parent.GetPath()))
+                |> Option.defaultValue "visible"
+
+        static member ToJson (o:bool) =
+            sprintf "%b" o
+
+        member this.Set (o:bool) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Visible.ToJson o)
+
+    ///<summary>Figure_Series_Item_XAxis : <code>int</code></summary>
+    type Figure_Series_Item_XAxis(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.xAxis" (parent.GetPath()))
+                |> Option.defaultValue "xAxis"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_XAxis.ToJson o)
+
+    ///<summary>Figure_Series_Item_YAxis : <code>int</code></summary>
+    type Figure_Series_Item_YAxis(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.yAxis" (parent.GetPath()))
+                |> Option.defaultValue "yAxis"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_YAxis.ToJson o)
+
+    ///<summary>Figure_Series_Item_ZIndex : <code>int</code></summary>
+    type Figure_Series_Item_ZIndex(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.zIndex" (parent.GetPath()))
+                |> Option.defaultValue "zIndex"
+
+        static member ToJson (o:int) =
+            sprintf "%i" o
+
+        member this.Set (o:int) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ZIndex.ToJson o)
+
+    ///<summary>Figure_Series_Item_ZoneAxis : <code>string</code></summary>
+    type Figure_Series_Item_ZoneAxis(parent:IFigureItem option) =
+        let parentItem = parent
+
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s.zoneAxis" (parent.GetPath()))
+                |> Option.defaultValue "zoneAxis"
+
+        static member ToJson (o:string) =
+            sprintf "\\\"%s\\\"" o
+
+        member this.Set (o:string) =
+            update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ZoneAxis.ToJson o)
+
+    ///<summary>Figure_Series_Item : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}</code></summary>
+    type Figure_Series_Item(parent:IFigureItem option) =
+        let parentItem = parent
+        let mutable lastIndex = 0
+
+
+        ///<summary>Figure_Series_Item_AllowPointSelect : <code>bool</code></summary>
+        member this.allowPointSelect = Figure_Series_Item_AllowPointSelect(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_AnimationLimit : <code>int</code></summary>
+        member this.animationLimit = Figure_Series_Item_AnimationLimit(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_BoostThreshold : <code>int</code></summary>
+        member this.boostThreshold = Figure_Series_Item_BoostThreshold(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ClassName : <code>string</code></summary>
+        member this.className = Figure_Series_Item_ClassName(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Clip : <code>bool</code></summary>
+        member this.clip = Figure_Series_Item_Clip(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Color : <code>string</code></summary>
+        member this.color = Figure_Series_Item_Color(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ColorAxis : <code>int</code></summary>
+        member this.colorAxis = Figure_Series_Item_ColorAxis(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ColorIndex : <code>int</code></summary>
+        member this.colorIndex = Figure_Series_Item_ColorIndex(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ColorKey : <code>string</code></summary>
+        member this.colorKey = Figure_Series_Item_ColorKey(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ConnectEnds : <code>bool</code></summary>
+        member this.connectEnds = Figure_Series_Item_ConnectEnds(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ConnectNulls : <code>bool</code></summary>
+        member this.connectNulls = Figure_Series_Item_ConnectNulls(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Crisp : <code>bool</code></summary>
+        member this.crisp = Figure_Series_Item_Crisp(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_CropThreshold : <code>int</code></summary>
+        member this.cropThreshold = Figure_Series_Item_CropThreshold(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Cursor : <code>string</code></summary>
+        member this.cursor = Figure_Series_Item_Cursor(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Data : <code>int seq</code></summary>
+        member this.data = Figure_Series_Item_Data(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_DashStyle : <code>string</code></summary>
+        member this.dashStyle = Figure_Series_Item_DashStyle(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Description : <code>string</code></summary>
+        member this.description = Figure_Series_Item_Description(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_EnableMouseTracking : <code>bool</code></summary>
+        member this.enableMouseTracking = Figure_Series_Item_EnableMouseTracking(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_FindNearestPointBy : <code>string</code></summary>
+        member this.findNearestPointBy = Figure_Series_Item_FindNearestPointBy(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_GetExtremesFromAll : <code>bool</code></summary>
+        member this.getExtremesFromAll = Figure_Series_Item_GetExtremesFromAll(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Id : <code>string</code></summary>
+        member this.id = Figure_Series_Item_Id(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_IncludeInDataExport : <code>bool</code></summary>
+        member this.includeInDataExport = Figure_Series_Item_IncludeInDataExport(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Index : <code>int</code></summary>
+        member this.index = Figure_Series_Item_Index(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Keys : <code>string seq</code></summary>
+        member this.keys = Figure_Series_Item_Keys(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_LegendIndex : <code>int</code></summary>
+        member this.legendIndex = Figure_Series_Item_LegendIndex(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Linecap : <code>string</code></summary>
+        member this.linecap = Figure_Series_Item_Linecap(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_LineWidth : <code>int</code></summary>
+        member this.lineWidth = Figure_Series_Item_LineWidth(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Marker : <code>{| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}</code></summary>
+        member this.marker = Figure_Series_Item_Marker(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Name : <code>string</code></summary>
+        member this.name = Figure_Series_Item_Name(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_NegativeColor : <code>string</code></summary>
+        member this.negativeColor = Figure_Series_Item_NegativeColor(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Opactiy : <code>int</code></summary>
+        member this.opactiy = Figure_Series_Item_Opactiy(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_PointInterval : <code>int</code></summary>
+        member this.pointInterval = Figure_Series_Item_PointInterval(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_PointIntervalUnit : <code>string</code></summary>
+        member this.pointIntervalUnit = Figure_Series_Item_PointIntervalUnit(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_PointPlacement : <code>int</code></summary>
+        member this.pointPlacement = Figure_Series_Item_PointPlacement(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_PointStart : <code>int</code></summary>
+        member this.pointStart = Figure_Series_Item_PointStart(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Selected : <code>bool</code></summary>
+        member this.selected = Figure_Series_Item_Selected(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Shadow : <code>bool</code></summary>
+        member this.shadow = Figure_Series_Item_Shadow(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ShowCheckbox : <code>bool</code></summary>
+        member this.showCheckbox = Figure_Series_Item_ShowCheckbox(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ShowInLegend : <code>bool</code></summary>
+        member this.showInLegend = Figure_Series_Item_ShowInLegend(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_SkipKeyboardNavigation : <code>bool</code></summary>
+        member this.skipKeyboardNavigation = Figure_Series_Item_SkipKeyboardNavigation(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_SoftThreshold : <code>bool</code></summary>
+        member this.softThreshold = Figure_Series_Item_SoftThreshold(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Stack : <code>string</code></summary>
+        member this.stack = Figure_Series_Item_Stack(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Stacking : <code>string</code></summary>
+        member this.stacking = Figure_Series_Item_Stacking(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Step : <code>string</code></summary>
+        member this.step = Figure_Series_Item_Step(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_StickyTracking : <code>bool</code></summary>
+        member this.stickyTracking = Figure_Series_Item_StickyTracking(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Threshold : <code>int</code></summary>
+        member this.threshold = Figure_Series_Item_Threshold(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_TurboThreshold : <code>int</code></summary>
+        member this.turboThreshold = Figure_Series_Item_TurboThreshold(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Type : <code>string</code></summary>
+        member this._type = Figure_Series_Item_Type(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_Visible : <code>bool</code></summary>
+        member this.visible = Figure_Series_Item_Visible(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_XAxis : <code>int</code></summary>
+        member this.xAxis = Figure_Series_Item_XAxis(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_YAxis : <code>int</code></summary>
+        member this.yAxis = Figure_Series_Item_YAxis(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ZIndex : <code>int</code></summary>
+        member this.zIndex = Figure_Series_Item_ZIndex(Some (this :> IFigureItem))
+
+        ///<summary>Figure_Series_Item_ZoneAxis : <code>string</code></summary>
+        member this.zoneAxis = Figure_Series_Item_ZoneAxis(Some (this :> IFigureItem))
+        interface IFigureItem with
+            member this.GetPath() =
+                parentItem
+                |> Option.map (fun parent -> sprintf "%s[%i]" (parent.GetPath()) lastIndex)
+                |> Option.defaultValue (sprintf "[%i]" lastIndex)
+
+        interface IFigureArrayElement with
+            member this.SetLastIndex index =
+                lastIndex <- index
+
+        static member ToJson (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}) =
+            let allowPointSelect = sprintf "%b" o.allowPointSelect
+            let animationLimit = sprintf "%i" o.animationLimit
+            let boostThreshold = sprintf "%i" o.boostThreshold
+            let className = sprintf "\\\"%s\\\"" o.className
+            let clip = sprintf "%b" o.clip
+            let color = sprintf "\\\"%s\\\"" o.color
+            let colorAxis = sprintf "%i" o.colorAxis
+            let colorIndex = sprintf "%i" o.colorIndex
+            let colorKey = sprintf "\\\"%s\\\"" o.colorKey
+            let connectEnds = sprintf "%b" o.connectEnds
+            let connectNulls = sprintf "%b" o.connectNulls
+            let crisp = sprintf "%b" o.crisp
+            let cropThreshold = sprintf "%i" o.cropThreshold
+            let cursor = sprintf "\\\"%s\\\"" o.cursor
+            let data = Figure_Series_Item_Data.ToJson o.data
+            let dashStyle = sprintf "\\\"%s\\\"" o.dashStyle
+            let description = sprintf "\\\"%s\\\"" o.description
+            let enableMouseTracking = sprintf "%b" o.enableMouseTracking
+            let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
+            let getExtremesFromAll = sprintf "%b" o.getExtremesFromAll
+            let id = sprintf "\\\"%s\\\"" o.id
+            let includeInDataExport = sprintf "%b" o.includeInDataExport
+            let index = sprintf "%i" o.index
+            let keys = Figure_Series_Item_Keys.ToJson o.keys
+            let legendIndex = sprintf "%i" o.legendIndex
+            let linecap = sprintf "\\\"%s\\\"" o.linecap
+            let lineWidth = sprintf "%i" o.lineWidth
+            let marker = Figure_Series_Item_Marker.ToJson o.marker
+            let name = sprintf "\\\"%s\\\"" o.name
+            let negativeColor = sprintf "\\\"%s\\\"" o.negativeColor
+            let opactiy = sprintf "%i" o.opactiy
+            let pointInterval = sprintf "%i" o.pointInterval
+            let pointIntervalUnit = sprintf "\\\"%s\\\"" o.pointIntervalUnit
+            let pointPlacement = sprintf "%i" o.pointPlacement
+            let pointStart = sprintf "%i" o.pointStart
+            let selected = sprintf "%b" o.selected
+            let shadow = sprintf "%b" o.shadow
+            let showCheckbox = sprintf "%b" o.showCheckbox
+            let showInLegend = sprintf "%b" o.showInLegend
+            let skipKeyboardNavigation = sprintf "%b" o.skipKeyboardNavigation
+            let softThreshold = sprintf "%b" o.softThreshold
+            let stack = sprintf "\\\"%s\\\"" o.stack
+            let stacking = sprintf "\\\"%s\\\"" o.stacking
+            let step = sprintf "\\\"%s\\\"" o.step
+            let stickyTracking = sprintf "%b" o.stickyTracking
+            let threshold = sprintf "%i" o.threshold
+            let turboThreshold = sprintf "%i" o.turboThreshold
+            let _type = sprintf "\\\"%s\\\"" o._type
+            let visible = sprintf "%b" o.visible
+            let xAxis = sprintf "%i" o.xAxis
+            let yAxis = sprintf "%i" o.yAxis
+            let zIndex = sprintf "%i" o.zIndex
+            let zoneAxis = sprintf "\\\"%s\\\"" o.zoneAxis
+            sprintf "{\\\"allowPointSelect\\\":%s,\\\"animationLimit\\\":%s,\\\"boostThreshold\\\":%s,\\\"className\\\":%s,\\\"clip\\\":%s,\\\"color\\\":%s,\\\"colorAxis\\\":%s,\\\"colorIndex\\\":%s,\\\"colorKey\\\":%s,\\\"connectEnds\\\":%s,\\\"connectNulls\\\":%s,\\\"crisp\\\":%s,\\\"cropThreshold\\\":%s,\\\"cursor\\\":%s,\\\"data\\\":%s,\\\"dashStyle\\\":%s,\\\"description\\\":%s,\\\"enableMouseTracking\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"getExtremesFromAll\\\":%s,\\\"id\\\":%s,\\\"includeInDataExport\\\":%s,\\\"index\\\":%s,\\\"keys\\\":%s,\\\"legendIndex\\\":%s,\\\"linecap\\\":%s,\\\"lineWidth\\\":%s,\\\"marker\\\":%s,\\\"name\\\":%s,\\\"negativeColor\\\":%s,\\\"opactiy\\\":%s,\\\"pointInterval\\\":%s,\\\"pointIntervalUnit\\\":%s,\\\"pointPlacement\\\":%s,\\\"pointStart\\\":%s,\\\"selected\\\":%s,\\\"shadow\\\":%s,\\\"showCheckbox\\\":%s,\\\"showInLegend\\\":%s,\\\"skipKeyboardNavigation\\\":%s,\\\"softThreshold\\\":%s,\\\"stack\\\":%s,\\\"stacking\\\":%s,\\\"step\\\":%s,\\\"stickyTracking\\\":%s,\\\"threshold\\\":%s,\\\"turboThreshold\\\":%s,\\\"_type\\\":%s,\\\"visible\\\":%s,\\\"xAxis\\\":%s,\\\"yAxis\\\":%s,\\\"zIndex\\\":%s,\\\"zoneAxis\\\":%s}" allowPointSelect animationLimit boostThreshold className clip color colorAxis colorIndex colorKey connectEnds connectNulls crisp cropThreshold cursor data dashStyle description enableMouseTracking findNearestPointBy getExtremesFromAll id includeInDataExport index keys legendIndex linecap lineWidth marker name negativeColor opactiy pointInterval pointIntervalUnit pointPlacement pointStart selected shadow showCheckbox showInLegend skipKeyboardNavigation softThreshold stack stacking step stickyTracking threshold turboThreshold _type visible xAxis yAxis zIndex zoneAxis
+
+        member this.Set (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item.ToJson o)
 
 
-    ///<summary>Figure_Series : <code>{| name:string; data:int seq |} seq</code></summary>
+    ///<summary>Figure_Series : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq</code></summary>
     type Figure_Series(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Series_Item(Some (this :> IFigureItem))
@@ -18426,14 +19659,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.series" (parent.GetPath()))
                 |> Option.defaultValue "series"
 
-        static member ToJson (o:{| name:string; data:int seq |} seq) =
+        static member ToJson (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Series_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| name:string; data:int seq |} seq) =
+        member this.Set (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series.ToJson o)
 
         member this.Item
@@ -18441,7 +19674,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure : <code>{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| position:string; color:string |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq; yAxis:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| name:string; data:int seq |} seq |}</code></summary>
+    ///<summary>Figure : <code>{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| position:string; color:string |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq; yAxis:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}</code></summary>
     type Figure(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -18516,7 +19749,7 @@ module Figure =
         ///<summary>Figure_Scrollbar : <code>{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}</code></summary>
         member this.scrollbar = Figure_Scrollbar(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Series : <code>{| name:string; data:int seq |} seq</code></summary>
+        ///<summary>Figure_Series : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq</code></summary>
         member this.series = Figure_Series(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -18524,7 +19757,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.Figure" (parent.GetPath()))
                 |> Option.defaultValue "Figure"
 
-        static member ToJson (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| position:string; color:string |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq; yAxis:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| name:string; data:int seq |} seq |}) =
+        static member ToJson (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| position:string; color:string |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq; yAxis:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}) =
             let colors = Figure_Colors.ToJson o.colors
             let symbols = Figure_Symbols.ToJson o.symbols
             let lang = Figure_Lang.ToJson o.lang
@@ -18551,6 +19784,6 @@ module Figure =
             let series = Figure_Series.ToJson o.series
             sprintf "{\\\"colors\\\":%s,\\\"symbols\\\":%s,\\\"lang\\\":%s,\\\"_global\\\":%s,\\\"time\\\":%s,\\\"chart\\\":%s,\\\"title\\\":%s,\\\"subtitle\\\":%s,\\\"caption\\\":%s,\\\"plotOptions\\\":%s,\\\"labels\\\":%s,\\\"legend\\\":%s,\\\"loading\\\":%s,\\\"tooltip\\\":%s,\\\"credits\\\":%s,\\\"navigation\\\":%s,\\\"exporting\\\":%s,\\\"xAxis\\\":%s,\\\"yAxis\\\":%s,\\\"toolbar\\\":%s,\\\"rangeSelector\\\":%s,\\\"navigator\\\":%s,\\\"scrollbar\\\":%s,\\\"series\\\":%s}" colors symbols lang _global time chart title subtitle caption plotOptions labels legend loading tooltip credits navigation exporting xAxis yAxis toolbar rangeSelector navigator scrollbar series
 
-        member this.Set (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| position:string; color:string |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq; yAxis:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| name:string; data:int seq |} seq |}) =
+        member this.Set (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| color:string; fontSize:string; font:string; fill:string; width:string |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| color:string; font:string; fill:string; width:string |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| color:string; fill:string; width:string |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| fontSize:string; fontWeight:string; color:string; textOutline:string |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| position:string; color:string |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| fontWeight:string; color:string |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| position:string; backgroundColor:string; opacity:int; textAlign:string |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| color:string; cursor:string; fontSize:string; whiteSpace:string |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| cursor:string; color:string; fontSize:string; fill:string |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| gridLineColor:string; gridLineWidth:int; labels: {| style: {| color:string |} |}; lineColor:string; tickColor:string; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int; isX:bool |} seq; yAxis:{| gridLineColor:string; labels: {| style: {| color:string |} |}; lineColor:string; minorTickInterval:string; tickColor:string; tickWidth:int; title: {| style: {| color:string; fontWeight:string; fontSize:string; fontFamily:string |}; text:string |}; index:int |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string; fontWeight:string |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| color:string |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure.ToJson o)
 

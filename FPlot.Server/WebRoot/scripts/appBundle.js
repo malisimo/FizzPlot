@@ -297,12 +297,11 @@ function addChartSeries(chart, seriesObj)
 }
 
 function updateChartElement(chart, target, chartObj)
-{    
+{
     if (target) {
-        _.set(chart.options, target, chartObj);
-        chart.isDirtyBox = true;
-        chart.isDirtyLegend = true;
-        chart.redraw();
+        var co = _.cloneDeep(chart.options);
+        _.set(co, target, chartObj);
+        chart.update(co);
     } else {
         chart.update(chartObj);
     }
