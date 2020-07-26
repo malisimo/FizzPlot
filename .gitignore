@@ -10,3 +10,8 @@ SchemaGen/bin/
 SchemaGen/obj/
 Demo/bin/
 Demo/obj/
+Lib/
+
+*.nupkg
+*.dll
+*.pdb

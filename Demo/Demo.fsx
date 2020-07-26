@@ -40,7 +40,7 @@ fig.xAxis.[0].gridLineWidth.Set 4
 fig.series.[0].name.Set "NewSeriesName"
 fig.series.[0].lineWidth.Set 4
 
-// Change the data in current series 
+// Add another series 
 let data2 = [ for i in 0..n -> (0.1 * ~~i, 5.0 + rand.NextDouble() + ~~i) ]
 plot data2 |> ignore
 fig.series.[1].name.Set "Second"

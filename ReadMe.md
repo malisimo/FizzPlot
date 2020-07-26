@@ -1,7 +1,7 @@
 # FPlot
 
 Plotting library for .Net, with live updates.
-Version: 0.0.1a
+Version: 0.0.1-pre1
 
 Author: Matt Jones
 License: MIT
@@ -10,13 +10,13 @@ License: MIT
 
 This is a specially designed wrapper around the HighCharts and Plotly (coming!) JS charting libraries to allow you to generate beautiful line charts from .Net applications. The API is designed to be particularly friendly used from within a FSI (FSharp Interactive) window.
 
-> Please note: Commercial use of HighCharts requires a license.
+> Please note: Commercial use of HighCharts requires a [license](https://shop.highsoft.com/).
 
 # Getting Started
 
 Uses the dotnet CLI ([install here](https://docs.microsoft.com/en-us/dotnet/core/install/sdk)).
 
-In the root folder, open a terminal and type:
+In the root folder of the repo, open a terminal and type:
 
 ```
 dotnet run --project Demo/Demo.fsproj

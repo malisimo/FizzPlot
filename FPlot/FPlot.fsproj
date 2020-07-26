@@ -10,5 +10,13 @@
     <Compile Include="HighCharts.Figure.fs" />
     <Compile Include="HighCharts.Plot.fs" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <_CopyItems Include="$(TargetDir)\**\*.*" />
+  </ItemGroup>
 
+  <Target Name="Nuget Copy" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
+      <Copy SourceFiles="@(_CopyItems)"
+        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp2.2\%(RecursiveDir)%(Filename)%(Extension)')"/>
+  </Target>
 </Project>

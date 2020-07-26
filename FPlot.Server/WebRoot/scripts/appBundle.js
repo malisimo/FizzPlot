@@ -262,15 +262,10 @@ function updateChartElement(chart, target, chartObj)
 
 function createNewChart(chartId) {
     let myChart = {
-        title: { text: 'Example plot' },
+        title: { text: 'Plot' },
         yAxis: { title: { text: 'Value' } },
         xAxis: { title: { text: 'Index' } },
-        legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle' },
-        series: [
-            { name: 'A', data: [1.2, 1.4, 0.8, 0.6, 0.95, 0.35, 0.6, 0.25] },
-            { name: 'B', data: [0.1, 0.25, 0.2, 0.5, 0.4, 0.8, 1.35, 1.1] },
-            { name: 'C', data: [0.8, 0.7, 0.45, 1.15, 0.5, 0.85, 0.65, 0.75] }
-        ]
+        legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle' }
     };
 
     return initChartElement({ id: chartId, highCharts: myChart }, "chartContainer");
@@ -328,7 +323,18 @@ function openWebSocket(appData) {
             case 'fetch':
                 if (appData.charts.length > messageObj.chartIndex) {
                     console.info('Fetching chart data');
-                    socket.send(JSON.stringify(appData.charts[messageObj.chartIndex].options));
+                    var chartProps = _.cloneDeep(appData.charts[messageObj.chartIndex].options);
+                    console.log("Before:");
+                    console.log(chartProps);
+                    var seriesProps = appData.charts[messageObj.chartIndex].series.map(function (s) {
+                        var o = _.cloneDeep(s.options);
+                        //o.type = 'line';
+                        return o;
+                      });
+                    chartProps.series = seriesProps;
+                    console.log("After:");
+                    console.log(chartProps);
+                    socket.send(JSON.stringify(chartProps));
                 } else {
                     console.warn('Failed to fetch chart props (chart index out of range)');
                     socket.send("{}");

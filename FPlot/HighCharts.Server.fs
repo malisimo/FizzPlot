@@ -1,4 +1,5 @@
 ﻿namespace FPlot.HighCharts
+open System.Reflection
 
 module internal Server =
     open System
@@ -143,22 +144,31 @@ module internal Server =
                 Thread.Sleep(100)
                 waitForProcessStart (i+1) proc
 
+    let private getAssemblyDir() =
+        Assembly.GetExecutingAssembly()
+        |> Option.ofObj
+        |> Option.map (fun a -> Uri a.CodeBase)
+        |> Option.map (fun uri -> uri.AbsolutePath)
+        |> Option.map (Uri.UnescapeDataString >> Path.GetFullPath >> Path.GetDirectoryName)
+        |> Option.defaultValue Environment.CurrentDirectory
+
+
     /// Start server instance
     let private startServer (initData:string option) =
-        let workDir = "FPlot.Server"
-        let binDir = "bin/Debug/netcoreapp2.2/"
+        let workDir = Environment.CurrentDirectory
+        let binDir = getAssemblyDir()
         let server = Path.Combine(binDir,"FPlot.Server.dll")
 
-        printfn "Running server from %s" (Path.GetFullPath(Path.Combine(workDir,server)))
+        printfn "Running server from %s" server
 
-        let psi = ProcessStartInfo()    
+        let psi = ProcessStartInfo()
         psi.FileName <- "dotnet"
         psi.Arguments <- server
         psi.UseShellExecute <- false
         psi.RedirectStandardOutput <- false
         psi.RedirectStandardError <- false
         psi.CreateNoWindow <- false
-        psi.WorkingDirectory <- workDir
+        psi.WorkingDirectory <- binDir
 
         let proc = new Process()
         proc.StartInfo <- psi
@@ -170,11 +180,11 @@ module internal Server =
         proc.Exited.AddHandler(new EventHandler(fun _ _ ->
             printfn "Server process exited!"
             serverProc <- None))
-        
+
         waitForProcessStart 0 proc
 
         Process.Start("cmd", sprintf "/C start %s" "http://localhost:2387") |> ignore
-
+        
         proc
 
     /// Start server if not already started
