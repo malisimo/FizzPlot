@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <id>FPlot</id>
-        <title>FPlot</title>
+        <id>FizzPlot</id>
+        <title>FizzPlot</title>
         <version>0.0.1-pre1</version>
         <description>Interactive plotting library for drawing and editing charts with HighCharts or Plotly</description>
         <authors>Matt Jones</authors>
         <license type="expression">MIT</license>
         <releaseNotes>Initial release supporting HighCharts line charts only</releaseNotes>
-        <tags>fplot plot chart interactive highcharts plotly</tags>
-        <projectUrl>https://github.com/malisimo/FPlot</projectUrl>
-        <repository type="git" url="https://github.com/malisimo/FPlot.git" branch="master" />
+        <tags>fizzplot plot chart interactive highcharts plotly</tags>
+        <projectUrl>https://github.com/malisimo/FizzPlot</projectUrl>
+        <repository type="git" url="https://github.com/malisimo/FizzPlot.git" branch="master" />
         <dependencies>
             <group targetFramework=".NETCoreApp2.2" />
         </dependencies>

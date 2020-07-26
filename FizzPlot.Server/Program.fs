@@ -1,4 +1,4 @@
-module FPlot.App
+module FizzPlot.App
 
 open System
 open System.IO
@@ -11,8 +11,8 @@ open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Caching.Memory
 open Giraffe
 open Giraffe.Razor
-open FPlot.Models
-open FPlot.Middleware
+open FizzPlot.Models
+open FizzPlot.Middleware
 
 // ---------------------------------
 // Web app

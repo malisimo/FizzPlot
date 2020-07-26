@@ -1,4 +1,4 @@
-namespace FPlot.Models
+namespace FizzPlot.Models
 
 type Operations =
     | Create

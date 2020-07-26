@@ -1,8 +1,8 @@
-﻿namespace FPlot.HighCharts
+﻿namespace FizzPlot.HighCharts
 
 module Plot =
     open System.IO
-    open FPlot.StringUtils
+    open FizzPlot.StringUtils
     open Server
     open Figure
 

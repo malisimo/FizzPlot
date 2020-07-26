@@ -1,4 +1,4 @@
-namespace FPlot.HighCharts
+namespace FizzPlot.HighCharts
 
 
 module Figure =

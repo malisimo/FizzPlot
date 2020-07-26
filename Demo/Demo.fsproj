@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FPlot\FPlot.fsproj" />
+    <ProjectReference Include="..\FizzPlot\FizzPlot.fsproj" />
   </ItemGroup>
 
 </Project>

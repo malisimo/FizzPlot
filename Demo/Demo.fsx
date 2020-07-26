@@ -1,14 +1,14 @@
-// FPlot Interactive Demo
+// FizzPlot Interactive Demo
 // ======================
 //
 // Send chunks to FSI using 'Alt-Enter'.
-// Include FPlot reference first:
-#r "../FPlot/bin/Debug/netstandard2.0/FPlot.dll"
+// Include FizzPlot reference first:
+#r "../FizzPlot/bin/Debug/netstandard2.0/FizzPlot.dll"
 
 // #### SCATTER PLOTS
 
 open System
-open FPlot.HighCharts.Plot
+open FizzPlot.HighCharts.Plot
 
 let (~~) = float
 

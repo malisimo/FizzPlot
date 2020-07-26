@@ -1,4 +1,4 @@
-# FPlot
+# FizzPlot
 
 Plotting library for .Net, with live updates.
 Version: 0.0.1-pre1
@@ -31,7 +31,7 @@ This will open your browser and navigate to http://localhost:2387/ to show your 
 From a .Net application, add the package reference, and generate a chart like so:
 
 ```
-open FPlot.HighCharts.Plot
+open FizzPlot.HighCharts.Plot
 
 let xy = [(0.0,2.2),(1.0,1.4),(2.0,0.8)]
 
@@ -63,7 +63,7 @@ fig.legend.navigation.Set {| activeColor="#a2412f"; inactiveColor="#6a6a6a" |}
 
 # FSI Interative
 
-Since the updates are live, FPlot is particularly suited to use in an interactive setting where you make an initial plot with the data, and then make subsequent tweaks to the visuals until happy with the results.
+Since the updates are live, FizzPlot is particularly suited to use in an interactive setting where you make an initial plot with the data, and then make subsequent tweaks to the visuals until happy with the results.
 
 # Examples
 

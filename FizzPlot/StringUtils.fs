@@ -1,4 +1,4 @@
-namespace FPlot
+namespace FizzPlot
 
 module internal StringUtils =
     open System

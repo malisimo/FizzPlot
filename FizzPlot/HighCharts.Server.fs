@@ -1,4 +1,4 @@
-﻿namespace FPlot.HighCharts
+﻿namespace FizzPlot.HighCharts
 open System.Reflection
 
 module internal Server =
@@ -9,7 +9,7 @@ module internal Server =
     open System.Text
     open System.Net
     open System.Net.Http
-    open FPlot.StringUtils
+    open FizzPlot.StringUtils
 
     let serverAddress = "http://localhost:2387"
     let mutable serverProc:Process option = None
@@ -157,7 +157,7 @@ module internal Server =
     let private startServer (initData:string option) =
         let workDir = Environment.CurrentDirectory
         let binDir = getAssemblyDir()
-        let server = Path.Combine(binDir,"FPlot.Server.dll")
+        let server = Path.Combine(binDir,"FizzPlot.Server.dll")
 
         printfn "Running server from %s" server
 

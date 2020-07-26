@@ -1,4 +1,4 @@
-namespace FPlot
+namespace FizzPlot
 open System.IO
 
 module Middleware =

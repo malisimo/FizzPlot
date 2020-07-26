@@ -652,9 +652,9 @@ let main argv =
     let json = loadJson (sprintf "%s.json" chartType)
 
     //let json = "{\"title\":\"Title\",\"xaxis\":{\"name\":\"x\",\"font\":\"arial\"},\"range\":[0.0,10.0],\"data\":[[{\"t\":0,\"v\":0.0,\"point\":{\"name\":\"a1\"}},{\"t\":1,\"v\":1.0,\"point\":{\"name\":\"b1\"}}],[{\"t\":0,\"v\":2.0,\"point\":{\"name\":\"a2\"}},{\"t\":1,\"v\":3.0,\"point\":{\"name\":\"b2\"}}],[{\"t\":0,\"v\":4.0,\"point\":{\"name\":\"a3\"}},{\"t\":1,\"v\":5.0,\"point\":{\"name\":\"b3\"}}]],\"legend\":[{\"label\":\"one\"},{\"label\":\"two\"}]}"
-    let fsStr = jsonToSchema (sprintf "FPlot.%s" chartType) "Figure" json
+    let fsStr = jsonToSchema (sprintf "FizzPlot.%s" chartType) "Figure" json
 
     printfn "Generating F# code from JSON %s object..." chartType
-    storeSchema (sprintf "./FPlot/%s.Figure.fs" chartType) fsStr
+    storeSchema (sprintf "./FizzPlot/%s.Figure.fs" chartType) fsStr
 
     0

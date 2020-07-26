@@ -43,6 +43,6 @@
   </Target>
   <Target Name="Local Copy" AfterTargets="AfterBuild">
       <Copy SourceFiles="@(_CopyItems)"
-        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\FPlot\bin\$(Configuration)\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\FizzPlot\bin\$(Configuration)\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)')"/>
   </Target>
 </Project>

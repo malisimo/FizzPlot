@@ -2,10 +2,10 @@
 .vscode/
 .vs/
 
-FPlot/bin/
-FPlot/obj/
-FPlot.Server/bin/
-FPlot.Server/obj/
+FizzPlot/bin/
+FizzPlot/obj/
+FizzPlot.Server/bin/
+FizzPlot.Server/obj/
 SchemaGen/bin/
 SchemaGen/obj/
 Demo/bin/

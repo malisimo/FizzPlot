@@ -1,5 +1,5 @@
 ﻿open System
-open FPlot.HighCharts.Plot
+open FizzPlot.HighCharts.Plot
 
 [<EntryPoint>]
 let main argv =
