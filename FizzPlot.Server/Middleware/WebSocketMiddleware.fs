@@ -61,7 +61,7 @@ module Middleware =
     let private receiveMessageLoop (context:HttpContext) socket =
         async {
             let buffer =
-                Array.create (1024 * 4) 0uy
+                Array.create (1024 * 64) 0uy
                 |> fun arr -> new ArraySegment<byte>(arr)
 
             Console.WriteLine("Starting socket receive loop")
