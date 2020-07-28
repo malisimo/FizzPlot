@@ -1,237 +1,508 @@
-function initApp()
-{
-    Highcharts.theme = {
-        colors: ['#DDDF0D', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee',
-            '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
-        chart: {
-            backgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
-                stops: [
-                    [0, 'rgb(48, 48, 66)'],
-                    [1, 'rgb(0, 0, 0)']
-                ]
-            },
-            borderColor: '#000000',
-            borderWidth: 2,
-            className: 'dark-container',
-            plotBackgroundColor: 'rgba(255, 255, 255, .1)',
-            plotBorderColor: '#CCCCCC',
-            plotBorderWidth: 1
-        },
-        title: {
-            style: {
-                color: '#C0C0C0',
-                font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
-            }
-        },
-        subtitle: {
-            style: {
-                color: '#666666',
-                font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
-            }
-        },
-        xAxis: {
-            gridLineColor: '#333333',
-            gridLineWidth: 1,
-            labels: {
-                style: {
-                    color: '#A0A0A0'
-                }
-            },
-            lineColor: '#A0A0A0',
-            tickColor: '#A0A0A0',
-            title: {
-                style: {
-                    color: '#CCC',
-                    fontWeight: 'bold',
-                    fontSize: '12px',
-                    fontFamily: 'Trebuchet MS, Verdana, sans-serif'
-                }
-            }
-        },
-        yAxis: {
-            gridLineColor: '#333333',
-            labels: {
-                style: {
-                    color: '#A0A0A0'
-                }
-            },
-            lineColor: '#A0A0A0',
-            minorTickInterval: null,
-            tickColor: '#A0A0A0',
-            tickWidth: 1,
-            title: {
-                style: {
-                    color: '#CCC',
-                    fontWeight: 'bold',
-                    fontSize: '12px',
-                    fontFamily: 'Trebuchet MS, Verdana, sans-serif'
-                }
-            }
-        },
-        tooltip: {
-            backgroundColor: 'rgba(0, 0, 0, 0.75)',
-            style: {
-                color: '#F0F0F0'
-            }
-        },
-        toolbar: {
-            itemStyle: {
-                color: 'silver'
-            }
-        },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    color: '#CCC'
+function genTheme(theme) {
+    if (theme === 'dark') {
+        return {
+            colors: ['#DDDF0D', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee',
+                '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+            chart: {
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
+                    stops: [
+                        [0, 'rgb(48, 48, 66)'],
+                        [1, 'rgb(0, 0, 0)']
+                    ]
                 },
-                marker: {
-                    lineColor: '#333'
-                }
-            }
-        },
-        legend: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            itemStyle: {
-                font: '9pt Trebuchet MS, Verdana, sans-serif',
-                color: '#A0A0A0'
-            },
-            itemHoverStyle: {
-                color: '#FFF'
-            },
-            itemHiddenStyle: {
-                color: '#444'
+                borderColor: '#000000',
+                borderWidth: 2,
+                className: 'dark-container',
+                plotBackgroundColor: 'rgba(255, 255, 255, .1)',
+                plotBorderColor: '#CCCCCC',
+                plotBorderWidth: 1
             },
             title: {
                 style: {
-                    color: '#C0C0C0'
+                    color: '#C0C0C0',
+                    font: 'bold 16px "Trebuchet MS", Verdana, sans-serif'
                 }
-            }
-        },
-        credits: {
-            style: {
-                color: '#666'
-            }
-        },
-        labels: {
-            style: {
-                color: '#CCC'
-            }
-        },
-        navigation: {
-            buttonOptions: {
-                symbolStroke: '#DDDDDD',
-                theme: {
+            },
+            subtitle: {
+                style: {
+                    color: '#666666',
+                    font: 'bold 12px "Trebuchet MS", Verdana, sans-serif'
+                }
+            },
+            xAxis: {
+                gridLineColor: '#333333',
+                gridLineWidth: 1,
+                labels: {
+                    style: {
+                        color: '#A0A0A0'
+                    }
+                },
+                lineColor: '#A0A0A0',
+                tickColor: '#A0A0A0',
+                title: {
+                    style: {
+                        color: '#CCC',
+                        fontWeight: 'bold',
+                        fontSize: '12px',
+                        fontFamily: 'Trebuchet MS, Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                gridLineColor: '#333333',
+                labels: {
+                    style: {
+                        color: '#A0A0A0'
+                    }
+                },
+                lineColor: '#A0A0A0',
+                minorTickInterval: null,
+                tickColor: '#A0A0A0',
+                tickWidth: 1,
+                title: {
+                    style: {
+                        color: '#CCC',
+                        fontWeight: 'bold',
+                        fontSize: '12px',
+                        fontFamily: 'Trebuchet MS, Verdana, sans-serif'
+                    }
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                style: {
+                    color: '#F0F0F0'
+                }
+            },
+            toolbar: {
+                itemStyle: {
+                    color: 'silver'
+                }
+            },
+            plotOptions: {
+                line: {
+                    dataLabels: {
+                        color: '#CCC'
+                    },
+                    marker: {
+                        lineColor: '#333'
+                    }
+                }
+            },
+            legend: {
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                itemStyle: {
+                    font: '9pt Trebuchet MS, Verdana, sans-serif',
+                    color: '#A0A0A0'
+                },
+                itemHoverStyle: {
+                    color: '#FFF'
+                },
+                itemHiddenStyle: {
+                    color: '#444'
+                },
+                title: {
+                    style: {
+                        color: '#C0C0C0'
+                    }
+                }
+            },
+            credits: {
+                style: {
+                    color: '#666'
+                }
+            },
+            labels: {
+                style: {
+                    color: '#CCC'
+                }
+            },
+            navigation: {
+                buttonOptions: {
+                    symbolStroke: '#DDDDDD',
+                    theme: {
+                        fill: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0.4, '#606060'],
+                                [0.6, '#333333']
+                            ]
+                        },
+                        stroke: '#000000'
+                    }
+                }
+            },
+            // scroll charts
+            rangeSelector: {
+                buttonTheme: {
                     fill: {
                         linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                         stops: [
-                            [0.4, '#606060'],
-                            [0.6, '#333333']
+                            [0.4, '#888'],
+                            [0.6, '#555']
                         ]
                     },
-                    stroke: '#000000'
+                    stroke: '#000000',
+                    style: {
+                        color: '#CCC',
+                        fontWeight: 'bold'
+                    },
+                    states: {
+                        hover: {
+                            fill: {
+                                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                stops: [
+                                    [0.4, '#BBB'],
+                                    [0.6, '#888']
+                                ]
+                            },
+                            stroke: '#000000',
+                            style: {
+                                color: 'white'
+                            }
+                        },
+                        select: {
+                            fill: {
+                                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                stops: [
+                                    [0.1, '#000'],
+                                    [0.3, '#333']
+                                ]
+                            },
+                            stroke: '#000000',
+                            style: {
+                                color: 'yellow'
+                            }
+                        }
+                    }
+                },
+                inputStyle: {
+                    backgroundColor: '#333',
+                    color: 'silver'
+                },
+                labelStyle: {
+                    color: 'silver'
                 }
-            }
-        },
-        // scroll charts
-        rangeSelector: {
-            buttonTheme: {
-                fill: {
+            },
+            navigator: {
+                handles: {
+                    backgroundColor: '#666',
+                    borderColor: '#AAA'
+                },
+                outlineColor: '#CCC',
+                maskFill: 'rgba(16, 16, 16, 0.5)',
+                series: {
+                    color: '#7798BF',
+                    lineColor: '#A6C7ED'
+                }
+            },
+            scrollbar: {
+                barBackgroundColor: {
                     linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                     stops: [
                         [0.4, '#888'],
                         [0.6, '#555']
                     ]
                 },
-                stroke: '#000000',
-                style: {
-                    color: '#CCC',
-                    fontWeight: 'bold'
+                barBorderColor: '#CCC',
+                buttonArrowColor: '#CCC',
+                buttonBackgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0.4, '#888'],
+                        [0.6, '#555']
+                    ]
                 },
-                states: {
-                    hover: {
-                        fill: {
-                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                            stops: [
-                                [0.4, '#BBB'],
-                                [0.6, '#888']
-                            ]
-                        },
-                        stroke: '#000000',
-                        style: {
-                            color: 'white'
-                        }
-                    },
-                    select: {
-                        fill: {
-                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                            stops: [
-                                [0.1, '#000'],
-                                [0.3, '#333']
-                            ]
-                        },
-                        stroke: '#000000',
-                        style: {
-                            color: 'yellow'
-                        }
+                buttonBorderColor: '#CCC',
+                rifleColor: '#FFF',
+                trackBackgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0, '#000'],
+                        [1, '#333']
+                    ]
+                },
+                trackBorderColor: '#666'
+            }
+        };
+    } else if (theme === 'gray') {
+        return {
+            colors: ['#DDDF0D', '#7798BF', '#55BF3B', '#DF5353', '#aaeeee',
+                '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+            chart: {
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0, 'rgb(96, 96, 96)'],
+                        [1, 'rgb(16, 16, 16)']
+                    ]
+                },
+                borderWidth: 0,
+                borderRadius: 0,
+                plotBackgroundColor: null,
+                plotShadow: false,
+                plotBorderWidth: 0
+            },
+            title: {
+                style: {
+                    color: '#FFF',
+                    font: '16px Lucida Grande, Lucida Sans Unicode,' +
+                        ' Verdana, Arial, Helvetica, sans-serif'
+                }
+            },
+            subtitle: {
+                style: {
+                    color: '#DDD',
+                    font: '12px Lucida Grande, Lucida Sans Unicode,' +
+                        ' Verdana, Arial, Helvetica, sans-serif'
+                }
+            },
+            xAxis: {
+                gridLineWidth: 0,
+                lineColor: '#999',
+                tickColor: '#999',
+                labels: {
+                    style: {
+                        color: '#999',
+                        fontWeight: 'bold'
+                    }
+                },
+                title: {
+                    style: {
+                        color: '#AAA',
+                        font: 'bold 12px Lucida Grande, Lucida Sans Unicode,' +
+                            ' Verdana, Arial, Helvetica, sans-serif'
                     }
                 }
             },
-            inputStyle: {
-                backgroundColor: '#333',
-                color: 'silver'
+            yAxis: {
+                alternateGridColor: null,
+                minorTickInterval: null,
+                gridLineColor: 'rgba(255, 255, 255, .1)',
+                minorGridLineColor: 'rgba(255,255,255,0.07)',
+                lineWidth: 0,
+                tickWidth: 0,
+                labels: {
+                    style: {
+                        color: '#999',
+                        fontWeight: 'bold'
+                    }
+                },
+                title: {
+                    style: {
+                        color: '#AAA',
+                        font: 'bold 12px Lucida Grande, Lucida Sans Unicode,' +
+                            ' Verdana, Arial, Helvetica, sans-serif'
+                    }
+                }
             },
-            labelStyle: {
-                color: 'silver'
+            legend: {
+                backgroundColor: 'rgba(48, 48, 48, 0.8)',
+                itemStyle: {
+                    color: '#CCC'
+                },
+                itemHoverStyle: {
+                    color: '#FFF'
+                },
+                itemHiddenStyle: {
+                    color: '#333'
+                },
+                title: {
+                    style: {
+                        color: '#E0E0E0'
+                    }
+                }
+            },
+            labels: {
+                style: {
+                    color: '#CCC'
+                }
+            },
+            tooltip: {
+                backgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0, 'rgba(96, 96, 96, .8)'],
+                        [1, 'rgba(16, 16, 16, .8)']
+                    ]
+                },
+                borderWidth: 0,
+                style: {
+                    color: '#FFF'
+                }
+            },
+            plotOptions: {
+                series: {
+                    dataLabels: {
+                        color: '#444'
+                    },
+                    nullColor: '#444444'
+                },
+                line: {
+                    dataLabels: {
+                        color: '#CCC'
+                    },
+                    marker: {
+                        lineColor: '#333'
+                    }
+                },
+                spline: {
+                    marker: {
+                        lineColor: '#333'
+                    }
+                },
+                scatter: {
+                    marker: {
+                        lineColor: '#333'
+                    }
+                },
+                candlestick: {
+                    lineColor: 'white'
+                }
+            },
+            toolbar: {
+                itemStyle: {
+                    color: '#CCC'
+                }
+            },
+            navigation: {
+                buttonOptions: {
+                    symbolStroke: '#DDDDDD',
+                    theme: {
+                        fill: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0.4, '#606060'],
+                                [0.6, '#333333']
+                            ]
+                        },
+                        stroke: '#000000'
+                    }
+                }
+            },
+            // scroll charts
+            rangeSelector: {
+                buttonTheme: {
+                    fill: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                            [0.4, '#888'],
+                            [0.6, '#555']
+                        ]
+                    },
+                    stroke: '#000000',
+                    style: {
+                        color: '#CCC',
+                        fontWeight: 'bold'
+                    },
+                    states: {
+                        hover: {
+                            fill: {
+                                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                stops: [
+                                    [0.4, '#BBB'],
+                                    [0.6, '#888']
+                                ]
+                            },
+                            stroke: '#000000',
+                            style: {
+                                color: 'white'
+                            }
+                        },
+                        select: {
+                            fill: {
+                                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                                stops: [
+                                    [0.1, '#000'],
+                                    [0.3, '#333']
+                                ]
+                            },
+                            stroke: '#000000',
+                            style: {
+                                color: 'yellow'
+                            }
+                        }
+                    }
+                },
+                inputStyle: {
+                    backgroundColor: '#333',
+                    color: 'silver'
+                },
+                labelStyle: {
+                    color: 'silver'
+                }
+            },
+            navigator: {
+                handles: {
+                    backgroundColor: '#666',
+                    borderColor: '#AAA'
+                },
+                outlineColor: '#CCC',
+                maskFill: 'rgba(16, 16, 16, 0.5)',
+                series: {
+                    color: '#7798BF',
+                    lineColor: '#A6C7ED'
+                }
+            },
+            scrollbar: {
+                barBackgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0.4, '#888'],
+                        [0.6, '#555']
+                    ]
+                },
+                barBorderColor: '#CCC',
+                buttonArrowColor: '#CCC',
+                buttonBackgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0.4, '#888'],
+                        [0.6, '#555']
+                    ]
+                },
+                buttonBorderColor: '#CCC',
+                rifleColor: '#FFF',
+                trackBackgroundColor: {
+                    linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                    stops: [
+                        [0, '#000'],
+                        [1, '#333']
+                    ]
+                },
+                trackBorderColor: '#666'
             }
-        },
-        navigator: {
-            handles: {
-                backgroundColor: '#666',
-                borderColor: '#AAA'
-            },
-            outlineColor: '#CCC',
-            maskFill: 'rgba(16, 16, 16, 0.5)',
-            series: {
-                color: '#7798BF',
-                lineColor: '#A6C7ED'
+        };
+    } else {
+        return {
+            colors: [
+                '#5f98cf',
+                '#434348',
+                '#49a65e',
+                '#f45b5b',
+                '#708090',
+                '#b68c51',
+                '#397550',
+                '#c0493d',
+                '#4f4a7a',
+                '#b381b3'
+            ],
+            navigator: {
+                series: {
+                    color: '#5f98cf',
+                    lineColor: '#5f98cf'
+                }
             }
-        },
-        scrollbar: {
-            barBackgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0.4, '#888'],
-                    [0.6, '#555']
-                ]
-            },
-            barBorderColor: '#CCC',
-            buttonArrowColor: '#CCC',
-            buttonBackgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0.4, '#888'],
-                    [0.6, '#555']
-                ]
-            },
-            buttonBorderColor: '#CCC',
-            rifleColor: '#FFF',
-            trackBackgroundColor: {
-                linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
-                stops: [
-                    [0, '#000'],
-                    [1, '#333']
-                ]
-            },
-            trackBorderColor: '#666'
-        }
-    };
-    // Apply the theme
-    Highcharts.setOptions(Highcharts.theme);
+        };
+    }
 }
 
-function initChartElement(el, parentId)
-{
+function initApp() {
+    Highcharts.setOptions(genTheme('dark'));
+}
+
+function initChartElement(el, parentId) {
     var element = document.getElementById(el.id);
 
     if (typeof(element) == 'undefined' || element == null) {
@@ -244,13 +515,11 @@ function initChartElement(el, parentId)
     return Highcharts.chart(el.id, el.highCharts);
 }
 
-function addChartSeries(chart, seriesObj)
-{
+function addChartSeries(chart, seriesObj) {
     chart.addSeries(seriesObj);
 }
 
-function updateChartElement(chart, target, chartObj)
-{
+function updateChartElement(chart, target, chartObj) {
     if (target) {
         var co = _.cloneDeep(chart.options);
         _.set(co, target, chartObj);
@@ -258,6 +527,8 @@ function updateChartElement(chart, target, chartObj)
     } else {
         chart.update(chartObj);
     }
+
+    chart.reflow();
 }
 
 function createNewChart(chartId) {
@@ -318,6 +589,16 @@ function openWebSocket(appData) {
                     console.warn('Failed to update chart (chart index out of range)');
                 }
                 break;
+            case 'theme':
+                if (appData.charts.length > messageObj.chartIndex) {
+                    console.info('Updating chart');
+                    var chartProps = _.cloneDeep(appData.charts[messageObj.chartIndex].options);
+                    let theme = genTheme(JSON.parse(messageObj.json));
+                    updateChartElement(appData.charts[messageObj.chartIndex], "", { ...chartProps, ...theme });
+                } else {
+                    console.warn('Failed to change theme (chart index out of range)');
+                }
+                break;
             case 'delete':
                 console.info('Deleting chart or series');
                 break;
@@ -326,8 +607,7 @@ function openWebSocket(appData) {
                     console.info('Fetching chart data');
                     var chartProps = _.cloneDeep(appData.charts[messageObj.chartIndex].options);
                     var seriesProps = appData.charts[messageObj.chartIndex].series.map(function (s) {
-                        var o = _.cloneDeep(s.options);
-                        return o;
+                        return _.cloneDeep(s.options);
                       });
                     chartProps.series = seriesProps;
                     chartProps.exporting.sourceWidth = appData.charts[messageObj.chartIndex].chartWidth;

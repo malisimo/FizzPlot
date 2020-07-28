@@ -82,8 +82,41 @@ module Plot =
             |> strRep "##CHART##" (string currentChartIndex)
 
         send json
+
+    /// Set figure width, in pixels
+    let setWidth (px:int) =
+        let jsonTemplate = "{\"Operation\":\"update\",\"chartIndex\":##CHART##,\"target\":\"chart.width\",\"Json\":\"##VALUE##\"}"
+
+        let json =
+            jsonTemplate
+            |> strRep "##VALUE##" (string px)
+            |> strRep "##CHART##" (string currentChartIndex)
+
+        send json
+
+    /// Set figure height, in pixels
+    let setHeight (px:int) =
+        let jsonTemplate = "{\"Operation\":\"update\",\"chartIndex\":##CHART##,\"target\":\"chart.height\",\"Json\":\"##VALUE##\"}"
+
+        let json =
+            jsonTemplate
+            |> strRep "##VALUE##" (string px)
+            |> strRep "##CHART##" (string currentChartIndex)
+
+        send json
+
+    /// Set figure width, in pixels
+    let setTheme (theme:string) =
+        let jsonTemplate = "{\"Operation\":\"theme\",\"chartIndex\":##CHART##,\"target\":\"\",\"Json\":\"\\\"##THEME##\\\"\"}"
+
+        let json =
+            jsonTemplate
+            |> strRep "##THEME##" theme
+            |> strRep "##CHART##" (string currentChartIndex)
+
+        send json
  
-    /// Get figure properties, for figure with index i
+    /// Get current figure properties
     let getProps() =
         checkServer None
 
