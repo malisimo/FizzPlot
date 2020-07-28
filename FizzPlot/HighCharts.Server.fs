@@ -61,7 +61,6 @@ module internal Server =
 
             let jsonTemplate = "{
                 \"infile\":##JSON##,
-                \"width\":800,
                 \"scale\":false,
                 \"constr\":\"Chart\",
                 \"callback\":\"\",

@@ -292,14 +292,15 @@ function openWebSocket(appData) {
         switch (messageObj.operation) {
             case 'create':
                 console.info('Adding new chart');
-                appData.charts.unshift(initChartElement({ id: 'chart_' + appData.charts.length.toString(), highCharts: JSON.parse(messageObj.json) }, "chartContainer"));
+                appData.maxChartId+= 1;
+                appData.charts.unshift(initChartElement({ id: 'chart_' + appData.maxChartId.toString(), highCharts: JSON.parse(messageObj.json) }, "chartContainer"));
                 break;
             case 'add':
                 if (appData.charts.length == 0) {
                     console.info('Adding new chart');
-                    appData.charts.unshift(createNewChart('chart_' + appData.charts.length.toString()));
+                    appData.maxChartId+= 1;
+                    appData.charts.unshift(createNewChart('chart_' + appData.maxChartId.toString()));
                 }
-                
                 if (appData.charts.length > messageObj.chartIndex) {
                     console.info('Adding series to chart');
                 let seriesObj = JSON.parse(messageObj.json);
@@ -324,16 +325,14 @@ function openWebSocket(appData) {
                 if (appData.charts.length > messageObj.chartIndex) {
                     console.info('Fetching chart data');
                     var chartProps = _.cloneDeep(appData.charts[messageObj.chartIndex].options);
-                    console.log("Before:");
-                    console.log(chartProps);
                     var seriesProps = appData.charts[messageObj.chartIndex].series.map(function (s) {
                         var o = _.cloneDeep(s.options);
-                        //o.type = 'line';
                         return o;
                       });
                     chartProps.series = seriesProps;
-                    console.log("After:");
-                    console.log(chartProps);
+                    chartProps.exporting.sourceWidth = appData.charts[messageObj.chartIndex].chartWidth;
+                    chartProps.exporting.sourceHeight = appData.charts[messageObj.chartIndex].chartHeight;
+
                     socket.send(JSON.stringify(chartProps));
                 } else {
                     console.warn('Failed to fetch chart props (chart index out of range)');
