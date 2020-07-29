@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="giraffe.tasks" Version="0.1.0-beta-010" />
-    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.App"/>
+    <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="2.2.1" />
     <PackageReference Include="Giraffe" Version="3.4.*" />
     <PackageReference Include="Giraffe.Razor" Version="2.0.*" />
-    <PackageReference Include="Microsoft.AspNetCore.WebSockets" Version="2.2.1" />
+    <PackageReference Include="Giraffe.Tasks" Version="0.1.0-beta-010" />
     <PackageReference Include="TaskBuilder.fs" Version="2.1.*" />
   </ItemGroup>
 
@@ -38,11 +38,9 @@
   </ItemGroup>
 
   <Target Name="Nuget Copy" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
-      <Copy SourceFiles="@(_CopyItems)"
-        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp2.2\%(RecursiveDir)%(Filename)%(Extension)')"/>
+      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp2.2\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
   <Target Name="Local Copy" AfterTargets="AfterBuild">
-      <Copy SourceFiles="@(_CopyItems)"
-        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\FizzPlot\bin\$(Configuration)\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)')"/>
+      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\FizzPlot\bin\$(Configuration)\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
 </Project>

@@ -7,6 +7,7 @@ open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Cors.Infrastructure
 open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Logging
+open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Caching.Memory
 open Giraffe
@@ -118,6 +119,7 @@ let configureCors (builder : CorsPolicyBuilder) =
 
 let configureApp (app : IApplicationBuilder) =
     let env = app.ApplicationServices.GetService<IHostingEnvironment>()
+    let lifetime = app.ApplicationServices.GetService<IApplicationLifetime>()
     let webSocketOptions = WebSocketOptions()
     webSocketOptions.KeepAliveInterval <-  TimeSpan.FromSeconds(120.)
     webSocketOptions.ReceiveBufferSize <- 4 * 1024
@@ -127,7 +129,7 @@ let configureApp (app : IApplicationBuilder) =
     | false -> app.UseGiraffeErrorHandler errorHandler)
         .UseCors(configureCors)
         .UseWebSockets(webSocketOptions)
-        .UseMiddleware<WebSocketMiddleware>()
+        .UseMiddleware<WebSocketMiddleware>(lifetime)
         .UseStaticFiles()
         .UseGiraffe(webApp)
 
@@ -154,7 +156,7 @@ let main _ =
         .UseContentRoot(contentRoot)
         .UseIISIntegration()
         .UseWebRoot(webRoot)
-        .UseUrls("http://localhost:2387/")
+        .UseUrls("http://*:2387") 
         .Configure(Action<IApplicationBuilder> configureApp)
         .ConfigureServices(configureServices)
         .ConfigureLogging(configureLogging)
