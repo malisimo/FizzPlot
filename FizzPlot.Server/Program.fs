@@ -24,10 +24,19 @@ module Views =
     let layout (content: XmlNode list) =
         html [] [
             head [] [
-                title []  [ encodedText "FizzPlot" ]
+                title []  [ str "FizzPlot" ]
+
                 link [ _rel  "stylesheet"
                        _type "text/css"
                        _href "/main.css" ]
+                
+                script [_type "application/javascript"; _src "https://code.highcharts.com/highcharts.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/annotations.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/exporting.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/export-data.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/accessibility.js"] []
+                script [_type "application/javascript"; _src "https://cdn.jsdelivr.net/npm/lodash@4.17.19/lodash.min.js"] []
+                script [_type "application/javascript"; _src "scripts/appBundle.js"] []
             ]
             body [] content
         ]
@@ -38,7 +47,23 @@ module Views =
     let index (model : Message) =
         [
             partial()
-            p [] [ encodedText model.Operation ]
+            
+            div [ _id "chartContainer" ] []
+            script [_type "application/javascript"] [
+                rawText """
+                    window.addEventListener('load', 
+                        function () {            
+                            var appData = {
+                                charts:[],
+                                maxChartId:0,
+                                socket:null
+                            };
+
+                            initApp();
+                            openWebSocket(appData);
+                        }, false);
+                """
+            ]
         ] |> layout
 
 let indexHandler =
@@ -48,7 +73,7 @@ let indexHandler =
         Target = "title.text"
         Json = "\"\"}"
     }
-    let view      = Views.index model
+    let view = Views.index model
     htmlView view
     
     //razorHtmlView "Index" (Some model) None
@@ -152,8 +177,8 @@ let configureApp (app : IApplicationBuilder) =
     | "Development"  -> app.UseDeveloperExceptionPage()
     | _ -> app.UseGiraffeErrorHandler errorHandler)
         .UseCors(configureCors)
-        //.UseWebSockets(webSocketOptions)
-        //.UseMiddleware<WebSocketMiddleware>(lifetime)
+        .UseWebSockets(webSocketOptions)
+        .UseMiddleware<WebSocketMiddleware>(lifetime)
         .UseStaticFiles()
         .UseGiraffe(webApp)
 
@@ -164,7 +189,7 @@ let configureServices (services : IServiceCollection) =
     //services.AddRazorEngine viewsFolderPath |> ignore
     services.AddCors() |> ignore
     services.AddGiraffe() |> ignore
-    //services.AddMemoryCache() |> ignore
+    services.AddMemoryCache() |> ignore
 
 let configureLogging (builder : ILoggingBuilder) =
     builder.AddFilter(fun l -> l.Equals LogLevel.Error)
