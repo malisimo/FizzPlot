@@ -18,6 +18,28 @@ open FizzPlot.Middleware
 // ---------------------------------
 // Web app
 // ---------------------------------
+module Views =
+    open GiraffeViewEngine
+
+    let layout (content: XmlNode list) =
+        html [] [
+            head [] [
+                title []  [ encodedText "FizzPlot" ]
+                link [ _rel  "stylesheet"
+                       _type "text/css"
+                       _href "/main.css" ]
+            ]
+            body [] content
+        ]
+
+    let partial () =
+        h1 [] [ encodedText "FizzPlot" ]
+
+    let index (model : Message) =
+        [
+            partial()
+            p [] [ encodedText model.Operation ]
+        ] |> layout
 
 let indexHandler =
     let model = {
@@ -26,8 +48,10 @@ let indexHandler =
         Target = "title.text"
         Json = "\"\"}"
     }
+    let view      = Views.index model
+    htmlView view
     
-    razorHtmlView "Index" (Some model) None
+    //razorHtmlView "Index" (Some model) None
 
 let handleFetch : HttpHandler =
     fun (next:HttpFunc) (ctx:HttpContext) ->
@@ -118,29 +142,29 @@ let configureCors (builder : CorsPolicyBuilder) =
            |> ignore
 
 let configureApp (app : IApplicationBuilder) =
-    let env = app.ApplicationServices.GetService<IHostingEnvironment>()
-    let lifetime = app.ApplicationServices.GetService<IApplicationLifetime>()
+    let env = app.ApplicationServices.GetService<IWebHostEnvironment>()
+    let lifetime = app.ApplicationServices.GetService<IHostApplicationLifetime>()
     let webSocketOptions = WebSocketOptions()
     webSocketOptions.KeepAliveInterval <-  TimeSpan.FromSeconds(120.)
     webSocketOptions.ReceiveBufferSize <- 4 * 1024
 
-    (match env.IsDevelopment() with
-    | true  -> app.UseDeveloperExceptionPage()
-    | false -> app.UseGiraffeErrorHandler errorHandler)
+    (match env.EnvironmentName with
+    | "Development"  -> app.UseDeveloperExceptionPage()
+    | _ -> app.UseGiraffeErrorHandler errorHandler)
         .UseCors(configureCors)
-        .UseWebSockets(webSocketOptions)
-        .UseMiddleware<WebSocketMiddleware>(lifetime)
+        //.UseWebSockets(webSocketOptions)
+        //.UseMiddleware<WebSocketMiddleware>(lifetime)
         .UseStaticFiles()
         .UseGiraffe(webApp)
 
 let configureServices (services : IServiceCollection) =
     let sp  = services.BuildServiceProvider()
-    let env = sp.GetService<IHostingEnvironment>()
+    let env = sp.GetService<IHostEnvironment>()
     let viewsFolderPath = Path.Combine(env.ContentRootPath, "Views")
-    services.AddRazorEngine viewsFolderPath |> ignore
+    //services.AddRazorEngine viewsFolderPath |> ignore
     services.AddCors() |> ignore
     services.AddGiraffe() |> ignore
-    services.AddMemoryCache() |> ignore
+    //services.AddMemoryCache() |> ignore
 
 let configureLogging (builder : ILoggingBuilder) =
     builder.AddFilter(fun l -> l.Equals LogLevel.Error)
@@ -156,7 +180,7 @@ let main _ =
         .UseContentRoot(contentRoot)
         .UseIISIntegration()
         .UseWebRoot(webRoot)
-        .UseUrls("http://*:2387") 
+        .UseUrls("http://localhost:2387") 
         .Configure(Action<IApplicationBuilder> configureApp)
         .ConfigureServices(configureServices)
         .ConfigureLogging(configureLogging)

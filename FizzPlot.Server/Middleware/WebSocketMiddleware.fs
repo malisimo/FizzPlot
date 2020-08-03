@@ -121,7 +121,7 @@ module Middleware =
         | (true,msg) -> Some(msg)
         | (false,_) -> None
     
-    type WebSocketMiddleware (next : RequestDelegate, lifetime : IApplicationLifetime) =
+    type WebSocketMiddleware (next : RequestDelegate, lifetime : IHostApplicationLifetime) =
         member __.Invoke(ctx : HttpContext) =
             async {
                 if ctx.Request.Path = PathString("/ws") then
