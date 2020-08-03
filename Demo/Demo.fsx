@@ -41,6 +41,12 @@ fig.xAxis.[0].gridLineWidth.Set 1
 fig.series.[0].name.Set "NewSeriesName"
 fig.series.[0].lineWidth.Set 2
 
+fig.yAxis.[0]._type.Set "logarithmic"
+fig.xAxis.[0].min.Set 0.1
+fig.xAxis.[0].max.Set 0.2
+fig.yAxis.[0].min.Set 2.4
+fig.yAxis.[0].max.Set 3.2
+
 // Add another series 
 let data2 = [ for i in 0..n -> (0.1 * ~~i, 5.0 + rand.NextDouble() + ~~i) ]
 plot data2 |> ignore
