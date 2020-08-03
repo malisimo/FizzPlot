@@ -95,6 +95,8 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
         match s with
         | "type" -> "_type"
         | "global" -> "_global"
+        | "to" -> "_to"
+        | "from" -> "_from"
         | _ -> s
     
     let rec getTypes (state:GetTypesState) (current:string*JsonValue) =
