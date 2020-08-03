@@ -1,5 +1,5 @@
 // FizzPlot Interactive Demo
-// ======================
+// =========================
 //
 // Send chunks to FSI using 'Alt-Enter'.
 // Include FizzPlot reference first:
@@ -26,7 +26,7 @@ ylabel "y"
 setWidth 1200
 setHeight 500
 
-setTheme "gray"
+setTheme "gray" // gray, default
 
 fig.series.[0].name.Set "First"
 fig.legend.backgroundColor.Set "rgba(220,180,20,0.4)"
@@ -40,7 +40,7 @@ fig.series.[0].lineWidth.Set 2
 fig.yAxis.[0]._type.Set "logarithmic"
 fig.xAxis.[0].min.Set 0.1
 fig.xAxis.[0].max.Set 0.2
-fig.yAxis.[0].min.Set 0.0
+fig.yAxis.[0].min.Set 0.1
 fig.yAxis.[0].max.Set 3.2
 
 // Add another series
@@ -48,6 +48,9 @@ let rand = System.Random(2387)
 let data2 = [ for t in 0.0 .. 0.01 .. 1. -> (t, 0.2 + rand.NextDouble() + t) ]
 plot data2 |> ignore
 fig.series.[1].name.Set "Second"
+
+// Remove the first series
+remove 0
 
 // Update the title again
 title "data2"

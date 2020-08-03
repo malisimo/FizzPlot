@@ -669,7 +669,15 @@ function genTheme(theme) {
             navigation: {
                 buttonOptions: {
                     theme: {
-                        padding: 5
+                        padding: 5,
+                        fill: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0.4, '#ffffff'],
+                                [0.6, '#ffffff']
+                            ]
+                        },
+                        stroke: '#666666',
                     },
                     symbolSize: 14,
                     symbolX: 12.5,
@@ -739,7 +747,6 @@ function updateChartElement(chart, target, chartObj) {
 
 function createNewChart(chartId) {
     let myChart = {
-        //title: { text: 'Plot' },
         chart: { panning: true },
         yAxis: { title: { text: 'Value' } },
         xAxis: { title: { text: 'Index' } },
@@ -748,6 +755,13 @@ function createNewChart(chartId) {
     };
 
     return initChartElement({ id: chartId, highCharts: myChart }, "chartContainer");
+}
+
+function removeChartElement(chart, target, chartObj) {
+    if (target) {
+        chart.series[chartObj.id].remove();
+    } else {
+    }
 }
 
 function openWebSocket(appData) {
@@ -766,7 +780,6 @@ function openWebSocket(appData) {
     socket.onmessage = function (messageEvent) {
         console.info('Got websocket message');
         messageObj = JSON.parse(messageEvent.data);
-        //console.log(messageObj);
 
         switch (messageObj.operation) {
             case 'create':
@@ -807,8 +820,14 @@ function openWebSocket(appData) {
                     console.warn('Failed to change theme (chart index out of range)');
                 }
                 break;
-            case 'delete':
-                console.info('Deleting chart or series');
+            case 'remove':
+                if (appData.charts.length > messageObj.chartIndex) {
+                    console.info('Removing chart or series');
+                    let msgObj = JSON.parse(messageObj.json);
+                    removeChartElement(appData.charts[messageObj.chartIndex], messageObj.target, msgObj);
+                } else {
+                    console.warn('Failed to remove chart or series (chart index out of range)');
+                }
                 break;
             case 'fetch':
                 if (appData.charts.length > messageObj.chartIndex) {

@@ -44,6 +44,21 @@ module Plot =
 
         send json
 
+    let remove (i:int) =
+        // Remove an existing series from chart, based on index
+        let jsonTemplate = "{\"Operation\":\"remove\",\"chartIndex\":##CHART##,\"target\":\"series\",\"Json\":\"{\\\"id\\\":##INDEX##}\"}"
+
+        let json =
+            jsonTemplate
+            |> strRep "##INDEX##" (sprintf "%i" i)
+            |> strRep "##CHART##" (string currentChartIndex)
+        
+        // Start server if not already running
+        checkServer (Some json)
+
+        send json
+
+
     /// Set chart title
     let title str =
         checkServer None
