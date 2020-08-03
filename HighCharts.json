@@ -1310,7 +1310,7 @@
                 "cat 1",
                 "cat 2"
             ],
-            "ceiling": 999.0,
+            "ceiling": 999.1,
             "className": "class",
             "crosshair": false,
             "dateTimeLabelFormats": {
@@ -1324,7 +1324,7 @@
                 "year": "%Y"
             },
             "endOnTick": false,
-            "floor": -999.0,
+            "floor": -999.1,
             "gridLineColor": "#333333",
             "gridLineDashStyle": "dot",
             "gridLineInterpolation": "circle",
@@ -1378,10 +1378,10 @@
             "lineWidth": 2,
             "linkedTo": 0,
             "margin": 15,
-            "max": 100.0,
+            "max": 100.1,
             "maxColor": "#DDBBDD",
             "maxPadding": 0.2,
-            "min": 0.0,
+            "min": 0.1,
             "minColor": "#22FF22",
             "minorGridLineColor": "#888888",
             "minorGridLineDashStyle": "Solid",
@@ -1392,7 +1392,7 @@
             "minorTickPosition": "outside",
             "minorTicks": false,
             "minorTickWidth": 1,
-            "minRange": 50.0,
+            "minRange": 50.1,
             "minTickInterval": 0.1,
             "offset": 0,
             "opposite": false,
@@ -1566,7 +1566,7 @@
                 "cat 1",
                 "cat 2"
             ],
-            "ceiling": 999.0,
+            "ceiling": 999.1,
             "className": "class",
             "crosshair": false,
             "dateTimeLabelFormats": {
@@ -1580,7 +1580,7 @@
                 "year": "%Y"
             },
             "endOnTick": false,
-            "floor": -999.0,
+            "floor": -999.1,
             "gridLineColor": "#333333",
             "gridLineDashStyle": "dot",
             "gridLineInterpolation": "circle",
@@ -1634,10 +1634,10 @@
             "lineWidth": 2,
             "linkedTo": 0,
             "margin": 15,
-            "max": 100.0,
+            "max": 100.1,
             "maxColor": "#DDBBDD",
             "maxPadding": 0.2,
-            "min": 0.0,
+            "min": 0.1,
             "minColor": "#22FF22",
             "minorGridLineColor": "#888888",
             "minorGridLineDashStyle": "Solid",
@@ -1648,7 +1648,7 @@
             "minorTickPosition": "outside",
             "minorTicks": false,
             "minorTickWidth": 1,
-            "minRange": 50.0,
+            "minRange": 50.1,
             "minTickInterval": 0.1,
             "offset": 0,
             "opposite": false,
@@ -2050,7 +2050,7 @@
             "cropThreshold": 300,
             "cursor": "default",
             "data": [
-                1.0
+                1.1
             ],
             "dashStyle": "Solid",
             "description": "desc",

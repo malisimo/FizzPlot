@@ -4270,7 +4270,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States_Hover_Halo_Size.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Line_States_Hover_Halo_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Line_States_Hover_Halo_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Line_States_Hover_Halo_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -4280,13 +4280,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States_Hover_Halo_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Line_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Line_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
     type Figure_PlotOptions_Line_States_Hover_Halo(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -4295,7 +4295,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Line_States_Hover_Halo_Size : <code>int</code></summary>
         member this.size = Figure_PlotOptions_Line_States_Hover_Halo_Size(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Line_States_Hover_Halo_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Line_States_Hover_Halo_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Line_States_Hover_Halo_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -4303,16 +4303,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
                 |> Option.defaultValue "halo"
 
-        static member ToJson (o:{| size:int; opacity:int |}) =
+        static member ToJson (o:{| size:int; opacity:float |}) =
             let size = sprintf "%i" o.size
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"size\\\":%s,\\\"opacity\\\":%s}" size opacity
 
-        member this.Set (o:{| size:int; opacity:int |}) =
+        member this.Set (o:{| size:int; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States_Hover_Halo.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Line_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Line_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Line_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -4327,7 +4327,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Line_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
         member this.marker = Figure_PlotOptions_Line_States_Hover_Marker(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Line_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Line_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
         member this.halo = Figure_PlotOptions_Line_States_Hover_Halo(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -4335,14 +4335,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             let animation = Figure_PlotOptions_Line_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Line_States_Hover_Marker.ToJson o.marker
             let halo = Figure_PlotOptions_Line_States_Hover_Halo.ToJson o.halo
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s}" animation lineWidthPlus marker halo
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States_Hover.ToJson o)
 
 
@@ -4444,7 +4444,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Line_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Line_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Line_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -4454,13 +4454,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Line_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Line_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Line_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -4469,7 +4469,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Line_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Line_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Line_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Line_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Line_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -4477,16 +4477,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Line_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Line_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Line_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Line_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -4495,13 +4495,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Line_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Line_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Line_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Line_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
         member this.hover = Figure_PlotOptions_Line_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Line_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
         member this.select = Figure_PlotOptions_Line_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Line_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Line_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Line_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -4509,14 +4509,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Line_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Line_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Line_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Line_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_States.ToJson o)
 
 
@@ -4568,7 +4568,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line_FindNearestPointBy.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Line : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
+    ///<summary>Figure_PlotOptions_Line : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
     type Figure_PlotOptions_Line(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -4613,7 +4613,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Line_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Line_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Line_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Line_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Line_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Line_StickyTracking : <code>bool</code></summary>
@@ -4630,7 +4630,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.line" (parent.GetPath()))
                 |> Option.defaultValue "line"
 
-        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
+        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
@@ -4650,7 +4650,7 @@ module Figure =
             let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy
 
-        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
+        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Line.ToJson o)
 
 
@@ -5935,7 +5935,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States_Hover_Halo_Size.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Area_States_Hover_Halo_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Area_States_Hover_Halo_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Area_States_Hover_Halo_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -5945,13 +5945,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States_Hover_Halo_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Area_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Area_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
     type Figure_PlotOptions_Area_States_Hover_Halo(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -5960,7 +5960,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Area_States_Hover_Halo_Size : <code>int</code></summary>
         member this.size = Figure_PlotOptions_Area_States_Hover_Halo_Size(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Area_States_Hover_Halo_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Area_States_Hover_Halo_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Area_States_Hover_Halo_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -5968,16 +5968,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
                 |> Option.defaultValue "halo"
 
-        static member ToJson (o:{| size:int; opacity:int |}) =
+        static member ToJson (o:{| size:int; opacity:float |}) =
             let size = sprintf "%i" o.size
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"size\\\":%s,\\\"opacity\\\":%s}" size opacity
 
-        member this.Set (o:{| size:int; opacity:int |}) =
+        member this.Set (o:{| size:int; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States_Hover_Halo.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Area_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Area_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Area_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -5992,7 +5992,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Area_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
         member this.marker = Figure_PlotOptions_Area_States_Hover_Marker(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Area_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Area_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
         member this.halo = Figure_PlotOptions_Area_States_Hover_Halo(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -6000,14 +6000,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             let animation = Figure_PlotOptions_Area_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Area_States_Hover_Marker.ToJson o.marker
             let halo = Figure_PlotOptions_Area_States_Hover_Halo.ToJson o.halo
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s}" animation lineWidthPlus marker halo
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States_Hover.ToJson o)
 
 
@@ -6109,7 +6109,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Area_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Area_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Area_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -6119,13 +6119,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Area_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Area_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Area_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -6134,7 +6134,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Area_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Area_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Area_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Area_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Area_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -6142,16 +6142,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Area_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Area_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Area_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Area_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -6160,13 +6160,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Area_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Area_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Area_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Area_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
         member this.hover = Figure_PlotOptions_Area_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Area_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
         member this.select = Figure_PlotOptions_Area_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Area_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Area_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Area_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -6174,14 +6174,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Area_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Area_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Area_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Area_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_States.ToJson o)
 
 
@@ -6249,7 +6249,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area_Threshold.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Area : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Area : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
     type Figure_PlotOptions_Area(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -6294,7 +6294,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Area_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Area_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Area_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Area_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Area_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Area_StickyTracking : <code>bool</code></summary>
@@ -6314,7 +6314,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.area" (parent.GetPath()))
                 |> Option.defaultValue "area"
 
-        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
+        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
             let lineWidth = sprintf "%i" o.lineWidth
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
@@ -6335,7 +6335,7 @@ module Figure =
             let threshold = sprintf "%i" o.threshold
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"threshold\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy threshold
 
-        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
+        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Area.ToJson o)
 
 
@@ -7620,7 +7620,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States_Hover_Halo_Size.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Spline_States_Hover_Halo_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -7630,13 +7630,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States_Hover_Halo_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
     type Figure_PlotOptions_Spline_States_Hover_Halo(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -7645,7 +7645,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo_Size : <code>int</code></summary>
         member this.size = Figure_PlotOptions_Spline_States_Hover_Halo_Size(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Spline_States_Hover_Halo_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -7653,16 +7653,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
                 |> Option.defaultValue "halo"
 
-        static member ToJson (o:{| size:int; opacity:int |}) =
+        static member ToJson (o:{| size:int; opacity:float |}) =
             let size = sprintf "%i" o.size
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"size\\\":%s,\\\"opacity\\\":%s}" size opacity
 
-        member this.Set (o:{| size:int; opacity:int |}) =
+        member this.Set (o:{| size:int; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States_Hover_Halo.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Spline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Spline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Spline_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -7677,7 +7677,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Spline_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
         member this.marker = Figure_PlotOptions_Spline_States_Hover_Marker(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Spline_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
         member this.halo = Figure_PlotOptions_Spline_States_Hover_Halo(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -7685,14 +7685,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             let animation = Figure_PlotOptions_Spline_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Spline_States_Hover_Marker.ToJson o.marker
             let halo = Figure_PlotOptions_Spline_States_Hover_Halo.ToJson o.halo
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s}" animation lineWidthPlus marker halo
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States_Hover.ToJson o)
 
 
@@ -7794,7 +7794,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Spline_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Spline_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Spline_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -7804,13 +7804,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Spline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Spline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Spline_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -7819,7 +7819,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Spline_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Spline_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Spline_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Spline_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Spline_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -7827,16 +7827,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Spline_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Spline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Spline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Spline_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -7845,13 +7845,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Spline_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Spline_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Spline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Spline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
         member this.hover = Figure_PlotOptions_Spline_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Spline_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
         member this.select = Figure_PlotOptions_Spline_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Spline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Spline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Spline_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -7859,14 +7859,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Spline_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Spline_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Spline_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Spline_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_States.ToJson o)
 
 
@@ -7918,7 +7918,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline_FindNearestPointBy.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Spline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
+    ///<summary>Figure_PlotOptions_Spline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
     type Figure_PlotOptions_Spline(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -7963,7 +7963,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Spline_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Spline_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Spline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Spline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Spline_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Spline_StickyTracking : <code>bool</code></summary>
@@ -7980,7 +7980,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.spline" (parent.GetPath()))
                 |> Option.defaultValue "spline"
 
-        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
+        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
@@ -8000,7 +8000,7 @@ module Figure =
             let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy
 
-        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
+        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Spline.ToJson o)
 
 
@@ -9285,7 +9285,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States_Hover_Halo_Size.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -9295,13 +9295,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Hover_Halo(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -9310,7 +9310,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo_Size : <code>int</code></summary>
         member this.size = Figure_PlotOptions_Areaspline_States_Hover_Halo_Size(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Areaspline_States_Hover_Halo_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -9318,16 +9318,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
                 |> Option.defaultValue "halo"
 
-        static member ToJson (o:{| size:int; opacity:int |}) =
+        static member ToJson (o:{| size:int; opacity:float |}) =
             let size = sprintf "%i" o.size
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"size\\\":%s,\\\"opacity\\\":%s}" size opacity
 
-        member this.Set (o:{| size:int; opacity:int |}) =
+        member this.Set (o:{| size:int; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States_Hover_Halo.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Areaspline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Areaspline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -9342,7 +9342,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
         member this.marker = Figure_PlotOptions_Areaspline_States_Hover_Marker(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Areaspline_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
         member this.halo = Figure_PlotOptions_Areaspline_States_Hover_Halo(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -9350,14 +9350,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             let animation = Figure_PlotOptions_Areaspline_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Areaspline_States_Hover_Marker.ToJson o.marker
             let halo = Figure_PlotOptions_Areaspline_States_Hover_Halo.ToJson o.halo
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s}" animation lineWidthPlus marker halo
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States_Hover.ToJson o)
 
 
@@ -9459,7 +9459,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Areaspline_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -9469,13 +9469,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Areaspline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Areaspline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Areaspline_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -9484,7 +9484,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Areaspline_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Areaspline_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Areaspline_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -9492,16 +9492,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Areaspline_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Areaspline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Areaspline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Areaspline_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -9510,13 +9510,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Areaspline_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Areaspline_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Areaspline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Areaspline_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
         member this.hover = Figure_PlotOptions_Areaspline_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Areaspline_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
         member this.select = Figure_PlotOptions_Areaspline_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Areaspline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Areaspline_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Areaspline_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -9524,14 +9524,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Areaspline_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Areaspline_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Areaspline_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Areaspline_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_States.ToJson o)
 
 
@@ -9599,7 +9599,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline_Threshold.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Areaspline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Areaspline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
     type Figure_PlotOptions_Areaspline(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -9644,7 +9644,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Areaspline_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Areaspline_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Areaspline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Areaspline_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Areaspline_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Areaspline_StickyTracking : <code>bool</code></summary>
@@ -9664,7 +9664,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.areaspline" (parent.GetPath()))
                 |> Option.defaultValue "areaspline"
 
-        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
+        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
             let lineWidth = sprintf "%i" o.lineWidth
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
@@ -9685,7 +9685,7 @@ module Figure =
             let threshold = sprintf "%i" o.threshold
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"threshold\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy threshold
 
-        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
+        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Areaspline.ToJson o)
 
 
@@ -10558,7 +10558,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Hover_Halo.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Column_States_Hover_Brightness : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Column_States_Hover_Brightness : <code>float</code></summary>
     type Figure_PlotOptions_Column_States_Hover_Brightness(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -10568,13 +10568,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.brightness" (parent.GetPath()))
                 |> Option.defaultValue "brightness"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Hover_Brightness.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Column_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Column_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}</code></summary>
     type Figure_PlotOptions_Column_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -10592,7 +10592,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Column_States_Hover_Halo : <code>bool</code></summary>
         member this.halo = Figure_PlotOptions_Column_States_Hover_Halo(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column_States_Hover_Brightness : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Column_States_Hover_Brightness : <code>float</code></summary>
         member this.brightness = Figure_PlotOptions_Column_States_Hover_Brightness(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -10600,15 +10600,15 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}) =
             let animation = Figure_PlotOptions_Column_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Column_States_Hover_Marker.ToJson o.marker
             let halo = sprintf "%b" o.halo
-            let brightness = sprintf "%i" o.brightness
+            let brightness = sprintf "%f" o.brightness
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s,\\\"brightness\\\":%s}" animation lineWidthPlus marker halo brightness
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Hover.ToJson o)
 
 
@@ -10750,7 +10750,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Column_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Column_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Column_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -10760,13 +10760,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Column_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Column_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Column_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -10775,7 +10775,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Column_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Column_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Column_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Column_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -10783,16 +10783,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Column_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Column_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Column_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Column_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -10801,13 +10801,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Column_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Column_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Column_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}</code></summary>
         member this.hover = Figure_PlotOptions_Column_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Column_States_Select : <code>{| animation: {| duration:int |}; color:string; borderColor:string |}</code></summary>
         member this.select = Figure_PlotOptions_Column_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Column_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Column_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -10815,14 +10815,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Column_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Column_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Column_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Column_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_States.ToJson o)
 
 
@@ -10906,7 +10906,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_CenterInCategory.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Column_GroupPadding : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Column_GroupPadding : <code>float</code></summary>
     type Figure_PlotOptions_Column_GroupPadding(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -10916,13 +10916,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.groupPadding" (parent.GetPath()))
                 |> Option.defaultValue "groupPadding"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_GroupPadding.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Column_PointPadding : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Column_PointPadding : <code>float</code></summary>
     type Figure_PlotOptions_Column_PointPadding(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -10932,10 +10932,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.pointPadding" (parent.GetPath()))
                 |> Option.defaultValue "pointPadding"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_PointPadding.ToJson o)
 
     ///<summary>Figure_PlotOptions_Column_MinPointLength : <code>int</code></summary>
@@ -11002,7 +11002,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column_BorderColor.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Column : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
+    ///<summary>Figure_PlotOptions_Column : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
     type Figure_PlotOptions_Column(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -11047,7 +11047,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Column_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Column_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Column_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Column_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Column_StickyTracking : <code>bool</code></summary>
@@ -11065,10 +11065,10 @@ module Figure =
         ///<summary>Figure_PlotOptions_Column_CenterInCategory : <code>bool</code></summary>
         member this.centerInCategory = Figure_PlotOptions_Column_CenterInCategory(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column_GroupPadding : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Column_GroupPadding : <code>float</code></summary>
         member this.groupPadding = Figure_PlotOptions_Column_GroupPadding(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column_PointPadding : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Column_PointPadding : <code>float</code></summary>
         member this.pointPadding = Figure_PlotOptions_Column_PointPadding(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Column_MinPointLength : <code>int</code></summary>
@@ -11088,7 +11088,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.column" (parent.GetPath()))
                 |> Option.defaultValue "column"
 
-        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
+        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
@@ -11108,15 +11108,15 @@ module Figure =
             let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let borderRadius = sprintf "%i" o.borderRadius
             let centerInCategory = sprintf "%b" o.centerInCategory
-            let groupPadding = sprintf "%i" o.groupPadding
-            let pointPadding = sprintf "%i" o.pointPadding
+            let groupPadding = sprintf "%f" o.groupPadding
+            let pointPadding = sprintf "%f" o.pointPadding
             let minPointLength = sprintf "%i" o.minPointLength
             let startFromThreshold = sprintf "%b" o.startFromThreshold
             let threshold = sprintf "%i" o.threshold
             let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"borderRadius\\\":%s,\\\"centerInCategory\\\":%s,\\\"groupPadding\\\":%s,\\\"pointPadding\\\":%s,\\\"minPointLength\\\":%s,\\\"startFromThreshold\\\":%s,\\\"threshold\\\":%s,\\\"borderColor\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy borderRadius centerInCategory groupPadding pointPadding minPointLength startFromThreshold threshold borderColor
 
-        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
+        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Column.ToJson o)
 
 
@@ -11989,7 +11989,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Hover_Halo.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Bar_States_Hover_Brightness : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Bar_States_Hover_Brightness : <code>float</code></summary>
     type Figure_PlotOptions_Bar_States_Hover_Brightness(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -11999,13 +11999,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.brightness" (parent.GetPath()))
                 |> Option.defaultValue "brightness"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Hover_Brightness.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Bar_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Bar_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}</code></summary>
     type Figure_PlotOptions_Bar_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -12023,7 +12023,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Bar_States_Hover_Halo : <code>bool</code></summary>
         member this.halo = Figure_PlotOptions_Bar_States_Hover_Halo(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar_States_Hover_Brightness : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Bar_States_Hover_Brightness : <code>float</code></summary>
         member this.brightness = Figure_PlotOptions_Bar_States_Hover_Brightness(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -12031,15 +12031,15 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}) =
             let animation = Figure_PlotOptions_Bar_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Bar_States_Hover_Marker.ToJson o.marker
             let halo = sprintf "%b" o.halo
-            let brightness = sprintf "%i" o.brightness
+            let brightness = sprintf "%f" o.brightness
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s,\\\"brightness\\\":%s}" animation lineWidthPlus marker halo brightness
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Hover.ToJson o)
 
 
@@ -12181,7 +12181,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Bar_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Bar_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Bar_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -12191,13 +12191,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Bar_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Bar_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Bar_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -12206,7 +12206,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Bar_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Bar_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Bar_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Bar_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -12214,16 +12214,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Bar_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Bar_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Bar_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Bar_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -12232,13 +12232,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Bar_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Bar_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Bar_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}</code></summary>
         member this.hover = Figure_PlotOptions_Bar_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Bar_States_Select : <code>{| animation: {| duration:int |}; color:string; borderColor:string |}</code></summary>
         member this.select = Figure_PlotOptions_Bar_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Bar_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Bar_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -12246,14 +12246,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Bar_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Bar_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Bar_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Bar_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_States.ToJson o)
 
 
@@ -12337,7 +12337,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_CenterInCategory.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Bar_GroupPadding : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Bar_GroupPadding : <code>float</code></summary>
     type Figure_PlotOptions_Bar_GroupPadding(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -12347,13 +12347,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.groupPadding" (parent.GetPath()))
                 |> Option.defaultValue "groupPadding"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_GroupPadding.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Bar_PointPadding : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Bar_PointPadding : <code>float</code></summary>
     type Figure_PlotOptions_Bar_PointPadding(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -12363,10 +12363,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.pointPadding" (parent.GetPath()))
                 |> Option.defaultValue "pointPadding"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_PointPadding.ToJson o)
 
     ///<summary>Figure_PlotOptions_Bar_MinPointLength : <code>int</code></summary>
@@ -12433,7 +12433,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar_BorderColor.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Bar : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
+    ///<summary>Figure_PlotOptions_Bar : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
     type Figure_PlotOptions_Bar(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -12478,7 +12478,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Bar_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Bar_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Bar_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Bar_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Bar_StickyTracking : <code>bool</code></summary>
@@ -12496,10 +12496,10 @@ module Figure =
         ///<summary>Figure_PlotOptions_Bar_CenterInCategory : <code>bool</code></summary>
         member this.centerInCategory = Figure_PlotOptions_Bar_CenterInCategory(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar_GroupPadding : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Bar_GroupPadding : <code>float</code></summary>
         member this.groupPadding = Figure_PlotOptions_Bar_GroupPadding(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar_PointPadding : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Bar_PointPadding : <code>float</code></summary>
         member this.pointPadding = Figure_PlotOptions_Bar_PointPadding(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Bar_MinPointLength : <code>int</code></summary>
@@ -12519,7 +12519,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.bar" (parent.GetPath()))
                 |> Option.defaultValue "bar"
 
-        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
+        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
             let lineWidth = sprintf "%i" o.lineWidth
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
@@ -12539,15 +12539,15 @@ module Figure =
             let findNearestPointBy = sprintf "\\\"%s\\\"" o.findNearestPointBy
             let borderRadius = sprintf "%i" o.borderRadius
             let centerInCategory = sprintf "%b" o.centerInCategory
-            let groupPadding = sprintf "%i" o.groupPadding
-            let pointPadding = sprintf "%i" o.pointPadding
+            let groupPadding = sprintf "%f" o.groupPadding
+            let pointPadding = sprintf "%f" o.pointPadding
             let minPointLength = sprintf "%i" o.minPointLength
             let startFromThreshold = sprintf "%b" o.startFromThreshold
             let threshold = sprintf "%i" o.threshold
             let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"borderRadius\\\":%s,\\\"centerInCategory\\\":%s,\\\"groupPadding\\\":%s,\\\"pointPadding\\\":%s,\\\"minPointLength\\\":%s,\\\"startFromThreshold\\\":%s,\\\"threshold\\\":%s,\\\"borderColor\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy borderRadius centerInCategory groupPadding pointPadding minPointLength startFromThreshold threshold borderColor
 
-        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
+        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Bar.ToJson o)
 
 
@@ -13852,7 +13852,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States_Hover_Halo_Size.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -13862,13 +13862,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Hover_Halo(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -13877,7 +13877,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo_Size : <code>int</code></summary>
         member this.size = Figure_PlotOptions_Scatter_States_Hover_Halo_Size(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Scatter_States_Hover_Halo_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -13885,16 +13885,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
                 |> Option.defaultValue "halo"
 
-        static member ToJson (o:{| size:int; opacity:int |}) =
+        static member ToJson (o:{| size:int; opacity:float |}) =
             let size = sprintf "%i" o.size
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"size\\\":%s,\\\"opacity\\\":%s}" size opacity
 
-        member this.Set (o:{| size:int; opacity:int |}) =
+        member this.Set (o:{| size:int; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States_Hover_Halo.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Scatter_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Scatter_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -13909,7 +13909,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Scatter_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
         member this.marker = Figure_PlotOptions_Scatter_States_Hover_Marker(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Scatter_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
         member this.halo = Figure_PlotOptions_Scatter_States_Hover_Halo(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -13917,14 +13917,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             let animation = Figure_PlotOptions_Scatter_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Scatter_States_Hover_Marker.ToJson o.marker
             let halo = Figure_PlotOptions_Scatter_States_Hover_Halo.ToJson o.halo
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s}" animation lineWidthPlus marker halo
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States_Hover.ToJson o)
 
 
@@ -14026,7 +14026,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Scatter_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -14036,13 +14036,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Scatter_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Scatter_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Scatter_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -14051,7 +14051,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Scatter_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Scatter_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Scatter_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -14059,16 +14059,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Scatter_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Scatter_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Scatter_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Scatter_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -14077,13 +14077,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Scatter_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Scatter_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Scatter_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Scatter_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}</code></summary>
         member this.hover = Figure_PlotOptions_Scatter_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Scatter_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
         member this.select = Figure_PlotOptions_Scatter_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Scatter_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Scatter_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Scatter_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -14091,14 +14091,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Scatter_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Scatter_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Scatter_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Scatter_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_States.ToJson o)
 
 
@@ -14208,7 +14208,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter_Jitter.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Scatter : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Scatter : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}</code></summary>
     type Figure_PlotOptions_Scatter(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -14253,7 +14253,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Scatter_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Scatter_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Scatter_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Scatter_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Scatter_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Scatter_StickyTracking : <code>bool</code></summary>
@@ -14273,7 +14273,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.scatter" (parent.GetPath()))
                 |> Option.defaultValue "scatter"
 
-        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}) =
+        static member ToJson (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}) =
             let lineWidth = sprintf "%i" o.lineWidth
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
@@ -14294,7 +14294,7 @@ module Figure =
             let jitter = Figure_PlotOptions_Scatter_Jitter.ToJson o.jitter
             sprintf "{\\\"lineWidth\\\":%s,\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"jitter\\\":%s}" lineWidth allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy jitter
 
-        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}) =
+        member this.Set (o:{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Scatter.ToJson o)
 
 
@@ -15351,7 +15351,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Hover_Halo_Size.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Pie_States_Hover_Halo_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15361,13 +15361,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Hover_Halo_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
     type Figure_PlotOptions_Pie_States_Hover_Halo(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15376,7 +15376,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo_Size : <code>int</code></summary>
         member this.size = Figure_PlotOptions_Pie_States_Hover_Halo_Size(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Pie_States_Hover_Halo_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -15384,16 +15384,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.halo" (parent.GetPath()))
                 |> Option.defaultValue "halo"
 
-        static member ToJson (o:{| size:int; opacity:int |}) =
+        static member ToJson (o:{| size:int; opacity:float |}) =
             let size = sprintf "%i" o.size
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"size\\\":%s,\\\"opacity\\\":%s}" size opacity
 
-        member this.Set (o:{| size:int; opacity:int |}) =
+        member this.Set (o:{| size:int; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Hover_Halo.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Pie_States_Hover_Brightness : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Pie_States_Hover_Brightness : <code>float</code></summary>
     type Figure_PlotOptions_Pie_States_Hover_Brightness(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15403,13 +15403,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.brightness" (parent.GetPath()))
                 |> Option.defaultValue "brightness"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Hover_Brightness.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Pie_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Pie_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}</code></summary>
     type Figure_PlotOptions_Pie_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15424,10 +15424,10 @@ module Figure =
         ///<summary>Figure_PlotOptions_Pie_States_Hover_Marker : <code>{| dummy:string |}</code></summary>
         member this.marker = Figure_PlotOptions_Pie_States_Hover_Marker(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo : <code>{| size:int; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Pie_States_Hover_Halo : <code>{| size:int; opacity:float |}</code></summary>
         member this.halo = Figure_PlotOptions_Pie_States_Hover_Halo(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie_States_Hover_Brightness : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Pie_States_Hover_Brightness : <code>float</code></summary>
         member this.brightness = Figure_PlotOptions_Pie_States_Hover_Brightness(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -15435,15 +15435,15 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}) =
             let animation = Figure_PlotOptions_Pie_States_Hover_Animation.ToJson o.animation
             let lineWidthPlus = sprintf "%i" o.lineWidthPlus
             let marker = Figure_PlotOptions_Pie_States_Hover_Marker.ToJson o.marker
             let halo = Figure_PlotOptions_Pie_States_Hover_Halo.ToJson o.halo
-            let brightness = sprintf "%i" o.brightness
+            let brightness = sprintf "%f" o.brightness
             sprintf "{\\\"animation\\\":%s,\\\"lineWidthPlus\\\":%s,\\\"marker\\\":%s,\\\"halo\\\":%s,\\\"brightness\\\":%s}" animation lineWidthPlus marker halo brightness
 
-        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Hover.ToJson o)
 
 
@@ -15545,7 +15545,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Inactive_Animation.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Pie_States_Inactive_Opacity : <code>int</code></summary>
+    ///<summary>Figure_PlotOptions_Pie_States_Inactive_Opacity : <code>float</code></summary>
     type Figure_PlotOptions_Pie_States_Inactive_Opacity(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15555,13 +15555,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opacity" (parent.GetPath()))
                 |> Option.defaultValue "opacity"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Inactive_Opacity.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Pie_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Pie_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
     type Figure_PlotOptions_Pie_States_Inactive(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15570,7 +15570,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Pie_States_Inactive_Animation : <code>{| duration:int |}</code></summary>
         member this.animation = Figure_PlotOptions_Pie_States_Inactive_Animation(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie_States_Inactive_Opacity : <code>int</code></summary>
+        ///<summary>Figure_PlotOptions_Pie_States_Inactive_Opacity : <code>float</code></summary>
         member this.opacity = Figure_PlotOptions_Pie_States_Inactive_Opacity(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -15578,16 +15578,16 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.inactive" (parent.GetPath()))
                 |> Option.defaultValue "inactive"
 
-        static member ToJson (o:{| animation: {| duration:int |}; opacity:int |}) =
+        static member ToJson (o:{| animation: {| duration:int |}; opacity:float |}) =
             let animation = Figure_PlotOptions_Pie_States_Inactive_Animation.ToJson o.animation
-            let opacity = sprintf "%i" o.opacity
+            let opacity = sprintf "%f" o.opacity
             sprintf "{\\\"animation\\\":%s,\\\"opacity\\\":%s}" animation opacity
 
-        member this.Set (o:{| animation: {| duration:int |}; opacity:int |}) =
+        member this.Set (o:{| animation: {| duration:int |}; opacity:float |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States_Inactive.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions_Pie_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+    ///<summary>Figure_PlotOptions_Pie_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
     type Figure_PlotOptions_Pie_States(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15596,13 +15596,13 @@ module Figure =
         ///<summary>Figure_PlotOptions_Pie_States_Normal : <code>{| animation:bool |}</code></summary>
         member this.normal = Figure_PlotOptions_Pie_States_Normal(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Pie_States_Hover : <code>{| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}</code></summary>
         member this.hover = Figure_PlotOptions_Pie_States_Hover(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Pie_States_Select : <code>{| animation: {| duration:int |} |}</code></summary>
         member this.select = Figure_PlotOptions_Pie_States_Select(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie_States_Inactive : <code>{| animation: {| duration:int |}; opacity:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Pie_States_Inactive : <code>{| animation: {| duration:int |}; opacity:float |}</code></summary>
         member this.inactive = Figure_PlotOptions_Pie_States_Inactive(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -15610,14 +15610,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        static member ToJson (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             let normal = Figure_PlotOptions_Pie_States_Normal.ToJson o.normal
             let hover = Figure_PlotOptions_Pie_States_Hover.ToJson o.hover
             let select = Figure_PlotOptions_Pie_States_Select.ToJson o.select
             let inactive = Figure_PlotOptions_Pie_States_Inactive.ToJson o.inactive
             sprintf "{\\\"normal\\\":%s,\\\"hover\\\":%s,\\\"select\\\":%s,\\\"inactive\\\":%s}" normal hover select inactive
 
-        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}) =
+        member this.Set (o:{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_States.ToJson o)
 
 
@@ -15876,7 +15876,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie_BorderWidth.ToJson o)
 
-    ///<summary>Figure_PlotOptions_Pie : <code>{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}</code></summary>
+    ///<summary>Figure_PlotOptions_Pie : <code>{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}</code></summary>
     type Figure_PlotOptions_Pie(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -15918,7 +15918,7 @@ module Figure =
         ///<summary>Figure_PlotOptions_Pie_SoftThreshold : <code>bool</code></summary>
         member this.softThreshold = Figure_PlotOptions_Pie_SoftThreshold(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Pie_States : <code>{| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}</code></summary>
         member this.states = Figure_PlotOptions_Pie_States(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Pie_StickyTracking : <code>bool</code></summary>
@@ -15968,7 +15968,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.pie" (parent.GetPath()))
                 |> Option.defaultValue "pie"
 
-        static member ToJson (o:{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}) =
+        static member ToJson (o:{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}) =
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let crisp = sprintf "%b" o.crisp
             let showCheckbox = sprintf "%b" o.showCheckbox
@@ -15998,7 +15998,7 @@ module Figure =
             let borderWidth = sprintf "%i" o.borderWidth
             sprintf "{\\\"allowPointSelect\\\":%s,\\\"crisp\\\":%s,\\\"showCheckbox\\\":%s,\\\"animation\\\":%s,\\\"events\\\":%s,\\\"marker\\\":%s,\\\"point\\\":%s,\\\"dataLabels\\\":%s,\\\"cropThreshold\\\":%s,\\\"opacity\\\":%s,\\\"pointRange\\\":%s,\\\"softThreshold\\\":%s,\\\"states\\\":%s,\\\"stickyTracking\\\":%s,\\\"turboThreshold\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"center\\\":%s,\\\"clip\\\":%s,\\\"colorByPoint\\\":%s,\\\"ignoreHiddenPoint\\\":%s,\\\"inactiveOtherPoints\\\":%s,\\\"legendType\\\":%s,\\\"size\\\":%s,\\\"showInLegend\\\":%s,\\\"slicedOffset\\\":%s,\\\"borderColor\\\":%s,\\\"borderWidth\\\":%s}" allowPointSelect crisp showCheckbox animation events marker point dataLabels cropThreshold opacity pointRange softThreshold states stickyTracking turboThreshold findNearestPointBy center clip colorByPoint ignoreHiddenPoint inactiveOtherPoints legendType size showInLegend slicedOffset borderColor borderWidth
 
-        member this.Set (o:{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}) =
+        member this.Set (o:{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Pie.ToJson o)
 
 
@@ -16040,34 +16040,34 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions_Candlestick.ToJson o)
 
 
-    ///<summary>Figure_PlotOptions : <code>{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}</code></summary>
+    ///<summary>Figure_PlotOptions : <code>{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}</code></summary>
     type Figure_PlotOptions(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_PlotOptions_Line : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
+        ///<summary>Figure_PlotOptions_Line : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
         member this.line = Figure_PlotOptions_Line(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Area : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Area : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
         member this.area = Figure_PlotOptions_Area(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Spline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
+        ///<summary>Figure_PlotOptions_Spline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}</code></summary>
         member this.spline = Figure_PlotOptions_Spline(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Areaspline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Areaspline : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}</code></summary>
         member this.areaspline = Figure_PlotOptions_Areaspline(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Column : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
+        ///<summary>Figure_PlotOptions_Column : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
         member this.column = Figure_PlotOptions_Column(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Bar : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
+        ///<summary>Figure_PlotOptions_Bar : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}</code></summary>
         member this.bar = Figure_PlotOptions_Bar(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Scatter : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}</code></summary>
+        ///<summary>Figure_PlotOptions_Scatter : <code>{| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}</code></summary>
         member this.scatter = Figure_PlotOptions_Scatter(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions_Pie : <code>{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}</code></summary>
+        ///<summary>Figure_PlotOptions_Pie : <code>{| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}</code></summary>
         member this.pie = Figure_PlotOptions_Pie(Some (this :> IFigureItem))
 
         ///<summary>Figure_PlotOptions_Candlestick : <code>{| lineColor:string |}</code></summary>
@@ -16078,7 +16078,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.plotOptions" (parent.GetPath()))
                 |> Option.defaultValue "plotOptions"
 
-        static member ToJson (o:{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}) =
+        static member ToJson (o:{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}) =
             let line = Figure_PlotOptions_Line.ToJson o.line
             let area = Figure_PlotOptions_Area.ToJson o.area
             let spline = Figure_PlotOptions_Spline.ToJson o.spline
@@ -16090,7 +16090,7 @@ module Figure =
             let candlestick = Figure_PlotOptions_Candlestick.ToJson o.candlestick
             sprintf "{\\\"line\\\":%s,\\\"area\\\":%s,\\\"spline\\\":%s,\\\"areaspline\\\":%s,\\\"column\\\":%s,\\\"bar\\\":%s,\\\"scatter\\\":%s,\\\"pie\\\":%s,\\\"candlestick\\\":%s}" line area spline areaspline column bar scatter pie candlestick
 
-        member this.Set (o:{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}) =
+        member this.Set (o:{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_PlotOptions.ToJson o)
 
 
@@ -19806,7 +19806,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient.ToJson o)
 
 
-    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item : <code>float</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -19820,13 +19820,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item : <code>float seq</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item(Some (this :> IFigureItem))
@@ -19842,14 +19842,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item.ToJson o)
 
         member this.Item
@@ -19857,7 +19857,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops : <code>float seq seq</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item(Some (this :> IFigureItem))
@@ -19869,14 +19869,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Navigation_ButtonOptions_Theme_Fill_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme_Fill_Stops.ToJson o)
 
         member this.Item
@@ -19884,7 +19884,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
     type Figure_Navigation_ButtonOptions_Theme_Fill(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -19893,7 +19893,7 @@ module Figure =
         ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
         member this.linearGradient = Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_Navigation_ButtonOptions_Theme_Fill_Stops(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -19901,12 +19901,12 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
                 |> Option.defaultValue "fill"
 
-        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             let linearGradient = Figure_Navigation_ButtonOptions_Theme_Fill_LinearGradient.ToJson o.linearGradient
             let stops = Figure_Navigation_ButtonOptions_Theme_Fill_Stops.ToJson o.stops
             sprintf "{\\\"linearGradient\\\":%s,\\\"stops\\\":%s}" linearGradient stops
 
-        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme_Fill.ToJson o)
 
 
@@ -19926,7 +19926,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme_Stroke.ToJson o)
 
-    ///<summary>Figure_Navigation_ButtonOptions_Theme : <code>{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions_Theme : <code>{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}</code></summary>
     type Figure_Navigation_ButtonOptions_Theme(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -19935,7 +19935,7 @@ module Figure =
         ///<summary>Figure_Navigation_ButtonOptions_Theme_Padding : <code>int</code></summary>
         member this.padding = Figure_Navigation_ButtonOptions_Theme_Padding(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+        ///<summary>Figure_Navigation_ButtonOptions_Theme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
         member this.fill = Figure_Navigation_ButtonOptions_Theme_Fill(Some (this :> IFigureItem))
 
         ///<summary>Figure_Navigation_ButtonOptions_Theme_Stroke : <code>string</code></summary>
@@ -19946,13 +19946,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.theme" (parent.GetPath()))
                 |> Option.defaultValue "theme"
 
-        static member ToJson (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}) =
+        static member ToJson (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}) =
             let padding = sprintf "%i" o.padding
             let fill = Figure_Navigation_ButtonOptions_Theme_Fill.ToJson o.fill
             let stroke = sprintf "\\\"%s\\\"" o.stroke
             sprintf "{\\\"padding\\\":%s,\\\"fill\\\":%s,\\\"stroke\\\":%s}" padding fill stroke
 
-        member this.Set (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}) =
+        member this.Set (o:{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_Theme.ToJson o)
 
 
@@ -19972,7 +19972,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_SymbolSize.ToJson o)
 
-    ///<summary>Figure_Navigation_ButtonOptions_SymbolX : <code>int</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions_SymbolX : <code>float</code></summary>
     type Figure_Navigation_ButtonOptions_SymbolX(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -19982,13 +19982,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.symbolX" (parent.GetPath()))
                 |> Option.defaultValue "symbolX"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_SymbolX.ToJson o)
 
-    ///<summary>Figure_Navigation_ButtonOptions_SymbolY : <code>int</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions_SymbolY : <code>float</code></summary>
     type Figure_Navigation_ButtonOptions_SymbolY(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -19998,10 +19998,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.symbolY" (parent.GetPath()))
                 |> Option.defaultValue "symbolY"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_SymbolY.ToJson o)
 
     ///<summary>Figure_Navigation_ButtonOptions_Align : <code>string</code></summary>
@@ -20132,22 +20132,22 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions_SymbolStrokeWidth.ToJson o)
 
-    ///<summary>Figure_Navigation_ButtonOptions : <code>{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}</code></summary>
+    ///<summary>Figure_Navigation_ButtonOptions : <code>{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}</code></summary>
     type Figure_Navigation_ButtonOptions(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_Navigation_ButtonOptions_Theme : <code>{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}</code></summary>
+        ///<summary>Figure_Navigation_ButtonOptions_Theme : <code>{| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}</code></summary>
         member this.theme = Figure_Navigation_ButtonOptions_Theme(Some (this :> IFigureItem))
 
         ///<summary>Figure_Navigation_ButtonOptions_SymbolSize : <code>int</code></summary>
         member this.symbolSize = Figure_Navigation_ButtonOptions_SymbolSize(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Navigation_ButtonOptions_SymbolX : <code>int</code></summary>
+        ///<summary>Figure_Navigation_ButtonOptions_SymbolX : <code>float</code></summary>
         member this.symbolX = Figure_Navigation_ButtonOptions_SymbolX(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Navigation_ButtonOptions_SymbolY : <code>int</code></summary>
+        ///<summary>Figure_Navigation_ButtonOptions_SymbolY : <code>float</code></summary>
         member this.symbolY = Figure_Navigation_ButtonOptions_SymbolY(Some (this :> IFigureItem))
 
         ///<summary>Figure_Navigation_ButtonOptions_Align : <code>string</code></summary>
@@ -20179,11 +20179,11 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.buttonOptions" (parent.GetPath()))
                 |> Option.defaultValue "buttonOptions"
 
-        static member ToJson (o:{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}) =
+        static member ToJson (o:{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}) =
             let theme = Figure_Navigation_ButtonOptions_Theme.ToJson o.theme
             let symbolSize = sprintf "%i" o.symbolSize
-            let symbolX = sprintf "%i" o.symbolX
-            let symbolY = sprintf "%i" o.symbolY
+            let symbolX = sprintf "%f" o.symbolX
+            let symbolY = sprintf "%f" o.symbolY
             let align = sprintf "\\\"%s\\\"" o.align
             let buttonSpacing = sprintf "%i" o.buttonSpacing
             let height = sprintf "%i" o.height
@@ -20194,7 +20194,7 @@ module Figure =
             let symbolStrokeWidth = sprintf "%i" o.symbolStrokeWidth
             sprintf "{\\\"theme\\\":%s,\\\"symbolSize\\\":%s,\\\"symbolX\\\":%s,\\\"symbolY\\\":%s,\\\"align\\\":%s,\\\"buttonSpacing\\\":%s,\\\"height\\\":%s,\\\"verticalAlign\\\":%s,\\\"width\\\":%s,\\\"symbolFill\\\":%s,\\\"symbolStroke\\\":%s,\\\"symbolStrokeWidth\\\":%s}" theme symbolSize symbolX symbolY align buttonSpacing height verticalAlign width symbolFill symbolStroke symbolStrokeWidth
 
-        member this.Set (o:{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}) =
+        member this.Set (o:{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_ButtonOptions.ToJson o)
 
 
@@ -20452,13 +20452,13 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation_MenuItemHoverStyle.ToJson o)
 
 
-    ///<summary>Figure_Navigation : <code>{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}</code></summary>
+    ///<summary>Figure_Navigation : <code>{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}</code></summary>
     type Figure_Navigation(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_Navigation_ButtonOptions : <code>{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}</code></summary>
+        ///<summary>Figure_Navigation_ButtonOptions : <code>{| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}</code></summary>
         member this.buttonOptions = Figure_Navigation_ButtonOptions(Some (this :> IFigureItem))
 
         ///<summary>Figure_Navigation_MenuStyle : <code>{| border:string; background:string; padding:string |}</code></summary>
@@ -20475,14 +20475,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.navigation" (parent.GetPath()))
                 |> Option.defaultValue "navigation"
 
-        static member ToJson (o:{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}) =
+        static member ToJson (o:{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}) =
             let buttonOptions = Figure_Navigation_ButtonOptions.ToJson o.buttonOptions
             let menuStyle = Figure_Navigation_MenuStyle.ToJson o.menuStyle
             let menuItemStyle = Figure_Navigation_MenuItemStyle.ToJson o.menuItemStyle
             let menuItemHoverStyle = Figure_Navigation_MenuItemHoverStyle.ToJson o.menuItemHoverStyle
             sprintf "{\\\"buttonOptions\\\":%s,\\\"menuStyle\\\":%s,\\\"menuItemStyle\\\":%s,\\\"menuItemHoverStyle\\\":%s}" buttonOptions menuStyle menuItemStyle menuItemHoverStyle
 
-        member this.Set (o:{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}) =
+        member this.Set (o:{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Navigation.ToJson o)
 
 
@@ -21186,7 +21186,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_XAxis_Item_Ceiling : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_Ceiling : <code>float</code></summary>
     type Figure_XAxis_Item_Ceiling(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -21196,10 +21196,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.ceiling" (parent.GetPath()))
                 |> Option.defaultValue "ceiling"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Ceiling.ToJson o)
 
     ///<summary>Figure_XAxis_Item_ClassName : <code>string</code></summary>
@@ -21428,7 +21428,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_EndOnTick.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_Floor : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_Floor : <code>float</code></summary>
     type Figure_XAxis_Item_Floor(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -21438,10 +21438,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.floor" (parent.GetPath()))
                 |> Option.defaultValue "floor"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Floor.ToJson o)
 
     ///<summary>Figure_XAxis_Item_GridLineColor : <code>string</code></summary>
@@ -22416,7 +22416,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Margin.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_Max : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_Max : <code>float</code></summary>
     type Figure_XAxis_Item_Max(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -22426,10 +22426,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.max" (parent.GetPath()))
                 |> Option.defaultValue "max"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Max.ToJson o)
 
     ///<summary>Figure_XAxis_Item_MaxColor : <code>string</code></summary>
@@ -22448,7 +22448,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_MaxColor.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_MaxPadding : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_MaxPadding : <code>float</code></summary>
     type Figure_XAxis_Item_MaxPadding(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -22458,13 +22458,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.maxPadding" (parent.GetPath()))
                 |> Option.defaultValue "maxPadding"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_MaxPadding.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_Min : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_Min : <code>float</code></summary>
     type Figure_XAxis_Item_Min(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -22474,10 +22474,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.min" (parent.GetPath()))
                 |> Option.defaultValue "min"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Min.ToJson o)
 
     ///<summary>Figure_XAxis_Item_MinColor : <code>string</code></summary>
@@ -22560,7 +22560,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_MinorTickColor.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_MinorTickInterval : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_MinorTickInterval : <code>float</code></summary>
     type Figure_XAxis_Item_MinorTickInterval(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -22570,10 +22570,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.minorTickInterval" (parent.GetPath()))
                 |> Option.defaultValue "minorTickInterval"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_MinorTickInterval.ToJson o)
 
     ///<summary>Figure_XAxis_Item_MinorTickLength : <code>int</code></summary>
@@ -22640,7 +22640,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_MinorTickWidth.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_MinRange : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_MinRange : <code>float</code></summary>
     type Figure_XAxis_Item_MinRange(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -22650,13 +22650,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.minRange" (parent.GetPath()))
                 |> Option.defaultValue "minRange"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_MinRange.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_MinTickInterval : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_MinTickInterval : <code>float</code></summary>
     type Figure_XAxis_Item_MinTickInterval(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -22666,10 +22666,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.minTickInterval" (parent.GetPath()))
                 |> Option.defaultValue "minTickInterval"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_MinTickInterval.ToJson o)
 
     ///<summary>Figure_XAxis_Item_Offset : <code>int</code></summary>
@@ -22784,7 +22784,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotBands_Item_Color.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_PlotBands_Item_From : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_PlotBands_Item_From : <code>float</code></summary>
     type Figure_XAxis_Item_PlotBands_Item_From(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -22794,10 +22794,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.from" (parent.GetPath()))
                 |> Option.defaultValue "from"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotBands_Item_From.ToJson o)
 
     ///<summary>Figure_XAxis_Item_PlotBands_Item_Id : <code>string</code></summary>
@@ -23484,7 +23484,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotBands_Item_Thickness.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_PlotBands_Item_To : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_PlotBands_Item_To : <code>float</code></summary>
     type Figure_XAxis_Item_PlotBands_Item_To(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -23494,10 +23494,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.to" (parent.GetPath()))
                 |> Option.defaultValue "to"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotBands_Item_To.ToJson o)
 
     ///<summary>Figure_XAxis_Item_PlotBands_Item_ZIndex : <code>int</code></summary>
@@ -23516,7 +23516,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotBands_Item_ZIndex.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_PlotBands_Item : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |}</code></summary>
+    ///<summary>Figure_XAxis_Item_PlotBands_Item : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |}</code></summary>
     type Figure_XAxis_Item_PlotBands_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -23534,7 +23534,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_PlotBands_Item_Color : <code>string</code></summary>
         member this.color = Figure_XAxis_Item_PlotBands_Item_Color(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_PlotBands_Item_From : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_PlotBands_Item_From : <code>float</code></summary>
         member this._from = Figure_XAxis_Item_PlotBands_Item_From(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_PlotBands_Item_Id : <code>string</code></summary>
@@ -23552,7 +23552,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_PlotBands_Item_Thickness : <code>int</code></summary>
         member this.thickness = Figure_XAxis_Item_PlotBands_Item_Thickness(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_PlotBands_Item_To : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_PlotBands_Item_To : <code>float</code></summary>
         member this._to = Figure_XAxis_Item_PlotBands_Item_To(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_PlotBands_Item_ZIndex : <code>int</code></summary>
@@ -23567,26 +23567,26 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |}) =
+        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |}) =
             let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             let borderWidth = sprintf "%i" o.borderWidth
             let className = sprintf "\\\"%s\\\"" o.className
             let color = sprintf "\\\"%s\\\"" o.color
-            let _from = sprintf "%i" o._from
+            let _from = sprintf "%f" o._from
             let id = sprintf "\\\"%s\\\"" o.id
             let innerRadius = sprintf "%i" o.innerRadius
             let labels = Figure_XAxis_Item_PlotBands_Item_Labels.ToJson o.labels
             let outerRadius = sprintf "%i" o.outerRadius
             let thickness = sprintf "%i" o.thickness
-            let _to = sprintf "%i" o._to
+            let _to = sprintf "%f" o._to
             let zIndex = sprintf "%i" o.zIndex
             sprintf "{\\\"borderColor\\\":%s,\\\"borderWidth\\\":%s,\\\"className\\\":%s,\\\"color\\\":%s,\\\"_from\\\":%s,\\\"id\\\":%s,\\\"innerRadius\\\":%s,\\\"labels\\\":%s,\\\"outerRadius\\\":%s,\\\"thickness\\\":%s,\\\"_to\\\":%s,\\\"zIndex\\\":%s}" borderColor borderWidth className color _from id innerRadius labels outerRadius thickness _to zIndex
 
-        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |}) =
+        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotBands_Item.ToJson o)
 
 
-    ///<summary>Figure_XAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq</code></summary>
+    ///<summary>Figure_XAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq</code></summary>
     type Figure_XAxis_Item_PlotBands(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_XAxis_Item_PlotBands_Item(Some (this :> IFigureItem))
@@ -23598,14 +23598,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.plotBands" (parent.GetPath()))
                 |> Option.defaultValue "plotBands"
 
-        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq) =
+        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_XAxis_Item_PlotBands_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq) =
+        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotBands.ToJson o)
 
         member this.Item
@@ -24297,7 +24297,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotLines_Item_Label.ToJson o)
 
 
-    ///<summary>Figure_XAxis_Item_PlotLines_Item_Value : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_PlotLines_Item_Value : <code>float</code></summary>
     type Figure_XAxis_Item_PlotLines_Item_Value(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -24307,10 +24307,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.value" (parent.GetPath()))
                 |> Option.defaultValue "value"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotLines_Item_Value.ToJson o)
 
     ///<summary>Figure_XAxis_Item_PlotLines_Item_Width : <code>int</code></summary>
@@ -24345,7 +24345,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotLines_Item_ZIndex.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_PlotLines_Item : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |}</code></summary>
+    ///<summary>Figure_XAxis_Item_PlotLines_Item : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |}</code></summary>
     type Figure_XAxis_Item_PlotLines_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -24366,7 +24366,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_PlotLines_Item_Label : <code>{| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}</code></summary>
         member this.label = Figure_XAxis_Item_PlotLines_Item_Label(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_PlotLines_Item_Value : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_PlotLines_Item_Value : <code>float</code></summary>
         member this.value = Figure_XAxis_Item_PlotLines_Item_Value(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_PlotLines_Item_Width : <code>int</code></summary>
@@ -24384,22 +24384,22 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |}) =
+        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |}) =
             let className = sprintf "\\\"%s\\\"" o.className
             let color = sprintf "\\\"%s\\\"" o.color
             let dashStyle = sprintf "\\\"%s\\\"" o.dashStyle
             let id = sprintf "\\\"%s\\\"" o.id
             let label = Figure_XAxis_Item_PlotLines_Item_Label.ToJson o.label
-            let value = sprintf "%i" o.value
+            let value = sprintf "%f" o.value
             let width = sprintf "%i" o.width
             let zIndex = sprintf "%i" o.zIndex
             sprintf "{\\\"className\\\":%s,\\\"color\\\":%s,\\\"dashStyle\\\":%s,\\\"id\\\":%s,\\\"label\\\":%s,\\\"value\\\":%s,\\\"width\\\":%s,\\\"zIndex\\\":%s}" className color dashStyle id label value width zIndex
 
-        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |}) =
+        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotLines_Item.ToJson o)
 
 
-    ///<summary>Figure_XAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq</code></summary>
+    ///<summary>Figure_XAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq</code></summary>
     type Figure_XAxis_Item_PlotLines(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_XAxis_Item_PlotLines_Item(Some (this :> IFigureItem))
@@ -24411,14 +24411,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.plotLines" (parent.GetPath()))
                 |> Option.defaultValue "plotLines"
 
-        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq) =
+        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_XAxis_Item_PlotLines_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq) =
+        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_PlotLines.ToJson o)
 
         member this.Item
@@ -24506,7 +24506,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_ShowLastLabel.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_SoftMax : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_SoftMax : <code>float</code></summary>
     type Figure_XAxis_Item_SoftMax(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -24516,13 +24516,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.softMax" (parent.GetPath()))
                 |> Option.defaultValue "softMax"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_SoftMax.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_SoftMin : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_SoftMin : <code>float</code></summary>
     type Figure_XAxis_Item_SoftMin(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -24532,10 +24532,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.softMin" (parent.GetPath()))
                 |> Option.defaultValue "softMin"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_SoftMin.ToJson o)
 
     ///<summary>Figure_XAxis_Item_StartOfWeek : <code>int</code></summary>
@@ -24570,7 +24570,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_StartOnTick.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_Stops_Item_Item : <code>float</code></summary>
     type Figure_XAxis_Item_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -24584,13 +24584,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_XAxis_Item_Stops_Item : <code>float seq</code></summary>
     type Figure_XAxis_Item_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_XAxis_Item_Stops_Item_Item(Some (this :> IFigureItem))
@@ -24606,14 +24606,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_XAxis_Item_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Stops_Item.ToJson o)
 
         member this.Item
@@ -24621,7 +24621,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_XAxis_Item_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_XAxis_Item_Stops : <code>float seq seq</code></summary>
     type Figure_XAxis_Item_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_XAxis_Item_Stops_Item(Some (this :> IFigureItem))
@@ -24633,14 +24633,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_XAxis_Item_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_Stops.ToJson o)
 
         member this.Item
@@ -24680,7 +24680,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_TickColor.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_TickInterval : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_TickInterval : <code>float</code></summary>
     type Figure_XAxis_Item_TickInterval(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -24690,10 +24690,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.tickInterval" (parent.GetPath()))
                 |> Option.defaultValue "tickInterval"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_TickInterval.ToJson o)
 
     ///<summary>Figure_XAxis_Item_TickLength : <code>int</code></summary>
@@ -24760,7 +24760,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_TickPosition.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_TickPositions_Item : <code>int</code></summary>
+    ///<summary>Figure_XAxis_Item_TickPositions_Item : <code>float</code></summary>
     type Figure_XAxis_Item_TickPositions_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -24774,13 +24774,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_TickPositions_Item.ToJson o)
 
-    ///<summary>Figure_XAxis_Item_TickPositions : <code>int seq</code></summary>
+    ///<summary>Figure_XAxis_Item_TickPositions : <code>float seq</code></summary>
     type Figure_XAxis_Item_TickPositions(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_XAxis_Item_TickPositions_Item(Some (this :> IFigureItem))
@@ -24792,14 +24792,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.tickPositions" (parent.GetPath()))
                 |> Option.defaultValue "tickPositions"
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_XAxis_Item_TickPositions_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_TickPositions.ToJson o)
 
         member this.Item
@@ -25415,7 +25415,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item_ZoomEnabled.ToJson o)
 
-    ///<summary>Figure_XAxis_Item : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}</code></summary>
+    ///<summary>Figure_XAxis_Item : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}</code></summary>
     type Figure_XAxis_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -25436,7 +25436,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_Categories : <code>string seq</code></summary>
         member this.categories = Figure_XAxis_Item_Categories(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_Ceiling : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_Ceiling : <code>float</code></summary>
         member this.ceiling = Figure_XAxis_Item_Ceiling(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_ClassName : <code>string</code></summary>
@@ -25451,7 +25451,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_EndOnTick : <code>bool</code></summary>
         member this.endOnTick = Figure_XAxis_Item_EndOnTick(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_Floor : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_Floor : <code>float</code></summary>
         member this.floor = Figure_XAxis_Item_Floor(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_GridLineColor : <code>string</code></summary>
@@ -25493,16 +25493,16 @@ module Figure =
         ///<summary>Figure_XAxis_Item_Margin : <code>int</code></summary>
         member this.margin = Figure_XAxis_Item_Margin(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_Max : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_Max : <code>float</code></summary>
         member this.max = Figure_XAxis_Item_Max(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_MaxColor : <code>string</code></summary>
         member this.maxColor = Figure_XAxis_Item_MaxColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_MaxPadding : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_MaxPadding : <code>float</code></summary>
         member this.maxPadding = Figure_XAxis_Item_MaxPadding(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_Min : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_Min : <code>float</code></summary>
         member this.min = Figure_XAxis_Item_Min(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_MinColor : <code>string</code></summary>
@@ -25520,7 +25520,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_MinorTickColor : <code>string</code></summary>
         member this.minorTickColor = Figure_XAxis_Item_MinorTickColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_MinorTickInterval : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_MinorTickInterval : <code>float</code></summary>
         member this.minorTickInterval = Figure_XAxis_Item_MinorTickInterval(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_MinorTickLength : <code>int</code></summary>
@@ -25535,10 +25535,10 @@ module Figure =
         ///<summary>Figure_XAxis_Item_MinorTickWidth : <code>int</code></summary>
         member this.minorTickWidth = Figure_XAxis_Item_MinorTickWidth(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_MinRange : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_MinRange : <code>float</code></summary>
         member this.minRange = Figure_XAxis_Item_MinRange(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_MinTickInterval : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_MinTickInterval : <code>float</code></summary>
         member this.minTickInterval = Figure_XAxis_Item_MinTickInterval(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_Offset : <code>int</code></summary>
@@ -25550,10 +25550,10 @@ module Figure =
         ///<summary>Figure_XAxis_Item_Pane : <code>int</code></summary>
         member this.pane = Figure_XAxis_Item_Pane(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq</code></summary>
+        ///<summary>Figure_XAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq</code></summary>
         member this.plotBands = Figure_XAxis_Item_PlotBands(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq</code></summary>
+        ///<summary>Figure_XAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq</code></summary>
         member this.plotLines = Figure_XAxis_Item_PlotLines(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_Reversed : <code>bool</code></summary>
@@ -25571,10 +25571,10 @@ module Figure =
         ///<summary>Figure_XAxis_Item_ShowLastLabel : <code>bool</code></summary>
         member this.showLastLabel = Figure_XAxis_Item_ShowLastLabel(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_SoftMax : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_SoftMax : <code>float</code></summary>
         member this.softMax = Figure_XAxis_Item_SoftMax(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_SoftMin : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_SoftMin : <code>float</code></summary>
         member this.softMin = Figure_XAxis_Item_SoftMin(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_StartOfWeek : <code>int</code></summary>
@@ -25583,7 +25583,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_StartOnTick : <code>bool</code></summary>
         member this.startOnTick = Figure_XAxis_Item_StartOnTick(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_XAxis_Item_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_XAxis_Item_Stops(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_TickAmount : <code>int</code></summary>
@@ -25592,7 +25592,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_TickColor : <code>string</code></summary>
         member this.tickColor = Figure_XAxis_Item_TickColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_TickInterval : <code>int</code></summary>
+        ///<summary>Figure_XAxis_Item_TickInterval : <code>float</code></summary>
         member this.tickInterval = Figure_XAxis_Item_TickInterval(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_TickLength : <code>int</code></summary>
@@ -25607,7 +25607,7 @@ module Figure =
         ///<summary>Figure_XAxis_Item_TickPosition : <code>string</code></summary>
         member this.tickPosition = Figure_XAxis_Item_TickPosition(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis_Item_TickPositions : <code>int seq</code></summary>
+        ///<summary>Figure_XAxis_Item_TickPositions : <code>float seq</code></summary>
         member this.tickPositions = Figure_XAxis_Item_TickPositions(Some (this :> IFigureItem))
 
         ///<summary>Figure_XAxis_Item_TickWidth : <code>int</code></summary>
@@ -25646,18 +25646,18 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
+        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
             let alignTicks = sprintf "%b" o.alignTicks
             let allowDecimals = sprintf "%b" o.allowDecimals
             let alternateGridColor = sprintf "\\\"%s\\\"" o.alternateGridColor
             let angle = sprintf "%i" o.angle
             let categories = Figure_XAxis_Item_Categories.ToJson o.categories
-            let ceiling = sprintf "%i" o.ceiling
+            let ceiling = sprintf "%f" o.ceiling
             let className = sprintf "\\\"%s\\\"" o.className
             let crosshair = sprintf "%b" o.crosshair
             let dateTimeLabelFormats = Figure_XAxis_Item_DateTimeLabelFormats.ToJson o.dateTimeLabelFormats
             let endOnTick = sprintf "%b" o.endOnTick
-            let floor = sprintf "%i" o.floor
+            let floor = sprintf "%f" o.floor
             let gridLineColor = sprintf "\\\"%s\\\"" o.gridLineColor
             let gridLineDashStyle = sprintf "\\\"%s\\\"" o.gridLineDashStyle
             let gridLineInterpolation = sprintf "\\\"%s\\\"" o.gridLineInterpolation
@@ -25671,22 +25671,22 @@ module Figure =
             let lineWidth = sprintf "%i" o.lineWidth
             let linkedTo = sprintf "%i" o.linkedTo
             let margin = sprintf "%i" o.margin
-            let max = sprintf "%i" o.max
+            let max = sprintf "%f" o.max
             let maxColor = sprintf "\\\"%s\\\"" o.maxColor
-            let maxPadding = sprintf "%i" o.maxPadding
-            let min = sprintf "%i" o.min
+            let maxPadding = sprintf "%f" o.maxPadding
+            let min = sprintf "%f" o.min
             let minColor = sprintf "\\\"%s\\\"" o.minColor
             let minorGridLineColor = sprintf "\\\"%s\\\"" o.minorGridLineColor
             let minorGridLineDashStyle = sprintf "\\\"%s\\\"" o.minorGridLineDashStyle
             let minorGridLineWidth = sprintf "%i" o.minorGridLineWidth
             let minorTickColor = sprintf "\\\"%s\\\"" o.minorTickColor
-            let minorTickInterval = sprintf "%i" o.minorTickInterval
+            let minorTickInterval = sprintf "%f" o.minorTickInterval
             let minorTickLength = sprintf "%i" o.minorTickLength
             let minorTickPosition = sprintf "\\\"%s\\\"" o.minorTickPosition
             let minorTicks = sprintf "%b" o.minorTicks
             let minorTickWidth = sprintf "%i" o.minorTickWidth
-            let minRange = sprintf "%i" o.minRange
-            let minTickInterval = sprintf "%i" o.minTickInterval
+            let minRange = sprintf "%f" o.minRange
+            let minTickInterval = sprintf "%f" o.minTickInterval
             let offset = sprintf "%i" o.offset
             let opposite = sprintf "%b" o.opposite
             let pane = sprintf "%i" o.pane
@@ -25697,14 +25697,14 @@ module Figure =
             let showEmpty = sprintf "%b" o.showEmpty
             let showFirstLabel = sprintf "%b" o.showFirstLabel
             let showLastLabel = sprintf "%b" o.showLastLabel
-            let softMax = sprintf "%i" o.softMax
-            let softMin = sprintf "%i" o.softMin
+            let softMax = sprintf "%f" o.softMax
+            let softMin = sprintf "%f" o.softMin
             let startOfWeek = sprintf "%i" o.startOfWeek
             let startOnTick = sprintf "%b" o.startOnTick
             let stops = Figure_XAxis_Item_Stops.ToJson o.stops
             let tickAmount = sprintf "%i" o.tickAmount
             let tickColor = sprintf "\\\"%s\\\"" o.tickColor
-            let tickInterval = sprintf "%i" o.tickInterval
+            let tickInterval = sprintf "%f" o.tickInterval
             let tickLength = sprintf "%i" o.tickLength
             let tickmarkPlacement = sprintf "\\\"%s\\\"" o.tickmarkPlacement
             let tickPixelInterval = sprintf "%i" o.tickPixelInterval
@@ -25721,11 +25721,11 @@ module Figure =
             let zoomEnabled = sprintf "%b" o.zoomEnabled
             sprintf "{\\\"alignTicks\\\":%s,\\\"allowDecimals\\\":%s,\\\"alternateGridColor\\\":%s,\\\"angle\\\":%s,\\\"categories\\\":%s,\\\"ceiling\\\":%s,\\\"className\\\":%s,\\\"crosshair\\\":%s,\\\"dateTimeLabelFormats\\\":%s,\\\"endOnTick\\\":%s,\\\"floor\\\":%s,\\\"gridLineColor\\\":%s,\\\"gridLineDashStyle\\\":%s,\\\"gridLineInterpolation\\\":%s,\\\"gridLineWidth\\\":%s,\\\"gridZIndex\\\":%s,\\\"height\\\":%s,\\\"id\\\":%s,\\\"labels\\\":%s,\\\"left\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s,\\\"linkedTo\\\":%s,\\\"margin\\\":%s,\\\"max\\\":%s,\\\"maxColor\\\":%s,\\\"maxPadding\\\":%s,\\\"min\\\":%s,\\\"minColor\\\":%s,\\\"minorGridLineColor\\\":%s,\\\"minorGridLineDashStyle\\\":%s,\\\"minorGridLineWidth\\\":%s,\\\"minorTickColor\\\":%s,\\\"minorTickInterval\\\":%s,\\\"minorTickLength\\\":%s,\\\"minorTickPosition\\\":%s,\\\"minorTicks\\\":%s,\\\"minorTickWidth\\\":%s,\\\"minRange\\\":%s,\\\"minTickInterval\\\":%s,\\\"offset\\\":%s,\\\"opposite\\\":%s,\\\"pane\\\":%s,\\\"plotBands\\\":%s,\\\"plotLines\\\":%s,\\\"reversed\\\":%s,\\\"reversedStacks\\\":%s,\\\"showEmpty\\\":%s,\\\"showFirstLabel\\\":%s,\\\"showLastLabel\\\":%s,\\\"softMax\\\":%s,\\\"softMin\\\":%s,\\\"startOfWeek\\\":%s,\\\"startOnTick\\\":%s,\\\"stops\\\":%s,\\\"tickAmount\\\":%s,\\\"tickColor\\\":%s,\\\"tickInterval\\\":%s,\\\"tickLength\\\":%s,\\\"tickmarkPlacement\\\":%s,\\\"tickPixelInterval\\\":%s,\\\"tickPosition\\\":%s,\\\"tickPositions\\\":%s,\\\"tickWidth\\\":%s,\\\"title\\\":%s,\\\"tooltipValueFormat\\\":%s,\\\"top\\\":%s,\\\"_type\\\":%s,\\\"uniqueNames\\\":%s,\\\"visible\\\":%s,\\\"width\\\":%s,\\\"zoomEnabled\\\":%s}" alignTicks allowDecimals alternateGridColor angle categories ceiling className crosshair dateTimeLabelFormats endOnTick floor gridLineColor gridLineDashStyle gridLineInterpolation gridLineWidth gridZIndex height id labels left lineColor lineWidth linkedTo margin max maxColor maxPadding min minColor minorGridLineColor minorGridLineDashStyle minorGridLineWidth minorTickColor minorTickInterval minorTickLength minorTickPosition minorTicks minorTickWidth minRange minTickInterval offset opposite pane plotBands plotLines reversed reversedStacks showEmpty showFirstLabel showLastLabel softMax softMin startOfWeek startOnTick stops tickAmount tickColor tickInterval tickLength tickmarkPlacement tickPixelInterval tickPosition tickPositions tickWidth title tooltipValueFormat top _type uniqueNames visible width zoomEnabled
 
-        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
+        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis_Item.ToJson o)
 
 
-    ///<summary>Figure_XAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
+    ///<summary>Figure_XAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
     type Figure_XAxis(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_XAxis_Item(Some (this :> IFigureItem))
@@ -25737,14 +25737,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.xAxis" (parent.GetPath()))
                 |> Option.defaultValue "xAxis"
 
-        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
+        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_XAxis_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
+        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_XAxis.ToJson o)
 
         member this.Item
@@ -25863,7 +25863,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_YAxis_Item_Ceiling : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_Ceiling : <code>float</code></summary>
     type Figure_YAxis_Item_Ceiling(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -25873,10 +25873,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.ceiling" (parent.GetPath()))
                 |> Option.defaultValue "ceiling"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Ceiling.ToJson o)
 
     ///<summary>Figure_YAxis_Item_ClassName : <code>string</code></summary>
@@ -26105,7 +26105,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_EndOnTick.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_Floor : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_Floor : <code>float</code></summary>
     type Figure_YAxis_Item_Floor(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -26115,10 +26115,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.floor" (parent.GetPath()))
                 |> Option.defaultValue "floor"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Floor.ToJson o)
 
     ///<summary>Figure_YAxis_Item_GridLineColor : <code>string</code></summary>
@@ -27093,7 +27093,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Margin.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_Max : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_Max : <code>float</code></summary>
     type Figure_YAxis_Item_Max(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -27103,10 +27103,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.max" (parent.GetPath()))
                 |> Option.defaultValue "max"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Max.ToJson o)
 
     ///<summary>Figure_YAxis_Item_MaxColor : <code>string</code></summary>
@@ -27125,7 +27125,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MaxColor.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_MaxPadding : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_MaxPadding : <code>float</code></summary>
     type Figure_YAxis_Item_MaxPadding(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -27135,13 +27135,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.maxPadding" (parent.GetPath()))
                 |> Option.defaultValue "maxPadding"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MaxPadding.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_Min : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_Min : <code>float</code></summary>
     type Figure_YAxis_Item_Min(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -27151,10 +27151,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.min" (parent.GetPath()))
                 |> Option.defaultValue "min"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Min.ToJson o)
 
     ///<summary>Figure_YAxis_Item_MinColor : <code>string</code></summary>
@@ -27237,7 +27237,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MinorTickColor.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_MinorTickInterval : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_MinorTickInterval : <code>float</code></summary>
     type Figure_YAxis_Item_MinorTickInterval(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -27247,10 +27247,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.minorTickInterval" (parent.GetPath()))
                 |> Option.defaultValue "minorTickInterval"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MinorTickInterval.ToJson o)
 
     ///<summary>Figure_YAxis_Item_MinorTickLength : <code>int</code></summary>
@@ -27317,7 +27317,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MinorTickWidth.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_MinRange : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_MinRange : <code>float</code></summary>
     type Figure_YAxis_Item_MinRange(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -27327,13 +27327,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.minRange" (parent.GetPath()))
                 |> Option.defaultValue "minRange"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MinRange.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_MinTickInterval : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_MinTickInterval : <code>float</code></summary>
     type Figure_YAxis_Item_MinTickInterval(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -27343,10 +27343,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.minTickInterval" (parent.GetPath()))
                 |> Option.defaultValue "minTickInterval"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_MinTickInterval.ToJson o)
 
     ///<summary>Figure_YAxis_Item_Offset : <code>int</code></summary>
@@ -27461,7 +27461,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotBands_Item_Color.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_PlotBands_Item_From : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_PlotBands_Item_From : <code>float</code></summary>
     type Figure_YAxis_Item_PlotBands_Item_From(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -27471,10 +27471,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.from" (parent.GetPath()))
                 |> Option.defaultValue "from"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotBands_Item_From.ToJson o)
 
     ///<summary>Figure_YAxis_Item_PlotBands_Item_Id : <code>string</code></summary>
@@ -28161,7 +28161,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotBands_Item_Thickness.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_PlotBands_Item_To : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_PlotBands_Item_To : <code>float</code></summary>
     type Figure_YAxis_Item_PlotBands_Item_To(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -28171,10 +28171,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.to" (parent.GetPath()))
                 |> Option.defaultValue "to"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotBands_Item_To.ToJson o)
 
     ///<summary>Figure_YAxis_Item_PlotBands_Item_ZIndex : <code>int</code></summary>
@@ -28193,7 +28193,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotBands_Item_ZIndex.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_PlotBands_Item : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |}</code></summary>
+    ///<summary>Figure_YAxis_Item_PlotBands_Item : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |}</code></summary>
     type Figure_YAxis_Item_PlotBands_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -28211,7 +28211,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_PlotBands_Item_Color : <code>string</code></summary>
         member this.color = Figure_YAxis_Item_PlotBands_Item_Color(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_PlotBands_Item_From : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_PlotBands_Item_From : <code>float</code></summary>
         member this._from = Figure_YAxis_Item_PlotBands_Item_From(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_PlotBands_Item_Id : <code>string</code></summary>
@@ -28229,7 +28229,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_PlotBands_Item_Thickness : <code>int</code></summary>
         member this.thickness = Figure_YAxis_Item_PlotBands_Item_Thickness(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_PlotBands_Item_To : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_PlotBands_Item_To : <code>float</code></summary>
         member this._to = Figure_YAxis_Item_PlotBands_Item_To(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_PlotBands_Item_ZIndex : <code>int</code></summary>
@@ -28244,26 +28244,26 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |}) =
+        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |}) =
             let borderColor = sprintf "\\\"%s\\\"" o.borderColor
             let borderWidth = sprintf "%i" o.borderWidth
             let className = sprintf "\\\"%s\\\"" o.className
             let color = sprintf "\\\"%s\\\"" o.color
-            let _from = sprintf "%i" o._from
+            let _from = sprintf "%f" o._from
             let id = sprintf "\\\"%s\\\"" o.id
             let innerRadius = sprintf "%i" o.innerRadius
             let labels = Figure_YAxis_Item_PlotBands_Item_Labels.ToJson o.labels
             let outerRadius = sprintf "%i" o.outerRadius
             let thickness = sprintf "%i" o.thickness
-            let _to = sprintf "%i" o._to
+            let _to = sprintf "%f" o._to
             let zIndex = sprintf "%i" o.zIndex
             sprintf "{\\\"borderColor\\\":%s,\\\"borderWidth\\\":%s,\\\"className\\\":%s,\\\"color\\\":%s,\\\"_from\\\":%s,\\\"id\\\":%s,\\\"innerRadius\\\":%s,\\\"labels\\\":%s,\\\"outerRadius\\\":%s,\\\"thickness\\\":%s,\\\"_to\\\":%s,\\\"zIndex\\\":%s}" borderColor borderWidth className color _from id innerRadius labels outerRadius thickness _to zIndex
 
-        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |}) =
+        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotBands_Item.ToJson o)
 
 
-    ///<summary>Figure_YAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq</code></summary>
+    ///<summary>Figure_YAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq</code></summary>
     type Figure_YAxis_Item_PlotBands(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_YAxis_Item_PlotBands_Item(Some (this :> IFigureItem))
@@ -28275,14 +28275,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.plotBands" (parent.GetPath()))
                 |> Option.defaultValue "plotBands"
 
-        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq) =
+        static member ToJson (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_YAxis_Item_PlotBands_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq) =
+        member this.Set (o:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotBands.ToJson o)
 
         member this.Item
@@ -28974,7 +28974,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotLines_Item_Label.ToJson o)
 
 
-    ///<summary>Figure_YAxis_Item_PlotLines_Item_Value : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_PlotLines_Item_Value : <code>float</code></summary>
     type Figure_YAxis_Item_PlotLines_Item_Value(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -28984,10 +28984,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.value" (parent.GetPath()))
                 |> Option.defaultValue "value"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotLines_Item_Value.ToJson o)
 
     ///<summary>Figure_YAxis_Item_PlotLines_Item_Width : <code>int</code></summary>
@@ -29022,7 +29022,7 @@ module Figure =
         member this.Set (o:int) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotLines_Item_ZIndex.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_PlotLines_Item : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |}</code></summary>
+    ///<summary>Figure_YAxis_Item_PlotLines_Item : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |}</code></summary>
     type Figure_YAxis_Item_PlotLines_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -29043,7 +29043,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_PlotLines_Item_Label : <code>{| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}</code></summary>
         member this.label = Figure_YAxis_Item_PlotLines_Item_Label(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_PlotLines_Item_Value : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_PlotLines_Item_Value : <code>float</code></summary>
         member this.value = Figure_YAxis_Item_PlotLines_Item_Value(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_PlotLines_Item_Width : <code>int</code></summary>
@@ -29061,22 +29061,22 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |}) =
+        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |}) =
             let className = sprintf "\\\"%s\\\"" o.className
             let color = sprintf "\\\"%s\\\"" o.color
             let dashStyle = sprintf "\\\"%s\\\"" o.dashStyle
             let id = sprintf "\\\"%s\\\"" o.id
             let label = Figure_YAxis_Item_PlotLines_Item_Label.ToJson o.label
-            let value = sprintf "%i" o.value
+            let value = sprintf "%f" o.value
             let width = sprintf "%i" o.width
             let zIndex = sprintf "%i" o.zIndex
             sprintf "{\\\"className\\\":%s,\\\"color\\\":%s,\\\"dashStyle\\\":%s,\\\"id\\\":%s,\\\"label\\\":%s,\\\"value\\\":%s,\\\"width\\\":%s,\\\"zIndex\\\":%s}" className color dashStyle id label value width zIndex
 
-        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |}) =
+        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotLines_Item.ToJson o)
 
 
-    ///<summary>Figure_YAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq</code></summary>
+    ///<summary>Figure_YAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq</code></summary>
     type Figure_YAxis_Item_PlotLines(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_YAxis_Item_PlotLines_Item(Some (this :> IFigureItem))
@@ -29088,14 +29088,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.plotLines" (parent.GetPath()))
                 |> Option.defaultValue "plotLines"
 
-        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq) =
+        static member ToJson (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_YAxis_Item_PlotLines_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq) =
+        member this.Set (o:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_PlotLines.ToJson o)
 
         member this.Item
@@ -29183,7 +29183,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_ShowLastLabel.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_SoftMax : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_SoftMax : <code>float</code></summary>
     type Figure_YAxis_Item_SoftMax(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -29193,13 +29193,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.softMax" (parent.GetPath()))
                 |> Option.defaultValue "softMax"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_SoftMax.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_SoftMin : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_SoftMin : <code>float</code></summary>
     type Figure_YAxis_Item_SoftMin(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -29209,10 +29209,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.softMin" (parent.GetPath()))
                 |> Option.defaultValue "softMin"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_SoftMin.ToJson o)
 
     ///<summary>Figure_YAxis_Item_StartOfWeek : <code>int</code></summary>
@@ -29247,7 +29247,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_StartOnTick.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_Stops_Item_Item : <code>float</code></summary>
     type Figure_YAxis_Item_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -29261,13 +29261,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_YAxis_Item_Stops_Item : <code>float seq</code></summary>
     type Figure_YAxis_Item_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_YAxis_Item_Stops_Item_Item(Some (this :> IFigureItem))
@@ -29283,14 +29283,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_YAxis_Item_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Stops_Item.ToJson o)
 
         member this.Item
@@ -29298,7 +29298,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_YAxis_Item_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_YAxis_Item_Stops : <code>float seq seq</code></summary>
     type Figure_YAxis_Item_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_YAxis_Item_Stops_Item(Some (this :> IFigureItem))
@@ -29310,14 +29310,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_YAxis_Item_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_Stops.ToJson o)
 
         member this.Item
@@ -29357,7 +29357,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_TickColor.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_TickInterval : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_TickInterval : <code>float</code></summary>
     type Figure_YAxis_Item_TickInterval(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -29367,10 +29367,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.tickInterval" (parent.GetPath()))
                 |> Option.defaultValue "tickInterval"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_TickInterval.ToJson o)
 
     ///<summary>Figure_YAxis_Item_TickLength : <code>int</code></summary>
@@ -29437,7 +29437,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_TickPosition.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_TickPositions_Item : <code>int</code></summary>
+    ///<summary>Figure_YAxis_Item_TickPositions_Item : <code>float</code></summary>
     type Figure_YAxis_Item_TickPositions_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -29451,13 +29451,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_TickPositions_Item.ToJson o)
 
-    ///<summary>Figure_YAxis_Item_TickPositions : <code>int seq</code></summary>
+    ///<summary>Figure_YAxis_Item_TickPositions : <code>float seq</code></summary>
     type Figure_YAxis_Item_TickPositions(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_YAxis_Item_TickPositions_Item(Some (this :> IFigureItem))
@@ -29469,14 +29469,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.tickPositions" (parent.GetPath()))
                 |> Option.defaultValue "tickPositions"
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_YAxis_Item_TickPositions_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_TickPositions.ToJson o)
 
         member this.Item
@@ -30092,7 +30092,7 @@ module Figure =
         member this.Set (o:bool) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item_ZoomEnabled.ToJson o)
 
-    ///<summary>Figure_YAxis_Item : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}</code></summary>
+    ///<summary>Figure_YAxis_Item : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}</code></summary>
     type Figure_YAxis_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -30113,7 +30113,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_Categories : <code>string seq</code></summary>
         member this.categories = Figure_YAxis_Item_Categories(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_Ceiling : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_Ceiling : <code>float</code></summary>
         member this.ceiling = Figure_YAxis_Item_Ceiling(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_ClassName : <code>string</code></summary>
@@ -30128,7 +30128,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_EndOnTick : <code>bool</code></summary>
         member this.endOnTick = Figure_YAxis_Item_EndOnTick(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_Floor : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_Floor : <code>float</code></summary>
         member this.floor = Figure_YAxis_Item_Floor(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_GridLineColor : <code>string</code></summary>
@@ -30170,16 +30170,16 @@ module Figure =
         ///<summary>Figure_YAxis_Item_Margin : <code>int</code></summary>
         member this.margin = Figure_YAxis_Item_Margin(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_Max : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_Max : <code>float</code></summary>
         member this.max = Figure_YAxis_Item_Max(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_MaxColor : <code>string</code></summary>
         member this.maxColor = Figure_YAxis_Item_MaxColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_MaxPadding : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_MaxPadding : <code>float</code></summary>
         member this.maxPadding = Figure_YAxis_Item_MaxPadding(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_Min : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_Min : <code>float</code></summary>
         member this.min = Figure_YAxis_Item_Min(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_MinColor : <code>string</code></summary>
@@ -30197,7 +30197,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_MinorTickColor : <code>string</code></summary>
         member this.minorTickColor = Figure_YAxis_Item_MinorTickColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_MinorTickInterval : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_MinorTickInterval : <code>float</code></summary>
         member this.minorTickInterval = Figure_YAxis_Item_MinorTickInterval(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_MinorTickLength : <code>int</code></summary>
@@ -30212,10 +30212,10 @@ module Figure =
         ///<summary>Figure_YAxis_Item_MinorTickWidth : <code>int</code></summary>
         member this.minorTickWidth = Figure_YAxis_Item_MinorTickWidth(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_MinRange : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_MinRange : <code>float</code></summary>
         member this.minRange = Figure_YAxis_Item_MinRange(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_MinTickInterval : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_MinTickInterval : <code>float</code></summary>
         member this.minTickInterval = Figure_YAxis_Item_MinTickInterval(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_Offset : <code>int</code></summary>
@@ -30227,10 +30227,10 @@ module Figure =
         ///<summary>Figure_YAxis_Item_Pane : <code>int</code></summary>
         member this.pane = Figure_YAxis_Item_Pane(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq</code></summary>
+        ///<summary>Figure_YAxis_Item_PlotBands : <code>{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq</code></summary>
         member this.plotBands = Figure_YAxis_Item_PlotBands(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq</code></summary>
+        ///<summary>Figure_YAxis_Item_PlotLines : <code>{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq</code></summary>
         member this.plotLines = Figure_YAxis_Item_PlotLines(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_Reversed : <code>bool</code></summary>
@@ -30248,10 +30248,10 @@ module Figure =
         ///<summary>Figure_YAxis_Item_ShowLastLabel : <code>bool</code></summary>
         member this.showLastLabel = Figure_YAxis_Item_ShowLastLabel(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_SoftMax : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_SoftMax : <code>float</code></summary>
         member this.softMax = Figure_YAxis_Item_SoftMax(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_SoftMin : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_SoftMin : <code>float</code></summary>
         member this.softMin = Figure_YAxis_Item_SoftMin(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_StartOfWeek : <code>int</code></summary>
@@ -30260,7 +30260,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_StartOnTick : <code>bool</code></summary>
         member this.startOnTick = Figure_YAxis_Item_StartOnTick(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_YAxis_Item_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_YAxis_Item_Stops(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_TickAmount : <code>int</code></summary>
@@ -30269,7 +30269,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_TickColor : <code>string</code></summary>
         member this.tickColor = Figure_YAxis_Item_TickColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_TickInterval : <code>int</code></summary>
+        ///<summary>Figure_YAxis_Item_TickInterval : <code>float</code></summary>
         member this.tickInterval = Figure_YAxis_Item_TickInterval(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_TickLength : <code>int</code></summary>
@@ -30284,7 +30284,7 @@ module Figure =
         ///<summary>Figure_YAxis_Item_TickPosition : <code>string</code></summary>
         member this.tickPosition = Figure_YAxis_Item_TickPosition(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis_Item_TickPositions : <code>int seq</code></summary>
+        ///<summary>Figure_YAxis_Item_TickPositions : <code>float seq</code></summary>
         member this.tickPositions = Figure_YAxis_Item_TickPositions(Some (this :> IFigureItem))
 
         ///<summary>Figure_YAxis_Item_TickWidth : <code>int</code></summary>
@@ -30323,18 +30323,18 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
+        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
             let alignTicks = sprintf "%b" o.alignTicks
             let allowDecimals = sprintf "%b" o.allowDecimals
             let alternateGridColor = sprintf "\\\"%s\\\"" o.alternateGridColor
             let angle = sprintf "%i" o.angle
             let categories = Figure_YAxis_Item_Categories.ToJson o.categories
-            let ceiling = sprintf "%i" o.ceiling
+            let ceiling = sprintf "%f" o.ceiling
             let className = sprintf "\\\"%s\\\"" o.className
             let crosshair = sprintf "%b" o.crosshair
             let dateTimeLabelFormats = Figure_YAxis_Item_DateTimeLabelFormats.ToJson o.dateTimeLabelFormats
             let endOnTick = sprintf "%b" o.endOnTick
-            let floor = sprintf "%i" o.floor
+            let floor = sprintf "%f" o.floor
             let gridLineColor = sprintf "\\\"%s\\\"" o.gridLineColor
             let gridLineDashStyle = sprintf "\\\"%s\\\"" o.gridLineDashStyle
             let gridLineInterpolation = sprintf "\\\"%s\\\"" o.gridLineInterpolation
@@ -30348,22 +30348,22 @@ module Figure =
             let lineWidth = sprintf "%i" o.lineWidth
             let linkedTo = sprintf "%i" o.linkedTo
             let margin = sprintf "%i" o.margin
-            let max = sprintf "%i" o.max
+            let max = sprintf "%f" o.max
             let maxColor = sprintf "\\\"%s\\\"" o.maxColor
-            let maxPadding = sprintf "%i" o.maxPadding
-            let min = sprintf "%i" o.min
+            let maxPadding = sprintf "%f" o.maxPadding
+            let min = sprintf "%f" o.min
             let minColor = sprintf "\\\"%s\\\"" o.minColor
             let minorGridLineColor = sprintf "\\\"%s\\\"" o.minorGridLineColor
             let minorGridLineDashStyle = sprintf "\\\"%s\\\"" o.minorGridLineDashStyle
             let minorGridLineWidth = sprintf "%i" o.minorGridLineWidth
             let minorTickColor = sprintf "\\\"%s\\\"" o.minorTickColor
-            let minorTickInterval = sprintf "%i" o.minorTickInterval
+            let minorTickInterval = sprintf "%f" o.minorTickInterval
             let minorTickLength = sprintf "%i" o.minorTickLength
             let minorTickPosition = sprintf "\\\"%s\\\"" o.minorTickPosition
             let minorTicks = sprintf "%b" o.minorTicks
             let minorTickWidth = sprintf "%i" o.minorTickWidth
-            let minRange = sprintf "%i" o.minRange
-            let minTickInterval = sprintf "%i" o.minTickInterval
+            let minRange = sprintf "%f" o.minRange
+            let minTickInterval = sprintf "%f" o.minTickInterval
             let offset = sprintf "%i" o.offset
             let opposite = sprintf "%b" o.opposite
             let pane = sprintf "%i" o.pane
@@ -30374,14 +30374,14 @@ module Figure =
             let showEmpty = sprintf "%b" o.showEmpty
             let showFirstLabel = sprintf "%b" o.showFirstLabel
             let showLastLabel = sprintf "%b" o.showLastLabel
-            let softMax = sprintf "%i" o.softMax
-            let softMin = sprintf "%i" o.softMin
+            let softMax = sprintf "%f" o.softMax
+            let softMin = sprintf "%f" o.softMin
             let startOfWeek = sprintf "%i" o.startOfWeek
             let startOnTick = sprintf "%b" o.startOnTick
             let stops = Figure_YAxis_Item_Stops.ToJson o.stops
             let tickAmount = sprintf "%i" o.tickAmount
             let tickColor = sprintf "\\\"%s\\\"" o.tickColor
-            let tickInterval = sprintf "%i" o.tickInterval
+            let tickInterval = sprintf "%f" o.tickInterval
             let tickLength = sprintf "%i" o.tickLength
             let tickmarkPlacement = sprintf "\\\"%s\\\"" o.tickmarkPlacement
             let tickPixelInterval = sprintf "%i" o.tickPixelInterval
@@ -30398,11 +30398,11 @@ module Figure =
             let zoomEnabled = sprintf "%b" o.zoomEnabled
             sprintf "{\\\"alignTicks\\\":%s,\\\"allowDecimals\\\":%s,\\\"alternateGridColor\\\":%s,\\\"angle\\\":%s,\\\"categories\\\":%s,\\\"ceiling\\\":%s,\\\"className\\\":%s,\\\"crosshair\\\":%s,\\\"dateTimeLabelFormats\\\":%s,\\\"endOnTick\\\":%s,\\\"floor\\\":%s,\\\"gridLineColor\\\":%s,\\\"gridLineDashStyle\\\":%s,\\\"gridLineInterpolation\\\":%s,\\\"gridLineWidth\\\":%s,\\\"gridZIndex\\\":%s,\\\"height\\\":%s,\\\"id\\\":%s,\\\"labels\\\":%s,\\\"left\\\":%s,\\\"lineColor\\\":%s,\\\"lineWidth\\\":%s,\\\"linkedTo\\\":%s,\\\"margin\\\":%s,\\\"max\\\":%s,\\\"maxColor\\\":%s,\\\"maxPadding\\\":%s,\\\"min\\\":%s,\\\"minColor\\\":%s,\\\"minorGridLineColor\\\":%s,\\\"minorGridLineDashStyle\\\":%s,\\\"minorGridLineWidth\\\":%s,\\\"minorTickColor\\\":%s,\\\"minorTickInterval\\\":%s,\\\"minorTickLength\\\":%s,\\\"minorTickPosition\\\":%s,\\\"minorTicks\\\":%s,\\\"minorTickWidth\\\":%s,\\\"minRange\\\":%s,\\\"minTickInterval\\\":%s,\\\"offset\\\":%s,\\\"opposite\\\":%s,\\\"pane\\\":%s,\\\"plotBands\\\":%s,\\\"plotLines\\\":%s,\\\"reversed\\\":%s,\\\"reversedStacks\\\":%s,\\\"showEmpty\\\":%s,\\\"showFirstLabel\\\":%s,\\\"showLastLabel\\\":%s,\\\"softMax\\\":%s,\\\"softMin\\\":%s,\\\"startOfWeek\\\":%s,\\\"startOnTick\\\":%s,\\\"stops\\\":%s,\\\"tickAmount\\\":%s,\\\"tickColor\\\":%s,\\\"tickInterval\\\":%s,\\\"tickLength\\\":%s,\\\"tickmarkPlacement\\\":%s,\\\"tickPixelInterval\\\":%s,\\\"tickPosition\\\":%s,\\\"tickPositions\\\":%s,\\\"tickWidth\\\":%s,\\\"title\\\":%s,\\\"tooltipValueFormat\\\":%s,\\\"top\\\":%s,\\\"_type\\\":%s,\\\"uniqueNames\\\":%s,\\\"visible\\\":%s,\\\"width\\\":%s,\\\"zoomEnabled\\\":%s}" alignTicks allowDecimals alternateGridColor angle categories ceiling className crosshair dateTimeLabelFormats endOnTick floor gridLineColor gridLineDashStyle gridLineInterpolation gridLineWidth gridZIndex height id labels left lineColor lineWidth linkedTo margin max maxColor maxPadding min minColor minorGridLineColor minorGridLineDashStyle minorGridLineWidth minorTickColor minorTickInterval minorTickLength minorTickPosition minorTicks minorTickWidth minRange minTickInterval offset opposite pane plotBands plotLines reversed reversedStacks showEmpty showFirstLabel showLastLabel softMax softMin startOfWeek startOnTick stops tickAmount tickColor tickInterval tickLength tickmarkPlacement tickPixelInterval tickPosition tickPositions tickWidth title tooltipValueFormat top _type uniqueNames visible width zoomEnabled
 
-        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
+        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis_Item.ToJson o)
 
 
-    ///<summary>Figure_YAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
+    ///<summary>Figure_YAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
     type Figure_YAxis(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_YAxis_Item(Some (this :> IFigureItem))
@@ -30414,14 +30414,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.yAxis" (parent.GetPath()))
                 |> Option.defaultValue "yAxis"
 
-        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
+        static member ToJson (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_YAxis_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
+        member this.Set (o:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_YAxis.ToJson o)
 
         member this.Item
@@ -30587,7 +30587,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Fill_LinearGradient.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item : <code>float</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -30601,13 +30601,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops_Item : <code>float seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item(Some (this :> IFigureItem))
@@ -30623,14 +30623,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_RangeSelector_ButtonTheme_Fill_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Fill_Stops_Item.ToJson o)
 
         member this.Item
@@ -30638,7 +30638,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops : <code>float seq seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_RangeSelector_ButtonTheme_Fill_Stops_Item(Some (this :> IFigureItem))
@@ -30650,14 +30650,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_RangeSelector_ButtonTheme_Fill_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Fill_Stops.ToJson o)
 
         member this.Item
@@ -30665,7 +30665,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_Fill(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -30674,7 +30674,7 @@ module Figure =
         ///<summary>Figure_RangeSelector_ButtonTheme_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
         member this.linearGradient = Figure_RangeSelector_ButtonTheme_Fill_LinearGradient(Some (this :> IFigureItem))
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_Fill_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_RangeSelector_ButtonTheme_Fill_Stops(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -30682,12 +30682,12 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
                 |> Option.defaultValue "fill"
 
-        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             let linearGradient = Figure_RangeSelector_ButtonTheme_Fill_LinearGradient.ToJson o.linearGradient
             let stops = Figure_RangeSelector_ButtonTheme_Fill_Stops.ToJson o.stops
             sprintf "{\\\"linearGradient\\\":%s,\\\"stops\\\":%s}" linearGradient stops
 
-        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_Fill.ToJson o)
 
 
@@ -31243,7 +31243,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item : <code>float</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -31257,13 +31257,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item : <code>float seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item(Some (this :> IFigureItem))
@@ -31279,14 +31279,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item.ToJson o)
 
         member this.Item
@@ -31294,7 +31294,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops : <code>float seq seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item(Some (this :> IFigureItem))
@@ -31306,14 +31306,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops.ToJson o)
 
         member this.Item
@@ -31321,7 +31321,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover_Fill(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -31330,7 +31330,7 @@ module Figure =
         ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
         member this.linearGradient = Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient(Some (this :> IFigureItem))
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -31338,12 +31338,12 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
                 |> Option.defaultValue "fill"
 
-        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             let linearGradient = Figure_RangeSelector_ButtonTheme_States_Hover_Fill_LinearGradient.ToJson o.linearGradient
             let stops = Figure_RangeSelector_ButtonTheme_States_Hover_Fill_Stops.ToJson o.stops
             sprintf "{\\\"linearGradient\\\":%s,\\\"stops\\\":%s}" linearGradient stops
 
-        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Fill.ToJson o)
 
 
@@ -31801,13 +31801,13 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover_Style.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Hover(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
         member this.fill = Figure_RangeSelector_ButtonTheme_States_Hover_Fill(Some (this :> IFigureItem))
 
         ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover_Stroke : <code>string</code></summary>
@@ -31821,13 +31821,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.hover" (parent.GetPath()))
                 |> Option.defaultValue "hover"
 
-        static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
+        static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_States_Hover_Fill.ToJson o.fill
             let stroke = sprintf "\\\"%s\\\"" o.stroke
             let style = Figure_RangeSelector_ButtonTheme_States_Hover_Style.ToJson o.style
             sprintf "{\\\"fill\\\":%s,\\\"stroke\\\":%s,\\\"style\\\":%s}" fill stroke style
 
-        member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
+        member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Hover.ToJson o)
 
 
@@ -31929,7 +31929,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item : <code>float</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -31943,13 +31943,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item : <code>float seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item(Some (this :> IFigureItem))
@@ -31965,14 +31965,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item.ToJson o)
 
         member this.Item
@@ -31980,7 +31980,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops : <code>float seq seq</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item(Some (this :> IFigureItem))
@@ -31992,14 +31992,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops.ToJson o)
 
         member this.Item
@@ -32007,7 +32007,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select_Fill(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -32016,7 +32016,7 @@ module Figure =
         ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
         member this.linearGradient = Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient(Some (this :> IFigureItem))
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -32024,12 +32024,12 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.fill" (parent.GetPath()))
                 |> Option.defaultValue "fill"
 
-        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             let linearGradient = Figure_RangeSelector_ButtonTheme_States_Select_Fill_LinearGradient.ToJson o.linearGradient
             let stops = Figure_RangeSelector_ButtonTheme_States_Select_Fill_Stops.ToJson o.stops
             sprintf "{\\\"linearGradient\\\":%s,\\\"stops\\\":%s}" linearGradient stops
 
-        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Fill.ToJson o)
 
 
@@ -32487,13 +32487,13 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select_Style.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States_Select : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States_Select(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
         member this.fill = Figure_RangeSelector_ButtonTheme_States_Select_Fill(Some (this :> IFigureItem))
 
         ///<summary>Figure_RangeSelector_ButtonTheme_States_Select_Stroke : <code>string</code></summary>
@@ -32507,26 +32507,26 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.select" (parent.GetPath()))
                 |> Option.defaultValue "select"
 
-        static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
+        static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_States_Select_Fill.ToJson o.fill
             let stroke = sprintf "\\\"%s\\\"" o.stroke
             let style = Figure_RangeSelector_ButtonTheme_States_Select_Style.ToJson o.style
             sprintf "{\\\"fill\\\":%s,\\\"stroke\\\":%s,\\\"style\\\":%s}" fill stroke style
 
-        member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
+        member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States_Select.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector_ButtonTheme_States : <code>{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme_States : <code>{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}</code></summary>
     type Figure_RangeSelector_ButtonTheme_States(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_States_Hover : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
         member this.hover = Figure_RangeSelector_ButtonTheme_States_Hover(Some (this :> IFigureItem))
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_States_Select : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_States_Select : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
         member this.select = Figure_RangeSelector_ButtonTheme_States_Select(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -32534,22 +32534,22 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.states" (parent.GetPath()))
                 |> Option.defaultValue "states"
 
-        static member ToJson (o:{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}) =
+        static member ToJson (o:{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}) =
             let hover = Figure_RangeSelector_ButtonTheme_States_Hover.ToJson o.hover
             let select = Figure_RangeSelector_ButtonTheme_States_Select.ToJson o.select
             sprintf "{\\\"hover\\\":%s,\\\"select\\\":%s}" hover select
 
-        member this.Set (o:{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}) =
+        member this.Set (o:{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme_States.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector_ButtonTheme : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}</code></summary>
+    ///<summary>Figure_RangeSelector_ButtonTheme : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}</code></summary>
     type Figure_RangeSelector_ButtonTheme(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_Fill : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
         member this.fill = Figure_RangeSelector_ButtonTheme_Fill(Some (this :> IFigureItem))
 
         ///<summary>Figure_RangeSelector_ButtonTheme_Stroke : <code>string</code></summary>
@@ -32558,7 +32558,7 @@ module Figure =
         ///<summary>Figure_RangeSelector_ButtonTheme_Style : <code>{| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}</code></summary>
         member this.style = Figure_RangeSelector_ButtonTheme_Style(Some (this :> IFigureItem))
 
-        ///<summary>Figure_RangeSelector_ButtonTheme_States : <code>{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme_States : <code>{| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |}</code></summary>
         member this.states = Figure_RangeSelector_ButtonTheme_States(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -32566,14 +32566,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.buttonTheme" (parent.GetPath()))
                 |> Option.defaultValue "buttonTheme"
 
-        static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}) =
+        static member ToJson (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}) =
             let fill = Figure_RangeSelector_ButtonTheme_Fill.ToJson o.fill
             let stroke = sprintf "\\\"%s\\\"" o.stroke
             let style = Figure_RangeSelector_ButtonTheme_Style.ToJson o.style
             let states = Figure_RangeSelector_ButtonTheme_States.ToJson o.states
             sprintf "{\\\"fill\\\":%s,\\\"stroke\\\":%s,\\\"style\\\":%s,\\\"states\\\":%s}" fill stroke style states
 
-        member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}) =
+        member this.Set (o:{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_ButtonTheme.ToJson o)
 
 
@@ -32673,13 +32673,13 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector_LabelStyle.ToJson o)
 
 
-    ///<summary>Figure_RangeSelector : <code>{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}</code></summary>
+    ///<summary>Figure_RangeSelector : <code>{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}</code></summary>
     type Figure_RangeSelector(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_RangeSelector_ButtonTheme : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}</code></summary>
+        ///<summary>Figure_RangeSelector_ButtonTheme : <code>{| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}</code></summary>
         member this.buttonTheme = Figure_RangeSelector_ButtonTheme(Some (this :> IFigureItem))
 
         ///<summary>Figure_RangeSelector_InputStyle : <code>{| backgroundColor:string; color:string |}</code></summary>
@@ -32693,13 +32693,13 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.rangeSelector" (parent.GetPath()))
                 |> Option.defaultValue "rangeSelector"
 
-        static member ToJson (o:{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}) =
+        static member ToJson (o:{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}) =
             let buttonTheme = Figure_RangeSelector_ButtonTheme.ToJson o.buttonTheme
             let inputStyle = Figure_RangeSelector_InputStyle.ToJson o.inputStyle
             let labelStyle = Figure_RangeSelector_LabelStyle.ToJson o.labelStyle
             sprintf "{\\\"buttonTheme\\\":%s,\\\"inputStyle\\\":%s,\\\"labelStyle\\\":%s}" buttonTheme inputStyle labelStyle
 
-        member this.Set (o:{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}) =
+        member this.Set (o:{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_RangeSelector.ToJson o)
 
 
@@ -32983,7 +32983,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_BarBackgroundColor_LinearGradient.ToJson o)
 
 
-    ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item : <code>float</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -32997,13 +32997,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops_Item : <code>float seq</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item(Some (this :> IFigureItem))
@@ -33019,14 +33019,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Scrollbar_BarBackgroundColor_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_BarBackgroundColor_Stops_Item.ToJson o)
 
         member this.Item
@@ -33034,7 +33034,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops : <code>float seq seq</code></summary>
     type Figure_Scrollbar_BarBackgroundColor_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Scrollbar_BarBackgroundColor_Stops_Item(Some (this :> IFigureItem))
@@ -33046,14 +33046,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Scrollbar_BarBackgroundColor_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_BarBackgroundColor_Stops.ToJson o)
 
         member this.Item
@@ -33061,7 +33061,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_Scrollbar_BarBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+    ///<summary>Figure_Scrollbar_BarBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
     type Figure_Scrollbar_BarBackgroundColor(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -33070,7 +33070,7 @@ module Figure =
         ///<summary>Figure_Scrollbar_BarBackgroundColor_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
         member this.linearGradient = Figure_Scrollbar_BarBackgroundColor_LinearGradient(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_Scrollbar_BarBackgroundColor_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_Scrollbar_BarBackgroundColor_Stops(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -33078,12 +33078,12 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.barBackgroundColor" (parent.GetPath()))
                 |> Option.defaultValue "barBackgroundColor"
 
-        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             let linearGradient = Figure_Scrollbar_BarBackgroundColor_LinearGradient.ToJson o.linearGradient
             let stops = Figure_Scrollbar_BarBackgroundColor_Stops.ToJson o.stops
             sprintf "{\\\"linearGradient\\\":%s,\\\"stops\\\":%s}" linearGradient stops
 
-        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_BarBackgroundColor.ToJson o)
 
 
@@ -33217,7 +33217,7 @@ module Figure =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_ButtonBackgroundColor_LinearGradient.ToJson o)
 
 
-    ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item : <code>int</code></summary>
+    ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item : <code>float</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -33231,13 +33231,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item.ToJson o)
 
-    ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops_Item : <code>int seq</code></summary>
+    ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops_Item : <code>float seq</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_Stops_Item(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item(Some (this :> IFigureItem))
@@ -33253,14 +33253,14 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Scrollbar_ButtonBackgroundColor_Stops_Item_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_ButtonBackgroundColor_Stops_Item.ToJson o)
 
         member this.Item
@@ -33268,7 +33268,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops : <code>int seq seq</code></summary>
+    ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops : <code>float seq seq</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor_Stops(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Scrollbar_ButtonBackgroundColor_Stops_Item(Some (this :> IFigureItem))
@@ -33280,14 +33280,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.stops" (parent.GetPath()))
                 |> Option.defaultValue "stops"
 
-        static member ToJson (o:int seq seq) =
+        static member ToJson (o:float seq seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Scrollbar_ButtonBackgroundColor_Stops_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq seq) =
+        member this.Set (o:float seq seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_ButtonBackgroundColor_Stops.ToJson o)
 
         member this.Item
@@ -33295,7 +33295,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure_Scrollbar_ButtonBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+    ///<summary>Figure_Scrollbar_ButtonBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
     type Figure_Scrollbar_ButtonBackgroundColor(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -33304,7 +33304,7 @@ module Figure =
         ///<summary>Figure_Scrollbar_ButtonBackgroundColor_LinearGradient : <code>{| x1:int; y1:int; x2:int; y2:int |}</code></summary>
         member this.linearGradient = Figure_Scrollbar_ButtonBackgroundColor_LinearGradient(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops : <code>int seq seq</code></summary>
+        ///<summary>Figure_Scrollbar_ButtonBackgroundColor_Stops : <code>float seq seq</code></summary>
         member this.stops = Figure_Scrollbar_ButtonBackgroundColor_Stops(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -33312,12 +33312,12 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.buttonBackgroundColor" (parent.GetPath()))
                 |> Option.defaultValue "buttonBackgroundColor"
 
-        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        static member ToJson (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             let linearGradient = Figure_Scrollbar_ButtonBackgroundColor_LinearGradient.ToJson o.linearGradient
             let stops = Figure_Scrollbar_ButtonBackgroundColor_Stops.ToJson o.stops
             sprintf "{\\\"linearGradient\\\":%s,\\\"stops\\\":%s}" linearGradient stops
 
-        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}) =
+        member this.Set (o:{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_ButtonBackgroundColor.ToJson o)
 
 
@@ -33571,13 +33571,13 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar_TrackBorderColor.ToJson o)
 
-    ///<summary>Figure_Scrollbar : <code>{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}</code></summary>
+    ///<summary>Figure_Scrollbar : <code>{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}</code></summary>
     type Figure_Scrollbar(parent:IFigureItem option) =
         let parentItem = parent
 
 
 
-        ///<summary>Figure_Scrollbar_BarBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+        ///<summary>Figure_Scrollbar_BarBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
         member this.barBackgroundColor = Figure_Scrollbar_BarBackgroundColor(Some (this :> IFigureItem))
 
         ///<summary>Figure_Scrollbar_BarBorderColor : <code>string</code></summary>
@@ -33586,7 +33586,7 @@ module Figure =
         ///<summary>Figure_Scrollbar_ButtonArrowColor : <code>string</code></summary>
         member this.buttonArrowColor = Figure_Scrollbar_ButtonArrowColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Scrollbar_ButtonBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}</code></summary>
+        ///<summary>Figure_Scrollbar_ButtonBackgroundColor : <code>{| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}</code></summary>
         member this.buttonBackgroundColor = Figure_Scrollbar_ButtonBackgroundColor(Some (this :> IFigureItem))
 
         ///<summary>Figure_Scrollbar_ButtonBorderColor : <code>string</code></summary>
@@ -33606,7 +33606,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.scrollbar" (parent.GetPath()))
                 |> Option.defaultValue "scrollbar"
 
-        static member ToJson (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
+        static member ToJson (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
             let barBackgroundColor = Figure_Scrollbar_BarBackgroundColor.ToJson o.barBackgroundColor
             let barBorderColor = sprintf "\\\"%s\\\"" o.barBorderColor
             let buttonArrowColor = sprintf "\\\"%s\\\"" o.buttonArrowColor
@@ -33617,7 +33617,7 @@ module Figure =
             let trackBorderColor = sprintf "\\\"%s\\\"" o.trackBorderColor
             sprintf "{\\\"barBackgroundColor\\\":%s,\\\"barBorderColor\\\":%s,\\\"buttonArrowColor\\\":%s,\\\"buttonBackgroundColor\\\":%s,\\\"buttonBorderColor\\\":%s,\\\"rifleColor\\\":%s,\\\"trackBackgroundColor\\\":%s,\\\"trackBorderColor\\\":%s}" barBackgroundColor barBorderColor buttonArrowColor buttonBackgroundColor buttonBorderColor rifleColor trackBackgroundColor trackBorderColor
 
-        member this.Set (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
+        member this.Set (o:{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Scrollbar.ToJson o)
 
 
@@ -33845,7 +33845,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Cursor.ToJson o)
 
-    ///<summary>Figure_Series_Item_Data_Item : <code>int</code></summary>
+    ///<summary>Figure_Series_Item_Data_Item : <code>float</code></summary>
     type Figure_Series_Item_Data_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -33859,13 +33859,13 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Data_Item.ToJson o)
 
-    ///<summary>Figure_Series_Item_Data : <code>int seq</code></summary>
+    ///<summary>Figure_Series_Item_Data : <code>float seq</code></summary>
     type Figure_Series_Item_Data(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Series_Item_Data_Item(Some (this :> IFigureItem))
@@ -33877,14 +33877,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.data" (parent.GetPath()))
                 |> Option.defaultValue "data"
 
-        static member ToJson (o:int seq) =
+        static member ToJson (o:float seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Series_Item_Data_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:int seq) =
+        member this.Set (o:float seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Data.ToJson o)
 
         member this.Item
@@ -34345,7 +34345,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_NegativeColor.ToJson o)
 
-    ///<summary>Figure_Series_Item_Opactiy : <code>int</code></summary>
+    ///<summary>Figure_Series_Item_Opactiy : <code>float</code></summary>
     type Figure_Series_Item_Opactiy(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -34355,10 +34355,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.opactiy" (parent.GetPath()))
                 |> Option.defaultValue "opactiy"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_Opactiy.ToJson o)
 
     ///<summary>Figure_Series_Item_PointInterval : <code>int</code></summary>
@@ -34393,7 +34393,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_PointIntervalUnit.ToJson o)
 
-    ///<summary>Figure_Series_Item_PointPlacement : <code>int</code></summary>
+    ///<summary>Figure_Series_Item_PointPlacement : <code>float</code></summary>
     type Figure_Series_Item_PointPlacement(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -34403,10 +34403,10 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.pointPlacement" (parent.GetPath()))
                 |> Option.defaultValue "pointPlacement"
 
-        static member ToJson (o:int) =
-            sprintf "%i" o
+        static member ToJson (o:float) =
+            sprintf "%f" o
 
-        member this.Set (o:int) =
+        member this.Set (o:float) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_PointPlacement.ToJson o)
 
     ///<summary>Figure_Series_Item_PointStart : <code>int</code></summary>
@@ -34713,7 +34713,7 @@ module Figure =
         member this.Set (o:string) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item_ZoneAxis.ToJson o)
 
-    ///<summary>Figure_Series_Item : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}</code></summary>
+    ///<summary>Figure_Series_Item : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}</code></summary>
     type Figure_Series_Item(parent:IFigureItem option) =
         let parentItem = parent
         let mutable lastIndex = 0
@@ -34761,7 +34761,7 @@ module Figure =
         ///<summary>Figure_Series_Item_Cursor : <code>string</code></summary>
         member this.cursor = Figure_Series_Item_Cursor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Series_Item_Data : <code>int seq</code></summary>
+        ///<summary>Figure_Series_Item_Data : <code>float seq</code></summary>
         member this.data = Figure_Series_Item_Data(Some (this :> IFigureItem))
 
         ///<summary>Figure_Series_Item_DashStyle : <code>string</code></summary>
@@ -34809,7 +34809,7 @@ module Figure =
         ///<summary>Figure_Series_Item_NegativeColor : <code>string</code></summary>
         member this.negativeColor = Figure_Series_Item_NegativeColor(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Series_Item_Opactiy : <code>int</code></summary>
+        ///<summary>Figure_Series_Item_Opactiy : <code>float</code></summary>
         member this.opactiy = Figure_Series_Item_Opactiy(Some (this :> IFigureItem))
 
         ///<summary>Figure_Series_Item_PointInterval : <code>int</code></summary>
@@ -34818,7 +34818,7 @@ module Figure =
         ///<summary>Figure_Series_Item_PointIntervalUnit : <code>string</code></summary>
         member this.pointIntervalUnit = Figure_Series_Item_PointIntervalUnit(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Series_Item_PointPlacement : <code>int</code></summary>
+        ///<summary>Figure_Series_Item_PointPlacement : <code>float</code></summary>
         member this.pointPlacement = Figure_Series_Item_PointPlacement(Some (this :> IFigureItem))
 
         ///<summary>Figure_Series_Item_PointStart : <code>int</code></summary>
@@ -34887,7 +34887,7 @@ module Figure =
             member this.SetLastIndex index =
                 lastIndex <- index
 
-        static member ToJson (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}) =
+        static member ToJson (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}) =
             let allowPointSelect = sprintf "%b" o.allowPointSelect
             let animationLimit = sprintf "%i" o.animationLimit
             let boostThreshold = sprintf "%i" o.boostThreshold
@@ -34918,10 +34918,10 @@ module Figure =
             let marker = Figure_Series_Item_Marker.ToJson o.marker
             let name = sprintf "\\\"%s\\\"" o.name
             let negativeColor = sprintf "\\\"%s\\\"" o.negativeColor
-            let opactiy = sprintf "%i" o.opactiy
+            let opactiy = sprintf "%f" o.opactiy
             let pointInterval = sprintf "%i" o.pointInterval
             let pointIntervalUnit = sprintf "\\\"%s\\\"" o.pointIntervalUnit
-            let pointPlacement = sprintf "%i" o.pointPlacement
+            let pointPlacement = sprintf "%f" o.pointPlacement
             let pointStart = sprintf "%i" o.pointStart
             let selected = sprintf "%b" o.selected
             let shadow = sprintf "%b" o.shadow
@@ -34943,11 +34943,11 @@ module Figure =
             let zoneAxis = sprintf "\\\"%s\\\"" o.zoneAxis
             sprintf "{\\\"allowPointSelect\\\":%s,\\\"animationLimit\\\":%s,\\\"boostThreshold\\\":%s,\\\"className\\\":%s,\\\"clip\\\":%s,\\\"color\\\":%s,\\\"colorAxis\\\":%s,\\\"colorIndex\\\":%s,\\\"colorKey\\\":%s,\\\"connectEnds\\\":%s,\\\"connectNulls\\\":%s,\\\"crisp\\\":%s,\\\"cropThreshold\\\":%s,\\\"cursor\\\":%s,\\\"data\\\":%s,\\\"dashStyle\\\":%s,\\\"description\\\":%s,\\\"enableMouseTracking\\\":%s,\\\"findNearestPointBy\\\":%s,\\\"getExtremesFromAll\\\":%s,\\\"id\\\":%s,\\\"includeInDataExport\\\":%s,\\\"index\\\":%s,\\\"keys\\\":%s,\\\"legendIndex\\\":%s,\\\"linecap\\\":%s,\\\"lineWidth\\\":%s,\\\"marker\\\":%s,\\\"name\\\":%s,\\\"negativeColor\\\":%s,\\\"opactiy\\\":%s,\\\"pointInterval\\\":%s,\\\"pointIntervalUnit\\\":%s,\\\"pointPlacement\\\":%s,\\\"pointStart\\\":%s,\\\"selected\\\":%s,\\\"shadow\\\":%s,\\\"showCheckbox\\\":%s,\\\"showInLegend\\\":%s,\\\"skipKeyboardNavigation\\\":%s,\\\"softThreshold\\\":%s,\\\"stack\\\":%s,\\\"stacking\\\":%s,\\\"step\\\":%s,\\\"stickyTracking\\\":%s,\\\"threshold\\\":%s,\\\"turboThreshold\\\":%s,\\\"_type\\\":%s,\\\"visible\\\":%s,\\\"xAxis\\\":%s,\\\"yAxis\\\":%s,\\\"zIndex\\\":%s,\\\"zoneAxis\\\":%s}" allowPointSelect animationLimit boostThreshold className clip color colorAxis colorIndex colorKey connectEnds connectNulls crisp cropThreshold cursor data dashStyle description enableMouseTracking findNearestPointBy getExtremesFromAll id includeInDataExport index keys legendIndex linecap lineWidth marker name negativeColor opactiy pointInterval pointIntervalUnit pointPlacement pointStart selected shadow showCheckbox showInLegend skipKeyboardNavigation softThreshold stack stacking step stickyTracking threshold turboThreshold _type visible xAxis yAxis zIndex zoneAxis
 
-        member this.Set (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}) =
+        member this.Set (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series_Item.ToJson o)
 
 
-    ///<summary>Figure_Series : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq</code></summary>
+    ///<summary>Figure_Series : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq</code></summary>
     type Figure_Series(parent:IFigureItem option) as this =
         let parentItem = parent
         let item = Figure_Series_Item(Some (this :> IFigureItem))
@@ -34959,14 +34959,14 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.series" (parent.GetPath()))
                 |> Option.defaultValue "series"
 
-        static member ToJson (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq) =
+        static member ToJson (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq) =
             if Seq.isEmpty o then "[]"
             else
                 o
                 |> Seq.fold (fun s oi -> sprintf "%s,[%s]" s ( Figure_Series_Item.ToJson oi)) ""
                 |> fun s -> s.Substring(1)
 
-        member this.Set (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq) =
+        member this.Set (o:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure_Series.ToJson o)
 
         member this.Item
@@ -34974,7 +34974,7 @@ module Figure =
                 (item :> IFigureArrayElement).SetLastIndex(i)
                 item
 
-    ///<summary>Figure : <code>{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; yAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}</code></summary>
+    ///<summary>Figure : <code>{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; yAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}</code></summary>
     type Figure(parent:IFigureItem option) =
         let parentItem = parent
 
@@ -35007,7 +35007,7 @@ module Figure =
         ///<summary>Figure_Caption : <code>{| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; margin:int; text:string; align:string; verticalAlign:string |}</code></summary>
         member this.caption = Figure_Caption(Some (this :> IFigureItem))
 
-        ///<summary>Figure_PlotOptions : <code>{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}</code></summary>
+        ///<summary>Figure_PlotOptions : <code>{| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}</code></summary>
         member this.plotOptions = Figure_PlotOptions(Some (this :> IFigureItem))
 
         ///<summary>Figure_Labels : <code>{| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}</code></summary>
@@ -35025,31 +35025,31 @@ module Figure =
         ///<summary>Figure_Credits : <code>{| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}</code></summary>
         member this.credits = Figure_Credits(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Navigation : <code>{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}</code></summary>
+        ///<summary>Figure_Navigation : <code>{| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}</code></summary>
         member this.navigation = Figure_Navigation(Some (this :> IFigureItem))
 
         ///<summary>Figure_Exporting : <code>{| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}</code></summary>
         member this.exporting = Figure_Exporting(Some (this :> IFigureItem))
 
-        ///<summary>Figure_XAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
+        ///<summary>Figure_XAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
         member this.xAxis = Figure_XAxis(Some (this :> IFigureItem))
 
-        ///<summary>Figure_YAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
+        ///<summary>Figure_YAxis : <code>{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq</code></summary>
         member this.yAxis = Figure_YAxis(Some (this :> IFigureItem))
 
         ///<summary>Figure_Toolbar : <code>{| itemStyle: {| color:string |} |}</code></summary>
         member this.toolbar = Figure_Toolbar(Some (this :> IFigureItem))
 
-        ///<summary>Figure_RangeSelector : <code>{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}</code></summary>
+        ///<summary>Figure_RangeSelector : <code>{| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}</code></summary>
         member this.rangeSelector = Figure_RangeSelector(Some (this :> IFigureItem))
 
         ///<summary>Figure_Navigator : <code>{| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}</code></summary>
         member this.navigator = Figure_Navigator(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Scrollbar : <code>{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}</code></summary>
+        ///<summary>Figure_Scrollbar : <code>{| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}</code></summary>
         member this.scrollbar = Figure_Scrollbar(Some (this :> IFigureItem))
 
-        ///<summary>Figure_Series : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq</code></summary>
+        ///<summary>Figure_Series : <code>{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq</code></summary>
         member this.series = Figure_Series(Some (this :> IFigureItem))
         interface IFigureItem with
             member this.GetPath() =
@@ -35057,7 +35057,7 @@ module Figure =
                 |> Option.map (fun parent -> sprintf "%s.Figure" (parent.GetPath()))
                 |> Option.defaultValue "Figure"
 
-        static member ToJson (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; yAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}) =
+        static member ToJson (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; yAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}) =
             let colors = Figure_Colors.ToJson o.colors
             let symbols = Figure_Symbols.ToJson o.symbols
             let lang = Figure_Lang.ToJson o.lang
@@ -35084,6 +35084,6 @@ module Figure =
             let series = Figure_Series.ToJson o.series
             sprintf "{\\\"colors\\\":%s,\\\"symbols\\\":%s,\\\"lang\\\":%s,\\\"_global\\\":%s,\\\"time\\\":%s,\\\"chart\\\":%s,\\\"title\\\":%s,\\\"subtitle\\\":%s,\\\"caption\\\":%s,\\\"plotOptions\\\":%s,\\\"labels\\\":%s,\\\"legend\\\":%s,\\\"loading\\\":%s,\\\"tooltip\\\":%s,\\\"credits\\\":%s,\\\"navigation\\\":%s,\\\"exporting\\\":%s,\\\"xAxis\\\":%s,\\\"yAxis\\\":%s,\\\"toolbar\\\":%s,\\\"rangeSelector\\\":%s,\\\"navigator\\\":%s,\\\"scrollbar\\\":%s,\\\"series\\\":%s}" colors symbols lang _global time chart title subtitle caption plotOptions labels legend loading tooltip credits navigation exporting xAxis yAxis toolbar rangeSelector navigator scrollbar series
 
-        member this.Set (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:int |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:int; pointPadding:int; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:int |}; brightness:int |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:int |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string |}; symbolSize:int; symbolX:int; symbolY:int; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; yAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:int; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:int; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:int; maxColor:string; maxPadding:int; min:int; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:int; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:int; minTickInterval:int; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:int; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:int; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:int; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:int; softMin:int; startOfWeek:int; startOnTick:bool; stops:int seq seq; tickAmount:int; tickColor:string; tickInterval:int; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:int seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:int seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:int; pointInterval:int; pointIntervalUnit:string; pointPlacement:int; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}) =
+        member this.Set (o:{| colors:string seq; symbols:string seq; lang: {| loading:string; months:string seq; shortMonths:string seq; weekdays:string seq; decimalPoint:string; numericSymbols:string seq; resetZoom:string; resetZoomTitle:string; thousandsSep:string; viewFullscreen:string; exitFullscreen:string; printChart:string; downloadPNG:string; downloadJPEG:string; downloadPDF:string; downloadSVG:string; contextButtonTitle:string |}; _global: {| dummy:string |}; time: {| timezoneOffset:int; useUTC:bool |}; chart: {| styledMode:bool; borderRadius:int; colorCount:int; defaultSeriesType:string; ignoreHiddenSeries:bool; spacing:int seq; resetZoomButton: {| theme: {| zIndex:int |}; position: {| align:string; x:int; y:int |} |}; width:string; height:string; borderColor:string; backgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int; id:string |}; stops:int seq seq |}; plotBorderColor:string; borderWidth:int; className:string; plotBackgroundColor:string; plotBorderWidth:int |}; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; margin:int; widthAdjust:int |}; subtitle: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; align:string; widthAdjust:int |}; caption: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; margin:int; text:string; align:string; verticalAlign:string |}; plotOptions: {| line: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; color:string |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; area: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; spline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string |}; areaspline: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |} |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; threshold:int |}; column: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; bar: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; x:int |}; cropThreshold:int; opacity:int; pointRange:string; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo:bool; brightness:float |}; select: {| animation: {| duration:int |}; color:string; borderColor:string |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; borderRadius:int; centerInCategory:bool; groupPadding:float; pointPadding:float; minPointLength:int; startFromThreshold:bool; threshold:int; borderColor:string |}; scatter: {| lineWidth:int; allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker: {| enabledThreshold:int; lineColor:string; lineWidth:int; radius:int; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; enabled:bool; radiusPlus:int; lineWidthPlus:int |}; select: {| fillColor:string; lineColor:string; lineWidth:int |} |}; enabled:bool |}; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |} |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; jitter: {| x:int; y:int |} |}; pie: {| allowPointSelect:bool; crisp:bool; showCheckbox:bool; animation: {| duration:int |}; events: {| dummy:string |}; marker:string; point: {| events: {| dummy:string |} |}; dataLabels: {| align:string; padding:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; verticalAlign:string; x:int; y:int; allowOverlap:bool; connectorPadding:int; connectorShape:string; crookDistance:string; distance:int; enabled:bool; softConnector:bool |}; cropThreshold:int; opacity:int; pointRange:int; softThreshold:bool; states: {| normal: {| animation:bool |}; hover: {| animation: {| duration:int |}; lineWidthPlus:int; marker: {| dummy:string |}; halo: {| size:int; opacity:float |}; brightness:float |}; select: {| animation: {| duration:int |} |}; inactive: {| animation: {| duration:int |}; opacity:float |} |}; stickyTracking:bool; turboThreshold:int; findNearestPointBy:string; center:string seq; clip:bool; colorByPoint:bool; ignoreHiddenPoint:bool; inactiveOtherPoints:bool; legendType:string; size:string; showInLegend:bool; slicedOffset:int; borderColor:string; borderWidth:int |}; candlestick: {| lineColor:string |} |}; labels: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; legend: {| enabled:bool; align:string; alignColumns:bool; layout:string; borderColor:string; borderRadius:int; navigation: {| activeColor:string; inactiveColor:string |}; itemStyle: {| color:string; cursor:string; fontSize:string; fontWeight:string; textOverflow:string; font:string |}; itemHoverStyle: {| color:string |}; itemHiddenStyle: {| color:string |}; shadow:bool; itemCheckboxStyle: {| position:string; width:string; height:string |}; squareSymbol:bool; symbolPadding:int; verticalAlign:string; x:int; y:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; backgroundColor:string |}; loading: {| labelStyle: {| fontWeight:string; position:string; top:string |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; tooltip: {| enabled:bool; animation:bool; borderRadius:int; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; footerFormat:string; padding:int; snap:int; headerFormat:string; pointFormat:string; backgroundColor:string; borderWidth:int; shadow:bool; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; credits: {| enabled:bool; href:string; position: {| align:string; x:int; verticalAlign:string; y:int |}; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; navigation: {| buttonOptions: {| theme: {| padding:int; fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string |}; symbolSize:int; symbolX:float; symbolY:float; align:string; buttonSpacing:int; height:int; verticalAlign:string; width:int; symbolFill:string; symbolStroke:string; symbolStrokeWidth:int |}; menuStyle: {| border:string; background:string; padding:string |}; menuItemStyle: {| padding:string; color:string; background:string; fontSize:string; transition:string |}; menuItemHoverStyle: {| background:string; color:string |} |}; exporting: {| _type:string; url:string; printMaxWidth:int; scale:int; buttons: {| contextButton: {| className:string; menuClassName:string; symbol:string; titleKey:string; menuItems:string seq |} |}; menuItemDefinitions: {| viewFullscreen: {| textKey:string |}; printChart: {| textKey:string |}; separator: {| separator:bool |}; downloadPNG: {| textKey:string |}; downloadJPEG: {| textKey:string |}; downloadPDF: {| textKey:string |}; downloadSVG: {| textKey:string |} |} |}; xAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; yAxis:{| alignTicks:bool; allowDecimals:bool; alternateGridColor:string; angle:int; categories:string seq; ceiling:float; className:string; crosshair:bool; dateTimeLabelFormats: {| millisecond:string; second:string; minute:string; hour:string; day:string; week:string; month:string; year:string |}; endOnTick:bool; floor:float; gridLineColor:string; gridLineDashStyle:string; gridLineInterpolation:string; gridLineWidth:int; gridZIndex:int; height:int; id:string; labels: {| align:string; autoRotation:int; autoRotationLimit:int; distance:int; enabled:bool; format:string; overflow:string; padding:int; reserveSpace:bool; rotation:int; staggerLines:int; step:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; useHtml:bool; x:int; y:int; zIndex:int |}; left:int; lineColor:string; lineWidth:int; linkedTo:int; margin:int; max:float; maxColor:string; maxPadding:float; min:float; minColor:string; minorGridLineColor:string; minorGridLineDashStyle:string; minorGridLineWidth:int; minorTickColor:string; minorTickInterval:float; minorTickLength:int; minorTickPosition:string; minorTicks:bool; minorTickWidth:int; minRange:float; minTickInterval:float; offset:int; opposite:bool; pane:int; plotBands:{| borderColor:string; borderWidth:int; className:string; color:string; _from:float; id:string; innerRadius:int; labels: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; outerRadius:int; thickness:int; _to:float; zIndex:int |} seq; plotLines:{| className:string; color:string; dashStyle:string; id:string; label: {| align:string; rotation:int; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string; textAlign:string; useHtml:bool; verticalAlign:string; x:int; y:int |}; value:float; width:int; zIndex:int |} seq; reversed:bool; reversedStacks:bool; showEmpty:bool; showFirstLabel:bool; showLastLabel:bool; softMax:float; softMin:float; startOfWeek:int; startOnTick:bool; stops:float seq seq; tickAmount:int; tickColor:string; tickInterval:float; tickLength:int; tickmarkPlacement:string; tickPixelInterval:int; tickPosition:string; tickPositions:float seq; tickWidth:int; title: {| style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; text:string |}; tooltipValueFormat:string; top:int; _type:string; uniqueNames:bool; visible:bool; width:int; zoomEnabled:bool |} seq; toolbar: {| itemStyle: {| color:string |} |}; rangeSelector: {| buttonTheme: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |}; states: {| hover: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |}; select: {| fill: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; stroke:string; style: {| background:string; backgroundColor:string; border:string; borderRadius:int; color:string; cursor:string; fontFamily:string; fontWeight:string; fontSize:string; height:int; lineWidth:int; padding:string; position:string; textAlign:string; textDecoration:string; textOutline:string; textOverflow:string; top:string; transition:string; whiteSpace:string; width:int |} |} |} |}; inputStyle: {| backgroundColor:string; color:string |}; labelStyle: {| color:string |} |}; navigator: {| handles: {| backgroundColor:string; borderColor:string |}; outlineColor:string; maskFill:string; series: {| color:string; lineColor:string |} |}; scrollbar: {| barBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; barBorderColor:string; buttonArrowColor:string; buttonBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:float seq seq |}; buttonBorderColor:string; rifleColor:string; trackBackgroundColor: {| linearGradient: {| x1:int; y1:int; x2:int; y2:int |}; stops:int seq seq |}; trackBorderColor:string |}; series:{| allowPointSelect:bool; animationLimit:int; boostThreshold:int; className:string; clip:bool; color:string; colorAxis:int; colorIndex:int; colorKey:string; connectEnds:bool; connectNulls:bool; crisp:bool; cropThreshold:int; cursor:string; data:float seq; dashStyle:string; description:string; enableMouseTracking:bool; findNearestPointBy:string; getExtremesFromAll:bool; id:string; includeInDataExport:bool; index:int; keys:string seq; legendIndex:int; linecap:string; lineWidth:int; marker: {| enabled:bool; enabledThreshold:int; fillColor:string; height:int; lineColor:string; lineWidth:int; radius:int; symbol:string; width:int |}; name:string; negativeColor:string; opactiy:float; pointInterval:int; pointIntervalUnit:string; pointPlacement:float; pointStart:int; selected:bool; shadow:bool; showCheckbox:bool; showInLegend:bool; skipKeyboardNavigation:bool; softThreshold:bool; stack:string; stacking:string; step:string; stickyTracking:bool; threshold:int; turboThreshold:int; _type:string; visible:bool; xAxis:int; yAxis:int; zIndex:int; zoneAxis:string |} seq |}) =
             update currentChartIndex ((this :> IFigureItem).GetPath()) (Figure.ToJson o)
 

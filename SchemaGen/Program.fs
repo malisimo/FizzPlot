@@ -403,7 +403,7 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
                 >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
                 >~> arrStr2
                 >~> sprintf "%sstatic member ToJson (o:float) =" ~~2
-                >~> sprintf "%ssprintf \"%ss\" o" ~~3 "%"
+                >~> sprintf "%ssprintf \"%sf\" o" ~~3 "%"
                 >~> ""
                 >~> sprintf "%smember this.Set (o:float) =" ~~2
                 >~> sprintf "%supdate currentChartIndex ((this :> IFigureItem).GetPath()) (%s.ToJson o)" ~~3 (pathToType curPath)
@@ -418,69 +418,134 @@ let jsonToSchema (namespaceName:string) (moduleName:string) (json:string) =
             }
 //#endregion
 //#region [rgba(62,45,230,0.2)]
-        | JsonValue.Number(_) ->
-            let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
-            let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
-            let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
-            let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
-            let arrStr2 =
-                if isParentArray then
-                    ""
-                    >~> sprintf "%sinterface IFigureArrayElement with" ~~2
-                    >~> sprintf "%smember this.SetLastIndex index =" ~~3
-                    >~> sprintf "%slastIndex <- index" ~~4
-                    >~> ""
-                else
-                    ""
-            
-            let curSb = 
-                state.CurSb
-                >~> ""
-                >~> sprintf "%s///<summary>%s : <code>int</code></summary>" ~~2 (pathToType curPath)
-                >~> sprintf "%smember this.%s = %s(Some (this :> IFigureItem))" ~~2 curKeySafe (pathToType curPath)
-
-            let curCodeSb =
-                match state.Parent with
-                | JsonValue.Record(_) ->
-                    if String.IsNullOrEmpty state.CurCodeSb then
-                        sprintf "%s:int" curKeySafe
+        | JsonValue.Number(n) ->
+            let isInt = Decimal.Floor(n) = n
+            if isInt then
+                let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
+                let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+                let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+                let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
+                let arrStr2 =
+                    if isParentArray then
+                        ""
+                        >~> sprintf "%sinterface IFigureArrayElement with" ~~2
+                        >~> sprintf "%smember this.SetLastIndex index =" ~~3
+                        >~> sprintf "%slastIndex <- index" ~~4
+                        >~> ""
                     else
-                        sprintf "; %s:int" curKeySafe
-                | _ ->
-                    sprintf "int"
+                        ""
+                
+                let curSb = 
+                    state.CurSb
+                    >~> ""
+                    >~> sprintf "%s///<summary>%s : <code>int</code></summary>" ~~2 (pathToType curPath)
+                    >~> sprintf "%smember this.%s = %s(Some (this :> IFigureItem))" ~~2 curKeySafe (pathToType curPath)
 
-            let curJsonSb =
-                if String.IsNullOrEmpty state.CurJsonSb then
-                    sprintf "%slet %s = sprintf \"%si\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
-                else
-                    sprintf "\n%slet %s = sprintf \"%si\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+                let curCodeSb =
+                    match state.Parent with
+                    | JsonValue.Record(_) ->
+                        if String.IsNullOrEmpty state.CurCodeSb then
+                            sprintf "%s:int" curKeySafe
+                        else
+                            sprintf "; %s:int" curKeySafe
+                    | _ ->
+                        sprintf "int"
 
-            let curType =
-                ""
-                >~> sprintf "%s///<summary>%s : <code>int</code></summary>" ~~1 (pathToType curPath)
-                >~> sprintf "%stype %s(parent:IFigureItem option) =" ~~1 (pathToType curPath)
-                >~> sprintf "%slet parentItem = parent" ~~2
-                >~> arrStr1
-                >~> sprintf "%sinterface IFigureItem with" ~~2
-                >~> sprintf "%smember this.GetPath() =" ~~3
-                >~> sprintf "%sparentItem" ~~4
-                >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
-                >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
-                >~> arrStr2
-                >~> sprintf "%sstatic member ToJson (o:int) =" ~~2
-                >~> sprintf "%ssprintf \"%si\" o" ~~3 "%"
-                >~> ""
-                >~> sprintf "%smember this.Set (o:int) =" ~~2
-                >~> sprintf "%supdate currentChartIndex ((this :> IFigureItem).GetPath()) (%s.ToJson o)" ~~3 (pathToType curPath)
+                let curJsonSb =
+                    if String.IsNullOrEmpty state.CurJsonSb then
+                        sprintf "%slet %s = sprintf \"%si\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+                    else
+                        sprintf "\n%slet %s = sprintf \"%si\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
 
-            { state with
-                CurSb = curSb
-                CurCodeSb = state.CurCodeSb + curCodeSb
-                CurJsonSb = state.CurJsonSb + curJsonSb
-                ChildRecords = curKeySafe :: state.ChildRecords
-                CurIndent = state.CurIndent
-                Types = curType::state.Types
-            }
+                let curType =
+                    ""
+                    >~> sprintf "%s///<summary>%s : <code>int</code></summary>" ~~1 (pathToType curPath)
+                    >~> sprintf "%stype %s(parent:IFigureItem option) =" ~~1 (pathToType curPath)
+                    >~> sprintf "%slet parentItem = parent" ~~2
+                    >~> arrStr1
+                    >~> sprintf "%sinterface IFigureItem with" ~~2
+                    >~> sprintf "%smember this.GetPath() =" ~~3
+                    >~> sprintf "%sparentItem" ~~4
+                    >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                    >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
+                    >~> arrStr2
+                    >~> sprintf "%sstatic member ToJson (o:int) =" ~~2
+                    >~> sprintf "%ssprintf \"%si\" o" ~~3 "%"
+                    >~> ""
+                    >~> sprintf "%smember this.Set (o:int) =" ~~2
+                    >~> sprintf "%supdate currentChartIndex ((this :> IFigureItem).GetPath()) (%s.ToJson o)" ~~3 (pathToType curPath)
+
+                { state with
+                    CurSb = curSb
+                    CurCodeSb = state.CurCodeSb + curCodeSb
+                    CurJsonSb = state.CurJsonSb + curJsonSb
+                    ChildRecords = curKeySafe :: state.ChildRecords
+                    CurIndent = state.CurIndent
+                    Types = curType::state.Types
+                }
+            else
+                let isParentArray = state.Parent |> function | JsonValue.Array(_) -> true | _ -> false
+                let pathStr = if isParentArray then "sprintf \"%s[%i]\" (parent.GetPath()) lastIndex" else sprintf "sprintf \"%ss.%s\" (parent.GetPath())" "%" curKey
+                let pathStrDef = if isParentArray then sprintf "(sprintf \"[%si]\" lastIndex)" "%" else sprintf "\"%s\"" curKey
+                let arrStr1 = if isParentArray then (sprintf "%slet mutable lastIndex = 0" ~~2) else ""
+                let arrStr2 =
+                    if isParentArray then
+                        ""
+                        >~> sprintf "%sinterface IFigureArrayElement with" ~~2
+                        >~> sprintf "%smember this.SetLastIndex index =" ~~3
+                        >~> sprintf "%slastIndex <- index" ~~4
+                        >~> ""
+                    else
+                        ""
+                
+                let curSb = 
+                    state.CurSb
+                    >~> ""
+                    >~> sprintf "%s///<summary>%s : <code>float</code></summary>" ~~2 (pathToType curPath)
+                    >~> sprintf "%smember this.%s = %s(Some (this :> IFigureItem))" ~~2 curKeySafe (pathToType curPath)
+
+                let curCodeSb =
+                    match state.Parent with
+                    | JsonValue.Record(_) ->
+                        if String.IsNullOrEmpty state.CurCodeSb then
+                            sprintf "%s:float" curKeySafe
+                        else
+                            sprintf "; %s:float" curKeySafe
+                    | _ ->
+                        sprintf "float"
+
+                let curJsonSb =
+                    if String.IsNullOrEmpty state.CurJsonSb then
+                        sprintf "%slet %s = sprintf \"%sf\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+                    else
+                        sprintf "\n%slet %s = sprintf \"%sf\" o.%s" ~~state.CurIndent curKeySafe "%" curKeySafe
+
+                let curType =
+                    ""
+                    >~> sprintf "%s///<summary>%s : <code>float</code></summary>" ~~1 (pathToType curPath)
+                    >~> sprintf "%stype %s(parent:IFigureItem option) =" ~~1 (pathToType curPath)
+                    >~> sprintf "%slet parentItem = parent" ~~2
+                    >~> arrStr1
+                    >~> sprintf "%sinterface IFigureItem with" ~~2
+                    >~> sprintf "%smember this.GetPath() =" ~~3
+                    >~> sprintf "%sparentItem" ~~4
+                    >~> sprintf "%s|> Option.map (fun parent -> %s)" ~~4 pathStr
+                    >~> sprintf "%s|> Option.defaultValue %s" ~~4 pathStrDef
+                    >~> arrStr2
+                    >~> sprintf "%sstatic member ToJson (o:float) =" ~~2
+                    >~> sprintf "%ssprintf \"%sf\" o" ~~3 "%"
+                    >~> ""
+                    >~> sprintf "%smember this.Set (o:float) =" ~~2
+                    >~> sprintf "%supdate currentChartIndex ((this :> IFigureItem).GetPath()) (%s.ToJson o)" ~~3 (pathToType curPath)
+
+                { state with
+                    CurSb = curSb
+                    CurCodeSb = state.CurCodeSb + curCodeSb
+                    CurJsonSb = state.CurJsonSb + curJsonSb
+                    ChildRecords = curKeySafe :: state.ChildRecords
+                    CurIndent = state.CurIndent
+                    Types = curType::state.Types
+                }
 //#endregion
 //#region [rgba(232,30,45,0.2)]
         | JsonValue.Boolean(_) ->
