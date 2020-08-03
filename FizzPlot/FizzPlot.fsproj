@@ -17,6 +17,6 @@
 
   <Target Name="Nuget Copy" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
       <Copy SourceFiles="@(_CopyItems)"
-        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp2.2\%(RecursiveDir)%(Filename)%(Extension)')"/>
+        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp3.1\%(RecursiveDir)%(Filename)%(Extension)')"/>
   </Target>
 </Project>
