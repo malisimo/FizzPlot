@@ -7,16 +7,63 @@ open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Cors.Infrastructure
 open Microsoft.AspNetCore.Hosting
 open Microsoft.Extensions.Logging
+open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Caching.Memory
 open Giraffe
-open Giraffe.Razor
 open FizzPlot.Models
 open FizzPlot.Middleware
 
 // ---------------------------------
 // Web app
 // ---------------------------------
+module Views =
+    open GiraffeViewEngine
+
+    let layout (content: XmlNode list) =
+        html [] [
+            head [] [
+                title []  [ str "FizzPlot" ]
+
+                link [ _rel  "stylesheet"
+                       _type "text/css"
+                       _href "/main.css" ]
+                
+                script [_type "application/javascript"; _src "https://code.highcharts.com/highcharts.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/annotations.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/exporting.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/export-data.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/modules/accessibility.js"] []
+                script [_type "application/javascript"; _src "https://cdn.jsdelivr.net/npm/lodash@4.17.19/lodash.min.js"] []
+                script [_type "application/javascript"; _src "scripts/appBundle.js"] []
+            ]
+            body [] content
+        ]
+
+    let partial () =
+        h1 [] [ encodedText "FizzPlot" ]
+
+    let index (model : Message) =
+        [
+            partial()
+            
+            div [ _id "chartContainer" ] []
+            script [_type "application/javascript"] [
+                rawText """
+                    window.addEventListener('load', 
+                        function () {            
+                            var appData = {
+                                charts:[],
+                                maxChartId:0,
+                                socket:null
+                            };
+
+                            initApp();
+                            openWebSocket(appData);
+                        }, false);
+                """
+            ]
+        ] |> layout
 
 let indexHandler =
     let model = {
@@ -26,7 +73,8 @@ let indexHandler =
         Json = "\"\"}"
     }
     
-    razorHtmlView "Index" (Some model) None
+    let view = Views.index model
+    htmlView view
 
 let handleFetch : HttpHandler =
     fun (next:HttpFunc) (ctx:HttpContext) ->
@@ -117,25 +165,25 @@ let configureCors (builder : CorsPolicyBuilder) =
            |> ignore
 
 let configureApp (app : IApplicationBuilder) =
-    let env = app.ApplicationServices.GetService<IHostingEnvironment>()
+    let env = app.ApplicationServices.GetService<IWebHostEnvironment>()
+    let lifetime = app.ApplicationServices.GetService<IHostApplicationLifetime>()
     let webSocketOptions = WebSocketOptions()
     webSocketOptions.KeepAliveInterval <-  TimeSpan.FromSeconds(120.)
     webSocketOptions.ReceiveBufferSize <- 4 * 1024
 
-    (match env.IsDevelopment() with
-    | true  -> app.UseDeveloperExceptionPage()
-    | false -> app.UseGiraffeErrorHandler errorHandler)
+    (match env.EnvironmentName with
+    | "Development"  -> app.UseDeveloperExceptionPage()
+    | _ -> app.UseGiraffeErrorHandler errorHandler)
         .UseCors(configureCors)
         .UseWebSockets(webSocketOptions)
-        .UseMiddleware<WebSocketMiddleware>()
+        .UseMiddleware<WebSocketMiddleware>(lifetime)
         .UseStaticFiles()
         .UseGiraffe(webApp)
 
 let configureServices (services : IServiceCollection) =
     let sp  = services.BuildServiceProvider()
-    let env = sp.GetService<IHostingEnvironment>()
+    let env = sp.GetService<IHostEnvironment>()
     let viewsFolderPath = Path.Combine(env.ContentRootPath, "Views")
-    services.AddRazorEngine viewsFolderPath |> ignore
     services.AddCors() |> ignore
     services.AddGiraffe() |> ignore
     services.AddMemoryCache() |> ignore
@@ -154,7 +202,7 @@ let main _ =
         .UseContentRoot(contentRoot)
         .UseIISIntegration()
         .UseWebRoot(webRoot)
-        .UseUrls("http://localhost:2387/")
+        .UseUrls("http://localhost:2387") 
         .Configure(Action<IApplicationBuilder> configureApp)
         .ConfigureServices(configureServices)
         .ConfigureLogging(configureLogging)

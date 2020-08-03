@@ -1,5 +1,6 @@
 namespace FizzPlot
 open System.IO
+open Microsoft.Extensions.Hosting
 
 module Middleware =
     open System
@@ -27,19 +28,19 @@ module Middleware =
         | Closed of (WebSocketCloseStatus*string)
         | Failure of Exception
     
-    let rec private receiveMessage (socket:WebSocket) (buffer:ArraySegment<byte>) =
+    let rec private receiveMessage (socket:WebSocket) (buffer:ArraySegment<byte>) (cancelToken:CancellationToken) =
         task {
             try
                 use ms = new MemoryStream()
                 Console.WriteLine("Awaiting message from socket...")
-                let! resp = socket.ReceiveAsync(buffer, Async.DefaultCancellationToken)
+                let! resp = socket.ReceiveAsync(buffer, cancelToken)
                 Console.WriteLine(sprintf "Received %i bytes from socket" resp.Count)
 
                 if resp.Count > 0 then
                     do! ms.WriteAsync(buffer.Array, buffer.Offset, resp.Count)
 
                 if not resp.EndOfMessage then
-                    return! receiveMessage socket buffer
+                    return! receiveMessage socket buffer cancelToken
                 else
                     if resp.MessageType = WebSocketMessageType.Close then
                         Console.WriteLine(sprintf "Stopping socket receive: %A" (resp.CloseStatus.GetValueOrDefault()))
@@ -54,11 +55,10 @@ module Middleware =
                         let! str = sr.ReadToEndAsync()
                         return Message str
             with ex ->
-                Console.WriteLine(sprintf "Failed trying to receive socket message (%s)" ex.Message)
                 return Failure ex
         }
 
-    let private receiveMessageLoop (context:HttpContext) socket =
+    let private receiveMessageLoop socket (context:HttpContext) (cancelToken:CancellationToken) =
         async {
             let buffer =
                 Array.create (1024 * 64) 0uy
@@ -68,7 +68,7 @@ module Middleware =
 
             let rec receiveLoop socket buffer =
                 async {
-                    let! resp = receiveMessage socket buffer |> Async.AwaitTask
+                    let! resp = receiveMessage socket buffer cancelToken |> Async.AwaitTask
 
                     match resp with
                     | Message(msg) ->
@@ -80,14 +80,15 @@ module Middleware =
                         Console.WriteLine(sprintf "Socket close event - stopping socket receive: (%A,%s)" (fst closeStatus) (snd closeStatus))
                         return closeStatus
                     | Failure(ex) ->
-                        Console.WriteLine(sprintf "Error during socket receive: %s" (ex.ToString()))
+                        Console.WriteLine(sprintf "Failed socket receive: %s" ex.Message)
                         return (WebSocketCloseStatus.InternalServerError, ex.Message)
                 }
 
             let! closeStatus,closeStatusDesc = receiveLoop socket buffer            
-            Console.WriteLine("Closing socket...")
-            do! socket.CloseAsync(closeStatus, closeStatusDesc, Async.DefaultCancellationToken) |> Async.AwaitTask
-            Console.WriteLine("...closed socket")
+            if socket.State = WebSocketState.Open then
+                Console.WriteLine("Closing socket...")
+                do! socket.CloseAsync(closeStatus, closeStatusDesc, cancelToken) |> Async.AwaitTask
+                Console.WriteLine("...closed socket")
         }
 
 
@@ -120,7 +121,7 @@ module Middleware =
         | (true,msg) -> Some(msg)
         | (false,_) -> None
     
-    type WebSocketMiddleware(next : RequestDelegate) =
+    type WebSocketMiddleware (next : RequestDelegate, lifetime : IHostApplicationLifetime) =
         member __.Invoke(ctx : HttpContext) =
             async {
                 if ctx.Request.Path = PathString("/ws") then
@@ -140,7 +141,7 @@ module Middleware =
                             Console.WriteLine("No cached initial chart data availble")
                             ()
                         
-                        do! receiveMessageLoop ctx webSocket
+                        do! receiveMessageLoop webSocket ctx lifetime.ApplicationStopping
                     | false ->
                         ctx.Response.StatusCode <- 400
                 else
