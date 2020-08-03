@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Watch Include="**\*.cshtml" Exclude="bin\**\*" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Include="Models.fs" />
     <Compile Include="Middleware\WebSocketMiddleware.fs" />
     <Compile Include="Program.fs" />
@@ -27,7 +23,7 @@
 
   <ItemGroup>
     <None Include="web.config" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="Views\*.cshtml;WebRoot\**\*">
+    <Content Include="WebRoot\**\*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

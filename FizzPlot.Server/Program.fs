@@ -11,7 +11,6 @@ open Microsoft.Extensions.Hosting
 open Microsoft.Extensions.DependencyInjection
 open Microsoft.Extensions.Caching.Memory
 open Giraffe
-open Giraffe.Razor
 open FizzPlot.Models
 open FizzPlot.Middleware
 
@@ -73,10 +72,9 @@ let indexHandler =
         Target = "title.text"
         Json = "\"\"}"
     }
+    
     let view = Views.index model
     htmlView view
-    
-    //razorHtmlView "Index" (Some model) None
 
 let handleFetch : HttpHandler =
     fun (next:HttpFunc) (ctx:HttpContext) ->
@@ -186,7 +184,6 @@ let configureServices (services : IServiceCollection) =
     let sp  = services.BuildServiceProvider()
     let env = sp.GetService<IHostEnvironment>()
     let viewsFolderPath = Path.Combine(env.ContentRootPath, "Views")
-    //services.AddRazorEngine viewsFolderPath |> ignore
     services.AddCors() |> ignore
     services.AddGiraffe() |> ignore
     services.AddMemoryCache() |> ignore
