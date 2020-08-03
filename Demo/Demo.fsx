@@ -3,19 +3,15 @@
 //
 // Send chunks to FSI using 'Alt-Enter'.
 // Include FizzPlot reference first:
-#r "../FizzPlot/bin/Debug/netstandard2.0/FizzPlot.dll"
+#r "../FizzPlot/bin/Release/netstandard2.0/FizzPlot.dll"
 
 // #### SCATTER PLOTS
 
-open System
 open FizzPlot.HighCharts.Plot
 
-let (~~) = float
-
-let n = 6
-let rand = Random()
-
-let data1 = [ for i in 0..n -> (0.1 * ~~i, 1.0 + rand.NextDouble() + ~~i) ]
+let data1 = [
+    for t in 0.0 .. 0.001 .. 1. ->
+    (t,t + sin (2. * t) * cos (50. * (t - 30. * cos (1. * t)))) ]
 plot data1
 
 save ".\\img.png"
@@ -44,11 +40,12 @@ fig.series.[0].lineWidth.Set 2
 fig.yAxis.[0]._type.Set "logarithmic"
 fig.xAxis.[0].min.Set 0.1
 fig.xAxis.[0].max.Set 0.2
-fig.yAxis.[0].min.Set 2.4
+fig.yAxis.[0].min.Set 0.0
 fig.yAxis.[0].max.Set 3.2
 
-// Add another series 
-let data2 = [ for i in 0..n -> (0.1 * ~~i, 5.0 + rand.NextDouble() + ~~i) ]
+// Add another series
+let rand = System.Random(2387)
+let data2 = [ for t in 0.0 .. 0.01 .. 1. -> (t, 0.2 + rand.NextDouble() + t) ]
 plot data2 |> ignore
 fig.series.[1].name.Set "Second"
 
