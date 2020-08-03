@@ -34,6 +34,7 @@ module Views =
                 script [_type "application/javascript"; _src "https://code.highcharts.com/modules/exporting.js"] []
                 script [_type "application/javascript"; _src "https://code.highcharts.com/modules/export-data.js"] []
                 script [_type "application/javascript"; _src "https://code.highcharts.com/modules/accessibility.js"] []
+                script [_type "application/javascript"; _src "https://code.highcharts.com/maps/modules/map.js"] []
                 script [_type "application/javascript"; _src "https://cdn.jsdelivr.net/npm/lodash@4.17.19/lodash.min.js"] []
                 script [_type "application/javascript"; _src "scripts/appBundle.js"] []
             ]

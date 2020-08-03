@@ -7,7 +7,7 @@ function genTheme(theme) {
                 backgroundColor: {
                     linearGradient: { x1: 0, y1: 0, x2: 1, y2: 1 },
                     stops: [
-                        [0, 'rgb(48, 48, 66)'],
+                        [0, 'rgb(48, 48, 48)'],
                         [1, 'rgb(0, 0, 0)']
                     ]
                 },
@@ -234,7 +234,7 @@ function genTheme(theme) {
                 backgroundColor: {
                     linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
                     stops: [
-                        [0, 'rgb(96, 96, 96)'],
+                        [0, 'rgb(36, 36, 36)'],
                         [1, 'rgb(16, 16, 16)']
                     ]
                 },
@@ -346,19 +346,6 @@ function genTheme(theme) {
                     marker: {
                         lineColor: '#333'
                     }
-                },
-                spline: {
-                    marker: {
-                        lineColor: '#333'
-                    }
-                },
-                scatter: {
-                    marker: {
-                        lineColor: '#333'
-                    }
-                },
-                candlestick: {
-                    lineColor: 'white'
                 }
             },
             toolbar: {
@@ -477,21 +464,240 @@ function genTheme(theme) {
     } else {
         return {
             colors: [
-                '#5f98cf',
-                '#434348',
-                '#49a65e',
-                '#f45b5b',
-                '#708090',
-                '#b68c51',
-                '#397550',
-                '#c0493d',
-                '#4f4a7a',
-                '#b381b3'
+                "#7cb5ec",
+                "#434348",
+                "#90ed7d",
+                "#f7a35c",
+                "#8085e9",
+                "#f15c80",
+                "#e4d354",
+                "#2b908f",
+                "#f45b5b",
+                "#91e8e1"
             ],
-            navigator: {
-                series: {
-                    color: '#5f98cf',
-                    lineColor: '#5f98cf'
+            chart: {
+                styledMode: false,
+                borderRadius: 0,
+                colorCount: 10,
+                defaultSeriesType: "line",
+                ignoreHiddenSeries: true,
+                spacing: [
+                    10,
+                    10,
+                    15,
+                    10
+                ],
+                resetZoomButton: {
+                    theme: {
+                        zIndex: 6
+                    },
+                    position: {
+                        align: "right",
+                        x: -10,
+                        y: 10
+                    }
+                },
+                width: null,
+                height: null,
+                borderColor: "#335cad",
+                backgroundColor: "#ffffff",
+                plotBorderColor: "#cccccc"
+            },
+            title: {
+                style: {
+                    color: "#333333",
+                    fontSize: "18px",
+                    fill: "#333333",
+                    width: "736px"
+                },
+                margin: 15
+            },
+            subtitle: {
+                style: {
+                    color: "#666666",
+                    fill: "#666666",
+                    width: "736px"
+                }
+            },
+            caption: {
+                style: {
+                    color: "#666666",
+                    fill: "#666666",
+                    width: "780px"
+                },
+                margin: 15,
+                verticalAlign: "bottom"
+            },
+            plotOptions: {
+                line: {
+                    lineWidth: 2,
+                    crisp: true,
+                    animation: {
+                        duration: 1000
+                    },
+                    marker: {
+                        enabledThreshold: 2,
+                        lineColor: "#ffffff",
+                        lineWidth: 0,
+                        radius: 4,
+                        states: {
+                            normal: {
+                                animation: true
+                            },
+                            hover: {
+                                animation: {
+                                    duration: 50
+                                },
+                                enabled: true,
+                                radiusPlus: 2,
+                                lineWidthPlus: 1
+                            },
+                            select: {
+                                fillColor: "#cccccc",
+                                lineColor: "#000000",
+                                lineWidth: 2
+                            }
+                        }
+                    },
+                    dataLabels: {
+                        align: "center",
+                        padding: 5,
+                        style: {
+                            fontSize: "11px",
+                            fontWeight: "bold",
+                            color: "contrast",
+                            textOutline: "1px contrast"
+                        },
+                        verticalAlign: "bottom",
+                        x: 0,
+                        y: 0
+                    },
+                    opacity: 1,
+                    states: {
+                        normal: {
+                            animation: true
+                        },
+                        hover: {
+                            animation: {
+                                duration: 50
+                            },
+                            lineWidthPlus: 1,
+                            marker: {},
+                            halo: {
+                                size: 10,
+                                opacity: 0.25
+                            }
+                        },
+                        select: {
+                            animation: {
+                                duration: 0
+                            }
+                        },
+                        inactive: {
+                            animation: {
+                                duration: 50
+                            },
+                            opacity: 0.2
+                        }
+                    }
+                }
+            },
+            labels: {
+                style: {
+                    position: "absolute",
+                    color: "#333333"
+                }
+            },
+            legend: {
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                align: "right",
+                alignColumns: true,
+                layout: "vertical",
+                borderColor: "#999999",
+                borderRadius: 0,
+                navigation: {
+                    activeColor: "#003399",
+                    inactiveColor: "#cccccc"
+                },
+                itemStyle: {
+                    color: "#333333",
+                    cursor: "pointer",
+                    fontSize: "12px",
+                    fontWeight: "bold",
+                    textOverflow: "ellipsis"
+                },
+                itemHoverStyle: {
+                    color: "#000000"
+                },
+                itemHiddenStyle: {
+                    color: "#cccccc"
+                },
+                shadow: false,
+                itemCheckboxStyle: {
+                    position: "absolute",
+                    width: "13px",
+                    height: "13px"
+                },
+                squareSymbol: true,
+                symbolPadding: 5,
+                verticalAlign: "middle",
+                x: 0,
+                y: 0,
+                title: {
+                    style: {
+                        fontWeight: "bold",
+                        color: '##000'
+                    }
+                }
+            },
+            tooltip: {
+                enabled: true,
+                animation: true,
+                borderRadius: 3,
+                padding: 8,
+                snap: 10,
+                backgroundColor: "rgba(247,247,247,0.85)",
+                borderWidth: 1,
+                shadow: true,
+                style: {
+                    color: "#333333",
+                    cursor: "default",
+                    fontSize: "12px",
+                    whiteSpace: "nowrap"
+                }
+            },
+            navigation: {
+                buttonOptions: {
+                    theme: {
+                        padding: 5
+                    },
+                    symbolSize: 14,
+                    symbolX: 12.5,
+                    symbolY: 10.5,
+                    align: "right",
+                    buttonSpacing: 3,
+                    height: 22,
+                    verticalAlign: "top",
+                    width: 24,
+                    symbolFill: "#666666",
+                    symbolStroke: "#666666",
+                    symbolStrokeWidth: 3
+                },
+                menuStyle: {
+                    border: "1px solid #999999",
+                    background: "#ffffff",
+                    padding: "5px 0"
+                },
+                menuItemStyle: {
+                    padding: "0.5em 1em",
+                    color: "#333333",
+                    background: "none",
+                    fontSize: "11px",
+                    transition: "background 250ms, color 250ms"
+                },
+                menuItemHoverStyle: {
+                    background: "#335cad",
+                    color: "#ffffff"
                 }
             }
         };
@@ -533,10 +739,12 @@ function updateChartElement(chart, target, chartObj) {
 
 function createNewChart(chartId) {
     let myChart = {
-        title: { text: 'Plot' },
+        //title: { text: 'Plot' },
+        chart: { panning: true },
         yAxis: { title: { text: 'Value' } },
         xAxis: { title: { text: 'Index' } },
-        legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle' }
+        legend: { layout: 'vertical', align: 'right', verticalAlign: 'middle' },
+        mapNavigation: { enabled: true, enableButtons: false }
     };
 
     return initChartElement({ id: chartId, highCharts: myChart }, "chartContainer");
