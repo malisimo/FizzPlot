@@ -1,7 +1,7 @@
 # FizzPlot
 
 Interactive visualisations in .NET / F#.
-Version: 0.0.1-pre1
+Version: 0.0.1-pre4
 
 Author: Matt Jones
 License: MIT
@@ -68,7 +68,7 @@ The last command will download the nuget package and place it in a subdirectory 
 Next, create a new .fsx script file in the project directory, and reference the downloaded nuget package to start plotting:
 
 ```
-#r "./packages/fizzplot/0.0.1-pre1/lib/netcoreapp3.1/FizzPlot.dll"
+#r "./packages/fizzplot/0.0.1-pre4/lib/netcoreapp3.1/FizzPlot.dll"
 
 open FizzPlot.HighCharts.Plot
 

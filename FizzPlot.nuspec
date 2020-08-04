@@ -3,7 +3,7 @@
     <metadata>
         <id>FizzPlot</id>
         <title>FizzPlot</title>
-        <version>0.0.1-pre1</version>
+        <version>0.0.1-pre4</version>
         <description>Interactive plotting library for drawing and editing charts with HighCharts or Plotly</description>
         <authors>Matt Jones</authors>
         <license type="expression">MIT</license>
