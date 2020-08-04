@@ -14,7 +14,9 @@ This is a specially designed wrapper around the HighCharts and Plotly (coming!) 
 
 # Getting Started
 
-Uses the dotnet CLI ([install here](https://docs.microsoft.com/en-us/dotnet/core/install/sdk)).
+> Requirements: Uses the dotnet CLI ([install here](https://docs.microsoft.com/en-us/dotnet/core/install/sdk)).
+
+## Demo Project
 
 In the root folder of the repo, open a terminal and type:
 
@@ -24,11 +26,63 @@ dotnet run --project Demo/Demo.fsproj
 
 This will open your browser and navigate to http://localhost:2387/ to show your plot.
 
+## New Project
+
+To create a new project for plotting data with FizzPlot, run the following from a command prompt / shell:
+
+```
+dotnet new console -lang f# -n FizzDemo
+cd FizzTest
+dotnet add package fizzplot -v 0.0.1-*
+```
+
+Then, open Program.fs and enter the following:
+
+```
+open FizzPlot.HighCharts.Plot
+
+let d = [for t in 0.0 .. 0.01 .. 1.0 -> (t,t * sin 20.0 * t) ]
+plot d
+```
+
+To run the program, navigate to the project directory and type the following in the command prompt / shell:
+
+```
+dotnet run
+```
+
+This will open your browser and navigate to http://localhost:2387/ to show your plot.
+
+## New Script
+
+To run FizzPlot in an Fsharp Interactive window (FSI) from an F# Script, you will first need to get hold of the nuget package.
+Until .Net 5 is released, this is best achieved by first creating a new project:
+
+```
+dotnet new console -lang f# -n FizzTest
+cd FizzTest
+dotnet add package fizzplot -v 0.0.1-* --package-directory .\packages
+```
+
+The last command will download the nuget package and place it in a subdirectory called 'packages' within the project directory.  This makes it easier to reference from within a script.
+Next, create a new .fsx script file in the project directory, and reference the downloaded nuget package to start plotting:
+
+```
+#r "./packages/fizzplot/0.0.1-pre1/lib/netcoreapp3.1/FizzPlot.dll"
+
+open FizzPlot.HighCharts.Plot
+
+let d = [for t in 0.0 .. 0.01 .. 1.0 -> (t,t * sin 20.0 * t) ]
+plot d
+```
+
+Highlight all these lines and send to FSI using ```Alt-Enter```.
+
 # API Reference
 
 ## Basic Usage
 
-From a .Net application, add the package reference, and generate a chart like so:
+Once the appropriate reference to the FizzPlot library has been added, you can generate a chart like so:
 
 ```
 open FizzPlot.HighCharts.Plot
