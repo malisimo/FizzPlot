@@ -38,7 +38,7 @@ module internal Server =
                 printfn "Request to server OK"
                 if wait then
                     let! content = resp.Content.ReadAsStringAsync() |> Async.AwaitTask
-                    printfn "Got %i chars in response: %s (%s)" content.Length content (resp.ToString())
+                    printfn "Got %i chars in response" content.Length
                     return (resp.StatusCode,content)
                 else
                     return (resp.StatusCode,"")
@@ -80,7 +80,7 @@ module internal Server =
             | HttpStatusCode.OK ->
                 printfn "Request to server OK"
                 let! content = resp.Content.ReadAsStreamAsync() |> Async.AwaitTask
-                printfn "Got %i bytes in response: (%s)" content.Length (resp.ToString())
+                printfn "Got %i bytes in response" content.Length
                 return (resp.StatusCode,Some content)
             | _ ->
                 printfn "Failed posting to server: %s" (string resp.StatusCode)
