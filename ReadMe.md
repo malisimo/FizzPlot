@@ -8,13 +8,17 @@ License: MIT
 
 ## What it is
 
-This is a specially designed wrapper around the HighCharts and Plotly (coming!) JS charting libraries to allow you to generate beautiful line charts from .Net applications. The API is designed to be particularly friendly used from within a FSI (FSharp Interactive) window.
+Plot up line charts in .NET and edit these in realtime, through the power of HighCharts and Plotly (coming!).
+
+![Taster](https://user-images.githubusercontent.com/24556021/89354426-bf485c00-d6b0-11ea-8bd9-4519c232cccb.gif)
+
+Generate beautiful line charts from within the FSI (FSharp Interactive) window.
 
 > Please note: Commercial use of HighCharts requires a [license](https://shop.highsoft.com/).
 
 # Getting Started
 
-> Requirements: Runs on .NET Core 3.1 (the library itself in .NET Standard 2.0), so you will need to install the .NET Core SDK ([install here](https://dotnet.microsoft.com/download)).  This will also install the dotnet CLI, which is required to start the server.
+> Requirements: Runs on .NET Core 3.1 (the library itself is .NET Standard 2.0), so you will need to install the .NET Core SDK ([install here](https://dotnet.microsoft.com/download)).  This will also install the dotnet CLI, which is required to start the server.
 
 ## Demo Project
 
