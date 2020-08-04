@@ -61,7 +61,7 @@ module Middleware =
     let private receiveMessageLoop socket (context:HttpContext) (cancelToken:CancellationToken) =
         async {
             let buffer =
-                Array.create (1024 * 64) 0uy
+                Array.create (1024 * 1024) 0uy
                 |> fun arr -> new ArraySegment<byte>(arr)
 
             Console.WriteLine("Starting socket receive loop")
