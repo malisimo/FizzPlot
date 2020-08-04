@@ -144,7 +144,7 @@ module Plot =
         let statusCode,resp =
             asyncSend true json |> Async.RunSynchronously
         
-        printfn "Fetched: %A (%A)" resp statusCode
+        printfn "Fetch result: %A" statusCode
         resp
 
     /// Set current figure properties

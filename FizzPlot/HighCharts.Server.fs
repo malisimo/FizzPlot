@@ -17,7 +17,6 @@ module internal Server =
     /// Send JSON message asynchronously, and optionally retrieve response
     let asyncSend wait json = async {
         try
-            printfn "-=- Sending %s to server..." json
             use clientHandler = new HttpClientHandler()
             clientHandler.ServerCertificateCustomValidationCallback <- (fun sender cert chain sslPolicyErrors -> true)
 
@@ -72,7 +71,6 @@ module internal Server =
             }"
 
             let contentStr = strRep "##JSON##" json jsonTemplate
-            printfn "-=- Sending %s to HighCharts Export server..." contentStr
             use content = new StringContent(contentStr, Encoding.UTF8, "application/json")
 
             let! resp = client.PostAsync("http://export.highcharts.com/", content) |> Async.AwaitTask        

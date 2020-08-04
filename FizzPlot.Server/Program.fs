@@ -96,7 +96,7 @@ let handleFetch : HttpHandler =
                 else
                     match tryGetReceivedMessage() with
                     | Some(msg) ->
-                        Console.WriteLine("Found message from socket!!!")
+                        Console.WriteLine("Found message from socket")
                         Some msg
                     | None ->
                         Console.WriteLine("Sleeping in socket receive...")
