@@ -5,59 +5,94 @@
 // Include FizzPlot reference first:
 #r "../FizzPlot/bin/Release/netstandard2.0/FizzPlot.dll"
 
-// #### SCATTER PLOTS
-
 open FizzPlot.HighCharts.Plot
 
+// Plot some data (xy tuples)
 let data1 = [
-    for t in 0.0 .. 0.001 .. 1. ->
-    (t,t + sin (2. * t) * cos (50. * (t - 30. * cos (1. * t)))) ]
+    for t in 0.0 .. 0.01 .. 1. ->
+    (t, 1.0 + t + sin (2. * t) * cos (30. * (t - 30. * cos (1. * t)))) ]
 plot data1
 
-save ".\\img.png"
-
 // Update the title
-title "data1"
+title "Chirp"
 
 // Update the axis titles
-xlabel "x"
-ylabel "y"
+xlabel "Time (s)"
+ylabel "Voltage (V)"
 
+// Set the figure dimensions
 setWidth 1200
 setHeight 500
 
-setTheme "gray" // gray, default
+// Add another line
+let data2 = [
+    for t in 0.0 .. 0.001 .. 1. ->
+    (t, 1.0 + t + sin (2. * t)) ]
+plot data2
 
-fig.series.[0].name.Set "First"
-fig.legend.backgroundColor.Set "rgba(220,180,20,0.4)"
-fig.colors.[0].Set "#F123A2"
-fig.xAxis.[0].title.text.Set "lsjdjwm"
-fig.xAxis.[0].gridLineWidth.Set 1
+// Update series properties
+fig.series.[0].name.Set "Chirp Signal"
+fig.series.[0].color.Set "#AAFF22"
+fig.series.[0].marker.enabledThreshold.Set 4
+fig.series.[0].marker.fillColor.Set "#CCC"
 
-fig.series.[0].name.Set "NewSeriesName"
-fig.series.[0].lineWidth.Set 2
+fig.series.[1].name.Set "Envelope"
+fig.series.[1].lineWidth.Set 4
+fig.series.[1].marker.enabled.Set false
 
-fig.yAxis.[0]._type.Set "logarithmic"
+// Update axis properties (range, type)
 fig.xAxis.[0].min.Set 0.1
-fig.xAxis.[0].max.Set 0.2
-fig.yAxis.[0].min.Set 0.1
-fig.yAxis.[0].max.Set 3.2
+fig.xAxis.[0].max.Set 0.5
+fig.yAxis.[0]._type.Set "logarithmic"
+fig.yAxis.[0].endOnTick.Set false
+fig.yAxis.[0].max.Set 2.4
 
-// Add another series
-let rand = System.Random(2387)
-let data2 = [ for t in 0.0 .. 0.01 .. 1. -> (t, 0.2 + rand.NextDouble() + t) ]
-plot data2 |> ignore
-fig.series.[1].name.Set "Second"
+// Set the theme to gray
+setTheme "gray" // dark, gray, default
+
+// Save image to PNG
+save ".\\img.png"
+
+// Some styling changes
+fig.chart.plotBackgroundColor.Set "#222"
+fig.chart.plotBorderColor.Set "#FFF"
+fig.chart.plotBorderWidth.Set 1
+fig.title.style.fontFamily.Set "Courier New"
+fig.title.style.fontSize.Set "8px"
+fig.title.style.color.Set "#BBB"
+
+// Legend
+fig.legend.layout.Set "horizontal"
+fig.legend.align.Set "left"
+fig.legend.backgroundColor.Set "#000"
+fig.legend.enabled.Set false
+
+// Ticks
+fig.xAxis.[0].tickColor.Set "#555"
+fig.xAxis.[0].tickLength.Set 6
+fig.xAxis.[0].tickInterval.Set 0.1
+fig.xAxis.[0].labels.rotation.Set 90
+fig.xAxis.[0].labels.format.Set "{value} m"
+
+fig.xAxis.[0].gridLineWidth.Set 2
+fig.xAxis.[0].gridLineColor.Set "#A77"
 
 // Remove the first series
 remove 0
 
+// Add another series
+let rand = System.Random(2387)
+let data3 = [ for t in 0.0 .. 0.01 .. 1. -> (t, 2.0 * t + 1.0 + 0.3 * rand.NextDouble()) ]
+plot data3 |> ignore
+
+fig.series.[1].name.Set "Random"
+
 // Update the title again
-title "data2"
+title "Sound absorption"
 
 // Update the axis titles again
-xlabel "x2"
-ylabel "y2"
+xlabel "Partition separation"
+ylabel "Absorption"
 
 // #### KILL
 // Remember to clean up when finished!
