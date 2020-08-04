@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DebugType>portable</DebugType>
     <OutputType>Exe</OutputType>
+    <UseAppHost>false</UseAppHost>
     <EnableDefaultContentItems>false</EnableDefaultContentItems>
   </PropertyGroup>
 
@@ -33,7 +34,7 @@
   </ItemGroup>
 
   <Target Name="Nuget Copy" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
-      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp3.1\%(RecursiveDir)%(Filename)%(Extension)')" />
+      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp2.2\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
   <Target Name="Local Copy" AfterTargets="AfterBuild">
       <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\FizzPlot\bin\$(Configuration)\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)')" />
