@@ -39,4 +39,7 @@
   <Target Name="Local Copy" AfterTargets="AfterBuild">
       <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\FizzPlot\bin\$(Configuration)\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
+  <Target Name="Demo Copy" AfterTargets="AfterBuild">
+      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\Demo\bin\$(Configuration)\netcoreapp3.1\%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
 </Project>
