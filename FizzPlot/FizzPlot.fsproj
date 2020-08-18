@@ -10,13 +10,11 @@
     <Compile Include="HighCharts.Figure.fs" />
     <Compile Include="HighCharts.Plot.fs" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <_CopyItems Include="$(TargetDir)\**\*.*" />
-  </ItemGroup>
 
-  <Target Name="Nuget Copy" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
-      <Copy SourceFiles="@(_CopyItems)"
-        DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp3.1\%(RecursiveDir)%(Filename)%(Extension)')"/>
+  <Target Name="Nuget Copy" AfterTargets="AfterBuild">  
+      <ItemGroup>
+        <_CopyItems Include="$(TargetDir)\**\*.*" />
+      </ItemGroup>
+      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp3.1\%(RecursiveDir)%(Filename)%(Extension)')" Condition=" '$(Configuration)' == 'Release' "/>
   </Target>
 </Project>

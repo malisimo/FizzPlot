@@ -28,18 +28,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  
-  <ItemGroup>
-    <_CopyItems Include="$(TargetDir)\**\*.*" />
-  </ItemGroup>
 
-  <Target Name="Nuget Copy" AfterTargets="AfterBuild" Condition=" '$(Configuration)' == 'Release' ">
-      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp2.2\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
-  <Target Name="Local Copy" AfterTargets="AfterBuild">
+  <Target Name="Nuget Copy" AfterTargets="AfterBuild">  
+      <ItemGroup>
+        <_CopyItems Include="$(TargetDir)\**\*.*" />
+      </ItemGroup>
+      <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\lib\netcoreapp3.1\%(RecursiveDir)%(Filename)%(Extension)')" Condition=" '$(Configuration)' == 'Release' "/>
       <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\FizzPlot\bin\$(Configuration)\netstandard2.0\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
-  <Target Name="Demo Copy" AfterTargets="AfterBuild">
       <Copy SourceFiles="@(_CopyItems)" DestinationFiles="@(_CopyItems->'$(ProjectDir)\..\Demo\bin\$(Configuration)\netcoreapp3.1\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
 </Project>
