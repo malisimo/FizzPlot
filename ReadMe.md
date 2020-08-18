@@ -25,6 +25,7 @@ Generate beautiful line charts from within the FSI (FSharp Interactive) window.
 In the root folder of the repo, open a terminal and type:
 
 ```
+.\build.bat
 dotnet run --project Demo/Demo.fsproj
 ```
 
